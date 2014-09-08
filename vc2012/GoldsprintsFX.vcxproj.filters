@@ -1,0 +1,229 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{ACF08E96-D22F-42FE-8314-F1D4F5FA0DD8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC">
+      <UniqueIdentifier>{D49116E1-6E9E-467B-8B61-ED2763DA0A01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC\src">
+      <UniqueIdentifier>{24B5F269-E2A5-42CF-A6DD-B9195AAE1D52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC\src\ip">
+      <UniqueIdentifier>{5889D3A3-CE5F-41B9-AA20-2EA72830D31B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC\src\osc">
+      <UniqueIdentifier>{694774A6-2A17-4F72-870E-A97AE567C7D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC\src\ip\win32">
+      <UniqueIdentifier>{FAA0BD0E-7662-48FD-A01D-DC111CA40C31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\PretzelGUI">
+      <UniqueIdentifier>{5CAB2E9E-2D6B-4C8A-B0DE-AC5DAEEB6D92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\PretzelGUI\src">
+      <UniqueIdentifier>{47673601-E8E2-426D-B3F1-BB9CED34AB38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\PretzelGUI\src\pretzel">
+      <UniqueIdentifier>{14ED1A2D-947B-4EAC-882D-D8BEB4749F91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\PretzelGUI\src\modules">
+      <UniqueIdentifier>{A88D97CD-4FED-4101-A554-4CCAC4A7E779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\PretzelGUI\src\components">
+      <UniqueIdentifier>{3DA9917E-89FB-464E-8D72-438A6FE2C8E7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\GoldsprintsFXApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GoldsprintsFXApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="..\blocks\OSC\src\OscBundle.cpp">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\OscListener.cpp">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\OscMessage.cpp">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\OscSender.cpp">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\ip\IpEndpointName.cpp">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\osc\OscOutboundPacketStream.cpp">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\osc\OscPrintReceivedElements.cpp">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\osc\OscReceivedElements.cpp">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\osc\OscTypes.cpp">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClCompile>
+    <ClInclude Include="..\blocks\OSC\src\OscArg.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\OscBundle.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\OscListener.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\OscMessage.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\OscSender.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\IpEndpointName.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\NetworkingUtils.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\PacketListener.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\TimerListener.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\UdpSocket.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\MessageMappingOscPacketListener.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscException.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscHostEndianness.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscOutboundPacketStream.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscPacketListener.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscPrintReceivedElements.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscReceivedElements.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscTypes.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClCompile Include="..\blocks\OSC\src\ip\win32\NetworkingUtils.cpp">
+      <Filter>Blocks\OSC\src\ip\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\ip\win32\UdpSocket.cpp">
+      <Filter>Blocks\OSC\src\ip\win32</Filter>
+    </ClCompile>
+    <ClInclude Include="..\blocks\PretzelGUI\src\pretzel\PretzelGlobal.h">
+      <Filter>Blocks\PretzelGUI\src\pretzel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\PretzelGUI\src\pretzel\PretzelGui.h">
+      <Filter>Blocks\PretzelGUI\src\pretzel</Filter>
+    </ClInclude>
+    <ClCompile Include="..\blocks\PretzelGUI\src\pretzel\PretzelGui.cpp">
+      <Filter>Blocks\PretzelGUI\src\pretzel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\pretzel\PretzelGlobal.cpp">
+      <Filter>Blocks\PretzelGUI\src\pretzel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\modules\PretzelButton.cpp">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\modules\PretzelColorPicker.cpp">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\modules\PretzelLabel.cpp">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\modules\PretzelSaveLoad.cpp">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\modules\PretzelSlider.cpp">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\modules\PretzelTextField.cpp">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\modules\PretzelToggle.cpp">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClCompile>
+    <ClInclude Include="..\blocks\PretzelGUI\src\modules\PretzelButton.h">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\PretzelGUI\src\modules\PretzelColorPicker.h">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\PretzelGUI\src\modules\PretzelLabel.h">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\PretzelGUI\src\modules\PretzelSaveLoad.h">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\PretzelGUI\src\modules\PretzelSlider.h">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\PretzelGUI\src\modules\PretzelTextField.h">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\PretzelGUI\src\modules\PretzelToggle.h">
+      <Filter>Blocks\PretzelGUI\src\modules</Filter>
+    </ClInclude>
+    <ClCompile Include="..\blocks\PretzelGUI\src\components\BasePretzel.cpp">
+      <Filter>Blocks\PretzelGUI\src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\components\PretzelRow.cpp">
+      <Filter>Blocks\PretzelGUI\src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\PretzelGUI\src\components\ScrollPane.cpp">
+      <Filter>Blocks\PretzelGUI\src\components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\blocks\PretzelGUI\src\components\BasePretzel.h">
+      <Filter>Blocks\PretzelGUI\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\PretzelGUI\src\components\PretzelRow.h">
+      <Filter>Blocks\PretzelGUI\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\PretzelGUI\src\components\ScrollPane.h">
+      <Filter>Blocks\PretzelGUI\src\components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

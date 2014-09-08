@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0091D8F90E81B9330029341E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		00B784B30FF439BC000DE1D7 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		08C0EEDC976A483E97CA158D /* OscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC391D1F362949F0857DFF7E /* OscBundle.cpp */; };
+		08C3CCF51507498C98024F75 /* UdpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB2EC211BB024B949E25AF88 /* UdpSocket.cpp */; };
+		0F5BAA8D94904E39BF227133 /* color-picker.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F3D42F7C2F44233BCD5C9C3 /* color-picker.png */; };
+		11C6DD86151B4DBFBAC1AF54 /* OscListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3F75CF22DFB4055A92DAFDF /* OscListener.cpp */; };
+		1AE18A8C5BD540C8804BF7C4 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5DCC6071242138F35DDB3 /* OscTypes.cpp */; };
+		1C6C1CA5EC9D4B3A8F71356B /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE4FC7890AA143F882547BD6 /* OscReceivedElements.cpp */; };
+		2F4C88F6A07E4EBA8C91A12E /* default_skin.png in Resources */ = {isa = PBXBuildFile; fileRef = 930DB2E4CA43434A930FB9BE /* default_skin.png */; };
+		3146A61537BA437F8F09C3A1 /* PretzelSaveLoad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A8100DE6F364841B5CEFCE1 /* PretzelSaveLoad.cpp */; };
+		3CFF88558EC14AF9A4477D51 /* OscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F19E3713C2745AD998CFD1F /* OscMessage.cpp */; };
+		4F0EA10183AF4FF994917B33 /* OscOutboundPacketStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1EC6BBB16DC48919DB833ED /* OscOutboundPacketStream.cpp */; };
+		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		53739842E7CA4A05B37CFE37 /* OscPrintReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A727C9A531664405B2EB301A /* OscPrintReceivedElements.cpp */; };
+		682D6A0B246C493980DBE504 /* PretzelButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39CBE1A6CB8140138EEB5BC3 /* PretzelButton.cpp */; };
+		76153DD37FFB433DA23BC840 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 989F6F62A1B84D40B6F48B9E /* IpEndpointName.cpp */; };
+		77E89D81E00A49659C0ECBBB /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3898ED2D60A9421CBBF5920B /* CinderApp.icns */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		8E1AF22A39774B8CAB42C131 /* PretzelLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69BEF05ABF6B4415B258963C /* PretzelLabel.cpp */; };
+		8F5D400349B747D2B4250191 /* PretzelGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2118AEBD7E484970B0AC2C62 /* PretzelGlobal.cpp */; };
+		9074AF2B63514F538D473288 /* PretzelToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30292036627E47D7828B84DF /* PretzelToggle.cpp */; };
+		9882D0BB299244098CC8F455 /* GoldsprintsFXApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF88B6CE778B4FEDAAF5B209 /* GoldsprintsFXApp.cpp */; };
+		9EBB05BC490549CE8EA5A790 /* ScrollPane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C10F5BC54D154DA5B4B92473 /* ScrollPane.cpp */; };
+		A6A010EAAB134DF0820F34B0 /* PretzelColorPicker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D492778A7C844231888AF832 /* PretzelColorPicker.cpp */; };
+		AD255BAC83A64A2B8657EF38 /* PretzelGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98D0C5ABD4994F50B076FB3E /* PretzelGui.cpp */; };
+		BD5076E0728F4C9693AAA8E3 /* PretzelRow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF8C006CC24EEA83226D8E /* PretzelRow.cpp */; };
+		CAFD0190D51A4ED08F92B56D /* PretzelSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF62F0E8A1134FD4B5BD18ED /* PretzelSlider.cpp */; };
+		CBC8865319AE338200F539C3 /* GFXMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8865119AE338200F539C3 /* GFXMain.cpp */; };
+		CBC8865619AE343E00F539C3 /* GFXGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8865419AE343E00F539C3 /* GFXGlobal.cpp */; };
+		CBC8865C19AE60B300F539C3 /* gfxIcn.icns in Resources */ = {isa = PBXBuildFile; fileRef = CBC8865B19AE60B300F539C3 /* gfxIcn.icns */; };
+		CBC8865E19AE60BC00F539C3 /* gfxIcn.icns in Resources */ = {isa = PBXBuildFile; fileRef = CBC8865D19AE60BC00F539C3 /* gfxIcn.icns */; };
+		CBC8866119AE64F100F539C3 /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8865F19AE64F100F539C3 /* StateManager.cpp */; };
+		CBC8866419AE717100F539C3 /* RaceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8866219AE717100F539C3 /* RaceView.cpp */; };
+		CBC8866719AE718300F539C3 /* StagingView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8866519AE718300F539C3 /* StagingView.cpp */; };
+		CBC8866C19AFD66A00F539C3 /* SerialReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8866A19AFD66A00F539C3 /* SerialReader.cpp */; };
+		CBC8866F19AFE0A000F539C3 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8866D19AFE0A000F539C3 /* Model.cpp */; };
+		CBC8867319B01C7700F539C3 /* PlayerGfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8867119B01C7700F539C3 /* PlayerGfx.cpp */; };
+		D80EB1BC18354CD7ACB639CF /* BasePretzel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEC9D58E03174A9EBFDBF254 /* BasePretzel.cpp */; };
+		DD10F4FD52224DCE91832D2A /* PretzelTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7BE26171EAB4E939B12B0F8 /* PretzelTextField.cpp */; };
+		F1FA4F3613014012842F7687 /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D6F47394F4533B949153F /* NetworkingUtils.cpp */; };
+		FD862EB56CB04842BFD8EF02 /* OscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F9D7918964F05B96F45B7 /* OscSender.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0091D8F80E81B9330029341E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		00B784AF0FF439BC000DE1D7 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		00B784B10FF439BC000DE1D7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		02D6B5A2C9ED49EA951FCCDD /* UdpSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UdpSocket.h; path = ../blocks/OSC/src/ip/UdpSocket.h; sourceTree = "<group>"; };
+		03D32110B41B450CA521DC03 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
+		0A8100DE6F364841B5CEFCE1 /* PretzelSaveLoad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelSaveLoad.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelSaveLoad.cpp; sourceTree = "<group>"; };
+		0E1E02943EF249C48F338C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F19E3713C2745AD998CFD1F /* OscMessage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscMessage.cpp; path = ../blocks/OSC/src/OscMessage.cpp; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		11ACEE3DB1DD454397D114AA /* PretzelSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelSlider.h; path = ../blocks/PretzelGUI/src/modules/PretzelSlider.h; sourceTree = "<group>"; };
+		1299E89951534F04997F2005 /* OscHostEndianness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscHostEndianness.h; path = ../blocks/OSC/src/osc/OscHostEndianness.h; sourceTree = "<group>"; };
+		17593A8435644BB1B4D629A3 /* OscOutboundPacketStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscOutboundPacketStream.h; path = ../blocks/OSC/src/osc/OscOutboundPacketStream.h; sourceTree = "<group>"; };
+		1CF68857C8084398A90686D3 /* PretzelGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelGlobal.h; path = ../blocks/PretzelGUI/src/pretzel/PretzelGlobal.h; sourceTree = "<group>"; };
+		1DEF8C006CC24EEA83226D8E /* PretzelRow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelRow.cpp; path = ../blocks/PretzelGUI/src/components/PretzelRow.cpp; sourceTree = "<group>"; };
+		1EABB7CFC12E414C9F853855 /* PretzelToggle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelToggle.h; path = ../blocks/PretzelGUI/src/modules/PretzelToggle.h; sourceTree = "<group>"; };
+		1F6F9D7918964F05B96F45B7 /* OscSender.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscSender.cpp; path = ../blocks/OSC/src/OscSender.cpp; sourceTree = "<group>"; };
+		1F8CE8B0F0C941AFB12E529F /* PretzelRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelRow.h; path = ../blocks/PretzelGUI/src/components/PretzelRow.h; sourceTree = "<group>"; };
+		2118AEBD7E484970B0AC2C62 /* PretzelGlobal.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = PretzelGlobal.cpp; path = ../blocks/PretzelGUI/src/pretzel/PretzelGlobal.cpp; sourceTree = "<group>"; };
+		28C3832FC5154EB4968F9559 /* GoldsprintsFX_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = GoldsprintsFX_Prefix.pch; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		30292036627E47D7828B84DF /* PretzelToggle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelToggle.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelToggle.cpp; sourceTree = "<group>"; };
+		36B807D300D8478CAF12EEAB /* PretzelButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelButton.h; path = ../blocks/PretzelGUI/src/modules/PretzelButton.h; sourceTree = "<group>"; };
+		3898ED2D60A9421CBBF5920B /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
+		39CBE1A6CB8140138EEB5BC3 /* PretzelButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelButton.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelButton.cpp; sourceTree = "<group>"; };
+		3CA5DCC6071242138F35DDB3 /* OscTypes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscTypes.cpp; path = ../blocks/OSC/src/osc/OscTypes.cpp; sourceTree = "<group>"; };
+		4BAF74E1F6FB42CEABD391B8 /* IpEndpointName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IpEndpointName.h; path = ../blocks/OSC/src/ip/IpEndpointName.h; sourceTree = "<group>"; };
+		4DC341D5610544AFB1253A8C /* PretzelColorPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelColorPicker.h; path = ../blocks/PretzelGUI/src/modules/PretzelColorPicker.h; sourceTree = "<group>"; };
+		50E15B9F4A894E13847EF7A9 /* MessageMappingOscPacketListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageMappingOscPacketListener.h; path = ../blocks/OSC/src/osc/MessageMappingOscPacketListener.h; sourceTree = "<group>"; };
+		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
+		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
+		54CC7896F6BB41E2A761B161 /* ScrollPane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScrollPane.h; path = ../blocks/PretzelGUI/src/components/ScrollPane.h; sourceTree = "<group>"; };
+		5C4D6F47394F4533B949153F /* NetworkingUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = NetworkingUtils.cpp; path = ../blocks/OSC/src/ip/posix/NetworkingUtils.cpp; sourceTree = "<group>"; };
+		5F8AA7E0348E4079A1AA6592 /* PacketListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PacketListener.h; path = ../blocks/OSC/src/ip/PacketListener.h; sourceTree = "<group>"; };
+		69BEF05ABF6B4415B258963C /* PretzelLabel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelLabel.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelLabel.cpp; sourceTree = "<group>"; };
+		6B6D31B4E2DD4086894756B3 /* OscPrintReceivedElements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscPrintReceivedElements.h; path = ../blocks/OSC/src/osc/OscPrintReceivedElements.h; sourceTree = "<group>"; };
+		6DD34EC84BAA4A049E8B41D8 /* OscListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscListener.h; path = ../blocks/OSC/src/OscListener.h; sourceTree = "<group>"; };
+		6EF9305A30FA45E5B0835558 /* OscMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscMessage.h; path = ../blocks/OSC/src/OscMessage.h; sourceTree = "<group>"; };
+		77B14177F0184F7D8790159D /* OscException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscException.h; path = ../blocks/OSC/src/osc/OscException.h; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* GoldsprintsFX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldsprintsFX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EF58E6F4ACB4383B91BE525 /* OscBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscBundle.h; path = ../blocks/OSC/src/OscBundle.h; sourceTree = "<group>"; };
+		930DB2E4CA43434A930FB9BE /* default_skin.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = default_skin.png; path = ../blocks/PretzelGUI/resources/default_skin.png; sourceTree = "<group>"; };
+		989F6F62A1B84D40B6F48B9E /* IpEndpointName.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = IpEndpointName.cpp; path = ../blocks/OSC/src/ip/IpEndpointName.cpp; sourceTree = "<group>"; };
+		98D0C5ABD4994F50B076FB3E /* PretzelGui.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelGui.cpp; path = ../blocks/PretzelGUI/src/pretzel/PretzelGui.cpp; sourceTree = "<group>"; };
+		9F3D42F7C2F44233BCD5C9C3 /* color-picker.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = "color-picker.png"; path = "../blocks/PretzelGUI/resources/color-picker.png"; sourceTree = "<group>"; };
+		A1EC6BBB16DC48919DB833ED /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscOutboundPacketStream.cpp; path = ../blocks/OSC/src/osc/OscOutboundPacketStream.cpp; sourceTree = "<group>"; };
+		A23F025112B74D0F9A9BE276 /* PretzelSaveLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelSaveLoad.h; path = ../blocks/PretzelGUI/src/modules/PretzelSaveLoad.h; sourceTree = "<group>"; };
+		A4C79573B7424A3C84066787 /* PretzelTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelTextField.h; path = ../blocks/PretzelGUI/src/modules/PretzelTextField.h; sourceTree = "<group>"; };
+		A727C9A531664405B2EB301A /* OscPrintReceivedElements.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscPrintReceivedElements.cpp; path = ../blocks/OSC/src/osc/OscPrintReceivedElements.cpp; sourceTree = "<group>"; };
+		AA72A83ECEE54231A1B0523C /* OscArg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscArg.h; path = ../blocks/OSC/src/OscArg.h; sourceTree = "<group>"; };
+		B36193E34A944A6E9AC75197 /* PretzelLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelLabel.h; path = ../blocks/PretzelGUI/src/modules/PretzelLabel.h; sourceTree = "<group>"; };
+		B72D4D22D2D94A7CBD557EEE /* PretzelGui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelGui.h; path = ../blocks/PretzelGUI/src/pretzel/PretzelGui.h; sourceTree = "<group>"; };
+		BF62F0E8A1134FD4B5BD18ED /* PretzelSlider.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelSlider.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelSlider.cpp; sourceTree = "<group>"; };
+		C10F5BC54D154DA5B4B92473 /* ScrollPane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = ScrollPane.cpp; path = ../blocks/PretzelGUI/src/components/ScrollPane.cpp; sourceTree = "<group>"; };
+		C3F75CF22DFB4055A92DAFDF /* OscListener.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscListener.cpp; path = ../blocks/OSC/src/OscListener.cpp; sourceTree = "<group>"; };
+		CB2EC211BB024B949E25AF88 /* UdpSocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = UdpSocket.cpp; path = ../blocks/OSC/src/ip/posix/UdpSocket.cpp; sourceTree = "<group>"; };
+		CBC8865119AE338200F539C3 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GFXMain.cpp; path = ../src/GFXMain.cpp; sourceTree = "<group>"; };
+		CBC8865219AE338200F539C3 /* GFXMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GFXMain.h; path = ../src/GFXMain.h; sourceTree = "<group>"; };
+		CBC8865419AE343E00F539C3 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GFXGlobal.cpp; path = ../src/GFXGlobal.cpp; sourceTree = "<group>"; };
+		CBC8865519AE343E00F539C3 /* GFXGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GFXGlobal.h; path = ../src/GFXGlobal.h; sourceTree = "<group>"; };
+		CBC8865B19AE60B300F539C3 /* gfxIcn.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = gfxIcn.icns; path = ../resources/gfxIcn.icns; sourceTree = "<group>"; };
+		CBC8865D19AE60BC00F539C3 /* gfxIcn.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gfxIcn.icns; sourceTree = "<group>"; };
+		CBC8865F19AE64F100F539C3 /* StateManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StateManager.cpp; path = ../src/StateManager.cpp; sourceTree = "<group>"; };
+		CBC8866019AE64F100F539C3 /* StateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StateManager.h; path = ../src/StateManager.h; sourceTree = "<group>"; };
+		CBC8866219AE717100F539C3 /* RaceView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RaceView.cpp; path = ../src/RaceView.cpp; sourceTree = "<group>"; };
+		CBC8866319AE717100F539C3 /* RaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RaceView.h; path = ../src/RaceView.h; sourceTree = "<group>"; };
+		CBC8866519AE718300F539C3 /* StagingView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StagingView.cpp; path = ../src/StagingView.cpp; sourceTree = "<group>"; };
+		CBC8866619AE718300F539C3 /* StagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StagingView.h; path = ../src/StagingView.h; sourceTree = "<group>"; };
+		CBC8866919AFD35100F539C3 /* PlayerData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlayerData.h; path = ../include/PlayerData.h; sourceTree = "<group>"; };
+		CBC8866A19AFD66A00F539C3 /* SerialReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SerialReader.cpp; path = ../src/SerialReader.cpp; sourceTree = "<group>"; };
+		CBC8866B19AFD66A00F539C3 /* SerialReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SerialReader.h; path = ../src/SerialReader.h; sourceTree = "<group>"; };
+		CBC8866D19AFE0A000F539C3 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../src/Model.cpp; sourceTree = "<group>"; };
+		CBC8866E19AFE0A000F539C3 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../src/Model.h; sourceTree = "<group>"; };
+		CBC8867119B01C7700F539C3 /* PlayerGfx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayerGfx.cpp; path = ../src/PlayerGfx.cpp; sourceTree = "<group>"; };
+		CBC8867219B01C7700F539C3 /* PlayerGfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerGfx.h; path = ../src/PlayerGfx.h; sourceTree = "<group>"; };
+		CD149D40AB664EAA82ABC819 /* OscReceivedElements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscReceivedElements.h; path = ../blocks/OSC/src/osc/OscReceivedElements.h; sourceTree = "<group>"; };
+		D2D7791D58BF4BB981930085 /* OscSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscSender.h; path = ../blocks/OSC/src/OscSender.h; sourceTree = "<group>"; };
+		D492778A7C844231888AF832 /* PretzelColorPicker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelColorPicker.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelColorPicker.cpp; sourceTree = "<group>"; };
+		D8180BBECC314708BE81E523 /* OscPacketListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscPacketListener.h; path = ../blocks/OSC/src/osc/OscPacketListener.h; sourceTree = "<group>"; };
+		D8564CAEF0B14A1183BC53A4 /* TimerListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimerListener.h; path = ../blocks/OSC/src/ip/TimerListener.h; sourceTree = "<group>"; };
+		DE4FC7890AA143F882547BD6 /* OscReceivedElements.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscReceivedElements.cpp; path = ../blocks/OSC/src/osc/OscReceivedElements.cpp; sourceTree = "<group>"; };
+		DF88B6CE778B4FEDAAF5B209 /* GoldsprintsFXApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = GoldsprintsFXApp.cpp; path = ../src/GoldsprintsFXApp.cpp; sourceTree = "<group>"; };
+		E7BE26171EAB4E939B12B0F8 /* PretzelTextField.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelTextField.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelTextField.cpp; sourceTree = "<group>"; };
+		EE9C0118F2404CD186CE7B51 /* BasePretzel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BasePretzel.h; path = ../blocks/PretzelGUI/src/components/BasePretzel.h; sourceTree = "<group>"; };
+		F40F3FD408624BACB6CD7CB4 /* OscTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscTypes.h; path = ../blocks/OSC/src/osc/OscTypes.h; sourceTree = "<group>"; };
+		FC391D1F362949F0857DFF7E /* OscBundle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscBundle.cpp; path = ../blocks/OSC/src/OscBundle.cpp; sourceTree = "<group>"; };
+		FD29240A07784AEFA869D9B5 /* NetworkingUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkingUtils.h; path = ../blocks/OSC/src/ip/NetworkingUtils.h; sourceTree = "<group>"; };
+		FEC9D58E03174A9EBFDBF254 /* BasePretzel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = BasePretzel.cpp; path = ../blocks/PretzelGUI/src/components/BasePretzel.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				0091D8F90E81B9330029341E /* OpenGL.framework in Frameworks */,
+				5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */,
+				5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */,
+				00B784B30FF439BC000DE1D7 /* Accelerate.framework in Frameworks */,
+				00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */,
+				00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */,
+				00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01B97315FEAEA392516A2CEA /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				B1D487073F4C4B7D87D5B4F5 /* OSC */,
+				627F12362E314507B30ADC78 /* PretzelGUI */,
+			);
+			name = Blocks;
+			sourceTree = "<group>";
+		};
+		080E96DDFE201D6D7F000001 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CBC8867019B01C1400F539C3 /* graphics */,
+				CBC8865819AE394700F539C3 /* data */,
+				CBC8865719AE393D00F539C3 /* views */,
+				CBC8865119AE338200F539C3 /* GFXMain.cpp */,
+				CBC8865219AE338200F539C3 /* GFXMain.h */,
+				DF88B6CE778B4FEDAAF5B209 /* GoldsprintsFXApp.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		0FAB5C23377C446D8A0F1938 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				930DB2E4CA43434A930FB9BE /* default_skin.png */,
+				9F3D42F7C2F44233BCD5C9C3 /* color-picker.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00B784AF0FF439BC000DE1D7 /* Accelerate.framework */,
+				00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */,
+				00B784B10FF439BC000DE1D7 /* AudioUnit.framework */,
+				00B784B20FF439BC000DE1D7 /* CoreAudio.framework */,
+				5323E6B50EAFCA7E003A9687 /* QTKit.framework */,
+				5323E6B10EAFCA74003A9687 /* CoreVideo.framework */,
+				0091D8F80E81B9330029341E /* OpenGL.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* GoldsprintsFX.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* GoldsprintsFX */ = {
+			isa = PBXGroup;
+			children = (
+				CBC8865D19AE60BC00F539C3 /* gfxIcn.icns */,
+				01B97315FEAEA392516A2CEA /* Blocks */,
+				29B97315FDCFA39411CA2CEA /* Headers */,
+				080E96DDFE201D6D7F000001 /* Source */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = GoldsprintsFX;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				03D32110B41B450CA521DC03 /* Resources.h */,
+				28C3832FC5154EB4968F9559 /* GoldsprintsFX_Prefix.pch */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CBC8865B19AE60B300F539C3 /* gfxIcn.icns */,
+				3898ED2D60A9421CBBF5920B /* CinderApp.icns */,
+				0E1E02943EF249C48F338C9F /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3384165320414AD18BFDD72E /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				39CBE1A6CB8140138EEB5BC3 /* PretzelButton.cpp */,
+				D492778A7C844231888AF832 /* PretzelColorPicker.cpp */,
+				69BEF05ABF6B4415B258963C /* PretzelLabel.cpp */,
+				0A8100DE6F364841B5CEFCE1 /* PretzelSaveLoad.cpp */,
+				BF62F0E8A1134FD4B5BD18ED /* PretzelSlider.cpp */,
+				E7BE26171EAB4E939B12B0F8 /* PretzelTextField.cpp */,
+				30292036627E47D7828B84DF /* PretzelToggle.cpp */,
+				36B807D300D8478CAF12EEAB /* PretzelButton.h */,
+				4DC341D5610544AFB1253A8C /* PretzelColorPicker.h */,
+				B36193E34A944A6E9AC75197 /* PretzelLabel.h */,
+				A23F025112B74D0F9A9BE276 /* PretzelSaveLoad.h */,
+				11ACEE3DB1DD454397D114AA /* PretzelSlider.h */,
+				A4C79573B7424A3C84066787 /* PretzelTextField.h */,
+				1EABB7CFC12E414C9F853855 /* PretzelToggle.h */,
+			);
+			name = modules;
+			sourceTree = "<group>";
+		};
+		34AC108F2B174697A8CD716E /* ip */ = {
+			isa = PBXGroup;
+			children = (
+				989F6F62A1B84D40B6F48B9E /* IpEndpointName.cpp */,
+				4BAF74E1F6FB42CEABD391B8 /* IpEndpointName.h */,
+				FD29240A07784AEFA869D9B5 /* NetworkingUtils.h */,
+				5F8AA7E0348E4079A1AA6592 /* PacketListener.h */,
+				D8564CAEF0B14A1183BC53A4 /* TimerListener.h */,
+				02D6B5A2C9ED49EA951FCCDD /* UdpSocket.h */,
+				5F8CF958D43546A0B69DEA25 /* posix */,
+			);
+			name = ip;
+			sourceTree = "<group>";
+		};
+		393623559B164FEFA4F3CA88 /* pretzel */ = {
+			isa = PBXGroup;
+			children = (
+				1CF68857C8084398A90686D3 /* PretzelGlobal.h */,
+				B72D4D22D2D94A7CBD557EEE /* PretzelGui.h */,
+				98D0C5ABD4994F50B076FB3E /* PretzelGui.cpp */,
+				2118AEBD7E484970B0AC2C62 /* PretzelGlobal.cpp */,
+			);
+			name = pretzel;
+			sourceTree = "<group>";
+		};
+		5D1733A373754FE788F93D21 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				FEC9D58E03174A9EBFDBF254 /* BasePretzel.cpp */,
+				1DEF8C006CC24EEA83226D8E /* PretzelRow.cpp */,
+				C10F5BC54D154DA5B4B92473 /* ScrollPane.cpp */,
+				EE9C0118F2404CD186CE7B51 /* BasePretzel.h */,
+				1F8CE8B0F0C941AFB12E529F /* PretzelRow.h */,
+				54CC7896F6BB41E2A761B161 /* ScrollPane.h */,
+			);
+			name = components;
+			sourceTree = "<group>";
+		};
+		5F8CF958D43546A0B69DEA25 /* posix */ = {
+			isa = PBXGroup;
+			children = (
+				5C4D6F47394F4533B949153F /* NetworkingUtils.cpp */,
+				CB2EC211BB024B949E25AF88 /* UdpSocket.cpp */,
+			);
+			name = posix;
+			sourceTree = "<group>";
+		};
+		627F12362E314507B30ADC78 /* PretzelGUI */ = {
+			isa = PBXGroup;
+			children = (
+				C4D916EAB1A04C6DA865D520 /* src */,
+				0FAB5C23377C446D8A0F1938 /* resources */,
+			);
+			name = PretzelGUI;
+			sourceTree = "<group>";
+		};
+		64D7F87FFA0442E89F44F825 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FC391D1F362949F0857DFF7E /* OscBundle.cpp */,
+				C3F75CF22DFB4055A92DAFDF /* OscListener.cpp */,
+				0F19E3713C2745AD998CFD1F /* OscMessage.cpp */,
+				1F6F9D7918964F05B96F45B7 /* OscSender.cpp */,
+				34AC108F2B174697A8CD716E /* ip */,
+				C39721FCF0C640FFB2ADB7F6 /* osc */,
+				AA72A83ECEE54231A1B0523C /* OscArg.h */,
+				8EF58E6F4ACB4383B91BE525 /* OscBundle.h */,
+				6DD34EC84BAA4A049E8B41D8 /* OscListener.h */,
+				6EF9305A30FA45E5B0835558 /* OscMessage.h */,
+				D2D7791D58BF4BB981930085 /* OscSender.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		B1D487073F4C4B7D87D5B4F5 /* OSC */ = {
+			isa = PBXGroup;
+			children = (
+				64D7F87FFA0442E89F44F825 /* src */,
+			);
+			name = OSC;
+			sourceTree = "<group>";
+		};
+		C39721FCF0C640FFB2ADB7F6 /* osc */ = {
+			isa = PBXGroup;
+			children = (
+				A1EC6BBB16DC48919DB833ED /* OscOutboundPacketStream.cpp */,
+				A727C9A531664405B2EB301A /* OscPrintReceivedElements.cpp */,
+				DE4FC7890AA143F882547BD6 /* OscReceivedElements.cpp */,
+				3CA5DCC6071242138F35DDB3 /* OscTypes.cpp */,
+				50E15B9F4A894E13847EF7A9 /* MessageMappingOscPacketListener.h */,
+				77B14177F0184F7D8790159D /* OscException.h */,
+				1299E89951534F04997F2005 /* OscHostEndianness.h */,
+				17593A8435644BB1B4D629A3 /* OscOutboundPacketStream.h */,
+				D8180BBECC314708BE81E523 /* OscPacketListener.h */,
+				6B6D31B4E2DD4086894756B3 /* OscPrintReceivedElements.h */,
+				CD149D40AB664EAA82ABC819 /* OscReceivedElements.h */,
+				F40F3FD408624BACB6CD7CB4 /* OscTypes.h */,
+			);
+			name = osc;
+			sourceTree = "<group>";
+		};
+		C4D916EAB1A04C6DA865D520 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				393623559B164FEFA4F3CA88 /* pretzel */,
+				3384165320414AD18BFDD72E /* modules */,
+				5D1733A373754FE788F93D21 /* components */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		CBC8865719AE393D00F539C3 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CBC8866219AE717100F539C3 /* RaceView.cpp */,
+				CBC8866319AE717100F539C3 /* RaceView.h */,
+				CBC8866519AE718300F539C3 /* StagingView.cpp */,
+				CBC8866619AE718300F539C3 /* StagingView.h */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		CBC8865819AE394700F539C3 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				CBC8865419AE343E00F539C3 /* GFXGlobal.cpp */,
+				CBC8865519AE343E00F539C3 /* GFXGlobal.h */,
+				CBC8865F19AE64F100F539C3 /* StateManager.cpp */,
+				CBC8866019AE64F100F539C3 /* StateManager.h */,
+				CBC8866919AFD35100F539C3 /* PlayerData.h */,
+				CBC8866A19AFD66A00F539C3 /* SerialReader.cpp */,
+				CBC8866B19AFD66A00F539C3 /* SerialReader.h */,
+				CBC8866D19AFE0A000F539C3 /* Model.cpp */,
+				CBC8866E19AFE0A000F539C3 /* Model.h */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		CBC8867019B01C1400F539C3 /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				CBC8867119B01C7700F539C3 /* PlayerGfx.cpp */,
+				CBC8867219B01C7700F539C3 /* PlayerGfx.h */,
+			);
+			name = graphics;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* GoldsprintsFX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "GoldsprintsFX" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoldsprintsFX;
+			productInstallPath = "$(HOME)/Applications";
+			productName = GoldsprintsFX;
+			productReference = 8D1107320486CEB800E47090 /* GoldsprintsFX.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GoldsprintsFX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* GoldsprintsFX */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* GoldsprintsFX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBC8865E19AE60BC00F539C3 /* gfxIcn.icns in Resources */,
+				77E89D81E00A49659C0ECBBB /* CinderApp.icns in Resources */,
+				CBC8865C19AE60B300F539C3 /* gfxIcn.icns in Resources */,
+				2F4C88F6A07E4EBA8C91A12E /* default_skin.png in Resources */,
+				0F5BAA8D94904E39BF227133 /* color-picker.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBC8865619AE343E00F539C3 /* GFXGlobal.cpp in Sources */,
+				9882D0BB299244098CC8F455 /* GoldsprintsFXApp.cpp in Sources */,
+				08C0EEDC976A483E97CA158D /* OscBundle.cpp in Sources */,
+				11C6DD86151B4DBFBAC1AF54 /* OscListener.cpp in Sources */,
+				3CFF88558EC14AF9A4477D51 /* OscMessage.cpp in Sources */,
+				FD862EB56CB04842BFD8EF02 /* OscSender.cpp in Sources */,
+				76153DD37FFB433DA23BC840 /* IpEndpointName.cpp in Sources */,
+				4F0EA10183AF4FF994917B33 /* OscOutboundPacketStream.cpp in Sources */,
+				CBC8866C19AFD66A00F539C3 /* SerialReader.cpp in Sources */,
+				53739842E7CA4A05B37CFE37 /* OscPrintReceivedElements.cpp in Sources */,
+				CBC8865319AE338200F539C3 /* GFXMain.cpp in Sources */,
+				1C6C1CA5EC9D4B3A8F71356B /* OscReceivedElements.cpp in Sources */,
+				1AE18A8C5BD540C8804BF7C4 /* OscTypes.cpp in Sources */,
+				F1FA4F3613014012842F7687 /* NetworkingUtils.cpp in Sources */,
+				08C3CCF51507498C98024F75 /* UdpSocket.cpp in Sources */,
+				AD255BAC83A64A2B8657EF38 /* PretzelGui.cpp in Sources */,
+				CBC8867319B01C7700F539C3 /* PlayerGfx.cpp in Sources */,
+				8F5D400349B747D2B4250191 /* PretzelGlobal.cpp in Sources */,
+				682D6A0B246C493980DBE504 /* PretzelButton.cpp in Sources */,
+				A6A010EAAB134DF0820F34B0 /* PretzelColorPicker.cpp in Sources */,
+				8E1AF22A39774B8CAB42C131 /* PretzelLabel.cpp in Sources */,
+				3146A61537BA437F8F09C3A1 /* PretzelSaveLoad.cpp in Sources */,
+				CBC8866F19AFE0A000F539C3 /* Model.cpp in Sources */,
+				CAFD0190D51A4ED08F92B56D /* PretzelSlider.cpp in Sources */,
+				CBC8866119AE64F100F539C3 /* StateManager.cpp in Sources */,
+				CBC8866719AE718300F539C3 /* StagingView.cpp in Sources */,
+				DD10F4FD52224DCE91832D2A /* PretzelTextField.cpp in Sources */,
+				9074AF2B63514F538D473288 /* PretzelToggle.cpp in Sources */,
+				D80EB1BC18354CD7ACB639CF /* BasePretzel.cpp in Sources */,
+				BD5076E0728F4C9693AAA8E3 /* PretzelRow.cpp in Sources */,
+				9EBB05BC490549CE8EA5A790 /* ScrollPane.cpp in Sources */,
+				CBC8866419AE717100F539C3 /* RaceView.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GoldsprintsFX_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
+				PRODUCT_NAME = GoldsprintsFX;
+				SYMROOT = ./build;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_FAST_MATH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GoldsprintsFX_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NDEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
+				PRODUCT_NAME = GoldsprintsFX;
+				STRIP_INSTALLED_PRODUCT = YES;
+				SYMROOT = ./build;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				CINDER_PATH = ../../../..;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../blocks/OSC/src ../blocks/PretzelGUI/src";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				CINDER_PATH = ../../../..;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../blocks/OSC/src ../blocks/PretzelGUI/src";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "GoldsprintsFX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GoldsprintsFX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
