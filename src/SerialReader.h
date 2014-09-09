@@ -10,15 +10,18 @@
 
 #include "cinder/app/AppNative.h"
 #include "cinder/Serial.h"
+#include "cinder/Utilities.h"
 #include <boost/algorithm/string.hpp>
 
 #include "StateManager.h"
+#include "Model.h"
 
 namespace gfx {
     class SerialReader {
       
       public:
         SerialReader();
+        ~SerialReader();
         void setup();
         void update();
         
@@ -30,23 +33,27 @@ namespace gfx {
         void getHardwareVersion();
         void getProtoculVersion();
         void getFirmwareVersion();
-        void setMockMode();
+        void setMockMode( bool enabled=true );
         void pingSensor();
+        void getRaceLength();
         
       private:
         StateManager        *mStateManager;
+        Model               *mModel;
         
         void                readSerial();
         void                parseCommand( std::string command );
         
         int                 BAUD_RATE;
-        ci::Serial          mSerial;
+        ci::Serial          *mSerial;
         bool                bSerialConnected;
+        bool                bMockEnabled;
         
         std::string         mStringBuffer;
         
         std::string         mFirmwareVersion;
         std::string         mProtoculVersion;
         std::string         mHardwareVersion;   // currently unimplemented in arduino software
+        
     };
 }

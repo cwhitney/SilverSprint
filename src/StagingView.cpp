@@ -18,9 +18,17 @@ StagingView::StagingView() : bVisible(false) {
 }
 
 void StagingView::setup(){
+    mModel = Model::getInstance();
+    
     mBg = gl::Texture::create( loadImage( loadAsset("stagingBackground.png") ) );
     mStateManager = StateManager::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&StagingView::onStateChange, this, std::placeholders::_1) );
+    
+    gui = new Pretzel::PretzelGui("Player settings");
+    gui->addTextField("Player 1 name", &mModel->playerData[0]->player_name);
+    gui->addTextField("Player 2 name", &mModel->playerData[1]->player_name);
+    gui->addTextField("Player 3 name", &mModel->playerData[2]->player_name);
+    gui->addTextField("Player 4 name", &mModel->playerData[3]->player_name);
 }
 
 void StagingView::onStateChange(GFX_STATE newState){
@@ -54,4 +62,6 @@ void StagingView::draw(){
         gl::color(1,1,1);
         gl::draw( mBg );
     }
+    
+    gui->draw();
 }

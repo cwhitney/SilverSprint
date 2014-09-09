@@ -726,9 +726,9 @@ t1409151849
 s3133
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/PlayerData.h
-c0000000053FF9ED50000000000000200
-t1409261269
-s512
+c00000000540F916D0000000000000772
+t1410306413
+s1906
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/Resources.h
 c0000000053FDF4470000000000000142
@@ -756,29 +756,29 @@ t1409171165
 s417
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp
-c00000000540DD9E90000000000000606
-t1410193897
-s1542
+c00000000540F5DA400000000000007F8
+t1410293156
+s2040
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.h
-c00000000540DD7B700000000000002CB
-t1410193335
-s715
+c00000000540F226E00000000000002DF
+t1410277998
+s735
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp
-c00000000540DD739000000000000058B
-t1410193209
-s1419
+c00000000540F7ECC0000000000000604
+t1410301644
+s1540
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp
-c0000000053FFA94E0000000000000157
-t1409263950
-s343
+c00000000540F8EB90000000000000482
+t1410305721
+s1154
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.h
-c0000000053FFAA500000000000000146
-t1409264208
-s326
+c00000000540F7C630000000000000274
+t1410301027
+s628
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/PlayerGfx.cpp
 c0000000053FFE4F70000000000000073
@@ -791,34 +791,34 @@ t1409279223
 s237
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp
-c00000000540DD76600000000000003C0
-t1410193254
-s960
+c00000000540F91770000000000000816
+t1410306423
+s2070
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.h
-c0000000053FFAB290000000000000237
-t1409264425
-s567
+c00000000540F8098000000000000026F
+t1410302104
+s623
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp
-c00000000540DEFFF0000000000000F3A
-t1410199551
-s3898
+c00000000540F90050000000000001B02
+t1410306053
+s6914
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.h
-c00000000540DD72B0000000000000506
-t1410193195
-s1286
+c00000000540F5D4200000000000005DA
+t1410293058
+s1498
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp
-c00000000540A1D5F000000000000043F
-t1409949023
-s1087
+c00000000540F7E3000000000000005EC
+t1410301488
+s1516
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.h
-c0000000053FFBEAB0000000000000275
-t1409269419
-s629
+c00000000540F4EF800000000000002F8
+t1410289400
+s760
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StateManager.cpp
 c0000000053FFAB170000000000000246
@@ -841,7 +841,7 @@ t1409165628
 s1114
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app
-t1410199109
+t1410306200
 s102
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Info.plist
@@ -849,8 +849,8 @@ t1409165633
 s1491
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX
-t1410199553
-s3301748
+t1410306428
+s3915308
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/PkgInfo
 t1409165633
@@ -869,7 +869,7 @@ t1409152001
 s3840
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns
-t1410199552
+t1410306425
 s20974
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/BasePretzel.o
@@ -881,8 +881,8 @@ t1409937852
 s63540
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.o
-t1410193900
-s2683040
+t1410306428
+s3001904
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFX.LinkFileList
 c000000005405DDCB000000000000166A
@@ -890,16 +890,16 @@ t1409670603
 s5738
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.o
-t1410193900
-s2135440
+t1410306427
+s2436776
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/IpEndpointName.o
 t1409937853
 s63876
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.o
-t1409937856
-s63548
+t1410306426
+s1720584
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/NetworkingUtils.o
 t1409937854
@@ -982,20 +982,20 @@ t1409937860
 s866868
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.o
-t1410193900
-s2743180
+t1410306427
+s2845540
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/ScrollPane.o
 t1409937861
 s1932996
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.o
-t1410199553
-s2212196
+t1410306427
+s2327664
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.o
-t1409949636
-s2744992
+t1410306428
+s3050152
 
 N/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StateManager.o
 t1409937904
@@ -6271,7 +6271,7 @@ r0
 
 CCheck dependencies
 r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciescd1d258027beb941^666b258027beb941^-202"Warning: Multiple build commands for output file /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns1(21%IDEActivityLogMessage2@201"Warning: Multiple build commands for output file /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns-431892352#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#1#--18"Check dependencies36"5E229852-A542-4142-BA52-158197065C81-
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies2e7140f9c8bfb941^08ac40f9c8bfb941^-202"Warning: Multiple build commands for output file /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns1(21%IDEActivityLogMessage2@201"Warning: Multiple build commands for output file /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns-431999225#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#1#--18"Check dependencies36"FC029A99-2E83-4842-82C6-EE7E0245CCC9-
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/BasePretzel.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/BasePretzel.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 s431630658.321476
@@ -6575,8 +6575,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"Compil
 bBF45A0B1-D69D-47CD-A9CF-FCD581365169
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s431886698.512255
-e431886700.624732
+s431999225.267952
+e431999228.305205
 r1
 xCompileC
 xbuild/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.o
@@ -6592,6 +6592,136 @@ d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/Goldspr
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/PlayerData.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Serial.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Utilities.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/lexical_cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/lcast_precision.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/array.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/assert.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/converter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/conversion_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/conversion_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/meta.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/comparison_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/numeric_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/apply_wrap.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/include_preprocessed.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/cat.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/stringize.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/int_float_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/int_float_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/sign_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/sign_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/udt_builtin_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/udt_builtin_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/is_subranged.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/multiplies.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/times.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/arithmetic_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/largest_int.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/times.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/converter_policies.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/config/no_tr1/cmath.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/converter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/bounds.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/bounds.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/numeric_cast_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/cstdint.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/numeric_cast_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/has_left_shift.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/has_binary_operator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/is_fundamental.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/bool_trait_def.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/template_arity_spec.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/bool_trait_undef.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/has_right_shift.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/sign.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/config.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/user.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/math_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/detail/round_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/promotion.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/is_floating_point.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/policies/policy.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/contains.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/contains_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/contains_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/find.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/remove_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/apply.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/limits/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/inc.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector20.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector10.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector0.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/at.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/tag.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/config/typeof.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/push_front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/item.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/pop_front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/push_back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/pop_back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/pop_back_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/back_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/clear.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/vector0.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/plus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/plus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/minus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/minus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/O1_size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/empty.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/begin_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/include_preprocessed.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/preprocessed/typeof_based/vector10.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/preprocessed/typeof_based/vector20.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/at.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/at_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/size_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/comparison.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/not_equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/not_equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/greater.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/greater.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/less_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/less_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/greater_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/greater_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/config/no_tr1/complex.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/detail/fp_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/endian.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/endian_compat.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/other/endian.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/version_number.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/make.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/test.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/library/c/gnu.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/library/c/_prefix.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/_cassert.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/macos.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/os_detected.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/bsdi.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/dragonfly.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/free.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/open.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/net.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/fpclassify.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/real_cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/container_fwd.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/std_containers_traits.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/std/string_traits.hpp
@@ -6647,12 +6777,114 @@ d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/Goldspr
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/gl/Texture.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp252"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compileref3a836a11beb941^07ef9f6c11beb941^---0#0#1#-19%DVTDocumentLocation2@108"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp0000000000000000^3734"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.o36"DAC4A012-5576-4702-AB9B-0DE0D306988B-
-b3C081B98-EADF-42E9-BAED-990E01F1A712
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/pretzel/PretzelGui.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/Resources.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/CinderResources.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/pretzel/PretzelGlobal.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/gl/TextureFont.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Text.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Json.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/list.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/config_begin.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/workaround.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/config_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/version_type.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/mpl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/type_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/iterators.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/allocator_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/pointer_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/config_begin.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/workaround.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/config_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/memory_util.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/mpl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/preprocessor.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iteration/local.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/punctuation/paren_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/config/config.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/control/if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/facilities/empty.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/punctuation/paren.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/punctuation/comma_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/control/expr_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_params.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_trailing_params.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_trailing.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_shifted_params.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_shifted.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/repeat.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/logical/not.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/arithmetic/sub.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/arithmetic/add.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iteration/iterate.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/has_member_function_callable_with.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/memory_util.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/preprocessor.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/variadic_templates_tools.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/throw_exception.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/move/detail/move_helpers.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/utilities.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/list.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/assert.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/intrusive_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/link_mode.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/list_hook.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/utilities.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/parent_from_member.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/ebo_functor_holder.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/is_stateful_value_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/function_detector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/hash.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/detail/hash_float.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/detail/float_functions.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/detail/limits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/integer/static_log2.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/extensions.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/container_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/repeat_from_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/list_node.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/circular_list_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/options.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/generic_hook.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/clear_on_destructor_base.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/node_alloc_holder.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/allocator_version_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/multiallocation_chain.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/transform_iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/slist.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/slist_hook.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/slist_node.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/circular_slist_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/common_slist_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/linear_slist_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/allocation_type.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/destroyers.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/BasePretzel.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/ScrollPane.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/PretzelRow.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Rand.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelLabel.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelSlider.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelSaveLoad.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelButton.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelToggle.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelTextField.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelColorPicker.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Timeline.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/TimelineItem.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Easing.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Tween.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/ip/Fill.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp252"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler08ac44f9c8bfb941^74254efcc8bfb941^---0#0#1#-19%DVTDocumentLocation2@108"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp0000000000000000^3734"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GFXMain.o36"2C9134ED-8E6B-4481-AA6D-F9128D77F73E-
+b98228C99-7A7B-45D0-8A0A-E1CF715A1D6E
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s431886698.508059
-e431886700.271502
+s431999225.266789
+e431999227.855312
 r1
 xCompileC
 xbuild/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.o
@@ -6668,6 +6900,136 @@ d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/Goldspr
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/PlayerData.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Serial.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Utilities.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/lexical_cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/lcast_precision.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/array.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/assert.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/converter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/conversion_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/conversion_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/meta.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/comparison_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/numeric_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/apply_wrap.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/include_preprocessed.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/cat.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/stringize.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/int_float_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/int_float_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/sign_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/sign_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/udt_builtin_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/udt_builtin_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/is_subranged.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/multiplies.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/times.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/arithmetic_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/largest_int.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/times.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/converter_policies.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/config/no_tr1/cmath.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/converter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/bounds.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/bounds.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/numeric_cast_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/cstdint.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/numeric_cast_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/has_left_shift.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/has_binary_operator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/is_fundamental.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/bool_trait_def.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/template_arity_spec.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/bool_trait_undef.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/has_right_shift.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/sign.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/config.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/user.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/math_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/detail/round_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/promotion.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/is_floating_point.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/policies/policy.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/contains.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/contains_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/contains_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/find.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/remove_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/apply.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/limits/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/inc.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector20.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector10.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector0.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/at.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/tag.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/config/typeof.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/push_front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/item.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/pop_front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/push_back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/pop_back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/pop_back_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/back_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/clear.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/vector0.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/plus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/plus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/minus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/minus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/O1_size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/empty.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/begin_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/include_preprocessed.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/preprocessed/typeof_based/vector10.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/preprocessed/typeof_based/vector20.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/at.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/at_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/size_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/comparison.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/not_equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/not_equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/greater.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/greater.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/less_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/less_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/greater_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/greater_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/config/no_tr1/complex.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/detail/fp_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/endian.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/endian_compat.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/other/endian.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/version_number.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/make.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/test.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/library/c/gnu.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/library/c/_prefix.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/_cassert.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/macos.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/os_detected.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/bsdi.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/dragonfly.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/free.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/open.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/net.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/fpclassify.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/real_cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/container_fwd.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/std_containers_traits.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/std/string_traits.hpp
@@ -6723,8 +7085,110 @@ d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/Goldspr
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/gl/Texture.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection118"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp270"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler5820826a11beb941^9d81456c11beb941^---0#0#1#-19%DVTDocumentLocation2@117"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp0000000000000000^3788"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.o36"52C12057-9FE9-4B8C-A20B-09CC98471CD1-
-b3C081B98-EADF-42E9-BAED-990E01F1A712
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/pretzel/PretzelGui.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/Resources.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/CinderResources.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/pretzel/PretzelGlobal.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/gl/TextureFont.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Text.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Json.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/list.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/config_begin.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/workaround.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/config_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/version_type.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/mpl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/type_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/iterators.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/allocator_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/pointer_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/config_begin.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/workaround.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/config_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/memory_util.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/mpl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/preprocessor.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iteration/local.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/punctuation/paren_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/config/config.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/control/if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/facilities/empty.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/punctuation/paren.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/punctuation/comma_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/control/expr_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_params.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_trailing_params.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_trailing.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_shifted_params.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_shifted.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/repeat.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/logical/not.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/arithmetic/sub.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/arithmetic/add.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iteration/iterate.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/has_member_function_callable_with.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/memory_util.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/preprocessor.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/variadic_templates_tools.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/throw_exception.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/move/detail/move_helpers.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/utilities.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/list.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/assert.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/intrusive_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/link_mode.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/list_hook.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/utilities.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/parent_from_member.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/ebo_functor_holder.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/is_stateful_value_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/function_detector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/hash.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/detail/hash_float.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/detail/float_functions.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/detail/limits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/integer/static_log2.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/extensions.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/container_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/repeat_from_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/list_node.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/circular_list_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/options.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/generic_hook.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/clear_on_destructor_base.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/node_alloc_holder.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/allocator_version_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/multiallocation_chain.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/transform_iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/slist.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/slist_hook.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/slist_node.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/circular_slist_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/common_slist_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/linear_slist_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/allocation_type.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/destroyers.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/BasePretzel.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/ScrollPane.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/PretzelRow.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Rand.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelLabel.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelSlider.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelSaveLoad.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelButton.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelToggle.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelTextField.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelColorPicker.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Timeline.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/TimelineItem.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Easing.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Tween.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/ip/Fill.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection118"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp270"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler205d44f9c8bfb941^05f8dafbc8bfb941^---0#0#1#-19%DVTDocumentLocation2@117"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp0000000000000000^3788"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GoldsprintsFXApp.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFXApp.o36"7D691E6B-8A4A-428D-B5C7-AD7C45CFF0C1-
+b98228C99-7A7B-45D0-8A0A-E1CF715A1D6E
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/IpEndpointName.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/OSC/src/ip/IpEndpointName.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 s431630651.742568
@@ -6744,8 +7208,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection130"Compil
 bBF45A0B1-D69D-47CD-A9CF-FCD581365169
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s431630655.262362
-e431630656.504231
+s431999225.270066
+e431999226.652452
 r1
 xCompileC
 xbuild/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.o
@@ -6758,8 +7222,8 @@ d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/Goldspr
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/app/AppNative.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/PlayerData.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp248"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler1841433f29bab941^ccd4804029bab941^---0#0#1#-19%DVTDocumentLocation2@106"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp0000000000000000^3722"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.o36"9212802D-DC90-4C0E-B823-2A2DDA331C7C-
-bBF45A0B1-D69D-47CD-A9CF-FCD581365169
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp248"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compilerdb3545f9c8bfb941^1408a7fac8bfb941^---0#0#1#-19%DVTDocumentLocation2@106"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp0000000000000000^3722"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/Model.o36"2650D61E-F546-4C2E-A6E5-DEFAF2B67D1C-
+b98228C99-7A7B-45D0-8A0A-E1CF715A1D6E
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/NetworkingUtils.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/OSC/src/ip/posix/NetworkingUtils.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 s431630653.192609
@@ -9951,8 +10415,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection141"Compil
 bBF45A0B1-D69D-47CD-A9CF-FCD581365169
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s431886698.518222
-e431886700.504756
+s431999225.272315
+e431999227.614180
 r1
 xCompileC
 xbuild/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.o
@@ -9966,8 +10430,10 @@ d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/Goldspr
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/app/AppNative.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/gl/Texture.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StateManager.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection110"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp254"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler16c0846a11beb941^c939816c11beb941^---0#0#1#-19%DVTDocumentLocation2@109"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp0000000000000000^3740"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.o36"D2E5F20B-21BE-4577-8F7F-D2A35B3D9B1D-
-b3C081B98-EADF-42E9-BAED-990E01F1A712
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/PlayerData.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection110"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp254"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler29ce45f9c8bfb941^193b9dfbc8bfb941^---0#0#1#-19%DVTDocumentLocation2@109"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp0000000000000000^3740"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/RaceView.o36"03F5D080-CA23-4947-B824-E3BE63A081D6-
+b98228C99-7A7B-45D0-8A0A-E1CF715A1D6E
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/ScrollPane.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/ScrollPane.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 s431630658.687471
@@ -10257,8 +10723,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection141"Compil
 bBF45A0B1-D69D-47CD-A9CF-FCD581365169
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s431892352.162750
-e431892353.502864
+s431999225.267710
+e431999227.508078
 r1
 xCompileC
 xbuild/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.o
@@ -10271,6 +10737,136 @@ d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/Goldspr
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/app/AppNative.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Serial.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Utilities.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/lexical_cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/lcast_precision.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/array.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/assert.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/converter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/conversion_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/conversion_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/meta.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/comparison_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/numeric_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/apply_wrap.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/include_preprocessed.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/cat.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/stringize.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/int_float_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/int_float_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/sign_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/sign_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/udt_builtin_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/udt_builtin_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/is_subranged.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/multiplies.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/times.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/arithmetic_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/largest_int.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/times.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/converter_policies.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/config/no_tr1/cmath.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/converter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/bounds.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/bounds.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/numeric_cast_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/cstdint.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/numeric_cast_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/has_left_shift.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/has_binary_operator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/is_fundamental.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/bool_trait_def.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/template_arity_spec.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/bool_trait_undef.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/has_right_shift.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/sign.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/config.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/user.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/math_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/detail/round_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/promotion.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/is_floating_point.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/policies/policy.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/contains.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/contains_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/contains_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/find.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/remove_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/apply.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/limits/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/inc.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector20.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector10.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector0.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/at.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/tag.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/config/typeof.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/push_front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/item.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/pop_front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/push_back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/pop_back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/pop_back_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/back_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/clear.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/vector0.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/plus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/plus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/minus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/minus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/O1_size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/empty.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/begin_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/include_preprocessed.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/preprocessed/typeof_based/vector10.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/preprocessed/typeof_based/vector20.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/at.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/at_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/size_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/comparison.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/not_equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/not_equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/greater.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/greater.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/less_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/less_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/greater_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/greater_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/config/no_tr1/complex.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/detail/fp_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/endian.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/endian_compat.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/other/endian.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/version_number.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/make.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/test.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/library/c/gnu.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/library/c/_prefix.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/_cassert.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/macos.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/os_detected.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/bsdi.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/dragonfly.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/free.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/open.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/net.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/fpclassify.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/real_cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/container_fwd.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/std_containers_traits.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/std/string_traits.hpp
@@ -10323,12 +10919,14 @@ d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/formatter.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/erase.hpp
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StateManager.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection114"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp262"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler02bc298027beb941^0ebe808127beb941^---0#0#1#-19%DVTDocumentLocation2@113"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp0000000000000000^3764"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.o36"91873E46-EE66-4441-975F-61720A635363-
-b5228A0FF-954D-458E-900F-4974BE3AE6CD
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/PlayerData.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection114"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp262"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler429744f9c8bfb941^2b1382fbc8bfb941^---0#0#1#-19%DVTDocumentLocation2@113"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp0000000000000000^3764"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/SerialReader.o36"5B80B3EA-3BDE-4DFD-8912-420C4B646C60-
+b98228C99-7A7B-45D0-8A0A-E1CF715A1D6E
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s431642435.050062
-e431642436.568356
+s431999225.270599
+e431999228.266139
 r1
 xCompileC
 xbuild/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.o
@@ -10341,9 +10939,294 @@ d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/Goldspr
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/app/AppNative.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/gl/Texture.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/pretzel/PretzelGui.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/Resources.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/CinderResources.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/pretzel/PretzelGlobal.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/gl/TextureFont.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Text.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Json.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Utilities.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/lexical_cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/lcast_precision.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/array.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/assert.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/converter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/conversion_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/conversion_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/meta.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/comparison_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/numeric_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/apply_wrap.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/include_preprocessed.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/cat.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/stringize.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/int_float_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/int_float_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/sign_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/sign_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/udt_builtin_mixture.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/udt_builtin_mixture_enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/is_subranged.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/multiplies.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/times.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/arithmetic_op.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/largest_int.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/times.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/converter_policies.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/config/no_tr1/cmath.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/converter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/bounds.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/bounds.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/numeric_cast_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/cstdint.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/numeric_cast_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/has_left_shift.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/has_binary_operator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/is_fundamental.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/bool_trait_def.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/template_arity_spec.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/detail/bool_trait_undef.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/has_right_shift.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/sign.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/config.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/user.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/math_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/detail/round_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/promotion.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/type_traits/is_floating_point.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/policies/policy.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/contains.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/contains_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/contains_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/find.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/remove_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/apply.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/limits/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/inc.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector20.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector10.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/vector0.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/at.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/tag.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/config/typeof.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/push_front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/item.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/pop_front.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/push_back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/pop_back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/pop_back_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/back.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/back_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/clear.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/vector0.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/plus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/plus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/minus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/minus.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/O1_size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/empty.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/begin_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/include_preprocessed.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/preprocessed/typeof_based/vector10.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/vector/aux_/preprocessed/typeof_based/vector20.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/vector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/at.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/at_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/size.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/size_impl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/comparison.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/not_equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/not_equal_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/greater.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/greater.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/less_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/less_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/greater_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/mpl/aux_/preprocessed/gcc/greater_equal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/config/no_tr1/complex.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/detail/fp_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/endian.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/endian_compat.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/other/endian.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/version_number.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/make.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/test.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/library/c/gnu.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/library/c/_prefix.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/_cassert.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/macos.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/detail/os_detected.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/bsdi.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/dragonfly.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/free.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/open.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/predef/os/bsd/net.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/special_functions/fpclassify.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/math/tools/real_cast.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/container_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/list.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/config_begin.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/workaround.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/config_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/version_type.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/mpl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/type_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/iterators.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/allocator_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/pointer_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/config_begin.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/workaround.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/config_end.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/memory_util.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/mpl.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/preprocessor.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iteration/local.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/punctuation/paren_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/config/config.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/control/if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/facilities/empty.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/punctuation/paren.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/punctuation/comma_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/control/expr_if.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_params.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_trailing_params.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_trailing.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_shifted_params.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/enum_shifted.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/repeat.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/logical/not.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/arithmetic/sub.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/arithmetic/add.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iteration/iterate.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/has_member_function_callable_with.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iteration/detail/iter/forward1.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iteration/detail/bounds/lower1.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/slot/detail/shared.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iteration/detail/bounds/upper1.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/memory_util.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/preprocessor.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/variadic_templates_tools.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/throw_exception.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/move/detail/move_helpers.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/utilities.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/list.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/assert.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/intrusive_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/link_mode.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/list_hook.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/utilities.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/parent_from_member.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/ebo_functor_holder.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/is_stateful_value_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/function_detector.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/hash.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/detail/hash_float.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/detail/float_functions.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/detail/limits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/integer/static_log2.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/functional/hash/extensions.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/detail/container_fwd.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/repetition/repeat_from_to.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/list_node.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/circular_list_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/options.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/generic_hook.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/clear_on_destructor_base.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/node_alloc_holder.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/allocator_version_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/multiallocation_chain.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/transform_iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/slist.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/slist_hook.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/slist_node.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/circular_slist_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/detail/common_slist_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/intrusive/linear_slist_algorithms.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/allocation_type.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/container/detail/destroyers.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/BasePretzel.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/std_containers_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/std/string_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/yes_no_type.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/sequence_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/std/list_traits.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/trim.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/config.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/range/as_literal.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/range/detail/str_types.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/trim.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/classification.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/classification.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/predicate_facade.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/case_conv.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/iterator/transform_iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/iterator/detail/config_def.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/iterator/detail/config_undef.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/case_conv.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/predicate.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/compare.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/find.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/finder.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/constants.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/finder.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/predicate.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/split.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/iter_find.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/concept.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/find_iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/find_iterator.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/function.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/preprocessor/iterate.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/function/detail/function_iterate.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/function/detail/maybe_include.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/util.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/join.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/sequence.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/replace.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/find_format.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/find_format.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/find_format_store.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/replace_storage.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/find_format_all.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/formatter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/detail/formatter.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/boost/boost/algorithm/string/erase.hpp
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/ScrollPane.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/components/PretzelRow.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Rand.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelLabel.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelSlider.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelSaveLoad.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelButton.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelToggle.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelTextField.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/modules/PretzelColorPicker.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Timeline.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/TimelineItem.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Easing.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/Tween.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/include/cinder/ip/Fill.h
 d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StateManager.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp260"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler3ae60c4357bab941^1382914457bab941^---0#0#1#-19%DVTDocumentLocation2@112"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp0000000000000000^3758"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.o36"A43A580C-2647-4005-B4E6-4DEB63AF2C35-
-b576A994A-6AAA-4128-8B65-088F8BC67FC4
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.h
+d/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/PlayerData.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"Compile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp260"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler026345f9c8bfb941^fb2344fcc8bfb941^---0#0#1#-19%DVTDocumentLocation2@112"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp0000000000000000^3758"CompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-generated-files.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-own-target-headers.hmap -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-all-target-headers.hmap -iquote /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/GoldsprintsFX-project-headers.hmap -iquote../../../../include -iquote../include -iquote../blocks/OSC/src -iquote../blocks/PretzelGUI/src -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/include -I../../../../boost -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources/i386 -I/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/DerivedSources -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -include /var/folders/4b/t87qk6g11yxfydnn4z_qkbtr0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/GoldsprintsFX_Prefix-eiucdgyogrciwcdcxmcuqmtmzwyf/GoldsprintsFX_Prefix.pch -MMD -MT dependencies -MF /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.d --serialize-diagnostics /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.dia -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.cpp -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StagingView.o36"D68E0DA5-32C7-462F-9BF0-C7D0A9A0D76D-
+b98228C99-7A7B-45D0-8A0A-E1CF715A1D6E
 
 CCompileC build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/StateManager.o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StateManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 s431630702.438529
@@ -10416,28 +11299,28 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Copy bu
 bBEC3642F-E815-4065-9E20-330B7309D0B2
 
 CCpResource /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/resources/gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns
-s431892352.146246
-e431892352.147171
+s431999225.252935
+e431999225.253790
 r1
 xCpResource
 x/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/resources/gfxIcn.icns
 xbuild/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Copy build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns179"CpResource /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/resources/gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icnse17d258027beb941^1bba258027beb941^---0#0#1#-19%DVTDocumentLocation2@159"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns0000000000000000^640"CpResource /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/resources/gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/resources/gfxIcn.icns /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources36"43238740-6AE6-4218-AFDE-22F2B5E6C52B-
-b5228A0FF-954D-458E-900F-4974BE3AE6CD
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Copy build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns179"CpResource /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/resources/gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns54c940f9c8bfb941^901441f9c8bfb941^---0#0#1#-19%DVTDocumentLocation2@159"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns0000000000000000^640"CpResource /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/resources/gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/resources/gfxIcn.icns /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources36"E329DF40-CF63-433E-B708-72311BC06CBF-
+b98228C99-7A7B-45D0-8A0A-E1CF715A1D6E
 
 CCpResource gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns
-s431891907.454300
-e431891907.455272
+s431998996.951614
+e431998996.952544
 r1
 xCpResource
 xgfxIcn.icns
 xbuild/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Copy build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns83"CpResource gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icnsb05774c325beb941^c6a774c325beb941^---0#0#1#-19%DVTDocumentLocation2@159"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns0000000000000000^540"CpResource gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/gfxIcn.icns /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources36"256C5EBF-6AC9-4F09-9A5C-B4271F11EE06-
-b48735FDB-0CA4-4033-BD3E-8E290CE9E3A2
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Copy build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns83"CpResource gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icnsacaaf314c8bfb941^bef7f314c8bfb941^---0#0#1#-19%DVTDocumentLocation2@159"file:///Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns0000000000000000^540"CpResource gfxIcn.icns build/Debug/GoldsprintsFX.app/Contents/Resources/gfxIcn.icns    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/gfxIcn.icns /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Resources36"B4E89D1A-0632-485B-ACDC-E68064ECC4D9-
+bEC16B7F4-E661-4EC9-9F96-7770A4770F2C
 
 CLd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX normal i386
-s431892353.505770
-e431892353.831561
+s431999228.308720
+e431999228.612423
 r1
 xLd
 x/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX
@@ -10493,6 +11376,11 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.eprintf.a
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.osx.a
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/AppKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreData.framework/CoreData
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcache.dylib
@@ -10524,15 +11412,10 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/AppKit
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreData.framework/CoreData
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreText.framework/CoreText
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/ImageIO.framework/ImageIO
@@ -10552,8 +11435,8 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection155"Link /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX73"Ld build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX normal i3860e87818127beb941^93e1d48127beb941^---0#0#1#--1497"Ld build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX normal i386    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export MACOSX_DEPLOYMENT_TARGET=10.7    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -filelist /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFX.LinkFileList -mmacosx-version-min=10.7 -dead_strip ../../../../lib/libcinder_d.a -stdlib=libc++ -fobjc-link-runtime -framework Cocoa -framework OpenGL -framework CoreVideo -framework QTKit -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -Xlinker -dependency_info -Xlinker /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFX_dependency_info.dat -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX36"D36553D0-62EB-4034-9006-873B16FB1F40-
-b5228A0FF-954D-458E-900F-4974BE3AE6CD
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection155"Link /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX73"Ld build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX normal i386cb144ffcc8bfb941^acc89cfcc8bfb941^---0#0#1#--1497"Ld build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX normal i386    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    export MACOSX_DEPLOYMENT_TARGET=10.7    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -F/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug -filelist /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFX.LinkFileList -mmacosx-version-min=10.7 -dead_strip ../../../../lib/libcinder_d.a -stdlib=libc++ -fobjc-link-runtime -framework Cocoa -framework OpenGL -framework CoreVideo -framework QTKit -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -Xlinker -dependency_info -Xlinker /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/GoldsprintsFX.build/Debug/GoldsprintsFX.build/Objects-normal/i386/GoldsprintsFX_dependency_info.dat -o /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/MacOS/GoldsprintsFX36"6BC5FA3A-F091-44D9-B121-9B2CD446826F-
+b98228C99-7A7B-45D0-8A0A-E1CF715A1D6E
 
 CProcessInfoPlistFile /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app/Contents/Info.plist /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/Info.plist
 s430858433.332371
@@ -12089,11 +12972,11 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection35"Precomp
 bBF45A0B1-D69D-47CD-A9CF-FCD581365169
 
 CTouch /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app
-s431892353.832734
-e431892353.836005
+s431999228.613358
+e431999228.616268
 r1
 xTouch
 x/Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection127"Touch /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app35"Touch build/Debug/GoldsprintsFX.app3f36d58127beb941^4705d68127beb941^---0#0#1#--279"Touch build/Debug/GoldsprintsFX.app    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    /usr/bin/touch -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app36"9B665827-0D48-4EDB-A673-22776744635E-
-b5228A0FF-954D-458E-900F-4974BE3AE6CD
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection127"Touch /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app35"Touch build/Debug/GoldsprintsFX.app130e9dfcc8bfb941^b9c49dfcc8bfb941^---0#0#1#--279"Touch build/Debug/GoldsprintsFX.app    cd /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode    /usr/bin/touch -c /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/build/Debug/GoldsprintsFX.app36"9532091F-5B98-4AFE-BEF5-E4EAE6879F37-
+b98228C99-7A7B-45D0-8A0A-E1CF715A1D6E
 

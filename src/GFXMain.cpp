@@ -17,6 +17,12 @@ GFXMain::GFXMain(){
     
 }
 
+GFXMain::~GFXMain(){
+    console() << "GFX main shutting down" << endl;
+    delete mSerialReader;
+    
+}
+
 void GFXMain::setup(){
     // DATA
     mModel = Model::getInstance();
@@ -40,8 +46,9 @@ void GFXMain::onKeyDown(KeyEvent event){
     if( event.getChar() == 'p'){
         mSerialReader->pingSensor();
     }else if( event.getChar() == 'c'){
-        mSerialReader->setCountdown(10);
+        mSerialReader->setCountdown(4);
     }else if( event.getChar() == 'h'){
+        mSerialReader->getRaceLength();
         mSerialReader->getHardwareVersion();
         mSerialReader->getFirmwareVersion();
         mSerialReader->getProtoculVersion();
@@ -53,6 +60,18 @@ void GFXMain::onKeyDown(KeyEvent event){
     }else if(event.getChar() == 's'){
         mStateManager->changeState( GFX_STATE::IDLE );
         mSerialReader->stopRace();
+    }
+    
+    else if( event.getChar() == 'r'){
+        mSerialReader->resetHardwareToDefault();
+        
+        mModel->playerData[0]->reset();
+        mModel->playerData[1]->reset();
+        mModel->playerData[2]->reset();
+        mModel->playerData[3]->reset();
+        
+    }else if( event.getChar() == 'm'){
+        mSerialReader->setMockMode();
     }
 }
 

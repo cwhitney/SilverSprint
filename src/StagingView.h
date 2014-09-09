@@ -12,8 +12,9 @@
 #include "cinder/gl/Texture.h"
 #include "cinder/ImageIo.h"
 
-
+#include "PretzelGui.h"
 #include "StateManager.h"
+#include "Model.h"
 
 namespace gfx{
 
@@ -32,6 +33,9 @@ namespace gfx{
         
         ci::gl::TextureRef  mBg;
         StateManager        *mStateManager;
+        Model               *mModel;
+        
+        Pretzel::PretzelGui          *gui;
         
         BOOL        bVisible;
     };

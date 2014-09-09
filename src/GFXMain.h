@@ -23,6 +23,7 @@ namespace gfx{
     class GFXMain {
       public:
         GFXMain();
+        ~GFXMain();
         void setup();
         void update();
         void draw();

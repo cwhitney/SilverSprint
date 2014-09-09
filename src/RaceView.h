@@ -13,6 +13,7 @@
 #include "cinder/ImageIo.h"
 
 #include "StateManager.h"
+#include "Model.h"
 
 namespace gfx{
 
@@ -28,6 +29,7 @@ namespace gfx{
             
         ci::gl::TextureRef  mBg;
         StateManager        *mStateManager;
+        Model               *mModel;
         
         bool    bVisible;
     };

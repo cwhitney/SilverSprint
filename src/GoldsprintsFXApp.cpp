@@ -17,6 +17,8 @@ class GoldsprintsFXApp : public AppNative {
 	void update();
 	void draw();
     
+    void shutdown();
+    
     gfx::GFXMain *mGfxMain;
 };
 
@@ -29,8 +31,14 @@ void GoldsprintsFXApp::prepareSettings(cinder::app::AppBasic::Settings *settings
 }
 
 void GoldsprintsFXApp::setup() {
+    gl::enableAlphaBlending();
+    
     mGfxMain = new gfx::GFXMain();
     mGfxMain->setup();
+}
+
+void GoldsprintsFXApp::shutdown(){
+    delete mGfxMain;
 }
 
 void GoldsprintsFXApp::keyDown( KeyEvent event ){

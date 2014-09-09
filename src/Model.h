@@ -12,13 +12,22 @@
 
 #include "PlayerData.h"
 
-class Model {
-  public:
-	static Model* getInstance();
-    
-  private:
-	// PRIVATE CONSTRUCTOR + COPY
-	Model(){};
-	Model(Model const&){};
-	static Model		*mInstance;
-};
+namespace gfx{
+    class Model {
+      public:
+        static Model* getInstance();
+        void setRaceLength(int ticks);
+        
+        int                             elapsedRaceTimeMillis;
+        std::vector<gfx::PlayerData*>   playerData;
+        
+      private:
+        // PRIVATE CONSTRUCTOR + COPY
+        Model();
+        ~Model();
+        Model(Model const&){};
+        
+        static Model    *mInstance;
+        int             totalRaceTicks;
+    };
+}
