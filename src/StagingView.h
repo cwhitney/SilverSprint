@@ -34,6 +34,8 @@ namespace gfx{
         void animateIn();
         void animateOut();
         
+        void onKeyDown( ci::app::KeyEvent event );
+        
       private:
         void onStateChange(GFX_STATE newState);
         

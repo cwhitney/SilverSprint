@@ -19,12 +19,16 @@ class CiTextField {
     
     void setText( std::string text );
     void setBounds( const ci::Rectf &bounds );
+
+    void focus( bool selectAll=false);   // Become active.
+    void blur();    // Become inactive. (Same as unfocus)
     
     std::string getText(){ return mText; }
     
     void draw();
     
     bool bUseScissorTest;
+    bool isActive(){ return bActive; }
     
     ci::ColorA      mColorStroke, mColorFill, mColorText, mColorHighlight;
     

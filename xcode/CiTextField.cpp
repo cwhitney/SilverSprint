@@ -178,6 +178,20 @@ void CiTextField::onMouseUp( ci::app::MouseEvent event ){
     bDragging = false;
 }
 
+void CiTextField::focus( bool selectAll ){
+    bActive = true;
+    
+    if( selectAll ){
+        mCaratStart = 0;
+        mCaratIndex = mText.size();
+        bHighlighted = true;
+    }
+}
+
+void CiTextField::blur(){
+    bActive = false;
+}
+
 int CiTextField::getCursorIndex( const ci::Vec2f &localPos ){
     Vec2f pos = localPos - padding;
     

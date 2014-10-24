@@ -21,17 +21,9 @@ void StagingView::setup(){
     mModel = Model::getInstance();
     mGlobal = gfx::GFXGlobal::getInstance();
     
-//    mBg = gl::Texture::create( loadImage( loadAsset("stagingBackground.png") ) );
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     mStateManager = StateManager::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&StagingView::onStateChange, this, std::placeholders::_1) );
-    
-//    gui = new Pretzel::PretzelGui("Player settings");
-//    gui->addTextField("Player 1 name", &mModel->playerData[0]->player_name);
-//    gui->addTextField("Player 2 name", &mModel->playerData[1]->player_name);
-//    gui->addTextField("Player 3 name", &mModel->playerData[2]->player_name);
-//    gui->addTextField("Player 4 name", &mModel->playerData[3]->player_name);
-//    gui->addTextField("Roller Diameter", &mModel->rollerDiameterMm );
     
     for( int i=0; i<4; i++){
         float yPos = 190 + 183 * i;
@@ -44,6 +36,31 @@ void StagingView::setup(){
         
         tf->bUseScissorTest = false;
         mPlayerNames.push_back(tf);
+    }
+    
+    ci::app::WindowRef win = getWindow();
+    win->getSignalKeyDown().connect(std::bind(&StagingView::onKeyDown, this, std::placeholders::_1));
+}
+
+void StagingView::onKeyDown( ci::app::KeyEvent event ) {
+    
+    if( event.getCode() == KeyEvent::KEY_TAB ){
+        int i=0;
+        for( ; i<mPlayerNames.size(); i++ ){
+            if( mPlayerNames[i]->isActive() ){
+                mPlayerNames[i]->blur();
+                
+                if( i == mPlayerNames.size()-1 ){
+                    mPlayerNames[0]->focus(true);
+                }else{
+                    mPlayerNames[i+1]->focus(true);
+                }
+                break;
+            }
+        }
+        if( i == mPlayerNames.size() ){ // nothign selected. so select the first field
+            mPlayerNames[0]->focus(true);
+        }
     }
 }
 
