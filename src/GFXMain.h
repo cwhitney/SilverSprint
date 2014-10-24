@@ -12,11 +12,14 @@
 #include "cinder/app/KeyEvent.h"
 
 #include "Model.h"
+#include "GFXGlobal.h"
 #include "SerialReader.h"
 #include "StateManager.h"
 
+#include "NavBarView.h"
 #include "RaceView.h"
 #include "StagingView.h"
+#include "SettingsView.h"
 
 namespace gfx{
 
@@ -26,11 +29,17 @@ namespace gfx{
         ~GFXMain();
         void setup();
         void update();
-        void draw();
+        void draw( const ci::Rectf &drawRect );
+        
+        void resetPlayerData();
         
       private:
+        GFXGlobal       *mGlobal;
+        
+        NavBarView      *mNav;
         RaceView        *mRaceView;
         StagingView     *mStagingView;
+        SettingsView    *mSettingsView;
         
         Model           *mModel;
         SerialReader    *mSerialReader;

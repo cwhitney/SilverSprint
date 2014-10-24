@@ -38,6 +38,8 @@
 		AD255BAC83A64A2B8657EF38 /* PretzelGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98D0C5ABD4994F50B076FB3E /* PretzelGui.cpp */; };
 		BD5076E0728F4C9693AAA8E3 /* PretzelRow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF8C006CC24EEA83226D8E /* PretzelRow.cpp */; };
 		CAFD0190D51A4ED08F92B56D /* PretzelSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF62F0E8A1134FD4B5BD18ED /* PretzelSlider.cpp */; };
+		CB40E28119FAB77F00CCE22A /* NavBarView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB40E27F19FAB77F00CCE22A /* NavBarView.cpp */; };
+		CB505E4319EC805A008C3756 /* RaceText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB505E4119EC805A008C3756 /* RaceText.cpp */; };
 		CBC8865319AE338200F539C3 /* GFXMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8865119AE338200F539C3 /* GFXMain.cpp */; };
 		CBC8865619AE343E00F539C3 /* GFXGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8865419AE343E00F539C3 /* GFXGlobal.cpp */; };
 		CBC8865C19AE60B300F539C3 /* gfxIcn.icns in Resources */ = {isa = PBXBuildFile; fileRef = CBC8865B19AE60B300F539C3 /* gfxIcn.icns */; };
@@ -48,6 +50,8 @@
 		CBC8866C19AFD66A00F539C3 /* SerialReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8866A19AFD66A00F539C3 /* SerialReader.cpp */; };
 		CBC8866F19AFE0A000F539C3 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8866D19AFE0A000F539C3 /* Model.cpp */; };
 		CBC8867319B01C7700F539C3 /* PlayerGfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8867119B01C7700F539C3 /* PlayerGfx.cpp */; };
+		CBFF9D4B19EE165500ABB11C /* CiTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFF9D4919EE165500ABB11C /* CiTextField.cpp */; };
+		CBFF9D4E19EF556000ABB11C /* SettingsView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFF9D4C19EF556000ABB11C /* SettingsView.cpp */; };
 		D80EB1BC18354CD7ACB639CF /* BasePretzel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEC9D58E03174A9EBFDBF254 /* BasePretzel.cpp */; };
 		DD10F4FD52224DCE91832D2A /* PretzelTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7BE26171EAB4E939B12B0F8 /* PretzelTextField.cpp */; };
 		F1FA4F3613014012842F7687 /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D6F47394F4533B949153F /* NetworkingUtils.cpp */; };
@@ -113,6 +117,10 @@
 		C10F5BC54D154DA5B4B92473 /* ScrollPane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = ScrollPane.cpp; path = ../blocks/PretzelGUI/src/components/ScrollPane.cpp; sourceTree = "<group>"; };
 		C3F75CF22DFB4055A92DAFDF /* OscListener.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscListener.cpp; path = ../blocks/OSC/src/OscListener.cpp; sourceTree = "<group>"; };
 		CB2EC211BB024B949E25AF88 /* UdpSocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = UdpSocket.cpp; path = ../blocks/OSC/src/ip/posix/UdpSocket.cpp; sourceTree = "<group>"; };
+		CB40E27F19FAB77F00CCE22A /* NavBarView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NavBarView.cpp; path = ../src/NavBarView.cpp; sourceTree = "<group>"; };
+		CB40E28019FAB77F00CCE22A /* NavBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavBarView.h; path = ../src/NavBarView.h; sourceTree = "<group>"; };
+		CB505E4119EC805A008C3756 /* RaceText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RaceText.cpp; path = ../src/RaceText.cpp; sourceTree = "<group>"; };
+		CB505E4219EC805A008C3756 /* RaceText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RaceText.h; path = ../src/RaceText.h; sourceTree = "<group>"; };
 		CBC8865119AE338200F539C3 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GFXMain.cpp; path = ../src/GFXMain.cpp; sourceTree = "<group>"; };
 		CBC8865219AE338200F539C3 /* GFXMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GFXMain.h; path = ../src/GFXMain.h; sourceTree = "<group>"; };
 		CBC8865419AE343E00F539C3 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GFXGlobal.cpp; path = ../src/GFXGlobal.cpp; sourceTree = "<group>"; };
@@ -132,6 +140,10 @@
 		CBC8866E19AFE0A000F539C3 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../src/Model.h; sourceTree = "<group>"; };
 		CBC8867119B01C7700F539C3 /* PlayerGfx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayerGfx.cpp; path = ../src/PlayerGfx.cpp; sourceTree = "<group>"; };
 		CBC8867219B01C7700F539C3 /* PlayerGfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerGfx.h; path = ../src/PlayerGfx.h; sourceTree = "<group>"; };
+		CBFF9D4919EE165500ABB11C /* CiTextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CiTextField.cpp; sourceTree = "<group>"; };
+		CBFF9D4A19EE165500ABB11C /* CiTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CiTextField.h; sourceTree = "<group>"; };
+		CBFF9D4C19EF556000ABB11C /* SettingsView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SettingsView.cpp; path = ../src/SettingsView.cpp; sourceTree = "<group>"; };
+		CBFF9D4D19EF556000ABB11C /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsView.h; path = ../src/SettingsView.h; sourceTree = "<group>"; };
 		CD149D40AB664EAA82ABC819 /* OscReceivedElements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscReceivedElements.h; path = ../blocks/OSC/src/osc/OscReceivedElements.h; sourceTree = "<group>"; };
 		D2D7791D58BF4BB981930085 /* OscSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscSender.h; path = ../blocks/OSC/src/OscSender.h; sourceTree = "<group>"; };
 		D492778A7C844231888AF832 /* PretzelColorPicker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelColorPicker.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelColorPicker.cpp; sourceTree = "<group>"; };
@@ -406,10 +418,16 @@
 		CBC8865719AE393D00F539C3 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CBFF9D4C19EF556000ABB11C /* SettingsView.cpp */,
+				CBFF9D4D19EF556000ABB11C /* SettingsView.h */,
 				CBC8866219AE717100F539C3 /* RaceView.cpp */,
 				CBC8866319AE717100F539C3 /* RaceView.h */,
 				CBC8866519AE718300F539C3 /* StagingView.cpp */,
 				CBC8866619AE718300F539C3 /* StagingView.h */,
+				CB505E4119EC805A008C3756 /* RaceText.cpp */,
+				CB505E4219EC805A008C3756 /* RaceText.h */,
+				CB40E27F19FAB77F00CCE22A /* NavBarView.cpp */,
+				CB40E28019FAB77F00CCE22A /* NavBarView.h */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -433,6 +451,8 @@
 		CBC8867019B01C1400F539C3 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				CBFF9D4919EE165500ABB11C /* CiTextField.cpp */,
+				CBFF9D4A19EE165500ABB11C /* CiTextField.h */,
 				CBC8867119B01C7700F539C3 /* PlayerGfx.cpp */,
 				CBC8867219B01C7700F539C3 /* PlayerGfx.h */,
 			);
@@ -520,16 +540,19 @@
 				1C6C1CA5EC9D4B3A8F71356B /* OscReceivedElements.cpp in Sources */,
 				1AE18A8C5BD540C8804BF7C4 /* OscTypes.cpp in Sources */,
 				F1FA4F3613014012842F7687 /* NetworkingUtils.cpp in Sources */,
+				CB505E4319EC805A008C3756 /* RaceText.cpp in Sources */,
 				08C3CCF51507498C98024F75 /* UdpSocket.cpp in Sources */,
 				AD255BAC83A64A2B8657EF38 /* PretzelGui.cpp in Sources */,
 				CBC8867319B01C7700F539C3 /* PlayerGfx.cpp in Sources */,
 				8F5D400349B747D2B4250191 /* PretzelGlobal.cpp in Sources */,
 				682D6A0B246C493980DBE504 /* PretzelButton.cpp in Sources */,
+				CB40E28119FAB77F00CCE22A /* NavBarView.cpp in Sources */,
 				A6A010EAAB134DF0820F34B0 /* PretzelColorPicker.cpp in Sources */,
 				8E1AF22A39774B8CAB42C131 /* PretzelLabel.cpp in Sources */,
 				3146A61537BA437F8F09C3A1 /* PretzelSaveLoad.cpp in Sources */,
 				CBC8866F19AFE0A000F539C3 /* Model.cpp in Sources */,
 				CAFD0190D51A4ED08F92B56D /* PretzelSlider.cpp in Sources */,
+				CBFF9D4B19EE165500ABB11C /* CiTextField.cpp in Sources */,
 				CBC8866119AE64F100F539C3 /* StateManager.cpp in Sources */,
 				CBC8866719AE718300F539C3 /* StagingView.cpp in Sources */,
 				DD10F4FD52224DCE91832D2A /* PretzelTextField.cpp in Sources */,
@@ -538,6 +561,7 @@
 				BD5076E0728F4C9693AAA8E3 /* PretzelRow.cpp in Sources */,
 				9EBB05BC490549CE8EA5A790 /* ScrollPane.cpp in Sources */,
 				CBC8866419AE717100F539C3 /* RaceView.cpp in Sources */,
+				CBFF9D4E19EF556000ABB11C /* SettingsView.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

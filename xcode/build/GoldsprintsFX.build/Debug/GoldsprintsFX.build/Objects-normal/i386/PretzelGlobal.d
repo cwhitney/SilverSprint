@@ -264,5 +264,5 @@ dependencies: \
   ../../../../boost/boost/intrusive/linear_slist_algorithms.hpp \
   ../../../../boost/boost/container/detail/allocation_type.hpp \
   ../../../../boost/boost/container/detail/destroyers.hpp \
-  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/../include/Resources.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/Resources.h \
   ../../../../include/cinder/CinderResources.h

@@ -14,22 +14,26 @@ using namespace std;
 using namespace gfx;
 
 SerialReader::SerialReader() :
-    BAUD_RATE(115200),
+//    BAUD_RATE(115200),
+    BAUD_RATE(9600),
     bSerialConnected(false),
     mStringBuffer(""),
     mHardwareVersion(""),
     mProtoculVersion(""),
     mFirmwareVersion(""),
-    bMockEnabled(false) {
-    
-        
+    bMockEnabled(false),
+    mSerial(NULL) {
+ 
 }
 
 SerialReader::~SerialReader(){
     stopRace();
-    resetHardwareToDefault();
     
-    delete mSerial;
+    if(mSerial != NULL ){
+        try{
+            delete mSerial;
+        }catch(...){}
+    }
 }
 
 void SerialReader::setup(){
@@ -50,9 +54,9 @@ void SerialReader::setup(){
         console() << "GoldsprintsFx :: OpenSprints hardware found successfully. :: " << dev.getName() << endl;
         bSerialConnected = true;
         
-        getHardwareVersion();
-        getProtoculVersion();
-        getFirmwareVersion();
+//        getHardwareVersion();
+//        getProtoculVersion();
+//        getFirmwareVersion();
 	}
 	catch( ... ) {
 		console() << "GoldsprintsFx :: Couldn't connect to the OpenSprints hardware." << std::endl;
@@ -66,51 +70,66 @@ void SerialReader::update() {
 }
 
 void SerialReader::pingSensor() {
-    mSerial->writeString("!a:12345\n");
+    mSerial->writeString("a:12345\n");
 }
 
 void SerialReader::startRace(){
-    getRaceLength();
+//    getRaceLength();
     
-    mSerial->writeString("!g\n");
+    sendSerialMessage("g");
 }
 
 void SerialReader::stopRace(){
-    mSerial->writeString("!s\n");
+    sendSerialMessage("s");
 }
 
 void SerialReader::resetHardwareToDefault(){
-    mSerial->writeString("!defaults\n");
+//    sendSerialMessage("defaults\n");
 }
 
 void SerialReader::setRaceDuration(int numSeconds){
-    mSerial->writeString("!t:" + to_string(numSeconds) + "\n");
+    sendSerialMessage("t:" + to_string(numSeconds) );
 }
 
 void SerialReader::getHardwareVersion(){
-    mSerial->writeString("!hw\n");
+    sendSerialMessage("hw");
 }
 
 void SerialReader::getProtoculVersion(){
-    mSerial->writeString("!p\n");
+    sendSerialMessage("p");
 }
 
 void SerialReader::getFirmwareVersion(){
-    mSerial->writeString("!v\n");
+    sendSerialMessage("v");
+}
+
+void SerialReader::setRaceLengthTicks( int numTicks ){
+//    console() << "Serial :: set num ticks " << numTicks << endl;
+//    mSerial->writeString("l:" + to_string(numTicks) + "\n");
+    sendSerialMessage( "l"+to_string(numTicks) );
 }
 
 void SerialReader::getRaceLength() {
-    mSerial->writeString("!getlen\n");
+//    mSerial->writeString("getlen\n");
 }
 
 void SerialReader::setMockMode( bool enabled ){
     bMockEnabled = enabled;
-    string mockStr = "!m:" + (string)((bMockEnabled) ? "ON" : "OFF") + "\n";
-    mSerial->writeString(mockStr);
+//    string mockStr = "m:" + (string)((bMockEnabled) ? "ON" : "OFF") + "\n";
+//    mSerial->writeString(mockStr);
+    sendSerialMessage("m");
 }
 
 void SerialReader::setCountdown( int numCountdownSeconds ){
-    mSerial->writeString("!c:" + to_string(numCountdownSeconds) + "\n");
+    sendSerialMessage("c:" + to_string(numCountdownSeconds) );
+}
+
+void SerialReader::sendSerialMessage( std::string msg ){
+    if( bSerialConnected ){
+        mSerial->writeString(msg + "\n" );
+    }else{
+        console() << "SerialReader :: ERROR :: Hardware not connected" << endl;
+    }
 }
 
 void SerialReader::readSerial(){
@@ -142,29 +161,40 @@ void SerialReader::parseCommand(std::string command){
         std::string args = "";
         if( strs.size() > 1){
             args = strs[1];
-            boost::trim(args);
+//            boost::trim(args);
         }
+        
+        boost::to_upper(cmd);
+        boost::to_upper(args);
         
         if( cmd == ""){
             return;
         }
         
-        // ------------------------------------------------------------------------------
-        // RACE PROGRESS
-        if( cmd == "0f"){
-            mModel->playerData[0]->setFinished( fromString<int>(args) );
+        if( cmd == "F"){
+            console() << "RACER FINISHED" << endl;
         }
-        else if( cmd == "1f"){
-            mModel->playerData[1]->setFinished( fromString<int>(args) );
-        }
-        else if( cmd == "2f"){
-            mModel->playerData[2]->setFinished( fromString<int>(args) );
-        }
-        else if( cmd == "3f"){
-            mModel->playerData[3]->setFinished( fromString<int>(args) );
-        }
+        
         // ------------------------------------------------------------------------------
         // RACE FINISH
+        if( cmd == "0F"){
+            mModel->playerData[0]->setFinished( fromString<int>(args) );
+            console() << "RACER 1 FINISHED " << args << endl;
+        }
+        else if( cmd == "1F"){
+            mModel->playerData[1]->setFinished( fromString<int>(args) );
+            console() << "RACER 2 FINISHED " << args << endl;
+        }
+        else if( cmd == "2F"){
+            mModel->playerData[2]->setFinished( fromString<int>(args) );
+            console() << "RACER 3 FINISHED " << args << endl;
+        }
+        else if( cmd == "3F"){
+            mModel->playerData[3]->setFinished( fromString<int>(args) );
+            console() << "RACER 4 FINISHED " << args << endl;
+        }
+        // ------------------------------------------------------------------------------
+        // RACE PROGRESS
         else if( cmd == "0"){
             mModel->playerData[0]->curRaceTicks = fromString<int>(args);
         }
@@ -177,7 +207,7 @@ void SerialReader::parseCommand(std::string command){
         else if( cmd == "3"){
             mModel->playerData[3]->curRaceTicks = fromString<int>(args);
         }
-        else if( cmd == "t"){
+        else if( cmd == "T"){
             mModel->elapsedRaceTimeMillis = fromString<int>(args);
         }
         
@@ -208,7 +238,7 @@ void SerialReader::parseCommand(std::string command){
             mHardwareVersion = args;
         }
         else if( cmd == "L"){
-            mModel->setRaceLength( fromString<int>(args) );
+//            mModel->setRaceLengthMeters( fromString<int>(args) );
             console() << "SerialReader :: Race Length " << args << endl;
         }
         else if( cmd == "M"){

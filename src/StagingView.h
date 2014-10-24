@@ -15,6 +15,9 @@
 #include "PretzelGui.h"
 #include "StateManager.h"
 #include "Model.h"
+#include "GFXGlobal.h"
+
+#include "CiTextField.h"
 
 namespace gfx{
 
@@ -28,12 +31,18 @@ namespace gfx{
         void start();
         void stop();
         
+        void animateIn();
+        void animateOut();
+        
       private:
         void onStateChange(GFX_STATE newState);
+        
+        std::vector<CiTextField*>   mPlayerNames;
         
         ci::gl::TextureRef  mBg;
         StateManager        *mStateManager;
         Model               *mModel;
+        gfx::GFXGlobal      *mGlobal;
         
         Pretzel::PretzelGui          *gui;
         

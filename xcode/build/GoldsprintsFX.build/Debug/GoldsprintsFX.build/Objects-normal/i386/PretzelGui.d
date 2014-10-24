@@ -3,7 +3,7 @@ dependencies: \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/pretzel/PretzelGui.h \
   ../../../../include/cinder/app/AppNative.h \
   ../../../../include/cinder/gl/Texture.h \
-  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/../include/Resources.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/Resources.h \
   ../../../../include/cinder/CinderResources.h \
   ../blocks/PretzelGUI/src/pretzel/PretzelGlobal.h \
   ../../../../include/cinder/gl/TextureFont.h \

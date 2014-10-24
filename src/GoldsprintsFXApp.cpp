@@ -42,16 +42,19 @@ void GoldsprintsFXApp::shutdown(){
 }
 
 void GoldsprintsFXApp::keyDown( KeyEvent event ){
-    if( event.getChar() == 'f' ){
-        setFullScreen( !isFullScreen() );
-    }
-    
-    else if( event.getChar() == '1' ){
-        StateManager::getInstance()->changeState( GFX_STATE::IDLE );
-    }
-    
-    else if( event.getChar() == '2' ){
-        StateManager::getInstance()->changeState( GFX_STATE::STAGING );
+    if( event.isAccelDown() ){
+        if( event.getChar() == 'f' ){
+            setFullScreen( !isFullScreen() );
+        }
+        else if( event.getChar() == '1' ){
+            StateManager::getInstance()->changeState( GFX_STATE::IDLE );
+        }
+        else if( event.getChar() == '2' ){
+            StateManager::getInstance()->changeState( GFX_STATE::ROSTER );
+        }
+        else if( event.getChar() == '3' ){
+            StateManager::getInstance()->changeState( GFX_STATE::SETTINGS );
+        }
     }
 }
 
@@ -63,7 +66,23 @@ void GoldsprintsFXApp::draw() {
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     
-    mGfxMain->draw();
+    gl::pushMatrices();{
+        Rectf originalSize(0,0,1920,1080);
+        Rectf scaledFit = originalSize.getCenteredFit(getWindowBounds(), true);
+        
+        float hScale = getWindowWidth() / originalSize.getWidth();
+        float vScale = getWindowHeight() / originalSize.getHeight();
+        
+        float scaleAmt = ( hScale < vScale ) ? hScale : vScale;
+        
+        gl::translate( Vec2f(scaledFit.x1, 0) );
+        gl::scale(scaleAmt, scaleAmt);
+        
+        
+        mGfxMain->draw( scaledFit );
+    }gl::popMatrices();
+    
+    gl::drawString( to_string(getAverageFps()), Vec2f(10,10) );
 }
 
 CINDER_APP_NATIVE( GoldsprintsFXApp, RendererGl )

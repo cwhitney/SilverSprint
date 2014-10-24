@@ -3,9 +3,6 @@ dependencies: \
   ../../../../include/cinder/app/AppNative.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXMain.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.h \
-  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/../include/PlayerData.h \
-  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.h \
-  ../../../../include/cinder/Serial.h \
   ../../../../include/cinder/Utilities.h \
   ../../../../boost/boost/lexical_cast.hpp \
   ../../../../boost/boost/detail/lcast_precision.hpp \
@@ -136,6 +133,13 @@ dependencies: \
   ../../../../boost/boost/math/special_functions/fpclassify.hpp \
   ../../../../boost/boost/math/tools/real_cast.hpp \
   ../../../../boost/boost/container/container_fwd.hpp \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/PlayerData.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXGlobal.h \
+  ../../../../include/cinder/gl/TextureFont.h \
+  ../../../../include/cinder/Text.h \
+  ../../../../include/cinder/gl/Texture.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SerialReader.h \
+  ../../../../include/cinder/Serial.h \
   ../../../../boost/boost/algorithm/string.hpp \
   ../../../../boost/boost/algorithm/string/std_containers_traits.hpp \
   ../../../../boost/boost/algorithm/string/std/string_traits.hpp \
@@ -188,15 +192,15 @@ dependencies: \
   ../../../../boost/boost/algorithm/string/detail/formatter.hpp \
   ../../../../boost/boost/algorithm/string/erase.hpp \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StateManager.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/NavBarView.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.h \
-  ../../../../include/cinder/gl/Texture.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceText.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.h \
-  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/../blocks/PretzelGUI/src/pretzel/PretzelGui.h \
-  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/../include/Resources.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/blocks/PretzelGUI/src/pretzel/PretzelGui.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/Resources.h \
   ../../../../include/cinder/CinderResources.h \
   ../blocks/PretzelGUI/src/pretzel/PretzelGlobal.h \
-  ../../../../include/cinder/gl/TextureFont.h \
-  ../../../../include/cinder/Text.h ../../../../include/cinder/Json.h \
+  ../../../../include/cinder/Json.h \
   ../../../../boost/boost/container/list.hpp \
   ../../../../boost/boost/container/detail/config_begin.hpp \
   ../../../../boost/boost/container/detail/workaround.hpp \
@@ -290,4 +294,6 @@ dependencies: \
   ../../../../include/cinder/Timeline.h \
   ../../../../include/cinder/TimelineItem.h \
   ../../../../include/cinder/Easing.h ../../../../include/cinder/Tween.h \
-  ../../../../include/cinder/ip/Fill.h
+  ../../../../include/cinder/ip/Fill.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/CiTextField.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SettingsView.h

@@ -36,8 +36,6 @@ namespace gfx {
         }
         
         double getMph(){
-            
-            
             return mph;
         }
         
@@ -51,8 +49,7 @@ namespace gfx {
         }
         
         double getDistance(){
-            double wheelDiameter = 672.0; // millimeters
-            double oneTickMeters = wheelDiameter * M_PI / 1000.0;
+            double oneTickMeters = rollerCircumfMm / 1000.0;
             
             if( curRaceTicks > totalRaceTicks ){
                 curRaceTicks = totalRaceTicks;
@@ -68,16 +65,21 @@ namespace gfx {
             finishTimeMillis = finalTimeMillis;
         }
         
+        void setRollerDiameter( float diameterMm ){
+            rollerCircumfMm = diameterMm * M_PI;
+        }
+        
         std::string player_name;
         int curRaceTicks;
         int totalRaceTicks;
+        double      finishTimeMillis;
         
       private:
         
         bool        bFinishedRace;
-        double      finishTimeMillis;
         double      pctComplete;
         double      mph;
+        float       rollerCircumfMm;
     };
 
 }

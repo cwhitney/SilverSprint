@@ -14,9 +14,9 @@ namespace gfx{
 
     enum GFX_STATE {
         IDLE = 0,
-        STAGING,
+        ROSTER,
         RACING,
-        STOPPED
+        SETTINGS
     };
 
     class StateManager {

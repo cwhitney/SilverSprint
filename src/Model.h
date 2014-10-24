@@ -9,6 +9,7 @@
 #pragma once
 
 #include "cinder/app/AppNative.h"
+#include "cinder/Utilities.h"
 
 #include "PlayerData.h"
 
@@ -16,9 +17,11 @@ namespace gfx{
     class Model {
       public:
         static Model* getInstance();
-        void setRaceLength(int ticks);
+        void setRaceLengthMeters( float meters );
+        int getRaceLengthTicks(){ return totalRaceTicks; }
         
         int                             elapsedRaceTimeMillis;
+        std::string                     rollerDiameterMm;
         std::vector<gfx::PlayerData*>   playerData;
         
       private:
@@ -28,6 +31,9 @@ namespace gfx{
         Model(Model const&){};
         
         static Model    *mInstance;
-        int             totalRaceTicks;
+        
+        void    setRaceLength(int ticks);
+        int     totalRaceTicks;
+        float   raceLengthMeters;
     };
 }

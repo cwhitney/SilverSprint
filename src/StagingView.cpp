@@ -19,26 +19,60 @@ StagingView::StagingView() : bVisible(false) {
 
 void StagingView::setup(){
     mModel = Model::getInstance();
+    mGlobal = gfx::GFXGlobal::getInstance();
     
-    mBg = gl::Texture::create( loadImage( loadAsset("stagingBackground.png") ) );
+//    mBg = gl::Texture::create( loadImage( loadAsset("stagingBackground.png") ) );
+    mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     mStateManager = StateManager::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&StagingView::onStateChange, this, std::placeholders::_1) );
     
-    gui = new Pretzel::PretzelGui("Player settings");
-    gui->addTextField("Player 1 name", &mModel->playerData[0]->player_name);
-    gui->addTextField("Player 2 name", &mModel->playerData[1]->player_name);
-    gui->addTextField("Player 3 name", &mModel->playerData[2]->player_name);
-    gui->addTextField("Player 4 name", &mModel->playerData[3]->player_name);
+//    gui = new Pretzel::PretzelGui("Player settings");
+//    gui->addTextField("Player 1 name", &mModel->playerData[0]->player_name);
+//    gui->addTextField("Player 2 name", &mModel->playerData[1]->player_name);
+//    gui->addTextField("Player 3 name", &mModel->playerData[2]->player_name);
+//    gui->addTextField("Player 4 name", &mModel->playerData[3]->player_name);
+//    gui->addTextField("Roller Diameter", &mModel->rollerDiameterMm );
+    
+    for( int i=0; i<4; i++){
+        float yPos = 190 + 183 * i;
+        
+        CiTextField *tf = new CiTextField("Player 1", Rectf(574, yPos, 574 + 910, yPos+150), ci::Font("Helvetica", 70) );
+        tf->mColorStroke = mGlobal->playerColors[i];
+        tf->mColorFill = mGlobal->playerColors[i];
+        tf->mColorText = Color::black();
+        tf->padding = Vec2f(30,30);
+        
+        tf->bUseScissorTest = false;
+        mPlayerNames.push_back(tf);
+    }
 }
 
 void StagingView::onStateChange(GFX_STATE newState){
-    console() << "Staging view :: state change :: " << (newState == GFX_STATE::STAGING) << endl;
-    
-    if( newState == GFX_STATE::STAGING ){
-        bVisible = true;
+    if( newState == GFX_STATE::ROSTER ){
+        animateIn();
     }else{
-        bVisible = false;
+        animateOut();
     }
+}
+
+void StagingView::animateIn(){
+    if( bVisible ){
+        return;
+    }
+    
+    bVisible = true;
+}
+
+void StagingView::animateOut(){
+    if(!bVisible){
+        return;
+    }
+    
+    for( int i=0; i<mPlayerNames.size(); i++ ){
+        mModel->playerData[i]->player_name = mPlayerNames[i]->getText();
+    }
+    
+    bVisible = false;
 }
 
 void StagingView::update(){
@@ -63,5 +97,9 @@ void StagingView::draw(){
         gl::draw( mBg );
     }
     
-    gui->draw();
+    for(int i=0; i<mPlayerNames.size(); i++){
+        mPlayerNames[i]->draw();
+    }
+    
+//    gui->draw();
 }

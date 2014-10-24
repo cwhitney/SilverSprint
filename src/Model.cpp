@@ -17,7 +17,9 @@ Model* Model::mInstance = NULL;
 
 Model::Model(){
     elapsedRaceTimeMillis = 0;
-    totalRaceTicks = 500;
+    raceLengthMeters = 50;
+    rollerDiameterMm = "82.55"; // This is 3.25 inches in mm
+    totalRaceTicks = 0;
     
     for( int i=0; i<4; i++){
         playerData.push_back( new PlayerData() );
@@ -27,6 +29,8 @@ Model::Model(){
     playerData[1]->player_name = "Player 2";
     playerData[2]->player_name = "Player 3";
     playerData[3]->player_name = "Player 4";
+    
+    setRaceLengthMeters( raceLengthMeters );
 }
 
 Model::~Model(){
@@ -45,6 +49,15 @@ Model * Model::getInstance(){
 }
 
 // --------------------------------------------------------------------
+
+void Model::setRaceLengthMeters( float meters ){
+    raceLengthMeters = meters;
+    
+    float totalDistMm = meters * 1000.0;
+    float oneRollerRev = ci::fromString<float>(rollerDiameterMm) * M_PI;
+    int numTicks =  floor(totalDistMm / oneRollerRev);
+    setRaceLength( numTicks );
+}
 
 void Model::setRaceLength(int ticks) {
     console() << "Set race ticks " << ticks << endl;

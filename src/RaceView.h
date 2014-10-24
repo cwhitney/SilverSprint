@@ -14,6 +14,8 @@
 
 #include "StateManager.h"
 #include "Model.h"
+#include "RaceText.h"
+#include "GFXGlobal.h"
 
 namespace gfx{
 
@@ -26,10 +28,15 @@ namespace gfx{
         
       private:
         void onStateChange(GFX_STATE newState);
-            
-        ci::gl::TextureRef  mBg;
+        
+        ci::gl::TextureRef  mBg, mDial;
         StateManager        *mStateManager;
         Model               *mModel;
+        gfx::GFXGlobal      *mGlobal;
+        
+        std::vector<ci::gl::TextureRef> mNeedles;
+        
+        std::vector<RaceText*>  mRaceTexts;
         
         bool    bVisible;
     };

@@ -186,4 +186,4 @@ dependencies: \
   ../../../../boost/boost/algorithm/string/erase.hpp \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StateManager.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.h \
-  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/../include/PlayerData.h
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/include/PlayerData.h

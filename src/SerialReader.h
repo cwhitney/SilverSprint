@@ -25,23 +25,29 @@ namespace gfx {
         void setup();
         void update();
         
-        void setCountdown( int numCountdownSeconds );
-        void setRaceDuration( int );
         void startRace();
         void stopRace();
+        
         void resetHardwareToDefault();
+        void pingSensor();
+        
         void getHardwareVersion();
         void getProtoculVersion();
         void getFirmwareVersion();
-        void setMockMode( bool enabled=true );
-        void pingSensor();
         void getRaceLength();
+        
+        void setCountdown( int numCountdownSeconds );
+        void setRaceDuration( int );
+        void setRaceLengthTicks( int numTicks );
+        void setMockMode( bool enabled=true );
+        
         
       private:
         StateManager        *mStateManager;
         Model               *mModel;
         
         void                readSerial();
+        void                sendSerialMessage( std::string msg );
         void                parseCommand( std::string command );
         
         int                 BAUD_RATE;

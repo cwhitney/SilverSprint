@@ -18,16 +18,25 @@ RaceView::RaceView() : bVisible(false) {
 }
 
 void RaceView::setup(){
-    mBg = gl::Texture::create( loadImage( loadAsset("raceBackground.png") ) );
+//    mBg = gl::Texture::create( loadImage( loadAsset("img/guide_01.png") ) );
+    mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
+    
+    mGlobal = gfx::GFXGlobal::getInstance();
+    
+    for(int i=0; i<4; i++){
+        mNeedles.push_back( gl::Texture::create( loadImage(loadAsset("needle.png")) ) );
+        mRaceTexts.push_back( new RaceText( mGlobal->playerColors[i] ) );
+    }
+    
+    mDial = gl::Texture::create( loadImage(loadAsset("img/dial_bg.png")) );
+    
     mStateManager = StateManager::getInstance();
     mModel = Model::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&RaceView::onStateChange, this, std::placeholders::_1) );
 }
 
 void RaceView::onStateChange(GFX_STATE newState){
-    console() << "Raceview :: State change :: " << (newState != GFX_STATE::STAGING) << endl;
-    
-    if( newState != GFX_STATE::STAGING ){
+    if( newState == GFX_STATE::IDLE || newState == GFX_STATE::RACING ){
         bVisible = true;
     }else{
         bVisible = false;
@@ -48,32 +57,17 @@ void RaceView::draw(){
         gl::draw( mBg );
     }
     
-    if( mStateManager->getCurrentState() == GFX_STATE::RACING){
+    if( mStateManager->getCurrentState() == GFX_STATE::RACING || true){
         
         for( int i=0; i<4; i++){
             PlayerData *pd = Model::getInstance()->playerData[i];
+            mRaceTexts[i]->draw( pd, Vec2f(0, 390 + 102*i) );
             
-            gl::pushMatrices();{
-                gl::translate(917, 180*i + 30);
-                
-                if( pd->didFinishRace() ){
-                    gl::color( Color::white() );
-                }else{
-                    gl::color( Color::gray(0.8) );
-                }
-                gl::drawSolidRect( Rectf(0,0,300,150) );
-                
-                gl::color( Color::black() );
-                gl::drawString(pd->player_name, Vec2f(20,20), Color::black() );
-                gl::drawString("Dist: " + to_string( pd->getDistance() ), Vec2f(20,40), Color::black() );
-                gl::drawString( to_string(pd->getMph()) + " mph", Vec2f(20,60), Color::black() );
-                
-            }gl::popMatrices();
-            
-            gl::drawString("RaceTime :: " + to_string(mModel->elapsedRaceTimeMillis), Vec2f(10,10), Color::black() );
+//            gl::drawString("RaceTime :: " + to_string(mModel->elapsedRaceTimeMillis), Vec2f(10,10), Color::black() );
         }
+        
+        gl::draw( mDial, mDial->getSize() * -0.5 + Vec2f(967, 580) );
     }
 }
-
 
 
