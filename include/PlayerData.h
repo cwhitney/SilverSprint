@@ -60,6 +60,10 @@ namespace gfx {
             return distMeters;
         }
         
+        bool isFinished(){
+            return bFinishedRace;
+        }
+        
         void setFinished( int finalTimeMillis ){
             bFinishedRace = true;
             finishTimeMillis = finalTimeMillis;

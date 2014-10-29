@@ -150,6 +150,16 @@ void SerialReader::readSerial(){
     }
 }
 
+bool SerialReader::isRaceFinished() {
+    for( int i=0; i<mModel->playerData.size(); i++){
+        if( !mModel->playerData[0]->isFinished() ){
+            return false;
+        }
+    }
+        
+    return true;
+}
+
 void SerialReader::parseCommand(std::string command){
     if( command == "NACK" ){
         console() << "SerialReader :: Bad command" << endl;
@@ -180,18 +190,22 @@ void SerialReader::parseCommand(std::string command){
         if( cmd == "0F"){
             mModel->playerData[0]->setFinished( fromString<int>(args) );
             console() << "RACER 1 FINISHED " << args << endl;
+            if( isRaceFinished() ){ stopRace(); }
         }
         else if( cmd == "1F"){
             mModel->playerData[1]->setFinished( fromString<int>(args) );
             console() << "RACER 2 FINISHED " << args << endl;
+            if( isRaceFinished() ){ stopRace(); }
         }
         else if( cmd == "2F"){
             mModel->playerData[2]->setFinished( fromString<int>(args) );
             console() << "RACER 3 FINISHED " << args << endl;
+            if( isRaceFinished() ){ stopRace(); }
         }
         else if( cmd == "3F"){
             mModel->playerData[3]->setFinished( fromString<int>(args) );
             console() << "RACER 4 FINISHED " << args << endl;
+            if( isRaceFinished() ){ stopRace(); }
         }
         // ------------------------------------------------------------------------------
         // RACE PROGRESS

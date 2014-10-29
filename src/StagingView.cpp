@@ -28,7 +28,7 @@ void StagingView::setup(){
     for( int i=0; i<4; i++){
         float yPos = 190 + 183 * i;
         
-        CiTextField *tf = new CiTextField("Player 1", Rectf(574, yPos, 574 + 910, yPos+150), ci::Font("Helvetica", 70) );
+        CiTextField *tf = new CiTextField("Player "+to_string(i+1), Rectf(574, yPos, 574 + 910, yPos+150), ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 75) );
         tf->mColorStroke = mGlobal->playerColors[i];
         tf->mColorFill = mGlobal->playerColors[i];
         tf->mColorText = Color::black();
@@ -58,7 +58,7 @@ void StagingView::onKeyDown( ci::app::KeyEvent event ) {
                 break;
             }
         }
-        if( i == mPlayerNames.size() ){ // nothign selected. so select the first field
+        if( i == mPlayerNames.size() ){ // nothing selected. so select the first field
             mPlayerNames[0]->focus(true);
         }
     }

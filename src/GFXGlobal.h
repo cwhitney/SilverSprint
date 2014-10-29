@@ -32,9 +32,9 @@ namespace gfx {
             ci::Color::hex(0xe1b909)
         };
         
-        
         ci::Vec2f   localToGlobal( ci::Vec2f pos );
         void setScale( const ci::Rectf &scaledRect );
+        std::string toTimestamp( int millis );
         
         RACE_TYPE currentRaceType;
         

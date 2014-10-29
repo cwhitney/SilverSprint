@@ -29,16 +29,14 @@ namespace gfx{
       private:
         void onStateChange(GFX_STATE newState);
         
-        ci::gl::TextureRef  mBg, mDial;
+        ci::gl::TextureRef  mBg, mDial, mFinishFlag, mProgLine;
         StateManager        *mStateManager;
         Model               *mModel;
         gfx::GFXGlobal      *mGlobal;
         
-        std::vector<ci::gl::TextureRef> mNeedles;
-        
         std::vector<RaceText*>  mRaceTexts;
-        
         bool    bVisible;
+        
+        ci::gl::TextureFontRef      mTimerFont;
     };
-
 }

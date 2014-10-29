@@ -69,3 +69,5 @@ class CiTextField {
                                         mKeyDownCb,
                                         mKeyUpCb;
 };
+
+typedef std::shared_ptr<CiTextField> CiTextFieldRef;

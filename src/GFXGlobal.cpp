@@ -19,7 +19,7 @@ GFXGlobal * GFXGlobal::getInstance(){
     if (!mInstance){
         mInstance = new GFXGlobal();
         
-        mInstance->uiFont = ci::Font( "Helvetica", 35 );
+        mInstance->uiFont = ci::Font( loadAsset("fonts/UbuntuMono-R.ttf"), 35 );
         mInstance->texFont = gl::TextureFont::create( mInstance->uiFont );
         mInstance->currentRaceType = RACE_TYPE::RACE_TYPE_TIME;
     }
@@ -36,4 +36,24 @@ void GFXGlobal::setScale( const ci::Rectf &scaledRect ){
 
 ci::Vec2f GFXGlobal::localToGlobal( ci::Vec2f pos ){
     return (Vec2f(pos - mScreenOffset) / mScreenScale);
+}
+
+std::string addZ(int n) {
+    return (n<10? "0":"") + to_string(n);
+}
+
+std::string GFXGlobal::toTimestamp( int millis ){
+    //    millis = 755020;
+    
+    int ms = millis % 1000;
+    millis = (millis - ms) / 1000;
+    int secs = millis % 60;
+    millis = (millis - secs) / 60;
+    int mins = millis % 60;
+    
+    while( ms > 100 ){
+        ms = floor(ms / 10);
+    }
+    
+    return addZ(mins) + ":" + addZ(secs) + ":" + addZ(ms);
 }

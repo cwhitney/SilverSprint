@@ -82,7 +82,7 @@ void GoldsprintsFXApp::draw() {
         mGfxMain->draw( scaledFit );
     }gl::popMatrices();
     
-    gl::drawString( to_string(getAverageFps()), Vec2f(10,10) );
+//    gl::drawString( to_string(getAverageFps()), Vec2f(10,10) );
 }
 
 CINDER_APP_NATIVE( GoldsprintsFXApp, RendererGl )

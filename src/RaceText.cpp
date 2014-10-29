@@ -27,28 +27,6 @@ std::string RaceText::toDec( float num, int decPlaces ) {
     return buffer.str();
 }
 
-std::string addZ(int n) {
-    return (n<10? "0":"") + to_string(n);
-}
-
-std::string RaceText::toTimestamp( int millis ){
-//    millis = 755020;
-    
-    int ms = millis % 1000;
-    millis = (millis - ms) / 1000;
-    int secs = millis % 60;
-    millis = (millis - secs) / 60;
-    int mins = millis % 60;
-    
-    while( ms > 100 ){
-        ms = floor(ms / 10);
-    }
-
-    return addZ(mins) + ":" + addZ(secs) + ":" + addZ(ms);
-
-//    return addZ(hrs) + ":" + addZ(mins) + ":" + addZ(secs) + "." + ms;
-}
-
 void RaceText::draw( gfx::PlayerData *data, ci::Vec2f offset ){
     
     gl::pushMatrices();{
@@ -80,16 +58,16 @@ void RaceText::draw( gfx::PlayerData *data, ci::Vec2f offset ){
         boost::to_upper(data->player_name);
         mGlobal->texFont->drawString(data->player_name, Vec2f(20, 44) );
         
-//        gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", Vec2f(1430,28), Color::white(), mGlobal->uiFont );
+        gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", Vec2f(1430,20), Color::white(), mGlobal->uiFont );
         
         if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_DISTANCE){
 //            gl::drawString( toDec(data->getDistance(), 2) + " M", Vec2f(1485,28), Color::white(), mGlobal->uiFont );
         }else if(mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME){
             
             if( data->didFinishRace() ){
-                mGlobal->texFont->drawString(toTimestamp( data->finishTimeMillis ), Vec2f(1500,44) );
+                mGlobal->texFont->drawString(mGlobal->toTimestamp( data->finishTimeMillis ), Vec2f(1500,44) );
             }else{
-                mGlobal->texFont->drawString(toTimestamp( mModel->elapsedRaceTimeMillis ), Vec2f(1500,44) );
+                mGlobal->texFont->drawString(mGlobal->toTimestamp( mModel->elapsedRaceTimeMillis ), Vec2f(1500,44) );
             }
         }
         

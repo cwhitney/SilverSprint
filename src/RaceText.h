@@ -22,7 +22,6 @@ namespace gfx{
         
       private:
         std::string toDec( float num, int decPlaces );
-        std::string toTimestamp( int millis );
         
         ci::Color mColor;
         gfx::GFXGlobal  *mGlobal;

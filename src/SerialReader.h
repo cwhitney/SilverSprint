@@ -43,6 +43,8 @@ namespace gfx {
         
         
       private:
+        bool                isRaceFinished();
+        
         StateManager        *mStateManager;
         Model               *mModel;
         

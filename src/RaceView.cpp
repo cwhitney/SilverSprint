@@ -18,13 +18,13 @@ RaceView::RaceView() : bVisible(false) {
 }
 
 void RaceView::setup(){
-//    mBg = gl::Texture::create( loadImage( loadAsset("img/guide_01.png") ) );
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
+    mFinishFlag = gl::Texture::create( loadImage( loadAsset("img/finishFlag.png") ) );
+    mProgLine = gl::Texture::create( loadImage( loadAsset("img/progLine.png") ) );
     
     mGlobal = gfx::GFXGlobal::getInstance();
     
     for(int i=0; i<4; i++){
-        mNeedles.push_back( gl::Texture::create( loadImage(loadAsset("needle.png")) ) );
         mRaceTexts.push_back( new RaceText( mGlobal->playerColors[i] ) );
     }
     
@@ -33,6 +33,8 @@ void RaceView::setup(){
     mStateManager = StateManager::getInstance();
     mModel = Model::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&RaceView::onStateChange, this, std::placeholders::_1) );
+    
+    mTimerFont = ci::gl::TextureFont::create( ci::Font(loadAsset("fonts/UbuntuMono-B.ttf"), 50) );
 }
 
 void RaceView::onStateChange(GFX_STATE newState){
@@ -56,17 +58,37 @@ void RaceView::draw(){
         gl::color(1,1,1);
         gl::draw( mBg );
     }
+
+    gl::drawSolidRect( Rectf(834,105,834+260,105+185) );    // big white rect
+    gl::drawSolidRect( Rectf(60,133,1870,135) );            // white line
     
     if( mStateManager->getCurrentState() == GFX_STATE::RACING || true){
-        
         for( int i=0; i<4; i++){
             PlayerData *pd = Model::getInstance()->playerData[i];
             mRaceTexts[i]->draw( pd, Vec2f(0, 390 + 102*i) );
-            
-//            gl::drawString("RaceTime :: " + to_string(mModel->elapsedRaceTimeMillis), Vec2f(10,10), Color::black() );
         }
         
+        gl::color(0,0,0,1);
+        mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis), Vec2f(867,154) );
+        
+        gl::color(1,1,1,1);
         gl::draw( mDial, mDial->getSize() * -0.5 + Vec2f(967, 580) );
+        
+        for( int i=0; i<4; i++){
+            PlayerData *pd = Model::getInstance()->playerData[i];
+            gl::pushMatrices();{
+                gl::translate( Vec2f(967, 608) );
+                gl::rotate( 360.0 * pd->getPercent() );
+                gl::translate( Vec2f(mProgLine->getWidth()*-0.5 + 2, -mProgLine->getHeight() - 42 ) );
+                gl::color( mGlobal->playerColors[i] );
+                gl::draw( mProgLine );
+            }gl::popMatrices();
+        }
+    }
+    
+    gl::color(1,1,1,1);
+    if( mFinishFlag && mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME ){
+        gl::draw(mFinishFlag, Vec2f(873, 130));
     }
 }
 
