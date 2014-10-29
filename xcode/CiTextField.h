@@ -12,18 +12,25 @@
 #include "cinder/gl/TextureFont.h"
 #include "GFXGlobal.h"
 
+#include <boost/algorithm/string.hpp>
+
 class CiTextField {
   public:
     CiTextField( std::string text, ci::Rectf bounds, ci::Font font );
     ~CiTextField();
     
     void setText( std::string text );
+    std::string getText(){ return mText; }
+    
     void setBounds( const ci::Rectf &bounds );
+    const ci::Rectf& getBounds(){ return mBounds; }
 
     void focus( bool selectAll=false);   // Become active.
     void blur();    // Become inactive. (Same as unfocus)
     
-    std::string getText(){ return mText; }
+    void enable(){ bEnabled = true; }
+    void disable(){ bEnabled = false; mText=""; }
+    bool isEnabled(){ return bEnabled; }
     
     void draw();
     
@@ -43,7 +50,6 @@ class CiTextField {
     void onKeyUp( ci::app::KeyEvent event );
     
     int getCursorIndex( const ci::Vec2f &pos );
-    
     int eraseString( int start, int end );
     
     bool            bDragging;
@@ -52,6 +58,8 @@ class CiTextField {
     
     ci::Vec2f       mCursorPos;
     int             mCaratIndex, mCaratStart;
+    
+    bool            bEnabled;
     
 //    ci::Color       mColorStroke, mColorFill, mColorText, mColorHighlight;
     

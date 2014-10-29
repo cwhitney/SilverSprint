@@ -22,6 +22,8 @@ void StagingView::setup(){
     mGlobal = gfx::GFXGlobal::getInstance();
     
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
+    mCancelBtn = gl::Texture::create( loadImage( loadAsset("img/rosterCancel.png") ) );
+    
     mStateManager = StateManager::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&StagingView::onStateChange, this, std::placeholders::_1) );
     
@@ -36,14 +38,31 @@ void StagingView::setup(){
         
         tf->bUseScissorTest = false;
         mPlayerNames.push_back(tf);
+        
+        mCancelRects.push_back( Rectf(1498, yPos, 1555, yPos+52) );
     }
+    
+    tFont = ci::gl::TextureFont::create( ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 75) );
     
     ci::app::WindowRef win = getWindow();
     win->getSignalKeyDown().connect(std::bind(&StagingView::onKeyDown, this, std::placeholders::_1));
+    win->getSignalMouseUp().connect(std::bind(&StagingView::onMouseUp, this, std::placeholders::_1));
+}
+
+void StagingView::onMouseUp( ci::app::MouseEvent event ) {
+    
+    Vec2f pos = mGlobal->localToGlobal( event.getPos() );
+    
+    for( int i=0; i<4; i++){
+        if( mCancelRects[i].contains(pos) ){
+            mPlayerNames[i]->disable();
+            break;
+        }
+    }
+    
 }
 
 void StagingView::onKeyDown( ci::app::KeyEvent event ) {
-    
     if( event.getCode() == KeyEvent::KEY_TAB ){
         int i=0;
         for( ; i<mPlayerNames.size(); i++ ){
@@ -116,6 +135,27 @@ void StagingView::draw(){
     
     for(int i=0; i<mPlayerNames.size(); i++){
         mPlayerNames[i]->draw();
+        
+        if( mPlayerNames[i]->isEnabled() ){
+            gl::color( Color::hex(0x717174) );
+            gl::drawSolidRect( mCancelRects[i] );
+            gl::color(1,1,1,1);
+            gl::draw( mCancelBtn, mCancelRects[i].getUpperLeft() + Vec2f(14, 12) );
+        }
+        
+        Vec2f p = mPlayerNames[i]->getBounds().getUpperLeft() + Vec2f(-102, 73);
+        if( !mPlayerNames[i]->isActive() ){
+            gl::color( mPlayerNames[i]->mColorStroke );
+            gl::drawSolidCircle(p, 62);
+            gl::color( Color::hex(0x16151b) );
+        }else {
+            gl::lineWidth(4.0);
+            gl::color( mPlayerNames[i]->mColorStroke );
+            gl::drawStrokedCircle(p, 62);
+            gl::lineWidth(1.0);
+        }
+        
+        tFont->drawString( to_string(i+1), p + Vec2f(-19, 20) );
     }
     
 //    gui->draw();

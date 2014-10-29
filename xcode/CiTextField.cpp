@@ -44,6 +44,7 @@ CiTextField::CiTextField( std::string text, ci::Rectf bounds, ci::Font font ){
     bDragging = false;
     bActive = false;
     bHighlighted = false;
+    bEnabled = true;
     
     bUseScissorTest = true;
     
@@ -72,7 +73,7 @@ void CiTextField::onKeyDown(KeyEvent event){
     }
     
     if( event.getCode() == KeyEvent::KEY_RETURN || event.getCode() == KeyEvent::KEY_ESCAPE ){
-        bActive = false;
+        blur();
         bHighlighted = false;
         return;
     }
@@ -141,7 +142,7 @@ void CiTextField::onKeyUp(KeyEvent event){
 void CiTextField::onMouseDown( ci::app::MouseEvent event ){
     bHighlighted = false;
     bDragging = false;
-    bActive = false;
+    blur();
     
     Vec2f pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
     
@@ -171,7 +172,7 @@ void CiTextField::onMouseUp( ci::app::MouseEvent event ){
         }
         
     }else{
-        bActive = false;
+        blur();
         bHighlighted = false;
     }
     
@@ -190,6 +191,12 @@ void CiTextField::focus( bool selectAll ){
 
 void CiTextField::blur(){
     bActive = false;
+    
+    boost::trim(mText);
+    
+    if( mText !="" ){
+        enable();
+    }
 }
 
 int CiTextField::getCursorIndex( const ci::Vec2f &localPos ){
@@ -218,12 +225,23 @@ int CiTextField::getCursorIndex( const ci::Vec2f &localPos ){
 
 void CiTextField::draw(){
     
+    float alpha = 1.0;
+    if( !bEnabled ){
+        alpha = 0.2;
+    }
+    
     if( bActive ){
+        mColorStroke.a = 1.0;
+        
         mColorFill = ColorA(0,0,0,0);
         mColorText = mColorStroke;
     }else{
         mColorFill = mColorStroke;
         mColorText = ColorA(0,0,0);
+        
+        mColorFill.a = alpha;
+        mColorText.a = alpha;
+        mColorStroke.a = alpha;
     }
     
     if( !tFont ){

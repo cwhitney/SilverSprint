@@ -12,7 +12,6 @@
 #include "cinder/gl/Texture.h"
 #include "cinder/ImageIo.h"
 
-#include "PretzelGui.h"
 #include "StateManager.h"
 #include "Model.h"
 #include "GFXGlobal.h"
@@ -34,19 +33,21 @@ namespace gfx{
         void animateIn();
         void animateOut();
         
-        void onKeyDown( ci::app::KeyEvent event );
-        
       private:
+        void onKeyDown( ci::app::KeyEvent event );
+        void onMouseUp( ci::app::MouseEvent event );
         void onStateChange(GFX_STATE newState);
         
         std::vector<CiTextField*>   mPlayerNames;
+        ci::gl::TextureFontRef      tFont;
         
-        ci::gl::TextureRef  mBg;
+        std::vector<ci::Rectf>      mCancelRects;
+        
+        ci::gl::TextureRef  mBg, mCancelBtn;
         StateManager        *mStateManager;
         Model               *mModel;
         gfx::GFXGlobal      *mGlobal;
         
-        Pretzel::PretzelGui          *gui;
         
         BOOL        bVisible;
     };
