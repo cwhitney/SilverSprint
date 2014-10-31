@@ -42,8 +42,31 @@ std::string addZ(int n) {
     return (n<10? "0":"") + to_string(n);
 }
 
+std::string addZ100(int n) {
+    if( n>100 ) {
+        return to_string(n);
+    }else if(n>10) {
+        return "0" + to_string(n);
+    }
+    return "00" + to_string(n);
+}
+
+std::string GFXGlobal::toTimestampPrecise( int millis ){
+    //    millis = 755020;
+    // millis = 12048;
+    
+    int ms = millis % 1000;
+    millis = (millis - ms) / 1000;
+    int secs = millis % 60;
+    millis = (millis - secs) / 60;
+    int mins = millis % 60;
+    
+    return addZ(mins) + ":" + addZ(secs) + ":" + addZ100(ms);
+}
+
 std::string GFXGlobal::toTimestamp( int millis ){
     //    millis = 755020;
+    // millis = 12048;
     
     int ms = millis % 1000;
     millis = (millis - ms) / 1000;
@@ -52,7 +75,7 @@ std::string GFXGlobal::toTimestamp( int millis ){
     int mins = millis % 60;
     
     while( ms > 100 ){
-        ms = floor(ms / 10);
+        ms /= 10.0;
     }
     
     return addZ(mins) + ":" + addZ(secs) + ":" + addZ(ms);

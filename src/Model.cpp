@@ -20,6 +20,11 @@ Model::Model(){
     raceLengthMeters = 50;
     rollerDiameterMm = "82.55"; // This is 3.25 inches in mm
     totalRaceTicks = 0;
+    startTimeMillis = 0;
+    mNumRacers = 2;
+    bHardwareConnected = false;
+    
+    raceState = RACE_STATE::RACE_IDLE;
     
     for( int i=0; i<4; i++){
         playerData.push_back( new PlayerData() );

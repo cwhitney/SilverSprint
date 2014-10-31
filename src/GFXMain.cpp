@@ -62,11 +62,6 @@ void GFXMain::onKeyDown(KeyEvent event){
         mSerialReader->pingSensor();
     }else if( event.getChar() == 'c'){
         mSerialReader->setCountdown(4);
-    }else if( event.getChar() == 'h'){
-        mSerialReader->getRaceLength();
-        mSerialReader->getHardwareVersion();
-        mSerialReader->getFirmwareVersion();
-        mSerialReader->getProtoculVersion();
     }
     
     else if(event.getChar() == 'g'){
@@ -94,8 +89,6 @@ void GFXMain::onKeyDown(KeyEvent event){
 
 void GFXMain::resetPlayerData(){
     for( int i=0; i<mModel->playerData.size(); i++){
-        console() << "Roller diameter (" << mModel->rollerDiameterMm << ")" << endl;
-        
         mModel->playerData[i]->reset();
         mModel->playerData[i]->setRollerDiameter( fromString<float>(mModel->rollerDiameterMm) );
     }

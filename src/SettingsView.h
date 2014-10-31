@@ -26,6 +26,8 @@ public:
     
   private:
     void onStateChange(GFX_STATE newState);
+    void onMouseUp( ci::app::MouseEvent event );
+    
     CiTextField* makeSetting(ci::Rectf rect, std::string label, std::string txt);
     
     StateManager    *mStateManager;
@@ -38,7 +40,6 @@ public:
     std::vector<CiTextField*>   mTextFieldList;
     ci::gl::TextureFontRef      tFont;
     
-    
     struct TextLabel {
         TextLabel(ci::Vec2f pos_, std::string txt_ ){ pos=pos_; txt=txt_; }
         ci::Vec2f pos;
@@ -46,6 +47,7 @@ public:
     };
     std::vector<TextLabel>  mLabels;
     
+    ci::Rectf   mConnectionRect;
 };
 
 }

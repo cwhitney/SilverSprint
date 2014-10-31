@@ -45,6 +45,7 @@ CiTextField::CiTextField( std::string text, ci::Rectf bounds, ci::Font font ){
     bActive = false;
     bHighlighted = false;
     bEnabled = true;
+    visible = false;
     
     bUseScissorTest = true;
     
@@ -68,7 +69,7 @@ int CiTextField::eraseString( int start, int end ){
 }
 
 void CiTextField::onKeyDown(KeyEvent event){
-    if( !bActive ){
+    if( !bActive || !visible){
         return;
     }
     
@@ -140,6 +141,10 @@ void CiTextField::onKeyUp(KeyEvent event){
 }
 
 void CiTextField::onMouseDown( ci::app::MouseEvent event ){
+    if(!visible){
+        return;
+    }
+    
     bHighlighted = false;
     bDragging = false;
     blur();
@@ -155,6 +160,10 @@ void CiTextField::onMouseDown( ci::app::MouseEvent event ){
     }
 }
 void CiTextField::onMouseDrag( ci::app::MouseEvent event ){
+    if(!visible){
+        return;
+    }
+    
     Vec2f pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
     
     if( bDragging ){
@@ -162,6 +171,10 @@ void CiTextField::onMouseDrag( ci::app::MouseEvent event ){
     }
 }
 void CiTextField::onMouseUp( ci::app::MouseEvent event ){
+    if(!visible){
+        return;
+    }
+    
     Vec2f pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
     
     if( bDragging ){

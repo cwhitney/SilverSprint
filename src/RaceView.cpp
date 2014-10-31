@@ -63,18 +63,32 @@ void RaceView::draw(){
     gl::drawSolidRect( Rectf(60,133,1870,135) );            // white line
     
     if( mStateManager->getCurrentState() == GFX_STATE::RACING || true){
-        for( int i=0; i<4; i++){
+        
+        // PLAYER INFO
+        for( int i=0; i<mModel->getNumRacers(); i++){
             PlayerData *pd = Model::getInstance()->playerData[i];
             mRaceTexts[i]->draw( pd, Vec2f(0, 390 + 102*i) );
         }
         
+        // MAIN TIMER
         gl::color(0,0,0,1);
-        mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis), Vec2f(867,154) );
         
+        if( mModel->raceState == RACE_STATE::RACE_RUNNING ){
+            int elapsedTime = (getElapsedSeconds()*1000.0) - mModel->startTimeMillis;
+            
+            mModel->elapsedRaceTimeMillis = elapsedTime;
+            
+            mTimerFont->drawString( mGlobal->toTimestamp(elapsedTime), Vec2f(867,154) );
+        }else if( mModel->raceState == RACE_STATE::RACE_IDLE ){
+            mTimerFont->drawString( mGlobal->toTimestamp(0), Vec2f(867,154) );
+        }
+        
+        // DIAL
         gl::color(1,1,1,1);
         gl::draw( mDial, mDial->getSize() * -0.5 + Vec2f(967, 580) );
         
-        for( int i=0; i<4; i++){
+        // LINES
+        for( int i=0; i<mModel->getNumRacers(); i++){
             PlayerData *pd = Model::getInstance()->playerData[i];
             gl::pushMatrices();{
                 gl::translate( Vec2f(967, 608) );
@@ -86,6 +100,7 @@ void RaceView::draw(){
         }
     }
     
+    // FLAG
     gl::color(1,1,1,1);
     if( mFinishFlag && mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME ){
         gl::draw(mFinishFlag, Vec2f(873, 130));

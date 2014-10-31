@@ -37,6 +37,8 @@ class CiTextField {
     bool bUseScissorTest;
     bool isActive(){ return bActive; }
     
+    bool visible;
+    
     ci::ColorA      mColorStroke, mColorFill, mColorText, mColorHighlight;
     
     ci::Vec2f       padding;

@@ -31,18 +31,23 @@ namespace gfx {
         void resetHardwareToDefault();
         void pingSensor();
         
-        void getHardwareVersion();
-        void getProtoculVersion();
-        void getFirmwareVersion();
         void getRaceLength();
         
         void setCountdown( int numCountdownSeconds );
         void setRaceDuration( int );
         void setRaceLengthTicks( int numTicks );
-        void setMockMode( bool enabled=true );
-        
+        void setMockMode( bool enabled=true );        
         
       private:
+        bool attemptHardwareConnection();
+        void onConnect();
+        void onDisconnect();
+        
+        
+        bool keepAlive();
+        float mKeepAliveTimer;
+        
+        
         bool                isRaceFinished();
         
         StateManager        *mStateManager;

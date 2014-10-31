@@ -35,13 +35,8 @@ namespace gfx {
             return bFinishedRace;
         }
         
-        double getMph(){
-            return mph;
-        }
-        
-        double getKph(){
-            return getMph() * 1.60934;
-        }
+        double getMph(){ return mph; }
+        double getKph(){ return getMph() * 1.60934; }
         
         double getPercent(){
             double racePct = ci::math<double>::clamp((double)curRaceTicks / (double)totalRaceTicks, 0.0, 1.0);

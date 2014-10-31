@@ -60,14 +60,14 @@ void RaceText::draw( gfx::PlayerData *data, ci::Vec2f offset ){
         
         gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", Vec2f(1430,20), Color::white(), mGlobal->uiFont );
         
-        if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_DISTANCE){
+        if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_DISTANCE ){
 //            gl::drawString( toDec(data->getDistance(), 2) + " M", Vec2f(1485,28), Color::white(), mGlobal->uiFont );
         }else if(mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME){
             
             if( data->didFinishRace() ){
-                mGlobal->texFont->drawString(mGlobal->toTimestamp( data->finishTimeMillis ), Vec2f(1500,44) );
+                mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( data->finishTimeMillis ), Vec2f(1485,44) );
             }else{
-                mGlobal->texFont->drawString(mGlobal->toTimestamp( mModel->elapsedRaceTimeMillis ), Vec2f(1500,44) );
+                mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( mModel->elapsedRaceTimeMillis ), Vec2f(1485,44) );
             }
         }
         

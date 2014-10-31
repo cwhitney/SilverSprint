@@ -24,7 +24,22 @@ SettingsView::SettingsView() : bVisible(false) {
     ci::Font fnt(loadAsset("fonts/UbuntuMono-BI.ttf"), 25);
     tFont = gl::TextureFont::create( fnt );
 
-    mTextFieldList.push_back( makeSetting(Rectf(443,255, 443+431, 255+147), "ROLLER DIAMETER (mm)", "82.55") );
+    int yPos = 255;
+    
+    // ROLLER DIAMETER
+    mTextFieldList.push_back( makeSetting(Rectf(443,yPos, 443+431, yPos+100), "ROLLER DIAMETER (mm)", "82.55") );
+    yPos += 160;
+    
+    // RACERS
+    mTextFieldList.push_back( makeSetting(Rectf(443,yPos, 443+431, yPos+100), "NUMBER OF RACERS (1-4)", "2") );
+    yPos += 160;
+    
+    // CONNECTION
+    mConnectionRect = Rectf(443, yPos, 443+100, yPos+100);
+    mLabels.push_back( TextLabel(mConnectionRect.getUpperLeft() - Vec2f(0, 20), "HARDWARE CONNECTION STATUS") );
+    
+    ci::app::WindowRef win = getWindow();
+    win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
 }
 
 CiTextField* SettingsView::makeSetting(Rectf rect, std::string label, std::string txt){
@@ -32,22 +47,33 @@ CiTextField* SettingsView::makeSetting(Rectf rect, std::string label, std::strin
     tf->mColorStroke = mGlobal->playerColors[0];
     tf->mColorFill = mGlobal->playerColors[0];
     tf->mColorText = Color::black();
-    tf->padding = Vec2f(30,30);
+    tf->padding = Vec2f(20,0);
     
     tf->bUseScissorTest = false;
-    
     
     mLabels.push_back( TextLabel(Vec2f(rect.getUpperLeft() - Vec2f(0,20)), label) );
     
     return tf;
 }
 
+void SettingsView::onMouseUp(ci::app::MouseEvent event){
+    
+}
+
 void SettingsView::onStateChange(GFX_STATE newState) {
     if( newState == GFX_STATE::SETTINGS ){
         bVisible = true;
+        for( auto it = mTextFieldList.begin(); it!=mTextFieldList.end(); ++it){
+            (*it)->visible = true;
+        }
     }else{
         mModel->rollerDiameterMm = mTextFieldList[0]->getText();
+        mModel->setNumRacers( fromString<int>(mTextFieldList[1]->getText()) );
         bVisible = false;
+        
+        for( auto it = mTextFieldList.begin(); it!=mTextFieldList.end(); ++it){
+            (*it)->visible = false;
+        }
     }
 }
 
@@ -70,5 +96,20 @@ void SettingsView::draw(){
         for( int i=0; i<mLabels.size(); i++){
             tFont->drawString(mLabels[i].txt, mLabels[i].pos);
         }
+        
+        gl::color( mGlobal->playerColors[0] );
+        gl::drawSolidRect( mConnectionRect );
+        gl::color( Color::gray(0.1) );
+        gl::lineWidth(3.0);
+        if( mModel->bHardwareConnected ){
+            Vec2f p1(20,60), p2(40,80), p3(80,20);
+            Vec2f t = mConnectionRect.getUpperLeft();;
+            gl::drawLine( p1+t, p2+t + Vec2f(1.5,1.5) );
+            gl::drawLine( p2+t, p3+t );
+        }else{
+            gl::drawLine( mConnectionRect.getUpperLeft() + Vec2f(20,20), mConnectionRect.getLowerRight() - Vec2f(20,20) );
+            gl::drawLine( mConnectionRect.getUpperRight() + Vec2f(-20,20), mConnectionRect.getLowerLeft() + Vec2f(20,-20) );
+        }
+        gl::lineWidth(1.0);
     }
 }

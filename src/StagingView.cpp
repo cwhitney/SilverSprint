@@ -51,14 +51,14 @@ void StagingView::setup(){
 
 void StagingView::onMouseUp( ci::app::MouseEvent event ) {
     
-    Vec2f pos = mGlobal->localToGlobal( event.getPos() );
-    
-    for( int i=0; i<4; i++){
-        if( mCancelRects[i].contains(pos) ){
-            mPlayerNames[i]->disable();
-            break;
-        }
-    }
+//    Vec2f pos = mGlobal->localToGlobal( event.getPos() );
+//    
+//    for( int i=0; i<4; i++){
+//        if( mCancelRects[i].contains(pos) ){
+//            mPlayerNames[i]->disable();
+//            break;
+//        }
+//    }
     
 }
 
@@ -97,6 +97,9 @@ void StagingView::animateIn(){
     }
     
     bVisible = true;
+    for( auto it = mPlayerNames.begin(); it!=mPlayerNames.end(); ++it){
+        (*it)->visible = true;
+    }
 }
 
 void StagingView::animateOut(){
@@ -109,6 +112,9 @@ void StagingView::animateOut(){
     }
     
     bVisible = false;
+    for( auto it = mPlayerNames.begin(); it!=mPlayerNames.end(); ++it){
+        (*it)->visible = false;
+    }
 }
 
 void StagingView::update(){
@@ -133,15 +139,15 @@ void StagingView::draw(){
         gl::draw( mBg );
     }
     
-    for(int i=0; i<mPlayerNames.size(); i++){
+    for(int i=0; i<mModel->getNumRacers(); i++){
         mPlayerNames[i]->draw();
         
-        if( mPlayerNames[i]->isEnabled() ){
-            gl::color( Color::hex(0x717174) );
-            gl::drawSolidRect( mCancelRects[i] );
-            gl::color(1,1,1,1);
-            gl::draw( mCancelBtn, mCancelRects[i].getUpperLeft() + Vec2f(14, 12) );
-        }
+//        if( mPlayerNames[i]->isEnabled() ){
+//            gl::color( Color::hex(0x717174) );
+//            gl::drawSolidRect( mCancelRects[i] );
+//            gl::color(1,1,1,1);
+//            gl::draw( mCancelBtn, mCancelRects[i].getUpperLeft() + Vec2f(14, 12) );
+//        }
         
         Vec2f p = mPlayerNames[i]->getBounds().getUpperLeft() + Vec2f(-102, 73);
         if( !mPlayerNames[i]->isActive() ){

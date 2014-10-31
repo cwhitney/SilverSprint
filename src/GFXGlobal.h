@@ -34,7 +34,9 @@ namespace gfx {
         
         ci::Vec2f   localToGlobal( ci::Vec2f pos );
         void setScale( const ci::Rectf &scaledRect );
+        
         std::string toTimestamp( int millis );
+        std::string toTimestampPrecise( int millis );
         
         RACE_TYPE currentRaceType;
         
