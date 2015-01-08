@@ -139,4 +139,6 @@ dependencies: \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceText.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/GFXGlobal.h \
   ../../../../include/cinder/gl/TextureFont.h \
-  ../../../../include/cinder/Text.h
+  ../../../../include/cinder/Text.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StartStopButton.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/BaseButton.h

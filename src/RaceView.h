@@ -16,8 +16,9 @@
 #include "Model.h"
 #include "RaceText.h"
 #include "GFXGlobal.h"
+#include "StartStopButton.h"
 
-namespace gfx{
+namespace gfx {
 
     class RaceView {
       public:
@@ -29,13 +30,15 @@ namespace gfx{
       private:
         void onStateChange(GFX_STATE newState);
         
-        ci::gl::TextureRef  mBg, mDial, mFinishFlag, mProgLine;
+        ci::gl::TextureRef  mBg, mDial, mFinishFlag, mProgLine, mLogo;
         StateManager        *mStateManager;
         Model               *mModel;
         gfx::GFXGlobal      *mGlobal;
         
         std::vector<RaceText*>  mRaceTexts;
         bool    bVisible;
+        
+        StartStopButton         mStartStop;
         
         ci::gl::TextureFontRef      mTimerFont;
     };

@@ -69,7 +69,7 @@ int CiTextField::eraseString( int start, int end ){
 }
 
 void CiTextField::onKeyDown(KeyEvent event){
-    if( !bActive || !visible){
+    if( !bActive || !visible || !bEnabled ){
         return;
     }
     
@@ -141,7 +141,7 @@ void CiTextField::onKeyUp(KeyEvent event){
 }
 
 void CiTextField::onMouseDown( ci::app::MouseEvent event ){
-    if(!visible){
+    if(!visible || !bEnabled){
         return;
     }
     
@@ -160,7 +160,7 @@ void CiTextField::onMouseDown( ci::app::MouseEvent event ){
     }
 }
 void CiTextField::onMouseDrag( ci::app::MouseEvent event ){
-    if(!visible){
+    if(!visible || !bEnabled){
         return;
     }
     
@@ -171,7 +171,7 @@ void CiTextField::onMouseDrag( ci::app::MouseEvent event ){
     }
 }
 void CiTextField::onMouseUp( ci::app::MouseEvent event ){
-    if(!visible){
+    if(!visible || !bEnabled){
         return;
     }
     
@@ -239,9 +239,9 @@ int CiTextField::getCursorIndex( const ci::Vec2f &localPos ){
 void CiTextField::draw(){
     
     float alpha = 1.0;
-    if( !bEnabled ){
-        alpha = 0.2;
-    }
+//    if( !bEnabled ){
+//        alpha = 0.2;
+//    }
     
     if( bActive ){
         mColorStroke.a = 1.0;

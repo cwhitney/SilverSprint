@@ -17,10 +17,11 @@ RaceView::RaceView() : bVisible(false) {
     
 }
 
-void RaceView::setup(){
+void RaceView::setup() {
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     mFinishFlag = gl::Texture::create( loadImage( loadAsset("img/finishFlag.png") ) );
     mProgLine = gl::Texture::create( loadImage( loadAsset("img/progLine.png") ) );
+    mLogo = gl::Texture::create( loadImage( loadAsset("img/opensprintsLogo.png") ) );
     
     mGlobal = gfx::GFXGlobal::getInstance();
     
@@ -37,7 +38,7 @@ void RaceView::setup(){
     mTimerFont = ci::gl::TextureFont::create( ci::Font(loadAsset("fonts/UbuntuMono-B.ttf"), 50) );
 }
 
-void RaceView::onStateChange(GFX_STATE newState){
+void RaceView::onStateChange(GFX_STATE newState) {
     if( newState == GFX_STATE::IDLE || newState == GFX_STATE::RACING ){
         bVisible = true;
     }else{
@@ -45,11 +46,11 @@ void RaceView::onStateChange(GFX_STATE newState){
     }
 }
 
-void RaceView::update(){
+void RaceView::update() {
     
 }
 
-void RaceView::draw(){
+void RaceView::draw() {
     if( !bVisible ){
         return;
     }
@@ -104,6 +105,12 @@ void RaceView::draw(){
     gl::color(1,1,1,1);
     if( mFinishFlag && mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME ){
         gl::draw(mFinishFlag, Vec2f(873, 130));
+    }
+    
+    mStartStop.draw();
+    
+    if( mLogo ){
+        gl::draw( mLogo, Vec2f(1920, 1080) - Vec2f(50,50) - mLogo->getSize() );
     }
 }
 

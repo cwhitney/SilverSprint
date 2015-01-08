@@ -35,7 +35,7 @@ Model::Model(){
     playerData[2]->player_name = "Player 3";
     playerData[3]->player_name = "Player 4";
     
-    setRaceLengthMeters( raceLengthMeters );
+//    setRaceLengthMeters( raceLengthMeters );
 }
 
 Model::~Model(){
@@ -65,7 +65,6 @@ void Model::setRaceLengthMeters( float meters ){
 }
 
 void Model::setRaceLength(int ticks) {
-    console() << "Set race ticks " << ticks << endl;
     totalRaceTicks = ticks;
     
     for( int i=0; i<playerData.size(); i++){

@@ -31,7 +31,15 @@ SettingsView::SettingsView() : bVisible(false) {
     yPos += 160;
     
     // RACERS
-    mTextFieldList.push_back( makeSetting(Rectf(443,yPos, 443+431, yPos+100), "NUMBER OF RACERS (1-4)", "2") );
+    mTextFieldList.push_back( makeSetting(Rectf(443,yPos, 443+431 - 50, yPos+100), "NUMBER OF RACERS (1-4)", "2") );
+    mTextFieldList.back()->disable();
+    
+    int gap = 6;
+    mStepperPlus.setup( mTextFieldList.back()->getBounds().getUpperRight() + Vec2f(gap, 0), gap, "+" );
+    mStepperPlus.signalOnClick.connect( std::bind(&SettingsView::onStepperPlusClick, this ) );
+    mStepperMinus.setup( mTextFieldList.back()->getBounds().getUpperRight() + Vec2f(gap, 100 - 50+gap/2), gap, "-");
+    mStepperMinus.signalOnClick.connect( std::bind(&SettingsView::onStepperMinusClick, this ) );
+    
     yPos += 160;
     
     // CONNECTION
@@ -40,6 +48,16 @@ SettingsView::SettingsView() : bVisible(false) {
     
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
+}
+
+void SettingsView::onStepperPlusClick(){
+    int numRacers = fromString<int>(mTextFieldList[1]->getText());
+    mTextFieldList[1]->setText( toString( min( ++numRacers, 4) ) );
+}
+
+void SettingsView::onStepperMinusClick(){
+    int numRacers = fromString<int>(mTextFieldList[1]->getText());
+    mTextFieldList[1]->setText( toString( max( --numRacers, 1) ) );
 }
 
 CiTextField* SettingsView::makeSetting(Rectf rect, std::string label, std::string txt){
@@ -96,6 +114,9 @@ void SettingsView::draw(){
         for( int i=0; i<mLabels.size(); i++){
             tFont->drawString(mLabels[i].txt, mLabels[i].pos);
         }
+        
+        mStepperPlus.draw();
+        mStepperMinus.draw();
         
         gl::color( mGlobal->playerColors[0] );
         gl::drawSolidRect( mConnectionRect );

@@ -38,6 +38,9 @@
 		AD255BAC83A64A2B8657EF38 /* PretzelGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98D0C5ABD4994F50B076FB3E /* PretzelGui.cpp */; };
 		BD5076E0728F4C9693AAA8E3 /* PretzelRow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF8C006CC24EEA83226D8E /* PretzelRow.cpp */; };
 		CAFD0190D51A4ED08F92B56D /* PretzelSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF62F0E8A1134FD4B5BD18ED /* PretzelSlider.cpp */; };
+		CB27132E1A5CE34700F833A0 /* BaseButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB27132D1A5CE34700F833A0 /* BaseButton.cpp */; };
+		CB2713321A5CE7EF00F833A0 /* StartStopButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB2713301A5CE7EF00F833A0 /* StartStopButton.cpp */; };
+		CB2713351A5E346E00F833A0 /* NumStepper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB2713331A5E346E00F833A0 /* NumStepper.cpp */; };
 		CB40E28119FAB77F00CCE22A /* NavBarView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB40E27F19FAB77F00CCE22A /* NavBarView.cpp */; };
 		CB505E4319EC805A008C3756 /* RaceText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB505E4119EC805A008C3756 /* RaceText.cpp */; };
 		CBC8865319AE338200F539C3 /* GFXMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBC8865119AE338200F539C3 /* GFXMain.cpp */; };
@@ -116,6 +119,12 @@
 		BF62F0E8A1134FD4B5BD18ED /* PretzelSlider.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelSlider.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelSlider.cpp; sourceTree = "<group>"; };
 		C10F5BC54D154DA5B4B92473 /* ScrollPane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = ScrollPane.cpp; path = ../blocks/PretzelGUI/src/components/ScrollPane.cpp; sourceTree = "<group>"; };
 		C3F75CF22DFB4055A92DAFDF /* OscListener.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscListener.cpp; path = ../blocks/OSC/src/OscListener.cpp; sourceTree = "<group>"; };
+		CB27132C1A5CDEF700F833A0 /* BaseButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseButton.h; path = ../src/BaseButton.h; sourceTree = "<group>"; };
+		CB27132D1A5CE34700F833A0 /* BaseButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseButton.cpp; path = ../src/BaseButton.cpp; sourceTree = "<group>"; };
+		CB2713301A5CE7EF00F833A0 /* StartStopButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartStopButton.cpp; path = ../src/StartStopButton.cpp; sourceTree = "<group>"; };
+		CB2713311A5CE7EF00F833A0 /* StartStopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartStopButton.h; path = ../src/StartStopButton.h; sourceTree = "<group>"; };
+		CB2713331A5E346E00F833A0 /* NumStepper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NumStepper.cpp; path = ../src/NumStepper.cpp; sourceTree = "<group>"; };
+		CB2713341A5E346E00F833A0 /* NumStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NumStepper.h; path = ../src/NumStepper.h; sourceTree = "<group>"; };
 		CB2EC211BB024B949E25AF88 /* UdpSocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = UdpSocket.cpp; path = ../blocks/OSC/src/ip/posix/UdpSocket.cpp; sourceTree = "<group>"; };
 		CB40E27F19FAB77F00CCE22A /* NavBarView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NavBarView.cpp; path = ../src/NavBarView.cpp; sourceTree = "<group>"; };
 		CB40E28019FAB77F00CCE22A /* NavBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavBarView.h; path = ../src/NavBarView.h; sourceTree = "<group>"; };
@@ -415,6 +424,19 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		CB27132F1A5CE7D200F833A0 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				CB27132C1A5CDEF700F833A0 /* BaseButton.h */,
+				CB27132D1A5CE34700F833A0 /* BaseButton.cpp */,
+				CB2713301A5CE7EF00F833A0 /* StartStopButton.cpp */,
+				CB2713311A5CE7EF00F833A0 /* StartStopButton.h */,
+				CB2713331A5E346E00F833A0 /* NumStepper.cpp */,
+				CB2713341A5E346E00F833A0 /* NumStepper.h */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
 		CBC8865719AE393D00F539C3 /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +473,7 @@
 		CBC8867019B01C1400F539C3 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				CB27132F1A5CE7D200F833A0 /* ui */,
 				CBFF9D4919EE165500ABB11C /* CiTextField.cpp */,
 				CBFF9D4A19EE165500ABB11C /* CiTextField.h */,
 				CBC8867119B01C7700F539C3 /* PlayerGfx.cpp */,
@@ -537,10 +560,12 @@
 				CBC8866C19AFD66A00F539C3 /* SerialReader.cpp in Sources */,
 				53739842E7CA4A05B37CFE37 /* OscPrintReceivedElements.cpp in Sources */,
 				CBC8865319AE338200F539C3 /* GFXMain.cpp in Sources */,
+				CB27132E1A5CE34700F833A0 /* BaseButton.cpp in Sources */,
 				1C6C1CA5EC9D4B3A8F71356B /* OscReceivedElements.cpp in Sources */,
 				1AE18A8C5BD540C8804BF7C4 /* OscTypes.cpp in Sources */,
 				F1FA4F3613014012842F7687 /* NetworkingUtils.cpp in Sources */,
 				CB505E4319EC805A008C3756 /* RaceText.cpp in Sources */,
+				CB2713321A5CE7EF00F833A0 /* StartStopButton.cpp in Sources */,
 				08C3CCF51507498C98024F75 /* UdpSocket.cpp in Sources */,
 				AD255BAC83A64A2B8657EF38 /* PretzelGui.cpp in Sources */,
 				CBC8867319B01C7700F539C3 /* PlayerGfx.cpp in Sources */,
@@ -556,6 +581,7 @@
 				CBC8866119AE64F100F539C3 /* StateManager.cpp in Sources */,
 				CBC8866719AE718300F539C3 /* StagingView.cpp in Sources */,
 				DD10F4FD52224DCE91832D2A /* PretzelTextField.cpp in Sources */,
+				CB2713351A5E346E00F833A0 /* NumStepper.cpp in Sources */,
 				9074AF2B63514F538D473288 /* PretzelToggle.cpp in Sources */,
 				D80EB1BC18354CD7ACB639CF /* BasePretzel.cpp in Sources */,
 				BD5076E0728F4C9693AAA8E3 /* PretzelRow.cpp in Sources */,

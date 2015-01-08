@@ -70,4 +70,7 @@ void NavBarView::draw() {
         
         gl::draw( mIconList[i].tex, mIconList[i].rect);
     }
+    
+    
+    
 }

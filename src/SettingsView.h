@@ -15,6 +15,7 @@
 #include "Model.h"
 #include "GFXGlobal.h"
 #include "CiTextField.h"
+#include "NumStepper.h"
 
 namespace gfx {
     
@@ -26,6 +27,8 @@ public:
     
   private:
     void onStateChange(GFX_STATE newState);
+    void onStepperPlusClick();
+    void onStepperMinusClick();
     void onMouseUp( ci::app::MouseEvent event );
     
     CiTextField* makeSetting(ci::Rectf rect, std::string label, std::string txt);
@@ -39,6 +42,9 @@ public:
     ci::gl::TextureRef  mBg;
     std::vector<CiTextField*>   mTextFieldList;
     ci::gl::TextureFontRef      tFont;
+    
+    NumStepper      mStepperPlus;
+    NumStepper      mStepperMinus;
     
     struct TextLabel {
         TextLabel(ci::Vec2f pos_, std::string txt_ ){ pos=pos_; txt=txt_; }

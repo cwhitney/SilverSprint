@@ -29,7 +29,7 @@ class CiTextField {
     void blur();    // Become inactive. (Same as unfocus)
     
     void enable(){ bEnabled = true; }
-    void disable(){ bEnabled = false; mText=""; }
+    void disable(){ bEnabled = false; }
     bool isEnabled(){ return bEnabled; }
     
     void draw();

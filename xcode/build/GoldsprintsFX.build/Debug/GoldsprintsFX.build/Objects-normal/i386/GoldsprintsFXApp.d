@@ -195,6 +195,9 @@ dependencies: \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/NavBarView.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceText.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StartStopButton.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/BaseButton.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StagingView.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/xcode/CiTextField.h \
-  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SettingsView.h
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/SettingsView.h \
+  /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/NumStepper.h
