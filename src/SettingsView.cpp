@@ -32,7 +32,7 @@ SettingsView::SettingsView() : bVisible(false)
     yPos += 160;
     
     // RACE DISTANCE
-    mTxtDistance = makeSetting(Rectf(443,yPos, 443+431, yPos+100), "RACE LENGTH (meters)", "1000" );
+    mTxtDistance = makeSetting(Rectf(443,yPos, 443+431, yPos+100), "RACE LENGTH (meters)", "100" );
     yPos += 160;
     
     // RACERS

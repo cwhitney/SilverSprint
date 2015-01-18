@@ -13,14 +13,13 @@
 namespace gfx{
 
     enum APP_STATE {
-        IDLE = 0,
-        RACE,
+        RACE = 0,
         ROSTER,
         SETTINGS
     };
     
     enum RACE_STATE {
-        RACE_STARTING,
+        RACE_STARTING = 0,
         RACE_COUNTDOWN,
         RACE_RUNNING,
         RACE_STOPPED,
@@ -32,10 +31,10 @@ namespace gfx{
     public:
         static StateManager* getInstance();
         
-        void changeState( APP_STATE newState );
-        void changeRaceState( RACE_STATE newState );
+        void changeAppState( APP_STATE newState, bool forceEvent=false );
+        void changeRaceState( RACE_STATE newState, bool forceEvent=false );
         
-        APP_STATE getCurrentState();
+        APP_STATE getCurrentAppState();
         RACE_STATE getCurrentRaceState();
         
         ci::signals::signal<void(APP_STATE)>	signalOnStateChange;
@@ -43,11 +42,11 @@ namespace gfx{
         
     private:
         // PRIVATE CONSTRUCTOR + COPY
-        StateManager(){};
-        StateManager(StateManager const&) : mCurState(APP_STATE::IDLE) {};
+        StateManager() : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};
+        StateManager(StateManager const&) : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};
         static StateManager		*mInstance;
         
-        APP_STATE   mCurState;
+        APP_STATE   mCurAppState;
         RACE_STATE  mCurRaceState;
     };
 

@@ -50,9 +50,19 @@ void GFXMain::setup(){
     ci::app::WindowRef win = getWindow();
     win->getSignalKeyDown().connect(std::bind(&GFXMain::onKeyDown, this, std::placeholders::_1));
     
+    mSerialReader->signalOnRaceFinished.connect( bind( &GFXMain::onRaceFinished, this ) );
+    
     mStateManager->signalOnStateChange.connect( bind( &GFXMain::onStateChaged, this ) );
     mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this ) );
-    mStateManager->changeState( APP_STATE::IDLE );
+    
+    mStateManager->changeAppState( APP_STATE::RACE, true );
+    mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED, true );
+}
+
+void GFXMain::onRaceFinished() {
+    console() << "RACE FINSIHED" << endl;
+    mSerialReader->stopRace();
+    mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE );
 }
 
 void GFXMain::onStateChaged() {

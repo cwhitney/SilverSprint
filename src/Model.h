@@ -14,12 +14,7 @@
 #include "PlayerData.h"
 
 namespace gfx{
-//    enum RACE_STATE {
-//        RACE_IDLE = 0,
-//        RACE_RUNNING,
-//        RACE_FINISHED
-//    };
-    
+
     class Model {
       public:
         static Model* getInstance();

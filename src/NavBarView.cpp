@@ -54,7 +54,7 @@ void NavBarView::mouseUp(cinder::app::MouseEvent event){
     mIconList[activeIcon].bActive = true;
     
     if( activeIcon != prev){
-        StateManager::getInstance()->changeState( mIconList[activeIcon].state );
+        StateManager::getInstance()->changeAppState( mIconList[activeIcon].state );
     }
     
 }

@@ -18,30 +18,32 @@ StateManager* StateManager::mInstance = NULL;
 StateManager * StateManager::getInstance(){
     if (!mInstance){
         mInstance = new StateManager();
+//        mInstance->changeAppState( APP_STATE::RACE );
+//        mInstance->changeRaceState( RACE_STATE::RACE_STOPPED );
     }
     return mInstance;
 }
 
-APP_STATE StateManager::getCurrentState() {
-    return mCurState;
+APP_STATE StateManager::getCurrentAppState() {
+    return mCurAppState;
 }
 
 RACE_STATE StateManager::getCurrentRaceState() {
     return mCurRaceState;
 }
 
-void StateManager::changeRaceState(gfx::RACE_STATE newState){
-    if( newState == mCurRaceState ){
+void StateManager::changeRaceState(gfx::RACE_STATE newState, bool forceEvent ){
+    if( newState == mCurRaceState && !forceEvent ){
         return;
     }
     mCurRaceState = newState;
     signalOnRaceStateChange( mCurRaceState );
 }
 
-void StateManager::changeState( APP_STATE newState ){
-    if( newState == mCurState ){
+void StateManager::changeAppState( APP_STATE newState, bool forceEvent ){
+    if( newState == mCurAppState && !forceEvent ){
         return;
     }
-    mCurState = newState;
-    signalOnStateChange( mCurState );
+    mCurAppState = newState;
+    signalOnStateChange( mCurAppState );
 }

@@ -141,9 +141,8 @@ void RaceView::onStartStopClick()
 
 void RaceView::onStateChange(APP_STATE newState)
 {
-    if( newState == APP_STATE::IDLE ||
-        newState == APP_STATE::RACE ){
-            bVisible = true;
+    if( newState == APP_STATE::RACE ){
+        bVisible = true;
     }else{
         bVisible = false;
     }
@@ -180,9 +179,10 @@ void RaceView::draw()
     if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING ){
         int elapsedTime = (getElapsedSeconds()*1000.0) - mModel->startTimeMillis;
         mModel->elapsedRaceTimeMillis = elapsedTime;
-        mTimerFont->drawString( mGlobal->toTimestamp(elapsedTime), Vec2f(867,154) );
-    }
-    else {
+        mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), Vec2f(867,154) );
+    }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
+        mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), Vec2f(867,154) );
+    }else {
         mTimerFont->drawString( mGlobal->toTimestamp(0), Vec2f(867,154) );
     }
     

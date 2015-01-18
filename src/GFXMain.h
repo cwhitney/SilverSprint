@@ -37,6 +37,8 @@ namespace gfx{
         void onStateChaged();
         void onRaceStateChanged();
         
+        void onRaceFinished();
+        
         GFXGlobal       *mGlobal;
         
         NavBarView      *mNav;

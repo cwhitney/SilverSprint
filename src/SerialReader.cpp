@@ -97,6 +97,7 @@ void SerialReader::startRace(){
 
 void SerialReader::stopRace(){
     sendSerialMessage("s");
+    console() << "stop race" << endl;
 }
 
 void SerialReader::setRaceDuration(int numSeconds){
@@ -189,22 +190,22 @@ void SerialReader::parseCommand(std::string command){
         if( cmd == "0F"){
             console() << "RACER 1 FINISHED " << args << endl;
             mModel->playerData[0]->setFinished( fromString<int>(args) );
-            if( isRaceFinished() ){ stopRace(); mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE ); }
+            if( isRaceFinished() ){ signalOnRaceFinished(); }
         }
         else if( cmd == "1F"){
             console() << "RACER 2 FINISHED " << args << endl;
             mModel->playerData[1]->setFinished( fromString<int>(args) );
-            if( isRaceFinished() ){ stopRace(); mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE ); }
+            if( isRaceFinished() ){ signalOnRaceFinished(); }
         }
         else if( cmd == "2F"){
             console() << "RACER 3 FINISHED " << args << endl;
             mModel->playerData[2]->setFinished( fromString<int>(args) );
-            if( isRaceFinished() ){ stopRace(); mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE ); }
+            if( isRaceFinished() ){ signalOnRaceFinished(); }
         }
         else if( cmd == "3F"){
             console() << "RACER 4 FINISHED " << args << endl;
             mModel->playerData[3]->setFinished( fromString<int>(args) );
-            if( isRaceFinished() ){ stopRace(); mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE ); }
+            if( isRaceFinished() ){ signalOnRaceFinished(); }
         }
         // ------------------------------------------------------------------------------
         // RACE PROGRESS
@@ -221,9 +222,10 @@ void SerialReader::parseCommand(std::string command){
             mModel->playerData[3]->curRaceTicks = fromString<int>(args);
         }
         else if( cmd == "T"){   // time
-            mModel->elapsedRaceTimeMillis = fromString<int>(args);
-            mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
-            
+            if( !isRaceFinished() ){
+                mModel->elapsedRaceTimeMillis = fromString<int>(args);
+                mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
+            }
             mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
         }
         

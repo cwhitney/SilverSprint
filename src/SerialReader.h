@@ -30,7 +30,9 @@ namespace gfx {
         
         void setRaceDuration( int );
         void setRaceLengthTicks( int numTicks );
-        void setMockMode( bool enabled=true );        
+        void setMockMode( bool enabled=true );
+        
+        ci::signals::signal<void(void)>	signalOnRaceFinished;
         
       private:
         bool attemptHardwareConnection();
