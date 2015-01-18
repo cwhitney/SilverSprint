@@ -47,13 +47,13 @@ void GoldsprintsFXApp::keyDown( KeyEvent event ){
             setFullScreen( !isFullScreen() );
         }
         else if( event.getChar() == '1' ){
-            StateManager::getInstance()->changeState( GFX_STATE::IDLE );
+            StateManager::getInstance()->changeState( APP_STATE::IDLE );
         }
         else if( event.getChar() == '2' ){
-            StateManager::getInstance()->changeState( GFX_STATE::ROSTER );
+            StateManager::getInstance()->changeState( APP_STATE::ROSTER );
         }
         else if( event.getChar() == '3' ){
-            StateManager::getInstance()->changeState( GFX_STATE::SETTINGS );
+            StateManager::getInstance()->changeState( APP_STATE::SETTINGS );
         }
     }
 }

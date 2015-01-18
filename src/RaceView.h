@@ -10,6 +10,8 @@
 
 #include "cinder/app/AppNative.h"
 #include "cinder/gl/Texture.h"
+#include "cinder/gl/Vbo.h"
+#include "cinder/gl/GlslProg.h"
 #include "cinder/ImageIo.h"
 
 #include "StateManager.h"
@@ -27,8 +29,15 @@ namespace gfx {
         void update();
         void draw();
         
+        void reloadShader();
+        
       private:
-        void onStateChange(GFX_STATE newState);
+        void onStateChange( APP_STATE newState );
+        void onStartStopClick();
+        
+        
+        void setupVbos();
+        ci::gl::VboMeshRef createVbo( float innerRad, float outerRad );
         
         ci::gl::TextureRef  mBg, mDial, mFinishFlag, mProgLine, mLogo;
         StateManager        *mStateManager;
@@ -40,6 +49,11 @@ namespace gfx {
         
         StartStopButton         mStartStop;
         
-        ci::gl::TextureFontRef      mTimerFont;
+        ci::gl::TextureFontRef  mTimerFont;
+        
+        // center graphics
+        std::vector<ci::gl::VboMeshRef> mVboList;
+//        ci::gl::VboMeshRef      mVbo1, mVbo2, mVbo3, mVbo4;
+        ci::gl::GlslProgRef     mProgressShader;
     };
 }

@@ -36,7 +36,7 @@ namespace gfx{
       private:
         void onKeyDown( ci::app::KeyEvent event );
         void onMouseUp( ci::app::MouseEvent event );
-        void onStateChange(GFX_STATE newState);
+        void onStateChange(APP_STATE newState);
         
         std::vector<CiTextField*>   mPlayerNames;
         ci::gl::TextureFontRef      tFont;

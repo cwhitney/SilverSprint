@@ -50,40 +50,37 @@ void GFXMain::setup(){
     ci::app::WindowRef win = getWindow();
     win->getSignalKeyDown().connect(std::bind(&GFXMain::onKeyDown, this, std::placeholders::_1));
     
-    mStateManager->changeState( GFX_STATE::IDLE );
+    mStateManager->signalOnStateChange.connect( bind( &GFXMain::onStateChaged, this ) );
+    mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this ) );
+    mStateManager->changeState( APP_STATE::IDLE );
+}
+
+void GFXMain::onStateChaged() {
+    
+}
+
+void GFXMain::onRaceStateChanged(){
+    
+    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STARTING ){
+        mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
+        mSerialReader->startRace();
+    }
+    else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED ){
+        mSerialReader->stopRace();
+        mModel->resetPlayers();
+        mModel->elapsedRaceTimeMillis = 0.0;
+    }
 }
 
 void GFXMain::onKeyDown(KeyEvent event){
     if( !event.isAccelDown() ){
         return;
     }
-    
-    if( event.getChar() == 'p'){
-        mSerialReader->pingSensor();
-    }else if( event.getChar() == 'c'){
-        mSerialReader->setCountdown(4);
-    }
-    
-    else if(event.getChar() == 'g'){
-        resetPlayerData();
-        mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
-        
-        mStateManager->changeState( GFX_STATE::RACING );
-        mSerialReader->startRace();
-    }else if(event.getChar() == 's'){
-        mStateManager->changeState( GFX_STATE::IDLE );
-        mSerialReader->stopRace();
-    }
-    
     else if( event.getChar() == 'r'){
-        mSerialReader->resetHardwareToDefault();
-        resetPlayerData();
-    }else if( event.getChar() == 'm'){
-        mSerialReader->setMockMode();
+        mRaceView->reloadShader();
     }
-    
-    else if( event.getChar() == 'l'){
-        mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
+    else if( event.getChar() == 'm'){
+        mSerialReader->setMockMode();
     }
 }
 

@@ -28,12 +28,6 @@ namespace gfx {
         void startRace();
         void stopRace();
         
-        void resetHardwareToDefault();
-        void pingSensor();
-        
-        void getRaceLength();
-        
-        void setCountdown( int numCountdownSeconds );
         void setRaceDuration( int );
         void setRaceLengthTicks( int numTicks );
         void setMockMode( bool enabled=true );        
@@ -42,7 +36,6 @@ namespace gfx {
         bool attemptHardwareConnection();
         void onConnect();
         void onDisconnect();
-        
         
         bool keepAlive();
         float mKeepAliveTimer;

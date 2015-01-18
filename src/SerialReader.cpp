@@ -60,8 +60,6 @@ bool SerialReader::attemptHardwareConnection() {
     return false;
 }
 
-// You could send events from these two functions if you wanted.
-
 void SerialReader::onConnect() {
     bSerialConnected = true;
     mModel->bHardwareConnected = bSerialConnected;
@@ -93,22 +91,12 @@ bool SerialReader::keepAlive(){
     return false;
 }
 
-void SerialReader::pingSensor() {
-    sendSerialMessage("p");
-}
-
 void SerialReader::startRace(){
-//    getRaceLength();
     sendSerialMessage("g");
 }
 
 void SerialReader::stopRace(){
-    mModel->raceState = RACE_STATE::RACE_IDLE;
     sendSerialMessage("s");
-}
-
-void SerialReader::resetHardwareToDefault(){
-//    sendSerialMessage("defaults\n");
 }
 
 void SerialReader::setRaceDuration(int numSeconds){
@@ -116,22 +104,12 @@ void SerialReader::setRaceDuration(int numSeconds){
 }
 
 void SerialReader::setRaceLengthTicks( int numTicks ){
-//    console() << "Serial :: set num ticks " << numTicks << endl;
-//    mSerial->writeString("l:" + to_string(numTicks) + "\n");
     sendSerialMessage( "l"+to_string(numTicks) );
-}
-
-void SerialReader::getRaceLength() {
-//    mSerial->writeString("getlen\n");
 }
 
 void SerialReader::setMockMode( bool enabled ){
     bMockEnabled = enabled;
     sendSerialMessage("m");
-}
-
-void SerialReader::setCountdown( int numCountdownSeconds ){
-    sendSerialMessage("c:" + to_string(numCountdownSeconds) );
 }
 
 void SerialReader::sendSerialMessage( std::string msg ){
@@ -206,31 +184,27 @@ void SerialReader::parseCommand(std::string command){
             return;
         }
         
-        if( cmd == "F"){
-            console() << "RACER FINISHED" << endl;
-        }
-        
         // ------------------------------------------------------------------------------
         // RACE FINISH
         if( cmd == "0F"){
-            mModel->playerData[0]->setFinished( fromString<int>(args) );
             console() << "RACER 1 FINISHED " << args << endl;
-            if( isRaceFinished() ){ stopRace(); mModel->raceState = RACE_STATE::RACE_FINISHED; }
+            mModel->playerData[0]->setFinished( fromString<int>(args) );
+            if( isRaceFinished() ){ stopRace(); mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE ); }
         }
         else if( cmd == "1F"){
-            mModel->playerData[1]->setFinished( fromString<int>(args) );
             console() << "RACER 2 FINISHED " << args << endl;
-            if( isRaceFinished() ){ stopRace(); mModel->raceState = RACE_STATE::RACE_FINISHED; }
+            mModel->playerData[1]->setFinished( fromString<int>(args) );
+            if( isRaceFinished() ){ stopRace(); mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE ); }
         }
         else if( cmd == "2F"){
-            mModel->playerData[2]->setFinished( fromString<int>(args) );
             console() << "RACER 3 FINISHED " << args << endl;
-            if( isRaceFinished() ){ stopRace(); mModel->raceState = RACE_STATE::RACE_FINISHED; }
+            mModel->playerData[2]->setFinished( fromString<int>(args) );
+            if( isRaceFinished() ){ stopRace(); mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE ); }
         }
         else if( cmd == "3F"){
-            mModel->playerData[3]->setFinished( fromString<int>(args) );
             console() << "RACER 4 FINISHED " << args << endl;
-            if( isRaceFinished() ){ stopRace(); mModel->raceState = RACE_STATE::RACE_FINISHED; }
+            mModel->playerData[3]->setFinished( fromString<int>(args) );
+            if( isRaceFinished() ){ stopRace(); mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE ); }
         }
         // ------------------------------------------------------------------------------
         // RACE PROGRESS
@@ -246,9 +220,11 @@ void SerialReader::parseCommand(std::string command){
         else if( cmd == "3"){
             mModel->playerData[3]->curRaceTicks = fromString<int>(args);
         }
-        else if( cmd == "T"){
+        else if( cmd == "T"){   // time
             mModel->elapsedRaceTimeMillis = fromString<int>(args);
             mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
+            
+            mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
         }
         
         // ------------------------------------------------------------------------------
@@ -256,45 +232,25 @@ void SerialReader::parseCommand(std::string command){
         else if( cmd == "A"){
             console() << "SerialReader :: Got ping :: " << args << endl;
         }
-        else if( cmd == "C"){
-            console() << "SerialReader :: Countdown changed to " << args << " seconds" << endl;
-        }
         else if( cmd == "CD"){
             console() << "SerialReader :: Countdown :: " << args << endl;
+            mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN );
             if( args == "0" ){
                 mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0;
-                mModel->raceState = RACE_STATE::RACE_RUNNING;
+                mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
             }
-        }
-        else if( cmd == "DEFAULTS"){
-            console() << "SerialReader :: Hardware reset to defaults" << endl;
-        }
-        else if( cmd == "F"){
-            console() << "SerialReader :: False start. Racer: " << args << endl;    // 0 based
         }
         else if( cmd == "FS"){
             console() << "SerialReader :: False start. Racer: " << args << endl;    // 0 based
+            mStateManager->changeRaceState( RACE_STATE::RACE_FALSE_START );
         }
-        else if( cmd == "G"){
-            console() << "SerialReader :: RACE STARTING" << endl;
-        }
-        else if( cmd == "HW"){
-            mHardwareVersion = args;
-        }
-        else if( cmd == "L"){
-//            mModel->setRaceLengthMeters( fromString<int>(args) );
+        else if( cmd == "L"){   // After sending a race length, it will send this confirmation
             console() << "SerialReader :: Race Length " << args << endl;
         }
         else if( cmd == "M"){
             console() << "SerialReader :: Mock mode turned " << args << endl;
         }
-        else if( cmd == "P"){
-            mProtoculVersion = args;
-        }
-        else if( cmd == "S"){
-            console() << "SerialReader :: Countdown stopped" << endl;
-        }
-        else if( cmd == "V"){
+        else if( cmd == "V"){   // version
             mFirmwareVersion = args;
         }
         

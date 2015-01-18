@@ -3,6 +3,9 @@ dependencies: \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/RaceView.h \
   ../../../../include/cinder/app/AppNative.h \
   ../../../../include/cinder/gl/Texture.h \
+  ../../../../include/cinder/gl/Vbo.h \
+  ../../../../include/cinder/TriMesh.h \
+  ../../../../include/cinder/gl/GlslProg.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/StateManager.h \
   /Users/charlie/Documents/Development/_libs/cpp/Cinder_086/apps/sharkbox/GoldsprintsFX/src/Model.h \
   ../../../../include/cinder/Utilities.h \

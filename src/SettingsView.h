@@ -26,7 +26,7 @@ public:
     void draw();
     
   private:
-    void onStateChange(GFX_STATE newState);
+    void onStateChange( APP_STATE newState );
     void onStepperPlusClick();
     void onStepperMinusClick();
     void onMouseUp( ci::app::MouseEvent event );
@@ -40,8 +40,11 @@ public:
     bool            bVisible;
     
     ci::gl::TextureRef  mBg;
-    std::vector<CiTextField*>   mTextFieldList;
     ci::gl::TextureFontRef      tFont;
+    
+    CiTextField*        mTxtDiameter;
+    CiTextField*        mTxtDistance;
+    CiTextField*        mTxtNumRacers;
     
     NumStepper      mStepperPlus;
     NumStepper      mStepperMinus;

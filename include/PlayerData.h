@@ -69,8 +69,8 @@ namespace gfx {
         }
         
         std::string player_name;
-        int curRaceTicks;
-        int totalRaceTicks;
+        int         curRaceTicks;
+        int         totalRaceTicks;
         double      finishTimeMillis;
         
       private:

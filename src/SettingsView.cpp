@@ -13,7 +13,8 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-SettingsView::SettingsView() : bVisible(false) {
+SettingsView::SettingsView() : bVisible(false)
+{
     mGlobal = gfx::GFXGlobal::getInstance();
     mStateManager = StateManager::getInstance();
     mModel = Model::getInstance();
@@ -27,17 +28,21 @@ SettingsView::SettingsView() : bVisible(false) {
     int yPos = 255;
     
     // ROLLER DIAMETER
-    mTextFieldList.push_back( makeSetting(Rectf(443,yPos, 443+431, yPos+100), "ROLLER DIAMETER (mm)", "82.55") );
+    mTxtDiameter = makeSetting(Rectf(443,yPos, 443+431, yPos+100), "ROLLER DIAMETER (mm)", "82.55" );
+    yPos += 160;
+    
+    // RACE DISTANCE
+    mTxtDistance = makeSetting(Rectf(443,yPos, 443+431, yPos+100), "RACE LENGTH (meters)", "1000" );
     yPos += 160;
     
     // RACERS
-    mTextFieldList.push_back( makeSetting(Rectf(443,yPos, 443+431 - 50, yPos+100), "NUMBER OF RACERS (1-4)", "2") );
-    mTextFieldList.back()->disable();
+    mTxtNumRacers = makeSetting(Rectf(443,yPos, 443+431 - 50, yPos+100), "NUMBER OF RACERS (1-4)", "2" );
+    mTxtNumRacers->disable();
     
     int gap = 6;
-    mStepperPlus.setup( mTextFieldList.back()->getBounds().getUpperRight() + Vec2f(gap, 0), gap, "+" );
+    mStepperPlus.setup( mTxtNumRacers->getBounds().getUpperRight() + Vec2f(gap, 0), gap, "+" );
     mStepperPlus.signalOnClick.connect( std::bind(&SettingsView::onStepperPlusClick, this ) );
-    mStepperMinus.setup( mTextFieldList.back()->getBounds().getUpperRight() + Vec2f(gap, 100 - 50+gap/2), gap, "-");
+    mStepperMinus.setup( mTxtNumRacers->getBounds().getUpperRight() + Vec2f(gap, 100 - 50+gap/2), gap, "-");
     mStepperMinus.signalOnClick.connect( std::bind(&SettingsView::onStepperMinusClick, this ) );
     
     yPos += 160;
@@ -50,17 +55,20 @@ SettingsView::SettingsView() : bVisible(false) {
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
 }
 
-void SettingsView::onStepperPlusClick(){
-    int numRacers = fromString<int>(mTextFieldList[1]->getText());
-    mTextFieldList[1]->setText( toString( min( ++numRacers, 4) ) );
+void SettingsView::onStepperPlusClick()
+{
+    int numRacers = fromString<int>( mTxtNumRacers->getText() );
+    mTxtNumRacers->setText( toString( min( ++numRacers, 4) ) );
 }
 
-void SettingsView::onStepperMinusClick(){
-    int numRacers = fromString<int>(mTextFieldList[1]->getText());
-    mTextFieldList[1]->setText( toString( max( --numRacers, 1) ) );
+void SettingsView::onStepperMinusClick()
+{
+    int numRacers = fromString<int>( mTxtNumRacers->getText() );
+    mTxtNumRacers->setText( toString( max( --numRacers, 1) ) );
 }
 
-CiTextField* SettingsView::makeSetting(Rectf rect, std::string label, std::string txt){
+CiTextField* SettingsView::makeSetting(Rectf rect, std::string label, std::string txt)
+{
     CiTextField *tf = new CiTextField(txt, rect, ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70) );
     tf->mColorStroke = mGlobal->playerColors[0];
     tf->mColorFill = mGlobal->playerColors[0];
@@ -78,20 +86,22 @@ void SettingsView::onMouseUp(ci::app::MouseEvent event){
     
 }
 
-void SettingsView::onStateChange(GFX_STATE newState) {
-    if( newState == GFX_STATE::SETTINGS ){
+void SettingsView::onStateChange(APP_STATE newState)
+{
+    if( newState == APP_STATE::SETTINGS ){
         bVisible = true;
-        for( auto it = mTextFieldList.begin(); it!=mTextFieldList.end(); ++it){
-            (*it)->visible = true;
-        }
+        mTxtDiameter->visible = true;
+        mTxtDistance->visible = true;
+        mTxtNumRacers->visible = true;
     }else{
-        mModel->rollerDiameterMm = mTextFieldList[0]->getText();
-        mModel->setNumRacers( fromString<int>(mTextFieldList[1]->getText()) );
+        mModel->rollerDiameterMm = mTxtDiameter->getText();
+        mModel->setNumRacers( fromString<int>(mTxtNumRacers->getText()) );
+        mModel->setRaceLengthMeters( fromString<int>(mTxtDistance->getText()) );
         bVisible = false;
         
-        for( auto it = mTextFieldList.begin(); it!=mTextFieldList.end(); ++it){
-            (*it)->visible = false;
-        }
+        mTxtDiameter->visible = false;
+        mTxtDistance->visible = false;
+        mTxtNumRacers->visible = false;
     }
 }
 
@@ -106,9 +116,9 @@ void SettingsView::draw(){
             gl::draw(mBg);
         }
         gl::color(1,1,1,1);
-        for( auto it = mTextFieldList.begin(); it!=mTextFieldList.end(); ++it){
-            (*it)->draw();
-        }
+        mTxtDiameter->draw();
+        mTxtDistance->draw();
+        mTxtNumRacers->draw();
         
         gl::color( Color::gray(0.55) );
         for( int i=0; i<mLabels.size(); i++){

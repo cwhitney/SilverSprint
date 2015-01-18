@@ -22,11 +22,26 @@ StateManager * StateManager::getInstance(){
     return mInstance;
 }
 
-GFX_STATE StateManager::getCurrentState() {
+APP_STATE StateManager::getCurrentState() {
     return mCurState;
 }
 
-void StateManager::changeState( GFX_STATE newState ){
+RACE_STATE StateManager::getCurrentRaceState() {
+    return mCurRaceState;
+}
+
+void StateManager::changeRaceState(gfx::RACE_STATE newState){
+    if( newState == mCurRaceState ){
+        return;
+    }
+    mCurRaceState = newState;
+    signalOnRaceStateChange( mCurRaceState );
+}
+
+void StateManager::changeState( APP_STATE newState ){
+    if( newState == mCurState ){
+        return;
+    }
     mCurState = newState;
     signalOnStateChange( mCurState );
 }

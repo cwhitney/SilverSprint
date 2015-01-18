@@ -34,6 +34,9 @@ namespace gfx{
         void resetPlayerData();
         
       private:
+        void onStateChaged();
+        void onRaceStateChanged();
+        
         GFXGlobal       *mGlobal;
         
         NavBarView      *mNav;

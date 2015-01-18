@@ -83,8 +83,8 @@ void StagingView::onKeyDown( ci::app::KeyEvent event ) {
     }
 }
 
-void StagingView::onStateChange(GFX_STATE newState){
-    if( newState == GFX_STATE::ROSTER ){
+void StagingView::onStateChange(APP_STATE newState){
+    if( newState == APP_STATE::ROSTER ){
         animateIn();
     }else{
         animateOut();

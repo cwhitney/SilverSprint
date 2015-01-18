@@ -17,7 +17,7 @@
 namespace gfx {
 
     struct NavIcon {
-        NavIcon( ci::gl::TextureRef tex_, ci::Rectf rect_, bool bActive_, gfx::GFX_STATE state_ ){
+        NavIcon( ci::gl::TextureRef tex_, ci::Rectf rect_, bool bActive_, gfx::APP_STATE state_ ){
             rect = rect_;
             tex = tex_;
             bActive = bActive_;
@@ -27,7 +27,7 @@ namespace gfx {
         ci::Rectf rect;
         ci::gl::TextureRef tex;
         bool bActive;
-        gfx::GFX_STATE state;
+        gfx::APP_STATE state;
     };
     
     class NavBarView {

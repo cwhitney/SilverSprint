@@ -26,10 +26,10 @@ namespace gfx {
         ci::gl::TextureFontRef      texFont;
         
         ci::Color playerColors[4] = {
-            ci::Color::hex(0xb92140),
-            ci::Color::hex(0x1c9185),
-            ci::Color::hex(0x169254),
-            ci::Color::hex(0xe1b909)
+            ci::ColorA( 185.0/255.0, 33.0/255.0, 64.0/255.0, 1.0 ),
+            ci::ColorA( 28.0/255.0, 145.0/255.0, 133.0/255.0, 1.0 ),
+            ci::ColorA( 22.0/255.0, 146.0/255.0, 84.0/255.0, 1.0 ),
+            ci::ColorA( 225.0/255.0, 185.0/255.0, 9.0/255.0, 1.0 )
         };
         
         ci::Vec2f   localToGlobal( ci::Vec2f pos );

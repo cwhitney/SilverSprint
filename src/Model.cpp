@@ -24,8 +24,6 @@ Model::Model(){
     mNumRacers = 2;
     bHardwareConnected = false;
     
-    raceState = RACE_STATE::RACE_IDLE;
-    
     for( int i=0; i<4; i++){
         playerData.push_back( new PlayerData() );
     }
@@ -34,8 +32,6 @@ Model::Model(){
     playerData[1]->player_name = "Player 2";
     playerData[2]->player_name = "Player 3";
     playerData[3]->player_name = "Player 4";
-    
-//    setRaceLengthMeters( raceLengthMeters );
 }
 
 Model::~Model(){
@@ -69,5 +65,11 @@ void Model::setRaceLength(int ticks) {
     
     for( int i=0; i<playerData.size(); i++){
         playerData[i]->totalRaceTicks = totalRaceTicks;
+    }
+}
+
+void Model::resetPlayers() {
+    for( int i=0; i<playerData.size(); i++){
+        playerData[i]->reset();
     }
 }
