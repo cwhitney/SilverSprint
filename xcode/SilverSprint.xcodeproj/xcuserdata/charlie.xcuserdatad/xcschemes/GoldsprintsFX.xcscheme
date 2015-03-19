@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8D1107260486CEB800E47090"
-               BuildableName = "GoldsprintsFX.app"
-               BlueprintName = "GoldsprintsFX"
+               BuildableName = "SilverSprint.app"
+               BlueprintName = "SilverSprint"
                ReferencedContainer = "container:SilverSprint.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "GoldsprintsFX.app"
-            BlueprintName = "GoldsprintsFX"
+            BuildableName = "SilverSprint.app"
+            BlueprintName = "SilverSprint"
             ReferencedContainer = "container:SilverSprint.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -52,8 +52,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "GoldsprintsFX.app"
-            BlueprintName = "GoldsprintsFX"
+            BuildableName = "SilverSprint.app"
+            BlueprintName = "SilverSprint"
             ReferencedContainer = "container:SilverSprint.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -70,8 +70,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "GoldsprintsFX.app"
-            BlueprintName = "GoldsprintsFX"
+            BuildableName = "SilverSprint.app"
+            BlueprintName = "SilverSprint"
             ReferencedContainer = "container:SilverSprint.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

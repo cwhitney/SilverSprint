@@ -32,7 +32,7 @@
 		8E1AF22A39774B8CAB42C131 /* PretzelLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69BEF05ABF6B4415B258963C /* PretzelLabel.cpp */; };
 		8F5D400349B747D2B4250191 /* PretzelGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2118AEBD7E484970B0AC2C62 /* PretzelGlobal.cpp */; };
 		9074AF2B63514F538D473288 /* PretzelToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30292036627E47D7828B84DF /* PretzelToggle.cpp */; };
-		9882D0BB299244098CC8F455 /* GoldsprintsFXApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF88B6CE778B4FEDAAF5B209 /* GoldsprintsFXApp.cpp */; };
+		9882D0BB299244098CC8F455 /* SilverSprintApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF88B6CE778B4FEDAAF5B209 /* SilverSprintApp.cpp */; };
 		9EBB05BC490549CE8EA5A790 /* ScrollPane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C10F5BC54D154DA5B4B92473 /* ScrollPane.cpp */; };
 		A6A010EAAB134DF0820F34B0 /* PretzelColorPicker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D492778A7C844231888AF832 /* PretzelColorPicker.cpp */; };
 		AD255BAC83A64A2B8657EF38 /* PretzelGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98D0C5ABD4994F50B076FB3E /* PretzelGui.cpp */; };
@@ -83,7 +83,7 @@
 		1F6F9D7918964F05B96F45B7 /* OscSender.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscSender.cpp; path = ../blocks/OSC/src/OscSender.cpp; sourceTree = "<group>"; };
 		1F8CE8B0F0C941AFB12E529F /* PretzelRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PretzelRow.h; path = ../blocks/PretzelGUI/src/components/PretzelRow.h; sourceTree = "<group>"; };
 		2118AEBD7E484970B0AC2C62 /* PretzelGlobal.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = PretzelGlobal.cpp; path = ../blocks/PretzelGUI/src/pretzel/PretzelGlobal.cpp; sourceTree = "<group>"; };
-		28C3832FC5154EB4968F9559 /* GoldsprintsFX_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = GoldsprintsFX_Prefix.pch; sourceTree = "<group>"; };
+		28C3832FC5154EB4968F9559 /* SilverSprint_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = SilverSprint_Prefix.pch; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		30292036627E47D7828B84DF /* PretzelToggle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelToggle.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelToggle.cpp; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		6DD34EC84BAA4A049E8B41D8 /* OscListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscListener.h; path = ../blocks/OSC/src/OscListener.h; sourceTree = "<group>"; };
 		6EF9305A30FA45E5B0835558 /* OscMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscMessage.h; path = ../blocks/OSC/src/OscMessage.h; sourceTree = "<group>"; };
 		77B14177F0184F7D8790159D /* OscException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscException.h; path = ../blocks/OSC/src/osc/OscException.h; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* GoldsprintsFX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldsprintsFX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* SilverSprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverSprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF58E6F4ACB4383B91BE525 /* OscBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscBundle.h; path = ../blocks/OSC/src/OscBundle.h; sourceTree = "<group>"; };
 		930DB2E4CA43434A930FB9BE /* default_skin.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = default_skin.png; path = ../blocks/PretzelGUI/resources/default_skin.png; sourceTree = "<group>"; };
 		989F6F62A1B84D40B6F48B9E /* IpEndpointName.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = IpEndpointName.cpp; path = ../blocks/OSC/src/ip/IpEndpointName.cpp; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		D8180BBECC314708BE81E523 /* OscPacketListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscPacketListener.h; path = ../blocks/OSC/src/osc/OscPacketListener.h; sourceTree = "<group>"; };
 		D8564CAEF0B14A1183BC53A4 /* TimerListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimerListener.h; path = ../blocks/OSC/src/ip/TimerListener.h; sourceTree = "<group>"; };
 		DE4FC7890AA143F882547BD6 /* OscReceivedElements.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscReceivedElements.cpp; path = ../blocks/OSC/src/osc/OscReceivedElements.cpp; sourceTree = "<group>"; };
-		DF88B6CE778B4FEDAAF5B209 /* GoldsprintsFXApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = GoldsprintsFXApp.cpp; path = ../src/GoldsprintsFXApp.cpp; sourceTree = "<group>"; };
+		DF88B6CE778B4FEDAAF5B209 /* SilverSprintApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = SilverSprintApp.cpp; path = ../src/SilverSprintApp.cpp; sourceTree = "<group>"; };
 		E7BE26171EAB4E939B12B0F8 /* PretzelTextField.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = PretzelTextField.cpp; path = ../blocks/PretzelGUI/src/modules/PretzelTextField.cpp; sourceTree = "<group>"; };
 		EE9C0118F2404CD186CE7B51 /* BasePretzel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BasePretzel.h; path = ../blocks/PretzelGUI/src/components/BasePretzel.h; sourceTree = "<group>"; };
 		F40F3FD408624BACB6CD7CB4 /* OscTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscTypes.h; path = ../blocks/OSC/src/osc/OscTypes.h; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 				CBC8865719AE393D00F539C3 /* views */,
 				CBC8865119AE338200F539C3 /* GFXMain.cpp */,
 				CBC8865219AE338200F539C3 /* GFXMain.h */,
-				DF88B6CE778B4FEDAAF5B209 /* GoldsprintsFXApp.cpp */,
+				DF88B6CE778B4FEDAAF5B209 /* SilverSprintApp.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -248,12 +248,12 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* GoldsprintsFX.app */,
+				8D1107320486CEB800E47090 /* SilverSprint.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* GoldsprintsFX */ = {
+		29B97314FDCFA39411CA2CEA /* SilverSprint */ = {
 			isa = PBXGroup;
 			children = (
 				CBC8865D19AE60BC00F539C3 /* gfxIcn.icns */,
@@ -264,14 +264,14 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			name = GoldsprintsFX;
+			name = SilverSprint;
 			sourceTree = "<group>";
 		};
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
 				03D32110B41B450CA521DC03 /* Resources.h */,
-				28C3832FC5154EB4968F9559 /* GoldsprintsFX_Prefix.pch */,
+				28C3832FC5154EB4968F9559 /* SilverSprint_Prefix.pch */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -490,9 +490,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* GoldsprintsFX */ = {
+		8D1107260486CEB800E47090 /* SilverSprint */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "GoldsprintsFX" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "SilverSprint" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -502,10 +502,10 @@
 			);
 			dependencies = (
 			);
-			name = GoldsprintsFX;
+			name = SilverSprint;
 			productInstallPath = "$(HOME)/Applications";
-			productName = GoldsprintsFX;
-			productReference = 8D1107320486CEB800E47090 /* GoldsprintsFX.app */;
+			productName = SilverSprint;
+			productReference = 8D1107320486CEB800E47090 /* SilverSprint.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -525,11 +525,11 @@
 				French,
 				German,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* GoldsprintsFX */;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* SilverSprint */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* GoldsprintsFX */,
+				8D1107260486CEB800E47090 /* SilverSprint */,
 			);
 		};
 /* End PBXProject section */
@@ -555,7 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBC8865619AE343E00F539C3 /* GFXGlobal.cpp in Sources */,
-				9882D0BB299244098CC8F455 /* GoldsprintsFXApp.cpp in Sources */,
+				9882D0BB299244098CC8F455 /* SilverSprintApp.cpp in Sources */,
 				08C0EEDC976A483E97CA158D /* OscBundle.cpp in Sources */,
 				11C6DD86151B4DBFBAC1AF54 /* OscListener.cpp in Sources */,
 				3CFF88558EC14AF9A4477D51 /* OscMessage.cpp in Sources */,
@@ -610,7 +610,7 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GoldsprintsFX_Prefix.pch;
+				GCC_PREFIX_HEADER = SilverSprint_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -619,7 +619,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
-				PRODUCT_NAME = GoldsprintsFX;
+				PRODUCT_NAME = SilverSprint;
 				SYMROOT = ./build;
 				WRAPPER_EXTENSION = app;
 			};
@@ -636,7 +636,7 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GoldsprintsFX_Prefix.pch;
+				GCC_PREFIX_HEADER = SilverSprint_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NDEBUG=1",
 					"$(inherited)",
@@ -645,7 +645,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
-				PRODUCT_NAME = GoldsprintsFX;
+				PRODUCT_NAME = SilverSprint;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
 				WRAPPER_EXTENSION = app;
@@ -689,7 +689,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "GoldsprintsFX" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "SilverSprint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,

@@ -42,7 +42,10 @@ void CountDownGfx::onRaceStateChange( RACE_STATE newState ) {
 }
 
 void CountDownGfx::draw() {
-    
-    gl::color( Color::white() );
-    GFXGlobal::getInstance()->countdownFont->drawString(mTxt, Vec2f(1920 / 2, 1080 / 2) );
+    if( mTxt != ""){
+        gl::color( Color::white() );
+        Vec2f txtSize = GFXGlobal::getInstance()->countdownFont->measureString( mTxt );
+        
+        GFXGlobal::getInstance()->countdownFont->drawString(mTxt, Vec2f(1920 / 2, 1080 / 2) + txtSize * -0.5 );
+    }
 }
