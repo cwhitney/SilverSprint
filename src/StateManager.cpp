@@ -47,3 +47,49 @@ void StateManager::changeAppState( APP_STATE newState, bool forceEvent ){
     mCurAppState = newState;
     signalOnStateChange( mCurAppState );
 }
+
+std::string StateManager::getCurrentAppStateString() {
+    return getAppStateString( mCurAppState );
+}
+
+std::string StateManager::getCurrentRaceStateString() {
+    return getRaceStateString( mCurRaceState );
+}
+
+std::string StateManager::getAppStateString( APP_STATE as ) {
+    switch( as ){
+        case RACE:
+            return "RACE"; break;
+        case ROSTER:
+            return "ROSTER"; break;
+        case SETTINGS:
+            return "SETTINGS"; break;
+        default:
+            return "UNKNOWN"; break;
+    };
+}
+
+std::string StateManager::getRaceStateString( RACE_STATE rs ) {
+    switch( rs ){
+        case RACE_STARTING:
+            return "RACE_STARTING"; break;
+        case RACE_COUNTDOWN_3:
+            return "RACE_COUNTDOWN_3"; break;
+        case RACE_COUNTDOWN_2:
+            return "RACE_COUNTDOWN_2"; break;
+        case RACE_COUNTDOWN_1:
+            return "RACE_COUNTDOWN_1"; break;
+        case RACE_COUNTDOWN_GO:
+            return "RACE_COUNTDOWN_GO"; break;
+        case RACE_RUNNING:
+            return "RACE_RUNNING"; break;
+        case RACE_STOPPED:
+            return "RACE_STOPPED"; break;
+        case RACE_COMPLETE:
+            return "RACE_COMPLETE"; break;
+        case RACE_FALSE_START:
+            return "RACE_FALSE_START"; break;
+        default:
+            return "UNKNOWN"; break;
+    };
+}

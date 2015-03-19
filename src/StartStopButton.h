@@ -27,7 +27,7 @@ class StartStopButton : public BaseButton {
     virtual void onMouseOut();
     virtual void onClick();
     
-    ci::signals::signal<void(void)>	signalOnClick;
+    ci::signals::signal<void(void)>	signalStartRace, signalStopRace;
     
   protected:
     ci::Color       mBackground;

@@ -34,8 +34,8 @@ namespace gfx{
         void resetPlayerData();
         
       private:
-        void onStateChaged();
-        void onRaceStateChanged();
+        void onAppStateChaged( APP_STATE as );
+        void onRaceStateChanged( RACE_STATE rc );
         
         void onRaceFinished();
         

@@ -20,6 +20,7 @@ class GoldsprintsFXApp : public AppNative {
     void shutdown();
     
     gfx::GFXMain *mGfxMain;
+    bool    bDebugState;
 };
 
 void GoldsprintsFXApp::prepareSettings(cinder::app::AppBasic::Settings *settings){
@@ -27,7 +28,9 @@ void GoldsprintsFXApp::prepareSettings(cinder::app::AppBasic::Settings *settings
 //    settings->setWindowSize(1280, 768);
     settings->setWindowSize(1280, 700);
     settings->setWindowPos((1400-1280)/2, 0 );
-    settings->setTitle("GoldsprintsFX 2.0");
+    settings->setTitle("SilverSprint");
+    
+    bDebugState = true;
 }
 
 void GoldsprintsFXApp::setup() {
@@ -83,6 +86,11 @@ void GoldsprintsFXApp::draw() {
     }gl::popMatrices();
     
 //    gl::drawString( to_string(getAverageFps()), Vec2f(10,10) );
+    
+    if( bDebugState ){
+        gl::drawString( StateManager::getInstance()->getCurrentAppStateString(), Vec2f(10, getWindowHeight() - 40) );
+        gl::drawString( StateManager::getInstance()->getCurrentRaceStateString(), Vec2f(10, getWindowHeight() - 20) );
+    }
 }
 
 CINDER_APP_NATIVE( GoldsprintsFXApp, RendererGl )

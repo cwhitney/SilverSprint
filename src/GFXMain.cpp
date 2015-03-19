@@ -52,30 +52,31 @@ void GFXMain::setup(){
     
     mSerialReader->signalOnRaceFinished.connect( bind( &GFXMain::onRaceFinished, this ) );
     
-    mStateManager->signalOnStateChange.connect( bind( &GFXMain::onStateChaged, this ) );
-    mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this ) );
+    mStateManager->signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
+    mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
     
     mStateManager->changeAppState( APP_STATE::RACE, true );
     mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED, true );
 }
 
 void GFXMain::onRaceFinished() {
-    console() << "RACE FINSIHED" << endl;
+    console() << "GFXMAIN :: RACE FINSIHED" << endl;
     mSerialReader->stopRace();
     mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE );
 }
 
-void GFXMain::onStateChaged() {
+void GFXMain::onAppStateChaged( APP_STATE as ) {
     
 }
 
-void GFXMain::onRaceStateChanged(){
+void GFXMain::onRaceStateChanged( RACE_STATE rc ){
     
-    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STARTING ){
+    if( rc == RACE_STATE::RACE_STARTING ){
         mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
         mSerialReader->startRace();
     }
-    else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED ){
+    
+    else if( rc == RACE_STATE::RACE_STOPPED ){
         mSerialReader->stopRace();
         mModel->resetPlayers();
         mModel->elapsedRaceTimeMillis = 0.0;

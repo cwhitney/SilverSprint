@@ -36,7 +36,10 @@ void RaceView::setup()
     mModel = Model::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&RaceView::onStateChange, this, std::placeholders::_1) );
     
-    mStartStop.signalOnClick.connect( std::bind(&RaceView::onStartStopClick, this ) );
+    mCountDown = new CountDownGfx();
+    
+    mStartStop.signalStartRace.connect( std::bind(&RaceView::onStartClicked, this ) );
+    mStartStop.signalStopRace.connect( std::bind(&RaceView::onStopClicked, this ) );
     
     mTimerFont = ci::gl::TextureFont::create( ci::Font(loadAsset("fonts/UbuntuMono-B.ttf"), 50) );
     
@@ -128,14 +131,17 @@ ci::gl::VboMeshRef RaceView::createVbo( float innerRad, float outerRad )
     return tmpVbo;
 }
 
-void RaceView::onStartStopClick()
+void RaceView::onStartClicked()
 {
     if( mModel->bHardwareConnected ){
-        if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING ){
-            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
-        }else{
-            mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
-        }
+        mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+    }
+}
+
+void RaceView::onStopClicked()
+{
+    if( mModel->bHardwareConnected ){
+        mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
     }
 }
 
@@ -215,6 +221,9 @@ void RaceView::draw()
             gl::draw( mVboList[i] );
         }mProgressShader->unbind();
     }
+    
+    // COUNTDOWN
+    mCountDown->draw();
 }
 
 

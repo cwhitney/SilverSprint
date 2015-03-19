@@ -24,6 +24,7 @@ namespace gfx {
         
         ci::Font uiFont;
         ci::gl::TextureFontRef      texFont;
+        ci::gl::TextureFontRef      countdownFont;
         
         ci::Color playerColors[4] = {
             ci::ColorA( 185.0/255.0, 33.0/255.0, 64.0/255.0, 1.0 ),

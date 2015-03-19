@@ -42,7 +42,12 @@ void StartStopButton::onMouseOut()
 
 void StartStopButton::onClick()
 {
-    signalOnClick();
+    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
+       mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
+        signalStartRace();
+    }else{
+        signalStopRace();
+    }
 }
 
 void StartStopButton::draw()
@@ -52,14 +57,12 @@ void StartStopButton::draw()
     
     gl::color( Color::white() );
     
-    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STARTING ||
-        mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COUNTDOWN ||
-        mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING
-       ){
-            gl::color( Color::black() );
-            GFXGlobal::getInstance()->texFont->drawString("STOP", mBounds.getLowerLeft() + Vec2f(40, -15) );
-    }else{
+    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
+       mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
         gl::color( Color::black() );
         GFXGlobal::getInstance()->texFont->drawString("START", mBounds.getLowerLeft() + Vec2f(40, -15) );
+    }else {
+        gl::color( Color::black() );
+        GFXGlobal::getInstance()->texFont->drawString("STOP", mBounds.getLowerLeft() + Vec2f(45, -15) );
     }
 }

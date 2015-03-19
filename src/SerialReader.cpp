@@ -14,8 +14,8 @@ using namespace std;
 using namespace gfx;
 
 SerialReader::SerialReader() :
-//    BAUD_RATE(115200),
-    BAUD_RATE(9600),
+    BAUD_RATE(115200),
+//    BAUD_RATE(9600),
     bSerialConnected(false),
     mStringBuffer(""),
     mHardwareVersion(""),
@@ -97,7 +97,6 @@ void SerialReader::startRace(){
 
 void SerialReader::stopRace(){
     sendSerialMessage("s");
-    console() << "stop race" << endl;
 }
 
 void SerialReader::setRaceDuration(int numSeconds){
@@ -117,6 +116,7 @@ void SerialReader::sendSerialMessage( std::string msg ){
     if( bSerialConnected ){
         if( mSerial ){
             try{
+                console() << "SerialReader :: Sending message :: " << msg << endl;
                 mSerial->writeString(msg + "\n" );
             }catch(...){
                 onDisconnect();
@@ -226,7 +226,7 @@ void SerialReader::parseCommand(std::string command){
                 mModel->elapsedRaceTimeMillis = fromString<int>(args);
                 mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
             }
-            mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
+//            mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
         }
         
         // ------------------------------------------------------------------------------
@@ -236,15 +236,24 @@ void SerialReader::parseCommand(std::string command){
         }
         else if( cmd == "CD"){
             console() << "SerialReader :: Countdown :: " << args << endl;
-            mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN );
-            if( args == "0" ){
+            
+            if( args == "3" ){
+                mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_3 );
+            }else if( args == "2"){
+                mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_2 );
+            }else if( args == "1"){
+                mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_1 );
+            }else if( args == "0" ){
                 mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0;
+                
+                mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_GO );
                 mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
             }
         }
         else if( cmd == "FS"){
             console() << "SerialReader :: False start. Racer: " << args << endl;    // 0 based
             mStateManager->changeRaceState( RACE_STATE::RACE_FALSE_START );
+            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
         }
         else if( cmd == "L"){   // After sending a race length, it will send this confirmation
             console() << "SerialReader :: Race Length " << args << endl;

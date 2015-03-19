@@ -20,7 +20,10 @@ namespace gfx{
     
     enum RACE_STATE {
         RACE_STARTING = 0,
-        RACE_COUNTDOWN,
+        RACE_COUNTDOWN_3,
+        RACE_COUNTDOWN_2,
+        RACE_COUNTDOWN_1,
+        RACE_COUNTDOWN_GO,
         RACE_RUNNING,
         RACE_STOPPED,
         RACE_COMPLETE,
@@ -36,6 +39,12 @@ namespace gfx{
         
         APP_STATE getCurrentAppState();
         RACE_STATE getCurrentRaceState();
+        
+        std::string getCurrentAppStateString();
+        std::string getCurrentRaceStateString();
+        
+        std::string getAppStateString( APP_STATE as );
+        std::string getRaceStateString( RACE_STATE rs );
         
         ci::signals::signal<void(APP_STATE)>	signalOnStateChange;
         ci::signals::signal<void(RACE_STATE)>	signalOnRaceStateChange;

@@ -19,6 +19,7 @@
 #include "RaceText.h"
 #include "GFXGlobal.h"
 #include "StartStopButton.h"
+#include "CountDownGfx.h"
 
 namespace gfx {
 
@@ -33,7 +34,8 @@ namespace gfx {
         
       private:
         void onStateChange( APP_STATE newState );
-        void onStartStopClick();
+        void onStartClicked();
+        void onStopClicked();
         
         
         void setupVbos();
@@ -48,6 +50,7 @@ namespace gfx {
         bool    bVisible;
         
         StartStopButton         mStartStop;
+        CountDownGfx            *mCountDown;
         
         ci::gl::TextureFontRef  mTimerFont;
         
