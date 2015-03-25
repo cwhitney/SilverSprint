@@ -1,4 +1,4 @@
-GoldsprintsFx 2.0 (New name pending)
+SilverSprint
 =============
 
 A front end for the [OpenSprints](https://www.opensprints.com) hardware kit.  It allows for the racing of 1 to 4 bikers against each other in a goldsprints style race.  The software is free to use and modify and you're encouraged to hold your own races!
