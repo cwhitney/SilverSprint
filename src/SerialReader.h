@@ -12,6 +12,7 @@
 #include "cinder/Serial.h"
 #include "cinder/Utilities.h"
 #include "cinder/Log.h"
+#include "cinder/ConcurrentCircularBuffer.h"
 #include <boost/algorithm/string.hpp>
 
 #include "StateManager.h"
@@ -39,12 +40,13 @@ namespace gfx {
         ci::signals::Signal<void(void)>	signalOnRaceFinished;
         
       private:
-        bool attemptHardwareConnection();
+        void updateSerial();
+        
         void onConnect();
         void onDisconnect();
         
-        bool keepAlive();
-        float mKeepAliveTimer;
+        void parseCommandToBuffer( std::string command );
+        void parseFromBuffer();
         
         bool                isRaceFinished();
         
@@ -53,12 +55,14 @@ namespace gfx {
         
         void                readSerial();
         void                sendSerialMessage( std::string msg );
-        void                parseCommand( std::string command );
         
         int                 BAUD_RATE;
         ci::SerialRef       mSerial;
-        bool                bSerialConnected;
+        bool                bSerialConnected, bLastConnection;
+        bool                bThreadShouldQuit;
         bool                bMockEnabled;
+        
+        int mThreadAlive;
         
         std::string         mStringBuffer;
         
@@ -66,5 +70,10 @@ namespace gfx {
         std::string         mProtoculVersion;
         std::string         mHardwareVersion;   // currently unimplemented in arduino software
         
+        // threading
+        std::shared_ptr<std::thread>    mSerialThread;
+        std::mutex                      mSerialMutex;
+        ci::ConcurrentCircularBuffer< std::vector<std::string> >		mBuffer;
+//        ci::ConcurrentCircularBuffer< std::vector<std::string> >		mSendBuffer;
     };
 }

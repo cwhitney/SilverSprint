@@ -97,7 +97,11 @@ void GFXMain::resetPlayerData(){
 
 void GFXMain::update()
 {
+    double start_t, end_t;
+    start_t = getElapsedSeconds();
     mSerialReader->update();
+    end_t = getElapsedSeconds();
+//    console() << "SerialReader update time :: " << start_t << " -- " << (end_t - start_t) << endl;
     
     mRaceView->update();
     mRosterView->update();

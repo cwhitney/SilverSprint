@@ -17,19 +17,26 @@ SerialReader::SerialReader() :
     BAUD_RATE(115200),
 //    BAUD_RATE(9600),
     bSerialConnected(false),
+    bLastConnection(false),
     mStringBuffer(""),
     mHardwareVersion(""),
     mProtoculVersion(""),
     mFirmwareVersion(""),
     bMockEnabled(false),
     mSerial(NULL),
-    mKeepAliveTimer(0) {
+    bThreadShouldQuit(false),
+    mThreadAlive(0),
+    mBuffer(100)
+//    mKeepAliveTimer(0)
+{
  
 }
 
 SerialReader::~SerialReader()
 {
     stopRace();
+    bThreadShouldQuit = true;
+    mSerialThread->join();
 }
 
 void SerialReader::setup()
@@ -37,53 +44,117 @@ void SerialReader::setup()
     mStateManager = StateManager::getInstance();
     mModel = Model::getInstance();
     
-    if( attemptHardwareConnection() ){
-        onConnect();
+    mSerialThread = std::shared_ptr<std::thread>( new std::thread( std::bind(&SerialReader::updateSerial, this) ) );
+//    mSerialThread->detach();
+    
+//    if( attemptHardwareConnection() ){
+//        onConnect();
+//    }
+}
+
+void SerialReader::updateSerial()
+{
+    ThreadSetup threadSetup;
+    
+    while( !bThreadShouldQuit ){
+        std::lock_guard<std::mutex> guard(mSerialMutex);
+        
+        ++mThreadAlive;
+        
+        if(!bSerialConnected ){ // we aren't connected try to connect
+            try {
+                Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial", true);
+                if( dev.getName() == ""){
+                    dev = Serial::findDeviceByNameContains("tty.usbmodem", true);
+                }
+                mSerial = Serial::create( dev, BAUD_RATE );
+                bSerialConnected = true;
+                mSerial->flush();
+                CI_LOG_I("OpenSprints hardware found successfully. :: ") << dev.getName();
+            }
+            catch( ... ) {
+                bSerialConnected = false;
+            }
+        }else{
+            // make sure we're still connected
+            Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial", true);
+            if( dev.getName() == ""){
+                dev = Serial::findDeviceByNameContains("tty.usbmodem", true);
+            }
+            if( dev.getName() == ""){
+                bSerialConnected = false;
+            }else{
+                // we are connected
+                
+                // send to arduino
+                // ...
+                
+                
+                // receive from arduino
+                readSerial();
+            }
+        }
     }
 }
 
-bool SerialReader::attemptHardwareConnection()
+void SerialReader::readSerial()
 {
+    uint bytesAvailable = mSerial->getNumBytesAvailable();
+    uint charsAvailable = floor(bytesAvailable / sizeof(char));
+    
     try {
-        Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial", true);
-        if( dev.getName() == ""){
-            dev = Serial::findDeviceByNameContains("tty.usbmodem", true);
+        for(int i=0; i<charsAvailable; i++){
+            unsigned char c = mSerial->readByte();
+            mStringBuffer += c;
         }
-        mSerial = Serial::create( dev, BAUD_RATE );
-        CI_LOG_I("OpenSprints hardware found successfully. :: ") << dev.getName();
-        return true;
-    }
-    catch( ... ) {
-        CI_LOG_I("Couldn't connect to the OpenSprints hardware.");
+    }catch(...){
+        bSerialConnected = false;
     }
     
-    return false;
+    //    if( mStringBuffer.length() ){
+    //        console() << mStringBuffer << endl;
+    //    }
+    //    mStringBuffer = "";
+    
+    int index = mStringBuffer.find("\r\n");
+    if(index != string::npos){
+        std::string cmd = mStringBuffer.substr(0, index);
+        mStringBuffer.replace(0, index+2, "");      // The newline is 2 bytes (\r\n) so add two to remove it
+        
+        parseCommandToBuffer( cmd );
+    }
 }
 
 void SerialReader::onConnect()
 {
-    bSerialConnected = true;
+    CI_LOG_I("OpenSprints hardware connected.");
     mModel->bHardwareConnected = bSerialConnected;
 }
 
 void SerialReader::onDisconnect()
 {
-    bSerialConnected = false;
+    CI_LOG_I("OpenSprints hardware disconnected.");
     mModel->bHardwareConnected = bSerialConnected;
 }
 
 void SerialReader::update()
 {
-    if( getElapsedSeconds() > mKeepAliveTimer + 1.0 ){
-        mKeepAliveTimer = getElapsedSeconds();
-        keepAlive();
+    // if we connected since the last update, notify
+    if( bSerialConnected && !bLastConnection){
+        onConnect();
+    }else if( !bSerialConnected && bLastConnection ){
+        onDisconnect();
     }
+    bLastConnection = bSerialConnected;
     
-    if( bSerialConnected ){
-        readSerial();
-    }
+    std::lock_guard<std::mutex> guard(mSerialMutex);
+    
+    parseFromBuffer();
+    
+//    console() << mThreadAlive << endl;
 }
 
+/*
 bool SerialReader::keepAlive()
 {
     if( !bSerialConnected ){
@@ -95,7 +166,7 @@ bool SerialReader::keepAlive()
     
     return false;
 }
-
+*/
 void SerialReader::startRace(){
     sendSerialMessage("g");
 }
@@ -135,34 +206,6 @@ void SerialReader::sendSerialMessage( std::string msg ){
     }
 }
 
-void SerialReader::readSerial()
-{
-    uint bytesAvailable = mSerial->getNumBytesAvailable();
-    uint charsAvailable = floor(bytesAvailable / sizeof(char));
-    
-    try {
-        for(int i=0; i<charsAvailable; i++){
-            unsigned char c = mSerial->readByte();
-            mStringBuffer += c;
-        }
-    }catch(...){
-        onDisconnect();
-    }
-    
-//    if( mStringBuffer.length() ){
-//        console() << mStringBuffer << endl;
-//    }
-//    mStringBuffer = "";
-    
-    int index = mStringBuffer.find("\r\n");
-    if(index != string::npos){
-        std::string cmd = mStringBuffer.substr(0, index);
-        mStringBuffer.replace(0, index+2, "");      // The newline is 2 bytes (\r\n) so add two to remove it
-        
-        parseCommand( cmd );
-    }
-}
-
 bool SerialReader::isRaceFinished()
 {
     for( int i=0; i<mModel->getNumRacers(); i++){
@@ -174,23 +217,36 @@ bool SerialReader::isRaceFinished()
     return true;
 }
 
-void SerialReader::parseCommand(std::string command)
+void SerialReader::parseCommandToBuffer( std::string command )
 {
-    CI_LOG_V( command );
+    std::vector<std::string> strs;
+    boost::split(strs, command, boost::is_any_of(":"));
     
-    if( command == "NACK" ){
-        console() << "SerialReader :: Bad command" << endl;
-    }else if( command == "ACK" ){
-        console() << "SerialReader :: Received ping :: ACK" << endl;
-    }else{
-        std::vector<std::string> strs;
-        boost::split(strs, command, boost::is_any_of(":"));
+    std::vector<std::string> tmpBuffer;
+    tmpBuffer.push_back( strs[0] );
+    
+    std::string args = "";
+    if( strs.size() > 1){
+        tmpBuffer.push_back(strs[1]);
+    }
+    
+    mBuffer.tryPushFront(tmpBuffer);
+}
+
+
+// Parse commands in the main thread that we grabbed during the updateSerial thread
+void SerialReader::parseFromBuffer()
+{
+    int numCmds = mBuffer.getSize();
+    
+    if( numCmds != 0)  CI_LOG_I("Parsing ") << numCmds << " commands";
+    
+    for( int i=0; i<numCmds; i++) {
+        std::vector<std::string> cmdArgs;
+        mBuffer.popBack( &cmdArgs );
         
-        std::string cmd = strs[0];
-        std::string args = "";
-        if( strs.size() > 1){
-            args = strs[1];
-        }
+        std::string cmd = cmdArgs[0];
+        std::string args = (cmdArgs.size() > 1) ? cmdArgs[1] : "";
         
         if( cmd == ""){
             return;
@@ -231,27 +287,6 @@ void SerialReader::parseCommand(std::string command)
             mModel->elapsedRaceTimeMillis = fromString<int>( rdata[4] );
             mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
         }
-        /*
-        else if( cmd == "0"){
-            mModel->playerData[0]->curRaceTicks = fromString<int>(args);
-        }
-        else if( cmd == "1"){
-            mModel->playerData[1]->curRaceTicks = fromString<int>(args);
-        }
-        else if( cmd == "2"){
-            mModel->playerData[2]->curRaceTicks = fromString<int>(args);
-        }
-        else if( cmd == "3"){
-            mModel->playerData[3]->curRaceTicks = fromString<int>(args);
-        }
-        else if( cmd == "T"){   // time
-            if( !isRaceFinished() ){
-                mModel->elapsedRaceTimeMillis = fromString<int>(args);
-                mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
-            }
-//            mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
-        }
-         */
         
         // ------------------------------------------------------------------------------
         // SETTINGS
@@ -296,8 +331,9 @@ void SerialReader::parseCommand(std::string command)
             }
             console() << endl;
         }
-        
     }
+    
+
 }
 
 
