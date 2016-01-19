@@ -51,6 +51,15 @@ SettingsView::SettingsView() : bVisible(false)
     mConnectionRect = Rectf(443, yPos, 443+100, yPos+100);
     mLabels.push_back( TextLabel(mConnectionRect.getUpperLeft() - vec2(0, 20), "HARDWARE CONNECTION STATUS") );
     
+    mXLine1 = ThickLine::create( mConnectionRect.getUpperLeft()  + vec2(20,20),  mConnectionRect.getLowerRight() - vec2(20,20), 5);
+    mXLine2 = ThickLine::create( mConnectionRect.getUpperRight() + vec2(-20,20), mConnectionRect.getLowerLeft() + vec2(20,-20), 5);
+    
+    vec2 p1(20,60), p2(40,80), p3(80,20);
+    vec2 t = mConnectionRect.getUpperLeft();;
+    mCheckLine1 = ThickLine::create( p1+t, p2+t + vec2(1.5,1.5), 5 );
+    mCheckLine2 = ThickLine::create( p2+t, p3+t, 5 );
+    
+    
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
 }
@@ -94,7 +103,7 @@ void SettingsView::onStateChange(APP_STATE newState)
         mTxtDistance->visible = true;
         mTxtNumRacers->visible = true;
     }else{
-        mModel->rollerDiameterMm = mTxtDiameter->getText();
+        mModel->setRollerDiameterMm( fromString<float>(mTxtDiameter->getText()));
         mModel->setNumRacers( fromString<int>(mTxtNumRacers->getText()) );
         mModel->setRaceLengthMeters( fromString<int>(mTxtDistance->getText()) );
         bVisible = false;
@@ -130,19 +139,17 @@ void SettingsView::draw()
         mStepperPlus.draw();
         mStepperMinus.draw();
         
-        gl::color( mGlobal->playerColors[0] );
+        gl::ScopedColor scPc( mGlobal->playerColors[0] );
         gl::drawSolidRect( mConnectionRect );
-        gl::color( Color::gray(0.1) );
-        gl::lineWidth(5.0);
+        
+        gl::ScopedColor scCol(Color::gray(0.1));
+
         if( mModel->bHardwareConnected ){
-            vec2 p1(20,60), p2(40,80), p3(80,20);
-            vec2 t = mConnectionRect.getUpperLeft();;
-            gl::drawLine( p1+t, p2+t + vec2(1.5,1.5) );
-            gl::drawLine( p2+t, p3+t );
+            mCheckLine1->draw();
+            mCheckLine2->draw();
         }else{
-            gl::drawLine( mConnectionRect.getUpperLeft() + vec2(20,20), mConnectionRect.getLowerRight() - vec2(20,20) );
-            gl::drawLine( mConnectionRect.getUpperRight() + vec2(-20,20), mConnectionRect.getLowerLeft() + vec2(20,-20) );
+            mXLine1->draw();
+            mXLine2->draw();
         }
-        gl::lineWidth(1.0);
     }
 }

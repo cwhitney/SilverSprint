@@ -37,10 +37,8 @@ namespace gfx {
         void setRaceLengthTicks( int numTicks );
         void setMockMode( bool enabled=true );
         
-        ci::signals::Signal<void(void)>	signalOnRaceFinished;
-        
       private:
-        void updateSerial();
+        void updateSerialThread();
         
         void onConnect();
         void onDisconnect();
@@ -62,8 +60,6 @@ namespace gfx {
         bool                bThreadShouldQuit;
         bool                bMockEnabled;
         
-        int mThreadAlive;
-        
         std::string         mStringBuffer;
         
         std::string         mFirmwareVersion;
@@ -73,7 +69,7 @@ namespace gfx {
         // threading
         std::shared_ptr<std::thread>    mSerialThread;
         std::mutex                      mSerialMutex;
-        ci::ConcurrentCircularBuffer< std::vector<std::string> >		mBuffer;
-//        ci::ConcurrentCircularBuffer< std::vector<std::string> >		mSendBuffer;
+        ci::ConcurrentCircularBuffer<std::vector<std::string>>	mReceiveBuffer;
+        ci::ConcurrentCircularBuffer<std::string>               mSendBuffer;
     };
 }

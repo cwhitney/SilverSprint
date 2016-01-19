@@ -49,6 +49,11 @@ namespace gfx{
         ci::signals::Signal<void(APP_STATE)>	signalOnStateChange;
         ci::signals::Signal<void(RACE_STATE)>	signalOnRaceStateChange;
         
+        ci::signals::Signal<void(void)>         signalOnRaceFinished;
+        ci::signals::Signal<void(int, int)>     signalRacerFinish;      // (Racer ID, finish time millis)
+        
+        ci::signals::Signal<void(void)>         signalArduinoConnected, signalArduinoDisconnected;
+        
     private:
         // PRIVATE CONSTRUCTOR + COPY
         StateManager() : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};

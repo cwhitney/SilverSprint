@@ -20,23 +20,25 @@ RaceView::RaceView() : bVisible(false) {
 void RaceView::setup()
 {
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
-    mFinishFlag = gl::Texture::create( loadImage( loadAsset("img/finishFlag.png") ) );
-    mProgLine = gl::Texture::create( loadImage( loadAsset("img/progLine.png") ) );
+//    mProgLine = gl::Texture::create( loadImage( loadAsset("img/progLine.png") ) );
     mLogo = gl::Texture::create( loadImage( loadAsset("img/opensprintsLogo.png") ) );
     
     mGlobal = gfx::GFXGlobal::getInstance();
+    
+    mDialCenter = vec2(1920.0 * 0.5, 612.0);
     
     for(int i=0; i<4; i++){
         mRaceTexts.push_back( new RaceText( mGlobal->playerColors[i] ) );
     }
     
-    mDial = gl::Texture::create( loadImage(loadAsset("img/dial_bg.png")) );
+    mDial = gl::Texture::create( loadImage(loadAsset("img/dial_bg_y.png")) );
     
     mStateManager = StateManager::getInstance();
     mModel = Model::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&RaceView::onStateChange, this, std::placeholders::_1) );
     
-    mCountDown = new CountDownGfx();
+    mCountDown = CountDownGfx::create();
+    mWinnerModal = WinnerModal::create();
     
     mStartStop.signalStartRace.connect( std::bind(&RaceView::onStartClicked, this ) );
     mStartStop.signalStopRace.connect( std::bind(&RaceView::onStopClicked, this ) );
@@ -63,8 +65,8 @@ void RaceView::reloadShader() {
 
 void RaceView::setupVbos()
 {
-    float innerRad = 113;
-    float outerRad = 333;
+    float innerRad = 187;
+    float outerRad = 388;
     float radSize = (outerRad - innerRad) / 4.0;
     
     mVboList.push_back( createVbo(innerRad + radSize * 3, innerRad + radSize * 4 ) );
@@ -76,75 +78,39 @@ void RaceView::setupVbos()
 ci::gl::VboMeshRef RaceView::createVbo( float innerRad, float outerRad )
 {
     ci::gl::VboMeshRef      tmpVbo;
-    std::vector<vec3>      vertexBuffer;
+    std::vector<vec3>       vertexBuffer;
     std::vector<uint32_t>   indicesBuffer;
     std::vector<ci::ColorA> colorBuffer;
-    std::vector<vec2>      texCoordBuffer;
+    std::vector<vec2>       texCoordBuffer;
     
     gl::VertBatchRef vbr = gl::VertBatch::create( GL_TRIANGLE_STRIP );
     
     // BUFFER VERTICES
     int segments = 60;
-    vec2 center( 967, 612 );
     
     for( int i=0; i<segments+1; i++ ){
         float degs = 360.0f / (float)segments;
         
-        vec3 pti(  cos( toRadians( i * degs - 90 ) ) * innerRad + center.x,
-                  sin( toRadians( i * degs - 90 ) ) * innerRad + center.y,
+        vec3 pti(  cos( toRadians( i * degs - 90 ) ) * innerRad + mDialCenter.x,
+                  sin( toRadians( i * degs - 90 ) ) * innerRad + mDialCenter.y,
                   0 );
         
-        vec3 pto(  cos( toRadians( i * degs - 90 ) ) * outerRad + center.x,
-                  sin( toRadians( i * degs - 90 ) ) * outerRad + center.y,
+        vec3 pto(  cos( toRadians( i * degs - 90 ) ) * outerRad + mDialCenter.x,
+                  sin( toRadians( i * degs - 90 ) ) * outerRad + mDialCenter.y,
                   0 );
-        
-//        vertexBuffer.push_back( pti );
-//        vertexBuffer.push_back( pto );
         
         float a = ((float)i / (float)segments);
-        
-//        colorBuffer.push_back( ColorA(1,0,1,a) );
-//        colorBuffer.push_back( ColorA(1,0,1,a) );
-        
-//        texCoordBuffer.push_back( vec2(a, 0) );
-//        texCoordBuffer.push_back( vec2(a, 1) );
-        
-        
+
         vbr->color( ColorA(1,0,1,a) );
         vbr->texCoord(a, 0);
         vbr->vertex( pti );
         
-        
         vbr->color( ColorA(1,0,1,a) );
         vbr->texCoord(a, 1);
         vbr->vertex( pto );
-        
     }
-    
-    // BUFFER INDICES
-//    for( int i=0; i<vertexBuffer.size(); i++ ){
-//        indicesBuffer.push_back( i );
-//    }
-//    indicesBuffer.push_back( 0 );
-//    indicesBuffer.push_back( 1 );
-    
-    //gl::VboMesh::Layout layout;
-    /*
-    layout.setStaticPositions();
-    layout.setStaticNormals();
-    layout.setStaticIndices();
-    layout.setStaticColorsRGBA();
-    layout.setStaticTexCoords2d();
-     */
-    
+
     tmpVbo = gl::VboMesh::create( *vbr );
-    
-//    tmpVbo = gl::VboMesh::create( vertexBuffer.size(), indicesBuffer.size(), layout, GL_TRIANGLE_STRIP );
-//    tmpVbo->bufferIndices( indicesBuffer );
-//    tmpVbo->bufferPositions( vertexBuffer );
-//    tmpVbo->bufferColorsRGBA( colorBuffer );
-//    tmpVbo->bufferTexCoords2d( 0, texCoordBuffer );
-    
     return tmpVbo;
 }
 
@@ -200,8 +166,6 @@ void RaceView::draw()
     gl::color(0,0,0,1);
     
     if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING ){
-//        int elapsedTime = (getElapsedSeconds()*1000.0) - mModel->startTimeMillis;
-//        mModel->elapsedRaceTimeMillis = elapsedTime;
         mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
     }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
         mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
@@ -211,13 +175,7 @@ void RaceView::draw()
     
     // DIAL
     gl::color(1,1,1,1);
-    gl::draw( mDial, vec2(mDial->getSize()) * vec2(-0.5) + vec2(967, 580) );
-    
-    // FLAG
-    gl::color(1,1,1,1);
-    if( mFinishFlag && mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME ){
-        gl::draw(mFinishFlag, vec2(873, 130));
-    }
+    gl::draw( mDial, vec2(mDial->getSize()) * vec2(-0.5) + mDialCenter );
     
     mStartStop.draw();
     
@@ -241,8 +199,9 @@ void RaceView::draw()
         }
     }
     
-    // COUNTDOWN
+    // GRAPHICS
     mCountDown->draw();
+    mWinnerModal->draw();
 }
 
 

@@ -43,6 +43,8 @@
 		CBE66D0D1C3B3D470038B309 /* StartStopButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBE66CFC1C3B3D470038B309 /* StartStopButton.cpp */; };
 		CBE66D0E1C3B3D470038B309 /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBE66CFE1C3B3D470038B309 /* StateManager.cpp */; };
 		CBE66D151C3B409E0038B309 /* CiTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBE66D131C3B409E0038B309 /* CiTextField.cpp */; };
+		CBFB521F1C4440B900E70E7F /* WinnerModal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFB521D1C4440B900E70E7F /* WinnerModal.cpp */; };
+		CBFB52221C45A1C200E70E7F /* ThickLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFB52201C45A1C200E70E7F /* ThickLine.cpp */; };
 		CE215F8BEE1C49BA8E69895D /* OscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA9C1332FEA747ABB796EBF8 /* OscSender.cpp */; };
 		D7601C97CB6F4B97A5280892 /* OscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C23CAEE14411E8A438D91 /* OscMessage.cpp */; };
 		E3E3CAF113D84D59BD4A3C79 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905F14D508FE401EAED0BFC2 /* IpEndpointName.cpp */; };
@@ -123,6 +125,10 @@
 		CBE66D0F1C3B3D510038B309 /* PlayerData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlayerData.h; path = ../include/PlayerData.h; sourceTree = "<group>"; };
 		CBE66D131C3B409E0038B309 /* CiTextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CiTextField.cpp; path = ../src/CiTextField.cpp; sourceTree = "<group>"; };
 		CBE66D141C3B409E0038B309 /* CiTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CiTextField.h; path = ../src/CiTextField.h; sourceTree = "<group>"; };
+		CBFB521D1C4440B900E70E7F /* WinnerModal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinnerModal.cpp; path = ../src/WinnerModal.cpp; sourceTree = "<group>"; };
+		CBFB521E1C4440B900E70E7F /* WinnerModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinnerModal.h; path = ../src/WinnerModal.h; sourceTree = "<group>"; };
+		CBFB52201C45A1C200E70E7F /* ThickLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ThickLine.cpp; path = ../src/ThickLine.cpp; sourceTree = "<group>"; };
+		CBFB52211C45A1C200E70E7F /* ThickLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThickLine.h; path = ../src/ThickLine.h; sourceTree = "<group>"; };
 		CE76D6C5528047A98C2C83C9 /* OscException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscException.h; path = ../blocks/OSC/src/osc/OscException.h; sourceTree = "<group>"; };
 		D493950879A24F4A81C159B5 /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscOutboundPacketStream.cpp; path = ../blocks/OSC/src/osc/OscOutboundPacketStream.cpp; sourceTree = "<group>"; };
 		DA9C1332FEA747ABB796EBF8 /* OscSender.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscSender.cpp; path = ../blocks/OSC/src/OscSender.cpp; sourceTree = "<group>"; };
@@ -357,6 +363,10 @@
 		CBE66D121C3B3D770038B309 /* gfx */ = {
 			isa = PBXGroup;
 			children = (
+				CBFB52201C45A1C200E70E7F /* ThickLine.cpp */,
+				CBFB52211C45A1C200E70E7F /* ThickLine.h */,
+				CBFB521D1C4440B900E70E7F /* WinnerModal.cpp */,
+				CBFB521E1C4440B900E70E7F /* WinnerModal.h */,
 				CBE66D131C3B409E0038B309 /* CiTextField.cpp */,
 				CBE66D141C3B409E0038B309 /* CiTextField.h */,
 				CBE66CFC1C3B3D470038B309 /* StartStopButton.cpp */,
@@ -455,6 +465,7 @@
 				CE215F8BEE1C49BA8E69895D /* OscSender.cpp in Sources */,
 				CBE66D0A1C3B3D470038B309 /* SerialReader.cpp in Sources */,
 				CBE66D031C3B3D470038B309 /* GFXMain.cpp in Sources */,
+				CBFB521F1C4440B900E70E7F /* WinnerModal.cpp in Sources */,
 				E3E3CAF113D84D59BD4A3C79 /* IpEndpointName.cpp in Sources */,
 				2B4528ECC959439A9099DD33 /* OscOutboundPacketStream.cpp in Sources */,
 				CBE66D041C3B3D470038B309 /* Model.cpp in Sources */,
@@ -468,6 +479,7 @@
 				CBE66D021C3B3D470038B309 /* GFXGlobal.cpp in Sources */,
 				CBE66D0D1C3B3D470038B309 /* StartStopButton.cpp in Sources */,
 				CBE66D001C3B3D470038B309 /* BaseButton.cpp in Sources */,
+				CBFB52221C45A1C200E70E7F /* ThickLine.cpp in Sources */,
 				0B265E1A68C844FAA9DA17E5 /* NetworkingUtils.cpp in Sources */,
 				A0793739998642489EF6DBC8 /* UdpSocket.cpp in Sources */,
 			);

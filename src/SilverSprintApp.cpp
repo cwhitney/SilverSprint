@@ -92,9 +92,11 @@ void SilverSprintApp::draw()
     }
 }
 
-CINDER_APP( SilverSprintApp, RendererGl, [&](SilverSprintApp::Settings *settings){
+CINDER_APP( SilverSprintApp, RendererGl(RendererGl::Options().msaa(8)), [&](SilverSprintApp::Settings *settings){
     settings->setFrameRate(60.0);
     settings->setWindowSize(1280, 700);
     settings->setWindowPos((1400-1280)/2, 0 );
     settings->setTitle("SilverSprint");
+    Window::Format winFor;
+//    settings->
 })

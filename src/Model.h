@@ -18,21 +18,21 @@ namespace gfx{
     class Model {
       public:
         static Model* getInstance();
-        void setRaceLengthMeters( float meters );
-        int getRaceLengthTicks(){ return totalRaceTicks; }
-        
-        int                             startTimeMillis;
-        int                             elapsedRaceTimeMillis;
-        
-        void setNumRacers( int num ){ mNumRacers = num; }
-        int getNumRacers(){ return mNumRacers; }
-        
         void resetPlayers();
         
-        std::string                     rollerDiameterMm;
-        std::vector<gfx::PlayerData*>   playerData;
+        void setRaceLengthMeters( const float &meters );
+        int getRaceLengthTicks(){ return totalRaceTicks; }
         
+        void setNumRacers( const int &num ){ mNumRacers = num; }
+        int getNumRacers(){ return mNumRacers; }
+        
+        void setRollerDiameterMm( const float &mm );
+        float getRollerDiameterMm(){ return mRollerDiameterMm; }
+
+        std::vector<gfx::PlayerData*>   playerData;
         bool                            bHardwareConnected;
+        int                             startTimeMillis;
+        int                             elapsedRaceTimeMillis;
         
       private:
         // PRIVATE CONSTRUCTOR + COPY
@@ -46,5 +46,7 @@ namespace gfx{
         void    setRaceLength(int ticks);
         int     totalRaceTicks;
         float   raceLengthMeters;
+        
+        float   mRollerDiameterMm;
     };
 }

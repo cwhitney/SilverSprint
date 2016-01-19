@@ -16,6 +16,7 @@
 #include "GFXGlobal.h"
 #include "CiTextField.h"
 #include "NumStepper.h"
+#include "ThickLine.h"
 
 namespace gfx {
     
@@ -57,6 +58,8 @@ namespace gfx {
             std::string txt;
         };
         std::vector<TextLabel>  mLabels;
+        
+        ThickLineRef    mXLine1, mXLine2, mCheckLine1, mCheckLine2;
         
         ci::Rectf   mConnectionRect;
     };

@@ -17,18 +17,22 @@ namespace gfx {
         PlayerData() :
             bFinishedRace(false),
             curRaceTicks(0),
+            lastRaceTicks(0),
             finishTimeMillis(0),
             pctComplete(0.0),
             mph(0),
+            maxMph(0),
             totalRaceTicks(500)
         {}
         
         void reset(){
             bFinishedRace = false;
             curRaceTicks = 0;
+            lastRaceTicks = 0;
             finishTimeMillis = 0;
             pctComplete = 0.0;
             mph = 0;
+            maxMph = 0;
         }
         
         bool didFinishRace(){
@@ -59,7 +63,7 @@ namespace gfx {
             return bFinishedRace;
         }
         
-        void setFinished( int finalTimeMillis ){
+        void setFinished( const int &finalTimeMillis ){
             bFinishedRace = true;
             finishTimeMillis = finalTimeMillis;
         }
@@ -68,17 +72,33 @@ namespace gfx {
             rollerCircumfMm = diameterMm * M_PI;
         }
         
+        void updateRaceTicks( const int &numTicks )
+        {
+            lastRaceTicks = curRaceTicks;
+            curRaceTicks = numTicks;
+        }
+        
+        void updateRaceTicks( const int &numTicks, const int &millisDt )
+        {
+            lastRaceTicks = curRaceTicks;
+            curRaceTicks = numTicks;
+            
+            float dist = (curRaceTicks - lastRaceTicks) * rollerCircumfMm;
+            float kph = dist * millisDt / 1000.0;
+            mph = kph * 0.621371;
+            if( mph > maxMph ) maxMph = mph;
+        }
+        
         std::string player_name;
-        int         curRaceTicks;
         int         totalRaceTicks;
         double      finishTimeMillis;
         
       private:
-        
         bool        bFinishedRace;
         double      pctComplete;
-        double      mph;
+        float       mph, maxMph;
         float       rollerCircumfMm;
+        int         curRaceTicks, lastRaceTicks;
     };
 
 }

@@ -18,11 +18,11 @@ GFXMain::GFXMain(){
 }
 
 GFXMain::~GFXMain(){
-    console() << "GFX main shutting down" << endl;
+    CI_LOG_I("GFX main shutting down");
 }
 
 void GFXMain::setup(){
-    // DATA
+    // INIT --------------------------------------------------------------
     mModel = Model::getInstance();
     mGlobal = GFXGlobal::getInstance();
     
@@ -31,7 +31,7 @@ void GFXMain::setup(){
     
     mStateManager = StateManager::getInstance();
     
-    // VIEWS
+    // VIEWS --------------------------------------------------------------
     mNav = NavBarViewRef(new NavBarView());
     mRaceView = RaceViewRef(new RaceView());
     mRosterView = RosterViewRef(new RosterView());
@@ -41,13 +41,19 @@ void GFXMain::setup(){
     mRaceView->setup();
     mRosterView->setup();
     
+    // EVENTS --------------------------------------------------------------
     getWindow()->getSignalKeyDown().connect(std::bind(&GFXMain::onKeyDown, this, std::placeholders::_1));
     
-    mSerialReader->signalOnRaceFinished.connect( bind( &GFXMain::onRaceFinished, this ) );
+    mStateManager->signalOnRaceFinished.connect( bind( &GFXMain::onRaceFinished, this ) );
     
     mStateManager->signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
     mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
     
+    mStateManager->signalRacerFinish.connect( [&](int _id, int _millis){
+        mModel->playerData[_id]->setFinished(_millis);
+    });
+    
+    // START --------------------------------------------------------------
     mStateManager->changeAppState( APP_STATE::RACE, true );
     mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED, true );
 }
@@ -91,7 +97,7 @@ void GFXMain::onKeyDown(KeyEvent event){
 void GFXMain::resetPlayerData(){
     for( int i=0; i<mModel->playerData.size(); i++){
         mModel->playerData[i]->reset();
-        mModel->playerData[i]->setRollerDiameter( fromString<float>(mModel->rollerDiameterMm) );
+        mModel->playerData[i]->setRollerDiameter(mModel->getRollerDiameterMm());
     }
 }
 

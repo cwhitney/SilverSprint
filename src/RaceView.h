@@ -20,6 +20,7 @@
 #include "GFXGlobal.h"
 #include "StartStopButton.h"
 #include "CountDownGfx.h"
+#include "WinnerModal.h"
 
 namespace gfx {
 
@@ -44,7 +45,8 @@ namespace gfx {
         void setupVbos();
         ci::gl::VboMeshRef createVbo( float innerRad, float outerRad );
         
-        ci::gl::TextureRef  mBg, mDial, mFinishFlag, mProgLine, mLogo;
+        ci::gl::TextureRef  mBg, mDial, mLogo;
+        ci::vec2            mDialCenter;
         StateManager        *mStateManager;
         Model               *mModel;
         gfx::GFXGlobal      *mGlobal;
@@ -53,13 +55,13 @@ namespace gfx {
         bool    bVisible;
         
         StartStopButton         mStartStop;
-        CountDownGfx            *mCountDown;
+        CountDownGfxRef         mCountDown;
+        WinnerModalRef          mWinnerModal;
         
         ci::gl::TextureFontRef  mTimerFont;
         
         // center graphics
         std::vector<ci::gl::VboMeshRef> mVboList;
-//        ci::gl::VboMeshRef      mVbo1, mVbo2, mVbo3, mVbo4;
         ci::gl::GlslProgRef     mProgressShader;
     };
 }
