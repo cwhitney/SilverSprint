@@ -26,6 +26,9 @@ The version of Cinder at the time of coding was 0.9.0 [[Download](https://github
 3. Open the project file for your platform. It will be in `SilverSprint/xcode/SilverSprint.xcodeproj` for mac, and `SilverSprint/vs2013` for PC.
 4. Build and enjoy. There are no external dependencies aside from Cinder itself.
 
+##Editing / Creating New Graphics
+Coming soon.
+
 -
 * Code by [Charlie Whitney](http://sharkbox.com)
 * Design by [Erica Gorochow](http://gorociao.com)
