@@ -116,14 +116,14 @@ ci::gl::VboMeshRef RaceView::createVbo( float innerRad, float outerRad )
 
 void RaceView::onStartClicked()
 {
-    if( mModel->bHardwareConnected ){
+    if( mModel->isHardwareConnected() ){
         mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
     }
 }
 
 void RaceView::onStopClicked()
 {
-    if( mModel->bHardwareConnected ){
+    if( mModel->isHardwareConnected() ){
         mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
     }
 }

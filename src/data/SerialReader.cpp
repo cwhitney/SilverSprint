@@ -174,22 +174,22 @@ void SerialReader::parseFromBuffer()
         // ------------------------------------------------------------------------------
         // RACE FINISH
         if(cmd == "0F"){
-            CI_LOG_D("RACER 1 FINISHED ") << args;
+            CI_LOG_D("RACER 1 FINISHED " + args);
             mStateManager->signalRacerFinish.emit(0, fromString<int>(args));
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "1F"){
-            CI_LOG_D("RACER 2 FINISHED ") << args;
+            CI_LOG_D("RACER 2 FINISHED " +args);
             mStateManager->signalRacerFinish.emit(1, fromString<int>(args));
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "2F"){
-            CI_LOG_D("RACER 3 FINISHED ") << args;
+            CI_LOG_D("RACER 3 FINISHED " + args);
             mStateManager->signalRacerFinish.emit(2, fromString<int>(args));
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "3F"){
-            CI_LOG_D("RACER 4 FINISHED ") << args;
+            CI_LOG_D("RACER 4 FINISHED " + args);
             mStateManager->signalRacerFinish.emit(3, fromString<int>(args));
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
@@ -215,7 +215,7 @@ void SerialReader::parseFromBuffer()
         // ------------------------------------------------------------------------------
         // SETTINGS
         else if( cmd == "CD"){
-            CI_LOG_D("SerialReader :: Countdown :: ") << args;
+            CI_LOG_D("SerialReader :: Countdown :: " + args);
             
             if( args == "3" ){
                 mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_3 );
@@ -231,24 +231,24 @@ void SerialReader::parseFromBuffer()
             }
         }
         else if( cmd == "FS"){
-            CI_LOG_D("SerialReader :: False start. Racer: ") << args;    // 0 based
+            CI_LOG_D("SerialReader :: False start. Racer: " + args);    // 0 based
 //            mStateManager->changeRaceState( RACE_STATE::RACE_FALSE_START );
 //            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
         }
         else if( cmd == "L"){   // After sending a race length, it will send this confirmation
-            CI_LOG_D("SerialReader :: Race Length ") << args;
+            CI_LOG_D("SerialReader :: Race Length " + args);
         }
         else if( cmd == "M"){   // Mock mode confirmation
-            CI_LOG_D("SerialReader :: Mock mode turned ") << args;
+            CI_LOG_D("SerialReader :: Mock mode turned " + args);
         }
         else if( cmd == "V"){   // version
             mFirmwareVersion = args;
         }
         
         else{
-            CI_LOG_D("SerialReader :: Unrecognized command :: '") << cmd;
+            CI_LOG_D("SerialReader :: Unrecognized command :: '" + cmd);
             if(args != ""){
-                CI_LOG_D(" with arg :: '") << args << "'";
+                CI_LOG_D(" with arg :: '"+ args+ "'");
             }
         }
     }

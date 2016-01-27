@@ -23,7 +23,7 @@ namespace gfx {
         static GFXGlobal* getInstance();
         
         ci::Font uiFont;
-        ci::gl::TextureFontRef      texFont;
+        ci::gl::TextureFontRef      texFont, winnerTexFont;
         ci::gl::TextureFontRef      countdownFont;
         
         ci::Color playerColors[4] = {

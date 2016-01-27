@@ -18,10 +18,9 @@
 #include "StateManager.h"
 #include "Model.h"
 
-namespace gfx {
-    
+namespace gfx
+{    
     using SerialReaderRef = std::shared_ptr<class SerialReader>;
-    
     class SerialReader
     {
       public:

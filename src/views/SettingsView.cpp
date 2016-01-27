@@ -144,7 +144,7 @@ void SettingsView::draw()
         
         gl::ScopedColor scCol(Color::gray(0.1));
 
-        if( mModel->bHardwareConnected ){
+        if( mModel->isHardwareConnected() ){
             mCheckLine1->draw();
             mCheckLine2->draw();
         }else{

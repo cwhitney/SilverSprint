@@ -5,6 +5,8 @@
 
 #include "StateManager.h"
 #include "GFXGlobal.h"
+#include "Model.h"
+#include "PlayerData.h"
 
 using WinnerModalRef = std::shared_ptr<class WinnerModal>;
 
@@ -18,11 +20,16 @@ class WinnerModal {
     
   private:
     WinnerModal();
+    void getWinners();
+    std::string toString(float num, int precision);
     bool    bVisible;
     
     ci::Rectf       mCloseRect;
     gfx::GFXGlobal  *mGlobal;
+    gfx::Model      *mModel;
     
     ci::gl::TextureRef  mWinnerGraphic;
     ci::Anim<float>     mAlpha;
+    
+    std::vector<gfx::PlayerData*>   mWinnersSorted;
 };

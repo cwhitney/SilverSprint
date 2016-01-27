@@ -21,6 +21,8 @@ GFXGlobal * GFXGlobal::getInstance(){
         
         mInstance->uiFont = ci::Font( loadAsset("fonts/UbuntuMono-R.ttf"), 35 );
         mInstance->texFont = gl::TextureFont::create( mInstance->uiFont );
+        
+        mInstance->winnerTexFont = gl::TextureFont::create( ci::Font( loadAsset("fonts/UbuntuMono-R.ttf"), 70 ) );
         mInstance->countdownFont = gl::TextureFont::create( ci::Font( loadAsset("fonts/UbuntuMono-R.ttf"), 235 ) );
         
         mInstance->currentRaceType = RACE_TYPE::RACE_TYPE_TIME;

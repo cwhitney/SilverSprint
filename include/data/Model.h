@@ -16,21 +16,25 @@
 namespace gfx{
 
     class Model {
+        friend class SerialReader;
       public:
         static Model* getInstance();
         void resetPlayers();
         
         void setRaceLengthMeters( const float &meters );
-        int getRaceLengthTicks(){ return totalRaceTicks; }
+        const int& getRaceLengthTicks(){ return totalRaceTicks; }
         
         void setNumRacers( const int &num ){ mNumRacers = num; }
-        int getNumRacers(){ return mNumRacers; }
+        const int& getNumRacers(){ return mNumRacers; }
         
         void setRollerDiameterMm( const float &mm );
-        float getRollerDiameterMm(){ return mRollerDiameterMm; }
+        const float& getRollerDiameterMm(){ return mRollerDiameterMm; }
+        
+        const bool& isHardwareConnected(){ return bHardwareConnected; }
+        PlayerData* getPlayerData(int num){ return playerData[num]; };
 
         std::vector<gfx::PlayerData*>   playerData;
-        bool                            bHardwareConnected;
+        
         int                             startTimeMillis;
         int                             elapsedRaceTimeMillis;
         
@@ -48,5 +52,6 @@ namespace gfx{
         float   raceLengthMeters;
         
         float   mRollerDiameterMm;
+        bool    bHardwareConnected;
     };
 }

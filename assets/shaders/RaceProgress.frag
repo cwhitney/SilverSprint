@@ -17,7 +17,7 @@ void main()
 {
 	vec4 finalColor = baseColor;
 	float colPct = map( TexCoord0.s, trailingEdgePct, leadingEdgePct, 0.0, 1.0 );
-
+    colPct = pow(colPct, 0.5);
 	if( colPct > 1.0 || leadingEdgePct == 0.0 ){
 		discard;
 	}
