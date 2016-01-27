@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cinder/app/App.h"
+#include "cinder/Timeline.h"
 
 #include "StateManager.h"
 #include "GFXGlobal.h"
@@ -21,4 +22,7 @@ class WinnerModal {
     
     ci::Rectf       mCloseRect;
     gfx::GFXGlobal  *mGlobal;
+    
+    ci::gl::TextureRef  mWinnerGraphic;
+    ci::Anim<float>     mAlpha;
 };
