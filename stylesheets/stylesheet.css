@@ -368,7 +368,39 @@ Full-Width Styles
   background: #212121;
 }
 
+/*******************************************************************************
+Nav
+*******************************************************************************/
+#left_nav {
+  margin:0px;
+  padding: 52px 0 0 0;
+  float: right;
+  margin-right: -200px;
+  text-align:left;
+  /*border: 1px solid blue;*/
+}
 
+#left_nav .m_active {
+  background-color: #ccc;
+}
+
+#left_nav h4 {
+  font-size: 14px;
+}
+
+#left_nav ul {
+  list-style-type: none;
+  padding: 0px;
+  border-left: 1px solid #ccc;
+}
+
+#left_nav li {
+  padding: 2px 2px 2px 10px;
+}
+
+#left_nav li:hover {
+  /*background-color: #ddd;*/
+}
 
 /*******************************************************************************
 Small Device Styles
