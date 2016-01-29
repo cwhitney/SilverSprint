@@ -267,7 +267,7 @@ Full-Width Styles
 .inner {
   position: relative;
   max-width: 640px;
-  padding: 20px 10px;
+  padding: 0px 10px;
   margin: 0 auto;
 }
 
@@ -288,11 +288,14 @@ Full-Width Styles
 
 #header_wrap {
   background: #212121;
-  background: -moz-linear-gradient(top, #373737, #212121);
-  background: -webkit-linear-gradient(top, #373737, #212121);
-  background: -ms-linear-gradient(top, #373737, #212121);
-  background: -o-linear-gradient(top, #373737, #212121);
-  background: linear-gradient(top, #373737, #212121);
+  /*background: -moz-linear-gradient(top, #373737, #212121);*/
+  /*background: -webkit-linear-gradient(top, #373737, #212121);*/
+  /*background: -ms-linear-gradient(top, #373737, #212121);*/
+  /*background: -o-linear-gradient(top, #373737, #212121);*/
+  /*background: linear-gradient(top, #373737, #212121);*/
+
+  background: url(../images/ss/header_bg.png) no-repeat;
+  height: 208px;
 }
 
 #header_wrap .inner {
@@ -304,7 +307,7 @@ Full-Width Styles
   color: #fff;
   font-size: 42px;
   font-weight: 700;
-  text-shadow: #111 0px 0px 10px;
+  /*text-shadow: #111 0px 0px 10px;*/
 }
 
 #project_tagline {
@@ -312,7 +315,7 @@ Full-Width Styles
   font-size: 24px;
   font-weight: 300;
   background: none;
-  text-shadow: #111 0px 0px 10px;
+  /*text-shadow: #111 0px 0px 10px;*/
 }
 
 #downloads {
@@ -356,7 +359,7 @@ Full-Width Styles
 
 #main_content_wrap {
   background: #f2f2f2;
-  border-top: 1px solid #111;
+  /*border-top: 1px solid #111;*/
   border-bottom: 1px solid #111;
 }
 
@@ -368,6 +371,46 @@ Full-Width Styles
   background: #212121;
 }
 
+/*******************************************************************************
+Download
+*******************************************************************************/
+#dl_div {
+  width:100%;
+}
+
+.dl {
+  width: 150px;
+  float: left;
+  background: url(../images/ss/folder.png) no-repeat top left #FFF;
+  background-position: 10px 0px;
+  margin-left: 17%;
+  border: 1px solid #ccc;
+
+  moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+.dl:hover {
+  background-color:#1e9b90;
+  
+}
+
+.dl a:hover {
+  color: #fff;
+}
+
+.dl p {
+  margin: 10px 0px 8px 65px;
+}
+
+.sm_dl {
+  font-size: 11px;
+  margin: -5px 0 0 0;
+  padding: 0px;
+  display: block;
+}
 /*******************************************************************************
 Nav
 *******************************************************************************/
@@ -400,6 +443,24 @@ Nav
 
 #left_nav li:hover {
   /*background-color: #ddd;*/
+}
+
+
+header{
+  height:159px;
+}
+
+.head_bg {
+  background: url(../images/ss/header_bg.png) no-repeat;
+  width: 1024px;
+  height: 209px;
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+.clearfix {
+  clear:both;
 }
 
 /*******************************************************************************
