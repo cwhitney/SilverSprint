@@ -37,23 +37,31 @@
         <p>Silversprint has 3 main screens.</p>
         <p>
           <ul>
-            <li><a href="">Race</a></li>
-            <li><a href="">Roster</a></li>
-            <li><a href="">Settings</a></li>
+            <li><a href="#race">Race</a></li>
+            <li><a href="#roster">Roster</a></li>
+            <li><a href="#settings">Settings</a></li>
           </ul>
         </p>
-
+        <a name="race"></a>
         <h3>Race</h3>
-        <p>Information about the race screen
-        </p>
+        <p>The race screen is where the competition will take place.  The START button will begin the race, and the race will automatically end and display a winner screen when the last competitor crosses the finish line.  If the race needs to be stopped for any reason, the START button turns into a STOP button once the race has begun.  STOP will reset the entire race immediately.</p>
+        <img src="images/ss/race_screen.png">
 
+        <a name="roster"></a>
         <h3>Roster</h3>
-        <p>Information about the roster screen
-        </p>
-
+        <p>The roster screen lets you rename your riders. The number of riders that show up here are based on how many you've picked in the settings.</p>
+        <img src="images/ss/roster_screen.png">
+        <a name="settings"></a>
         <h3>Settings</h3>
-        <p>Information about the settings screen
+        <p>The settings screen is where you can change basic information about how the app will run. The following things are configurable.
+          <ul>
+            <li>Roller Diameter (mm) - To calculate the roller diameter, measure from teh magnet to the center of the roller or wheel to get the radius.  The diameter is the radius doubled.</li>
+            <li>Race Length (meters) - How far away the finish line is</li>
+            <li>Number of racers - The number of brave competitors.  This updates both the Roster screen and the Race screen.</li>
+            <li>Hardware Connection Status - If Silversprint finds a connected arduino, it will be a checkmark, if not, it will show an X.  In order to run a race, this MUST be displaying a check.</li>
+          </ul>
         </p>
+        <img src="images/ss/settings_screen.png">
         
       </section>
     </div>
