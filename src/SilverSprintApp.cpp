@@ -26,7 +26,7 @@ class SilverSprintApp : public App {
 
 void SilverSprintApp::setup()
 {
-    log::makeLogger<log::LoggerFile>( getAppPath().string() + "/logs/SilverSprint.log", false );
+//    log::makeLogger<log::LoggerFile>( getAppPath().string() + "/logs/SilverSprint.log", false );
     
     bDebugState = false;
     

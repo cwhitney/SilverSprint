@@ -147,12 +147,12 @@ void RaceView::draw()
     if( !bVisible ){
         return;
     }
+    gl::ScopedColor scC(1,1,1);
     
     if( mBg ){
-        gl::color(1,1,1);
         gl::draw( mBg );
     }
-
+    
     gl::drawSolidRect( Rectf( 834, 105, 834+260, 105+185 ) );    // big white rect
     gl::drawSolidRect( Rectf( 60, 133, 1870, 135 ) );            // white line
     
@@ -163,7 +163,8 @@ void RaceView::draw()
     }
     
     // MAIN TIMER
-    gl::color(0,0,0,1);
+    
+    gl::ScopedColor scB(0,0,0,1);
     
     if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING ){
         mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
@@ -174,7 +175,7 @@ void RaceView::draw()
     }
     
     // DIAL
-    gl::color(1,1,1,1);
+    gl::ScopedColor scW(1,1,1,1);
     gl::draw( mDial, vec2(mDial->getSize()) * vec2(-0.5) + mDialCenter );
     
     mStartStop.draw();

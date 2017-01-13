@@ -27,6 +27,7 @@
 		A0793739998642489EF6DBC8 /* UdpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 459D79C0EF054F2CBB3D5C3C /* UdpSocket.cpp */; };
 		A483B093679443AD9AD9E0B7 /* SilverSprintApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FF84B46AB5B427BA94A3D7A /* SilverSprintApp.cpp */; };
 		BBBC4FDFC1C94C81BD5EBBBC /* OscListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C155A6CCF2A47CBBC334532 /* OscListener.cpp */; };
+		CB37B3861E297897009FC93A /* ssIcn.icns in Resources */ = {isa = PBXBuildFile; fileRef = CB37B3851E297897009FC93A /* ssIcn.icns */; };
 		CBF06EFD1C5011ED0064CC52 /* GFXMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */; };
 		CBF06EFE1C5011ED0064CC52 /* SSManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE81C5011ED0064CC52 /* SSManager.cpp */; };
 		CBF06EFF1C5011ED0064CC52 /* GFXGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */; };
@@ -93,6 +94,16 @@
 		AB83C7261DCB490F91604036 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 		B3C954C3A2DC4BD99A16ED06 /* OscTypes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscTypes.cpp; path = ../blocks/OSC/src/osc/OscTypes.cpp; sourceTree = "<group>"; };
 		B5D9317C12C24B26B4B90766 /* OscArg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OscArg.h; path = ../blocks/OSC/src/OscArg.h; sourceTree = "<group>"; };
+		CB37B37C1E296064009FC93A /* BaseButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseButton.h; sourceTree = "<group>"; };
+		CB37B37D1E296064009FC93A /* CiTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CiTextField.h; sourceTree = "<group>"; };
+		CB37B37E1E296064009FC93A /* CountDownGfx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDownGfx.h; sourceTree = "<group>"; };
+		CB37B37F1E296064009FC93A /* NumStepper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumStepper.h; sourceTree = "<group>"; };
+		CB37B3801E296064009FC93A /* PlayerGfx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerGfx.h; sourceTree = "<group>"; };
+		CB37B3811E296064009FC93A /* RaceText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaceText.h; sourceTree = "<group>"; };
+		CB37B3821E296064009FC93A /* StartStopButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartStopButton.h; sourceTree = "<group>"; };
+		CB37B3831E296064009FC93A /* ThickLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThickLine.h; sourceTree = "<group>"; };
+		CB37B3841E296064009FC93A /* WinnerModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WinnerModal.h; sourceTree = "<group>"; };
+		CB37B3851E297897009FC93A /* ssIcn.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ssIcn.icns; path = ../resources/ssIcn.icns; sourceTree = "<group>"; };
 		CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXMain.cpp; sourceTree = "<group>"; };
 		CBF06EE81C5011ED0064CC52 /* SSManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SSManager.cpp; sourceTree = "<group>"; };
 		CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXGlobal.cpp; sourceTree = "<group>"; };
@@ -119,15 +130,6 @@
 		CBF06F161C5012070064CC52 /* PlayerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerData.h; sourceTree = "<group>"; };
 		CBF06F171C5012070064CC52 /* SerialReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialReader.h; sourceTree = "<group>"; };
 		CBF06F181C5012070064CC52 /* StateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateManager.h; sourceTree = "<group>"; };
-		CBF06F1A1C5012070064CC52 /* BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButton.h; sourceTree = "<group>"; };
-		CBF06F1B1C5012070064CC52 /* CiTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CiTextField.h; sourceTree = "<group>"; };
-		CBF06F1C1C5012070064CC52 /* CountDownGfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownGfx.h; sourceTree = "<group>"; };
-		CBF06F1D1C5012070064CC52 /* NumStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumStepper.h; sourceTree = "<group>"; };
-		CBF06F1E1C5012070064CC52 /* PlayerGfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGfx.h; sourceTree = "<group>"; };
-		CBF06F1F1C5012070064CC52 /* RaceText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceText.h; sourceTree = "<group>"; };
-		CBF06F201C5012070064CC52 /* StartStopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartStopButton.h; sourceTree = "<group>"; };
-		CBF06F211C5012070064CC52 /* ThickLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThickLine.h; sourceTree = "<group>"; };
-		CBF06F221C5012070064CC52 /* WinnerModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinnerModal.h; sourceTree = "<group>"; };
 		CBF06F241C5012070064CC52 /* NavBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavBarView.h; sourceTree = "<group>"; };
 		CBF06F251C5012070064CC52 /* RaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceView.h; sourceTree = "<group>"; };
 		CBF06F261C5012070064CC52 /* RosterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosterView.h; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB37B3851E297897009FC93A /* ssIcn.icns */,
 				FECFA142AF1A4CF583EAA96C /* CinderApp.icns */,
 				80018D0C1B264B72BC049A58 /* Info.plist */,
 			);
@@ -408,15 +411,15 @@
 		CBF06F191C5012070064CC52 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				CBF06F1A1C5012070064CC52 /* BaseButton.h */,
-				CBF06F1B1C5012070064CC52 /* CiTextField.h */,
-				CBF06F1C1C5012070064CC52 /* CountDownGfx.h */,
-				CBF06F1D1C5012070064CC52 /* NumStepper.h */,
-				CBF06F1E1C5012070064CC52 /* PlayerGfx.h */,
-				CBF06F1F1C5012070064CC52 /* RaceText.h */,
-				CBF06F201C5012070064CC52 /* StartStopButton.h */,
-				CBF06F211C5012070064CC52 /* ThickLine.h */,
-				CBF06F221C5012070064CC52 /* WinnerModal.h */,
+				CB37B37C1E296064009FC93A /* BaseButton.h */,
+				CB37B37D1E296064009FC93A /* CiTextField.h */,
+				CB37B37E1E296064009FC93A /* CountDownGfx.h */,
+				CB37B37F1E296064009FC93A /* NumStepper.h */,
+				CB37B3801E296064009FC93A /* PlayerGfx.h */,
+				CB37B3811E296064009FC93A /* RaceText.h */,
+				CB37B3821E296064009FC93A /* StartStopButton.h */,
+				CB37B3831E296064009FC93A /* ThickLine.h */,
+				CB37B3841E296064009FC93A /* WinnerModal.h */,
 			);
 			name = ui;
 			path = ../include/ui;
@@ -461,6 +464,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0820;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SilverSprint" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -487,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				036291EBBB274D178BE12B43 /* CinderApp.icns in Resources */,
+				CB37B3861E297897009FC93A /* ssIcn.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,8 +600,23 @@
 				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -613,7 +633,22 @@
 				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
