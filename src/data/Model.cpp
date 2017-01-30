@@ -6,7 +6,7 @@
 //
 //
 
-#include "Model.h"
+#include "data/Model.h"
 
 using namespace ci;
 using namespace ci::app;

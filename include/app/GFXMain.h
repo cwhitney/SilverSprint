@@ -11,15 +11,15 @@
 #include "cinder/app/App.h"
 #include "cinder/app/KeyEvent.h"
 
-#include "Model.h"
-#include "GFXGlobal.h"
-#include "SerialReader.h"
-#include "StateManager.h"
+#include "data/Model.h"
+#include "data/GFXGlobal.h"
+#include "data/SerialReader.h"
+#include "data/StateManager.h"
 
-#include "NavBarView.h"
-#include "RaceView.h"
-#include "RosterView.h"
-#include "SettingsView.h"
+#include "views/NavBarView.h"
+#include "views/RaceView.h"
+#include "views/RosterView.h"
+#include "views/SettingsView.h"
 
 namespace gfx{
     

@@ -11,7 +11,7 @@
 #include "cinder/app/App.h"
 
 #include "BaseButton.h"
-#include "GFXGlobal.h"
+#include "data/GFXGlobal.h"
 
 namespace gfx {
 

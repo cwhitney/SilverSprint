@@ -6,12 +6,13 @@
 //
 //
 
-#include "SerialReader.h"
+#include "data/SerialReader.h"
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
 using namespace gfx;
+using namespace Cinder::Serial;
 
 SerialReader::SerialReader() :
     BAUD_RATE(115200),
@@ -68,41 +69,60 @@ void SerialReader::updateSerialThread()
         std::lock_guard<std::mutex> guard(mSerialMutex);
         
         if(!bSerialConnected ){ // we aren't connected try to connect
-            try {
-                Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial", true);
-                if( dev.getName() == ""){
-                    dev = Serial::findDeviceByNameContains("tty.usbmodem", true);
-                }
-                mSerial = Serial::create( dev, BAUD_RATE );
-                bSerialConnected = true;
-                mSerial->flush();
-                
-                for( int i=0; i<mSendBuffer.getSize(); i++){        // clear send buffer
-                    std::string tmp;
-                    mSendBuffer.popBack(&tmp);
-                }
-                stopRace();
-                
-                for( int i=0; i<mReceiveBuffer.getSize(); i++){    // clear receive buffer
-                    std::vector<std::string> tmp;
-                    mReceiveBuffer.popBack(&tmp);
-                }
-                
-                CI_LOG_I("OpenSprints hardware found successfully. :: ") << dev.getName();
-            }
-            catch( ... ) {
+			auto ports = SerialPort::getPorts(true);
+			for (auto port : ports) {
+				console() << "SERIAL DEVICE" << endl;
+				console() << "\tNAME: " << port->getName() << endl;
+				console() << "\tDESCRIPTION: " << port->getDescription() << endl;
+				console() << "\tHARDWARE IDENTIFIER: " << port->getHardwareIdentifier() << endl;
+			}
+			try {
+				if (!ports.empty()) {
+					SerialPortRef port = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
+					/*
+					Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial", true);
+					if (dev.getName() == "") {
+						dev = Serial::findDeviceByNameContains("tty.usbmodem", true);
+					}*/
+					if (!port) {
+						port = ports.back();
+					}
+
+					mSerial = SerialDevice::create(port, BAUD_RATE);
+					mSerial->flush();
+					bSerialConnected = true;
+					
+					for (int i = 0; i < mSendBuffer.getSize(); i++) {        // clear send buffer
+						std::string tmp;
+						mSendBuffer.popBack(&tmp);
+					}
+					stopRace();
+
+					for (int i = 0; i < mReceiveBuffer.getSize(); i++) {    // clear receive buffer
+						std::vector<std::string> tmp;
+						mReceiveBuffer.popBack(&tmp);
+					}
+					CI_LOG_I("OpenSprints hardware found successfully. :: ") << mSerial->getPortName();
+				}
+			}catch (serial::IOException& e) {
+				if (mSerial && mSerial->isOpen()) {
+					mSerial->close();
+				}
                 bSerialConnected = false;
             }
         }else{
             // make sure we're still connected
-            Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial", true);
-            if( dev.getName() == ""){
-                dev = Serial::findDeviceByNameContains("tty.usbmodem", true);
-            }
-            if( dev.getName() == ""){
+			auto pOpen = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
+			//auto pCom = SerialPort::findPortByNameMatching(std::regex("COM.*"), true);
+			//auto portList = SerialPort::getPorts();
+
+            if(pOpen == nullptr){
+				if (mSerial && mSerial->isOpen()) {
+					mSerial->close();
+				}
                 bSerialConnected = false;
-            }else{  // we are connected ------------------------
-                // send to arduino
+            }else{ 
+				// send to arduino
                 for(int i=0; i<mSendBuffer.getSize(); i++){
                     std::string msgToSend;
                     mSendBuffer.popBack( &msgToSend );
@@ -118,16 +138,22 @@ void SerialReader::updateSerialThread()
 
 void SerialReader::readSerial()
 {
-    uint bytesAvailable = mSerial->getNumBytesAvailable();
-    uint charsAvailable = floor(bytesAvailable / sizeof(char));
-    
+
     try {
+		uint32_t bytesAvailable = mSerial->getNumBytesAvailable();
+		uint32_t charsAvailable = floor(bytesAvailable / sizeof(char));
+
         for(int i=0; i<charsAvailable; i++){
-            unsigned char c = mSerial->readByte();
+			unsigned char c;	// uint8_t
+			mSerial->readBytes(&c, 1);
             mStringBuffer += c;
         }
-    }catch(...){
+    }catch(serial::IOException& e){
         bSerialConnected = false;
+		if (mSerial && mSerial->isOpen()) {
+			mSerial->close();
+			//mSerial = nullptr;
+		}
     }
     
     int index = mStringBuffer.find("\r\n");

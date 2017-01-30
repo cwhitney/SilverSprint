@@ -11,8 +11,8 @@
 #include "cinder/app/App.h"
 #include "cinder/gl/gl.h"
 
-#include "GFXGlobal.h"
-#include "StateManager.h"
+#include "data/GFXGlobal.h"
+#include "data/StateManager.h"
 #include "BaseButton.h"
 
 namespace gfx {

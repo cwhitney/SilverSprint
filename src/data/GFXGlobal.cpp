@@ -6,7 +6,7 @@
 //
 //
 
-#include "GFXGlobal.h"
+#include "data/GFXGlobal.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -19,15 +19,26 @@ GFXGlobal * GFXGlobal::getInstance(){
     if (!mInstance){
         mInstance = new GFXGlobal();
         
-        mInstance->uiFont = ci::Font( loadAsset("fonts/UbuntuMono-R.ttf"), 35 );
-        mInstance->texFont = gl::TextureFont::create( mInstance->uiFont );
         
-        mInstance->winnerTexFont = gl::TextureFont::create( ci::Font( loadAsset("fonts/UbuntuMono-R.ttf"), 70 ) );
-        mInstance->countdownFont = gl::TextureFont::create( ci::Font( loadAsset("fonts/UbuntuMono-R.ttf"), 235 ) );
-        
-        mInstance->currentRaceType = RACE_TYPE::RACE_TYPE_TIME;
+		mInstance->setup();
     }
     return mInstance;
+}
+
+void GFXGlobal::setup()
+{
+	uiFont = ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 35);
+	texFont = gl::TextureFont::create(mInstance->uiFont);
+
+	winnerTexFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70));
+	countdownFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 235));
+
+	currentRaceType = RACE_TYPE::RACE_TYPE_TIME;
+
+	playerColors[0] = ci::ColorA(185.0 / 255.0, 33.0 / 255.0, 64.0 / 255.0, 1.0);
+	playerColors[1] = ci::ColorA(28.0 / 255.0, 145.0 / 255.0, 133.0 / 255.0, 1.0);
+	playerColors[2] = ci::ColorA(22.0 / 255.0, 146.0 / 255.0, 84.0 / 255.0, 1.0);
+	playerColors[3] = ci::ColorA(225.0 / 255.0, 185.0 / 255.0, 9.0 / 255.0, 1.0);
 }
 
 void GFXGlobal::setScale( const ci::Rectf &scaledRect )

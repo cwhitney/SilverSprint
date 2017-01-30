@@ -9,14 +9,16 @@
 #pragma once
 
 #include "cinder/app/App.h"
-#include "cinder/Serial.h"
+//#include "cinder/Serial.h"
 #include "cinder/Utilities.h"
 #include "cinder/Log.h"
 #include "cinder/ConcurrentCircularBuffer.h"
 #include <boost/algorithm/string.hpp>
 
-#include "StateManager.h"
-#include "Model.h"
+#include "data/StateManager.h"
+#include "data/Model.h"
+
+#include "Cinder-Serial.h"
 
 namespace gfx
 {    
@@ -54,7 +56,8 @@ namespace gfx
         void                sendSerialMessage( std::string msg );
         
         int                 BAUD_RATE;
-        ci::SerialRef       mSerial;
+        //ci::SerialRef       mSerial;
+		Cinder::Serial::SerialDeviceRef		mSerial;
         bool                bSerialConnected, bLastConnection;
         bool                bThreadShouldQuit;
         bool                bMockEnabled;

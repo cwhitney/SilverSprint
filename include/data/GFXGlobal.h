@@ -9,7 +9,7 @@
 #pragma once
 
 #include "cinder/app/App.h"
-#include "cinder/gl/TextureFont.h"
+#include "cinder/gl/gl.h"
 
 namespace gfx {
 
@@ -26,12 +26,7 @@ namespace gfx {
         ci::gl::TextureFontRef      texFont, winnerTexFont;
         ci::gl::TextureFontRef      countdownFont;
         
-        ci::Color playerColors[4] = {
-            ci::ColorA( 185.0/255.0, 33.0/255.0, 64.0/255.0, 1.0 ),
-            ci::ColorA( 28.0/255.0, 145.0/255.0, 133.0/255.0, 1.0 ),
-            ci::ColorA( 22.0/255.0, 146.0/255.0, 84.0/255.0, 1.0 ),
-            ci::ColorA( 225.0/255.0, 185.0/255.0, 9.0/255.0, 1.0 )
-        };
+		ci::Color playerColors[4];
         
         ci::vec2   localToGlobal( ci::vec2 pos );
         void setScale( const ci::Rectf &scaledRect );
@@ -47,6 +42,7 @@ namespace gfx {
         GFXGlobal(GFXGlobal const&){};
         static GFXGlobal		*mInstance;
         
+		void setup();
         ci::vec2 mScreenScale, mScreenOffset;
     };
         

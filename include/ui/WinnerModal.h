@@ -1,12 +1,13 @@
 #pragma once
 
 #include "cinder/app/App.h"
+#include "cinder/gl/gl.h"
 #include "cinder/Timeline.h"
 
-#include "StateManager.h"
-#include "GFXGlobal.h"
-#include "Model.h"
-#include "PlayerData.h"
+#include "data/StateManager.h"
+#include "data/GFXGlobal.h"
+#include "data/Model.h"
+#include "data/PlayerData.h"
 
 using WinnerModalRef = std::shared_ptr<class WinnerModal>;
 

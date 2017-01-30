@@ -9,9 +9,9 @@
 #pragma once
 
 #include "cinder/app/App.h"
-#include "PlayerData.h"
-#include "GFXGlobal.h"
-#include "Model.h"
+#include "data/PlayerData.h"
+#include "data/GFXGlobal.h"
+#include "data/Model.h"
 
 namespace gfx{
 

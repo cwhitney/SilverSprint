@@ -1,4 +1,4 @@
-#include "SSManager.h"
+#include "app/SSManager.h"
 
 SSManager* SSManager::mInstance = NULL;
 

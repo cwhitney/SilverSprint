@@ -10,13 +10,14 @@
 
 #include "cinder/app/App.h"
 #include "cinder/gl/Texture.h"
+#include "cinder/gl/gl.h"
 
-#include "StateManager.h"
-#include "Model.h"
-#include "GFXGlobal.h"
-#include "CiTextField.h"
-#include "NumStepper.h"
-#include "ThickLine.h"
+#include "data/StateManager.h"
+#include "data/Model.h"
+#include "data/GFXGlobal.h"
+#include "ui/CiTextField.h"
+#include "ui/NumStepper.h"
+#include "ui/ThickLine.h"
 
 namespace gfx {
     

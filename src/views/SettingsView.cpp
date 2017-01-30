@@ -6,7 +6,7 @@
 //
 //
 
-#include "SettingsView.h"
+#include "views/SettingsView.h"
 
 using namespace gfx;
 using namespace ci;

@@ -6,7 +6,7 @@
 //
 //
 
-#include "RaceView.h"
+#include "views/RaceView.h"
 
 using namespace ci;
 using namespace ci::app;

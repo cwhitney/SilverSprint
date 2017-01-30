@@ -2,9 +2,9 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 
-#include "GFXMain.h"
-#include "GFXGlobal.h"
-#include "StateManager.h"
+#include "app/GFXMain.h"
+#include "data/GFXGlobal.h"
+#include "data/StateManager.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -88,7 +88,7 @@ void SilverSprintApp::draw()
     }gl::popMatrices();
     
     if( bDebugState ){
-        gl::drawString( toString( getAverageFps() ), vec2(10, getWindowHeight() - 60) );
+        gl::drawString( to_string( getAverageFps() ), vec2(10, getWindowHeight() - 60) );
         gl::drawString( StateManager::getInstance()->getCurrentAppStateString(), vec2(10, getWindowHeight() - 40) );
         gl::drawString( StateManager::getInstance()->getCurrentRaceStateString(), vec2(10, getWindowHeight() - 20) );
     }
@@ -97,6 +97,6 @@ void SilverSprintApp::draw()
 CINDER_APP( SilverSprintApp, RendererGl(RendererGl::Options().msaa(8)), [&](SilverSprintApp::Settings *settings){
     settings->setFrameRate(60.0);
     settings->setWindowSize(1280, 700);
-    settings->setWindowPos((1400-1280)/2, 0 );
+  //  settings->setWindowPos((1400-1280)/2, 0 );
     settings->setTitle("SilverSprint");
 })

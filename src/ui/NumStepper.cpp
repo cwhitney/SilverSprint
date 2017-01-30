@@ -6,7 +6,7 @@
 //
 //
 
-#include "NumStepper.h"
+#include "ui/NumStepper.h"
 
 using namespace ci;
 using namespace ci::app;
