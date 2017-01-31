@@ -70,12 +70,14 @@ void SerialReader::updateSerialThread()
         
         if(!bSerialConnected ){ // we aren't connected try to connect
 			auto ports = SerialPort::getPorts(true);
+            /*
 			for (auto port : ports) {
 				console() << "SERIAL DEVICE" << endl;
 				console() << "\tNAME: " << port->getName() << endl;
 				console() << "\tDESCRIPTION: " << port->getDescription() << endl;
 				console() << "\tHARDWARE IDENTIFIER: " << port->getHardwareIdentifier() << endl;
 			}
+             */
 			try {
 				if (!ports.empty()) {
 					SerialPortRef port = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
@@ -140,8 +142,8 @@ void SerialReader::readSerial()
 {
 
     try {
-		uint32_t bytesAvailable = mSerial->getNumBytesAvailable();
-		uint32_t charsAvailable = floor(bytesAvailable / sizeof(char));
+		size_t bytesAvailable = mSerial->getNumBytesAvailable();
+		size_t charsAvailable = floor(bytesAvailable / sizeof(char));
 
         for(int i=0; i<charsAvailable; i++){
 			unsigned char c;	// uint8_t
@@ -156,7 +158,7 @@ void SerialReader::readSerial()
 		}
     }
     
-    int index = mStringBuffer.find("\r\n");
+    auto index = mStringBuffer.find("\r\n");
     if(index != string::npos){
         std::string cmd = mStringBuffer.substr(0, index);
         mStringBuffer.replace(0, index+2, "");      // The newline is 2 bytes (\r\n) so add two to remove it
@@ -184,7 +186,7 @@ void SerialReader::parseCommandToBuffer( std::string command )
 // Parse commands in the main thread that we grabbed during the updateSerial thread
 void SerialReader::parseFromBuffer()
 {
-    int numCmds = mReceiveBuffer.getSize();
+    auto numCmds = mReceiveBuffer.getSize();
     
     for( int i=0; i<numCmds; i++) {
         std::vector<std::string> cmdArgs;

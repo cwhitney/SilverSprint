@@ -85,9 +85,9 @@ SerialDevice::SerialDevice(const std::string& portName, uint32_t baudRate, const
 }
 
 SerialDevice::~SerialDevice() {
-#ifndef WIN32
-	flushOutput();
-#endif // !_WIN32
+//#ifndef WIN32
+//	flushOutput();
+//#endif // !_WIN32
     close();
 }
 
