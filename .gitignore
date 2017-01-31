@@ -36,6 +36,3 @@ docs/xml
 docs/doxygen/cinder.tag
 docs/*/node_modules
 *.pyc
-
-# CinderBlocks
-build/
