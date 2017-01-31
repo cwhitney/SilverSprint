@@ -6,7 +6,7 @@
 //
 //
 
-#include "StateManager.h"
+#include "data/StateManager.h"
 
 using namespace ci;
 using namespace ci::app;

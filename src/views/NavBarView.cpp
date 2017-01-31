@@ -6,7 +6,7 @@
 //
 //
 
-#include "NavBarView.h"
+#include "views/NavBarView.h"
 
 using namespace ci;
 using namespace ci::app;

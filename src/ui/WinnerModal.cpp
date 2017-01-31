@@ -1,4 +1,4 @@
-#include "WinnerModal.h"
+#include "ui/WinnerModal.h"
 
 using namespace ci;
 using namespace ci::app;

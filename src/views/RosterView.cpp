@@ -6,7 +6,7 @@
 //
 //
 
-#include "RosterView.h"
+#include "views/RosterView.h"
 
 using namespace ci;
 using namespace ci::app;

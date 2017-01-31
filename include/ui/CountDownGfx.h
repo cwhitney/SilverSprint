@@ -13,7 +13,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Log.h"
 
-#include "StateManager.h"
+#include "data/StateManager.h"
 
 namespace gfx {
 

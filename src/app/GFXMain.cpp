@@ -6,7 +6,7 @@
 //
 //
 
-#include "GFXMain.h"
+#include "app/GFXMain.h"
 
 using namespace ci;
 using namespace ci::app;

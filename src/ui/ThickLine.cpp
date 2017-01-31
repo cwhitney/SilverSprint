@@ -1,4 +1,4 @@
-#include "ThickLine.h"
+#include "ui/ThickLine.h"
 
 using namespace ci;
 using namespace ci::app;

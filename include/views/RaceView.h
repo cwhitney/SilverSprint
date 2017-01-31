@@ -14,13 +14,13 @@
 #include "cinder/gl/GlslProg.h"
 #include "cinder/ImageIo.h"
 
-#include "StateManager.h"
-#include "Model.h"
-#include "RaceText.h"
-#include "GFXGlobal.h"
-#include "StartStopButton.h"
-#include "CountDownGfx.h"
-#include "WinnerModal.h"
+#include "data/StateManager.h"
+#include "data/Model.h"
+#include "ui/RaceText.h"
+#include "data/GFXGlobal.h"
+#include "ui/StartStopButton.h"
+#include "ui/CountDownGfx.h"
+#include "ui/WinnerModal.h"
 
 namespace gfx {
 

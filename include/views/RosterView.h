@@ -9,14 +9,14 @@
 #pragma once
 
 #include "cinder/app/App.h"
-#include "cinder/gl/Texture.h"
+#include "cinder/gl/gl.h"
 #include "cinder/ImageIo.h"
 
-#include "StateManager.h"
-#include "Model.h"
-#include "GFXGlobal.h"
+#include "data/StateManager.h"
+#include "data/Model.h"
+#include "data/GFXGlobal.h"
 
-#include "CiTextField.h"
+#include "ui/CiTextField.h"
 
 namespace gfx{
 

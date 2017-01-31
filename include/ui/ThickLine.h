@@ -2,6 +2,7 @@
 
 #include "cinder/app/App.h"
 #include "cinder/gl/GlslProg.h"
+#include "cinder/gl/gl.h"
 
 using ThickLineRef = std::shared_ptr<class ThickLine>;
 

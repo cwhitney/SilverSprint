@@ -6,7 +6,7 @@
 //
 //
 
-#include "CiTextField.h"
+#include "ui/CiTextField.h"
 
 using namespace ci;
 using namespace ci::app;
