@@ -10,7 +10,8 @@ uniform float trailingEdgePct;
 
 float map( float value, float inputMin, float inputMax, float outputMin, float outputMax ){
 	float outVal = ((value - inputMin) / (inputMax - inputMin) * (outputMax - outputMin) + outputMin);
-	return outVal;
+	
+	return max(outVal, outputMin);
 }
 
 void main()
