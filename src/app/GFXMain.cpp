@@ -83,7 +83,7 @@ void GFXMain::onRaceStateChanged( RACE_STATE rc ){
 }
 
 void GFXMain::onKeyDown(KeyEvent event){
-    if( !event.isAccelDown() ){
+    if( !event.isAccelDown() && !event.isControlDown() ){
         return;
     }
     else if( event.getChar() == 'r'){

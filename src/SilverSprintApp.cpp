@@ -44,7 +44,7 @@ void SilverSprintApp::resize()
 
 void SilverSprintApp::keyDown( KeyEvent event )
 {
-    if( event.isAccelDown() ){
+    if( event.isAccelDown() || event.isControlDown() ){
         if( event.getChar() == 'f' ){
             setFullScreen( !isFullScreen() );
         }
