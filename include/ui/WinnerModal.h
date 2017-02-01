@@ -4,6 +4,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Timeline.h"
 #include "cinder/CinderMath.h"
+#include "cinder/Signals.h"
 
 #include "data/StateManager.h"
 #include "data/GFXGlobal.h"
@@ -33,5 +34,6 @@ class WinnerModal {
     ci::gl::TextureRef  mWinnerGraphic;
     ci::Anim<float>     mAlpha;
     
+	ci::signals::Connection			mConn;
     std::vector<gfx::PlayerData*>   mWinnersSorted;
 };
