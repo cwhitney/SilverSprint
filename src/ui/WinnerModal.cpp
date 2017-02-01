@@ -100,7 +100,7 @@ void WinnerModal::draw()
                     gl::drawSolidRect( bgRect );
                     
                     gl::ScopedColor scB(Color::black());
-                    gl::drawSolidRect(Rectf(189, 60, 193, 88));
+                    gl::drawSolidRect(Rectf(193, 60, 197, 88));
                     
                     gl::ScopedColor scW(Color::gray(229));
                     gl::drawSolidRect( botRect );
@@ -109,8 +109,6 @@ void WinnerModal::draw()
                 mGlobal->texFont->drawString( mWinnersSorted[i+1]->player_name, vec2(20, 42));
                 mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[i+1]->finishTimeMillis), vec2(20, 82));
                 mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxMph(), 1) + "mph", vec2(210, 82));
-                
-//                gl::translate( vec2(384, 0) );
             }
         }
         
