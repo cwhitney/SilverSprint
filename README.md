@@ -1,6 +1,5 @@
 SilverSprint
 =============
-
 A front end for the [OpenSprints](https://www.opensprints.com) hardware kit.  It allows for the racing of 1 to 4 bikers against each other in a goldsprints style race.  The software is free to use and modify and you're encouraged to hold your own races!  See _LICENSE_ for more details.
 
 SilverSprint is for OSX (10.7 and up) and Windows (7 and up).
@@ -50,6 +49,7 @@ PC requires Windows 7 and up
 In the event of a crash, a log file will be created in a folder called "logs" in the SilverSprint directory. Please attach this file when asking for support along with any other relevant information.
 
 -
+Project website http://cwhitney.github.io/SilverSprint/
 * Code by [Charlie Whitney](http://sharkbox.com)
 * Design by [Erica Gorochow](http://gorociao.com)
 * Hardware [OpenSprints](https://www.opensprints.com)
