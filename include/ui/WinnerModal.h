@@ -3,6 +3,7 @@
 #include "cinder/app/App.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Timeline.h"
+#include "cinder/CinderMath.h"
 
 #include "data/StateManager.h"
 #include "data/GFXGlobal.h"
@@ -25,7 +26,7 @@ class WinnerModal {
     std::string toString(float num, int precision);
     bool    bVisible;
     
-    ci::Rectf       mCloseRect;
+    ci::Rectf       mWinnerRect;
     gfx::GFXGlobal  *mGlobal;
     gfx::Model      *mModel;
     

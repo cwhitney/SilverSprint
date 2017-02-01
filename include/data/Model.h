@@ -17,6 +17,7 @@ namespace gfx{
 
     class Model {
         friend class SerialReader;
+        
       public:
         static Model* getInstance();
         void resetPlayers();
@@ -34,6 +35,7 @@ namespace gfx{
         PlayerData* getPlayerData(int num){ return playerData[num]; };
 
         std::vector<gfx::PlayerData*>   playerData;
+        ci::Color                       playerColors[4];
         
         int                             startTimeMillis;
         int                             elapsedRaceTimeMillis;

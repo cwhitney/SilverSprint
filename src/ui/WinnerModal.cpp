@@ -10,11 +10,11 @@ WinnerModal::WinnerModal() :
 {
     mModel = Model::getInstance();
     mGlobal = GFXGlobal::getInstance();
-    mCloseRect = Rectf(100,100,500,500);
+//    mWinnerRect = Rectf(100,100,500,500);
     
     mWinnerGraphic = gl::Texture::create( loadImage( loadAsset("img/WinnerModal.png") ));
-    mCloseRect = mWinnerGraphic->getBounds();
-    mCloseRect.offset( (vec2(1920, 1080) - (vec2)mWinnerGraphic->getSize()) * vec2(0.5) );
+    mWinnerRect = mWinnerGraphic->getBounds();
+    mWinnerRect.offset( (vec2(1920, 1080) - (vec2)mWinnerGraphic->getSize()) * vec2(0.5) );
     
     StateManager::getInstance()->signalOnRaceStateChange.connect( [&](RACE_STATE newState){
         if( newState == RACE_STATE::RACE_COMPLETE ){
@@ -28,7 +28,7 @@ WinnerModal::WinnerModal() :
     });
     
     getWindow()->getSignalMouseUp().connect( [&](MouseEvent event){
-        if( mCloseRect.contains( mGlobal->localToGlobal(event.getPos())) ){
+        if( mWinnerRect.contains( mGlobal->localToGlobal(event.getPos())) ){
             StateManager::getInstance()->changeRaceState( RACE_STOPPED );
         }
     });
@@ -61,13 +61,15 @@ void WinnerModal::update()
 void WinnerModal::draw()
 {
     if( bVisible ){
-        gl::ScopedColor(1,1,1,mAlpha);
+        gl::ScopedColor scBg(0,0,0,mAlpha * 0.5);
+        gl::drawSolidRect( Rectf(0,0,1920,1080) );
         
-        gl::draw( mWinnerGraphic, mCloseRect);
+        gl::ScopedColor scA(1,1,1,mAlpha);
+        gl::draw( mWinnerGraphic, mWinnerRect);
         float ww = mGlobal->winnerTexFont->measureString(mWinnersSorted[0]->player_name).x;
         {
             gl::ScopedMatrices scMat;
-            gl::translate( mCloseRect.getUpperLeft() );
+            gl::translate( mWinnerRect.getUpperLeft() );
             gl::color(0,0,0,mAlpha);
             mGlobal->winnerTexFont->drawString( mWinnersSorted[0]->player_name, vec2(550 - ww*0.5, 288));
             gl::color(1,1,1,mAlpha);
@@ -76,14 +78,39 @@ void WinnerModal::draw()
         }
         {
             gl::ScopedMatrices scMat;
-            gl::translate( mCloseRect.getUpperLeft() );
-            gl::translate( vec2(20, 688) );
-            for( int i=1; i<mModel->getNumRacers(); i++){
-                mGlobal->texFont->drawString( mWinnersSorted[i]->player_name, vec2(0, 42));
-                mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[i]->finishTimeMillis), vec2(0, 82));
-                mGlobal->texFont->drawString( toString(mWinnersSorted[i]->getMaxMph(), 1) + "mph", vec2(190, 82));
+            gl::translate( mWinnerRect.getUpperLeft() );
+            gl::translate( vec2(0, 688) );
+            
+            int NR = (mModel->getNumRacers()-1);
+            float gap = 24;
+            float totalWidth = (360 * NR) + gap * (NR-1);
+            Rectf bgRect(0,0,360,100);
+            Rectf botRect(0,110,360,114);
+            
+            for( int i=0; i<NR; i++){
+                gl::ScopedMatrices scMat2;
                 
-                gl::translate( vec2(384, 0) );
+                
+                float lm = (totalWidth * -0.5) + (360 + gap) * i;
+                float offsetX = lm + mWinnerRect.getWidth() * 0.5;
+
+                gl::translate(vec2(offsetX, 0));
+                {
+                    gl::ScopedColor scCol( mWinnersSorted[i+1]->playerColor );
+                    gl::drawSolidRect( bgRect );
+                    
+                    gl::ScopedColor scB(Color::black());
+                    gl::drawSolidRect(Rectf(189, 60, 193, 88));
+                    
+                    gl::ScopedColor scW(Color::gray(229));
+                    gl::drawSolidRect( botRect );
+                }
+                
+                mGlobal->texFont->drawString( mWinnersSorted[i+1]->player_name, vec2(20, 42));
+                mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[i+1]->finishTimeMillis), vec2(20, 82));
+                mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxMph(), 1) + "mph", vec2(210, 82));
+                
+//                gl::translate( vec2(384, 0) );
             }
         }
         

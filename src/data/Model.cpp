@@ -24,8 +24,14 @@ Model::Model(){
     mNumRacers = 2;
     bHardwareConnected = false;
     
+    playerColors[0] = ci::ColorA(185.0 / 255.0, 33.0 / 255.0, 64.0 / 255.0, 1.0);
+    playerColors[1] = ci::ColorA(28.0 / 255.0, 145.0 / 255.0, 133.0 / 255.0, 1.0);
+    playerColors[2] = ci::ColorA(22.0 / 255.0, 146.0 / 255.0, 84.0 / 255.0, 1.0);
+    playerColors[3] = ci::ColorA(225.0 / 255.0, 185.0 / 255.0, 9.0 / 255.0, 1.0);
+    
     for( int i=0; i<4; i++){
         playerData.push_back( new PlayerData() );
+        playerData.back()->playerColor = playerColors[i];
     }
     
     playerData[0]->player_name = "Player 1";

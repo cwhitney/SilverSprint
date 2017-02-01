@@ -93,6 +93,7 @@ namespace gfx {
         std::string player_name;
         int         totalRaceTicks;
         double      finishTimeMillis;
+        ci::Color   playerColor;
         
       private:
         bool        bFinishedRace;
