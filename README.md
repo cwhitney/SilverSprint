@@ -1,13 +1,18 @@
-SilverSprint
+[SilverSprint](http://cwhitney.github.io/SilverSprint/)
 =============
 A front end for the [OpenSprints](https://www.opensprints.com) hardware kit.  It allows for the racing of 1 to 4 bikers against each other in a goldsprints style race.  The software is free to use and modify and you're encouraged to hold your own races!  See _LICENSE_ for more details.
 
-SilverSprint is for OSX (10.7 and up) and Windows (7 and up).
+[SilverSprint](http://cwhitney.github.io/SilverSprint/) is for OSX (10.7 and up) and Windows (7 and up).
 
-Written in [Cinder](http://libcinder.org/), an opensource C++ library for creative coding.  
+Written in [Cinder](https://libcinder.org/), an opensource C++ library for creative coding.  
 The version of Cinder at the time of coding was 0.9.0 [[Download](https://github.com/cinder/Cinder/releases/tag/v0.9.0)]
 
 ##Using the Application
+####Installation
+1. Download the [Arduino Desktop IDE](https://www.arduino.cc/en/main/software)
+2. Use the IDE to upload this [custom sketch file](https://raw.githubusercontent.com/cwhitney/SilverSprint/master/Arduino/basic_msg/basic_msg.ino) to the Arduino Uno in the OpenSprints Hardware.  If you need to revert it to work with [GoldSprintsFX](http://www.goldsprintsfx.com) upload the [default basic_msg sketch](https://github.com/opensprints/basic_msg/releases/latest).
+3. Download the latest [SilverSprint](https://github.com/cwhitney/SilverSprint/releases/latest) for your Operating System.  No additional software is needed.
+
 ####Settings
 1. Go to the Settings page by clicking the gear icon or pressing Command + 3
 2. Set the roller diameter as the distance from the magnet to the center of the roller multiplied by 2.
@@ -35,7 +40,7 @@ The version of Cinder at the time of coding was 0.9.0 [[Download](https://github
    - docs
    - include
    - lib
-   - ... 
+   - ...
 ```
 3. Open the project file for your platform. It will be in `SilverSprint/xcode/SilverSprint.xcodeproj` for mac, and `SilverSprint/vs2013` for PC.
 4. Build and enjoy. There are no external dependencies aside from Cinder itself.
