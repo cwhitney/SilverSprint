@@ -18,7 +18,7 @@ Model* Model::mInstance = NULL;
 Model::Model(){
     elapsedRaceTimeMillis = 0;
     raceLengthMeters = 50;
-    mRollerDiameterMm = 82.55; // This is 3.25 inches in mm
+    mRollerDiameterMm = 114.3; // This is 4.5 inches in mm
     totalRaceTicks = 0;
     startTimeMillis = 0;
     mNumRacers = 2;

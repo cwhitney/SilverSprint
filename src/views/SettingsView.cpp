@@ -28,7 +28,7 @@ SettingsView::SettingsView() : bVisible(false)
     int yPos = 255;
     
     // ROLLER DIAMETER
-    mTxtDiameter = makeSetting(Rectf(443,yPos, 443+431, yPos+100), "ROLLER DIAMETER (mm)", "82.55" );
+    mTxtDiameter = makeSetting(Rectf(443,yPos, 443+431, yPos+100), "ROLLER DIAMETER (mm)", "114.3" );
     yPos += 160;
     
     // RACE DISTANCE

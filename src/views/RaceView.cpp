@@ -139,7 +139,7 @@ void RaceView::onStateChange(APP_STATE newState)
 
 void RaceView::update()
 {
-    
+    mWinnerModal->update();
 }
 
 void RaceView::draw()

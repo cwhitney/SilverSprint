@@ -16,11 +16,27 @@ WinnerModal::WinnerModal() :
     mWinnerRect = mWinnerGraphic->getBounds();
     mWinnerRect.offset( (vec2(1920, 1080) - (vec2)mWinnerGraphic->getSize()) * vec2(0.5) );
     
+    mCamOrtho = CameraOrtho(0, 1920, 0, 1080, -100, 100);
+    
+    mParticles = std::make_shared<sharkbox::ParticleSystem>();
+    mParticles->emitterPos = vec3(1920*0.5, 1080 + 30, 0);
+    mParticles->emitterSize = vec3(1920,0,0);
+    mParticles->emitVel = 4;
+    mParticles->emitVelRand = 0.3;
+    mParticles->emitDir = vec3(0,-1,0);
+    mParticles->emitRatePerSec = 30.0;
+    
+    mParticles->mParticleSize = vec3(25);
+    mParticles->particleRotAngle = vec3(1,1,1);
+    mParticles->particleRotSpeed = 0.1;
+    mParticles->particleLifespan = 10.0;
+    
     StateManager::getInstance()->signalOnRaceStateChange.connect( [&](RACE_STATE newState){
         if( newState == RACE_STATE::RACE_COMPLETE ){
             getWinners();
             timeline().apply( &mAlpha, 0.0f, 1.0f, 1.0f, EaseOutQuad());
             bVisible = true;
+            mParticles->resetSystem();
 
 			mConn = getWindow()->getSignalMouseUp().connect([&](MouseEvent event) {
 				//if (mWinnerRect.contains(mGlobal->localToGlobal(event.getPos()))) {
@@ -56,7 +72,11 @@ void WinnerModal::getWinners()
 
 void WinnerModal::update()
 {
+    double ct = getElapsedSeconds();
+    double dt = ct - lt;
+    mParticles->update(dt);
     
+    lt = ct;
 }
 
 void WinnerModal::draw()
@@ -64,6 +84,14 @@ void WinnerModal::draw()
     if( bVisible ){
         gl::ScopedColor scBg(0,0,0,mAlpha * 0.5);
         gl::drawSolidRect( Rectf(0,0,1920,1080) );
+        
+        {// Particles
+            gl::ScopedMatrices scOrtho;
+            gl::ScopedDepth scD(true);
+            gl::setMatrices(mCamOrtho);
+            gl::ScopedColor scWin( mWinnersSorted[0]->playerColor );
+            mParticles->draw();
+        }
         
         gl::ScopedColor scA(1,1,1,mAlpha);
         gl::draw( mWinnerGraphic, mWinnerRect);

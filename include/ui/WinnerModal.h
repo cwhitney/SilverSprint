@@ -5,11 +5,14 @@
 #include "cinder/Timeline.h"
 #include "cinder/CinderMath.h"
 #include "cinder/Signals.h"
+#include "cinder/Camera.h"
 
 #include "data/StateManager.h"
 #include "data/GFXGlobal.h"
 #include "data/Model.h"
 #include "data/PlayerData.h"
+
+#include "ParticleSystem.h"
 
 using WinnerModalRef = std::shared_ptr<class WinnerModal>;
 
@@ -25,15 +28,20 @@ class WinnerModal {
     WinnerModal();
     void getWinners();
     std::string toString(float num, int precision);
-    bool    bVisible;
     
-    ci::Rectf       mWinnerRect;
-    gfx::GFXGlobal  *mGlobal;
-    gfx::Model      *mModel;
+    bool                bVisible = false;
+    
+    ci::Rectf           mWinnerRect;
+    gfx::GFXGlobal      *mGlobal;
+    gfx::Model          *mModel;
     
     ci::gl::TextureRef  mWinnerGraphic;
-    ci::Anim<float>     mAlpha;
+    ci::Anim<float>     mAlpha = 0.0;
     
 	ci::signals::Connection			mConn;
     std::vector<gfx::PlayerData*>   mWinnersSorted;
+    
+    sharkbox::ParticleSystemRef     mParticles;
+    ci::CameraOrtho                 mCamOrtho;
+    double lt = 0;;
 };

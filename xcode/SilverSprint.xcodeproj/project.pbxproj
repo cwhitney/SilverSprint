@@ -29,6 +29,7 @@
 		CB202BB11E40FC9C00E79AF7 /* SerialDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB202BAA1E40FC9C00E79AF7 /* SerialDevice.cpp */; };
 		CB202BB61E40FCE700E79AF7 /* Osc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB202BB41E40FCE700E79AF7 /* Osc.cpp */; };
 		CB37B3861E297897009FC93A /* ssIcn.icns in Resources */ = {isa = PBXBuildFile; fileRef = CB37B3851E297897009FC93A /* ssIcn.icns */; };
+		CB49AA221E44F1A300820D70 /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */; };
 		CBF06EFD1C5011ED0064CC52 /* GFXMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */; };
 		CBF06EFE1C5011ED0064CC52 /* SSManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE81C5011ED0064CC52 /* SSManager.cpp */; };
 		CBF06EFF1C5011ED0064CC52 /* GFXGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */; };
@@ -94,6 +95,8 @@
 		CB37B3831E296064009FC93A /* ThickLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThickLine.h; sourceTree = "<group>"; };
 		CB37B3841E296064009FC93A /* WinnerModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WinnerModal.h; sourceTree = "<group>"; };
 		CB37B3851E297897009FC93A /* ssIcn.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ssIcn.icns; path = ../resources/ssIcn.icns; sourceTree = "<group>"; };
+		CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystem.cpp; sourceTree = "<group>"; };
+		CB49AA211E44F1A300820D70 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
 		CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXMain.cpp; sourceTree = "<group>"; };
 		CBF06EE81C5011ED0064CC52 /* SSManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SSManager.cpp; sourceTree = "<group>"; };
 		CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXGlobal.cpp; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 		01B97315FEAEA392516A2CEA /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
+				CB49AA1F1E44F1A300820D70 /* ParticleSystem */,
 				CB202B931E40FC7900E79AF7 /* Cinder-Serial */,
 				87961E75141E4E46957E5344 /* OSC */,
 			);
@@ -387,6 +391,16 @@
 			path = osc;
 			sourceTree = "<group>";
 		};
+		CB49AA1F1E44F1A300820D70 /* ParticleSystem */ = {
+			isa = PBXGroup;
+			children = (
+				CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */,
+				CB49AA211E44F1A300820D70 /* ParticleSystem.h */,
+			);
+			name = ParticleSystem;
+			path = ../blocks/ParticleSystem;
+			sourceTree = "<group>";
+		};
 		CBF06EE61C5011ED0064CC52 /* app */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +577,7 @@
 				CBF06F061C5011ED0064CC52 /* NumStepper.cpp in Sources */,
 				CB202BAB1E40FC9C00E79AF7 /* list_ports_linux.cc in Sources */,
 				CB202BAE1E40FC9C00E79AF7 /* unix.cc in Sources */,
+				CB49AA221E44F1A300820D70 /* ParticleSystem.cpp in Sources */,
 				CB202BAF1E40FC9C00E79AF7 /* win.cc in Sources */,
 				CBF06EFD1C5011ED0064CC52 /* GFXMain.cpp in Sources */,
 				CB202BAD1E40FC9C00E79AF7 /* list_ports_win.cc in Sources */,
