@@ -59,7 +59,6 @@ SettingsView::SettingsView() : bVisible(false)
     mCheckLine1 = ThickLine::create( p1+t, p2+t + vec2(1.5,1.5), 5 );
     mCheckLine2 = ThickLine::create( p2+t, p3+t, 5 );
     
-    
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
 }
@@ -131,7 +130,7 @@ void SettingsView::draw()
         mTxtDistance->draw();
         mTxtNumRacers->draw();
         
-        gl::color( Color::gray(0.55) );
+        gl::ScopedColor scGr( Color::gray(0.55) );
         for( int i=0; i<mLabels.size(); i++){
             tFont->drawString(mLabels[i].txt, mLabels[i].pos);
         }
@@ -147,6 +146,10 @@ void SettingsView::draw()
         if( mModel->isHardwareConnected() ){
             mCheckLine1->draw();
             mCheckLine2->draw();
+            
+            gl::ScopedColor scGr( Color::gray(0.55) );
+            tFont->drawString("VERSION", mConnectionRect.getLowerRight() + vec2(10, -30));
+            tFont->drawString(mModel->mFirmwareVersion, mConnectionRect.getLowerRight() + vec2(10, -5));
         }else{
             mXLine1->draw();
             mXLine2->draw();

@@ -16,15 +16,11 @@ using namespace Cinder::Serial;
 
 SerialReader::SerialReader() :
     BAUD_RATE(115200),
-    bSerialConnected(false),
-    bLastConnection(false),
     mStringBuffer(""),
     mHardwareVersion(""),
     mProtoculVersion(""),
     mFirmwareVersion(""),
-    bMockEnabled(false),
     mSerial(NULL),
-    bThreadShouldQuit(false),
     mReceiveBuffer(100),
     mSendBuffer(100)
 {
@@ -51,6 +47,7 @@ void SerialReader::update()
     // if we connected since the last update, notify
     if( bSerialConnected && !bLastConnection){
         onConnect();
+        timeline().add( [&](){ getVersion(); }, timeline().getCurrentTime() + 2.0 );
     }else if( !bSerialConnected && bLastConnection ){
         onDisconnect();
     }
@@ -269,8 +266,9 @@ void SerialReader::parseFromBuffer()
         else if( cmd == "M"){   // Mock mode confirmation
             CI_LOG_D("SerialReader :: Mock mode turned " + args);
         }
-        else if( cmd == "V"){   // version
+        else if(cmd == "V"){   // version
             mFirmwareVersion = args;
+            mModel->mFirmwareVersion = args;
         }
         
         else{
@@ -286,6 +284,7 @@ void SerialReader::onConnect()
 {
     CI_LOG_I("OpenSprints hardware connected.");
     mModel->bHardwareConnected = bSerialConnected;
+    mModel->mFirmwareVersion = "Unknown";
 }
 
 void SerialReader::onDisconnect()
@@ -313,6 +312,10 @@ void SerialReader::setRaceLengthTicks( int numTicks ){
 void SerialReader::setMockMode( bool enabled ){
     bMockEnabled = enabled;
     sendSerialMessage("m");
+}
+
+void SerialReader::getVersion(){
+    sendSerialMessage("v");
 }
 
 void SerialReader::sendSerialMessage( std::string msg )

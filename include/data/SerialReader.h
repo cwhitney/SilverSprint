@@ -12,6 +12,7 @@
 //#include "cinder/Serial.h"
 #include "cinder/Utilities.h"
 #include "cinder/Log.h"
+#include "cinder/Timeline.h"
 #include "cinder/ConcurrentCircularBuffer.h"
 #include <boost/algorithm/string.hpp>
 
@@ -37,6 +38,7 @@ namespace gfx
         void setRaceDuration( int );
         void setRaceLengthTicks( int numTicks );
         void setMockMode( bool enabled=true );
+        void getVersion();
         
       private:
         void updateSerialThread();
@@ -55,12 +57,12 @@ namespace gfx
         void                readSerial();
         void                sendSerialMessage( std::string msg );
         
-        int                 BAUD_RATE;
+        int                 BAUD_RATE = 115200;
         //ci::SerialRef       mSerial;
 		Cinder::Serial::SerialDeviceRef		mSerial;
-        bool                bSerialConnected, bLastConnection;
-        bool                bThreadShouldQuit;
-        bool                bMockEnabled;
+        bool                bSerialConnected = false, bLastConnection = false;
+        bool                bThreadShouldQuit = false;
+        bool                bMockEnabled = false;
         
         std::string         mStringBuffer;
         

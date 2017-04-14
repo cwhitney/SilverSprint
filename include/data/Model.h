@@ -39,6 +39,7 @@ namespace gfx{
         
         int                             startTimeMillis;
         int                             elapsedRaceTimeMillis;
+        std::string                     mFirmwareVersion = "Unknown";
         
       private:
         // PRIVATE CONSTRUCTOR + COPY

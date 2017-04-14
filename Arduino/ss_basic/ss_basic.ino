@@ -15,7 +15,7 @@
  *
  */
 
-#define VERSION "basic-1.03"
+#define VERSION "SS_v0.1.1"
 #define FALSE_START_TICKS 4
 
 int statusLEDPin = 13;
@@ -118,6 +118,7 @@ void checkSerial(){
           isReceivingRaceLength = true;
       }
       else if(val == 'v') {
+        Serial.print("V:");
         Serial.println(VERSION);
       }
       else if(val == 'g') {   // start race
