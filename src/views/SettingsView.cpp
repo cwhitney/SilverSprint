@@ -66,6 +66,7 @@ SettingsView::SettingsView() : bVisible(false)
     auto toggleFont =gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70));
     mMphKphToggle = std::make_shared<ToggleBtn>("MPH", "KPH", toggleFont, vec2(xPos, yPos));
     mMphKphToggle->setColors( mGlobal->playerColors[0], Color::black() );
+    mMphKphToggle->setSelected(1);
     
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
