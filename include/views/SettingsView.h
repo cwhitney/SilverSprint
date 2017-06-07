@@ -18,6 +18,7 @@
 #include "ui/CiTextField.h"
 #include "ui/NumStepper.h"
 #include "ui/ThickLine.h"
+#include "ui/ToggleBtn.h"
 
 namespace gfx {
     
@@ -52,6 +53,8 @@ namespace gfx {
         
         NumStepper      mStepperPlus;
         NumStepper      mStepperMinus;
+        
+        ToggleBtnRef    mMphKphToggle;
         
         struct TextLabel {
             TextLabel(ci::vec2 pos_, std::string txt_ ){ pos=pos_; txt=txt_; }

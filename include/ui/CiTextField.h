@@ -58,7 +58,7 @@ class CiTextField {
     bool            bActive;
     bool            bHighlighted;
     
-    ci::vec2       mCursorPos;
+    ci::vec2        mCursorPos;
     int             mCaratIndex, mCaratStart;
     
     bool            bEnabled;
@@ -67,7 +67,7 @@ class CiTextField {
     
     std::string     mText;
     ci::Rectf       mBounds;
-    ci::vec2       emSize;
+    ci::vec2        emSize;
     
     ci::Font                    mFont;
     ci::gl::TextureFontRef      tFont;

@@ -33,6 +33,9 @@ namespace gfx{
         
         const bool& isHardwareConnected(){ return bHardwareConnected; }
         PlayerData* getPlayerData(int num){ return playerData[num]; };
+        
+        void setUseKph( bool useKph){ bUseKph = useKph;}
+        bool getUsesKph(){ return bUseKph; }
 
         std::vector<gfx::PlayerData*>   playerData;
         ci::Color                       playerColors[4];
@@ -56,5 +59,6 @@ namespace gfx{
         
         float   mRollerDiameterMm;
         bool    bHardwareConnected;
+        bool    bUseKph = false;
     };
 }

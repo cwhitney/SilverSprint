@@ -24,7 +24,7 @@ SettingsView::SettingsView() : bVisible(false)
     
     ci::Font fnt(loadAsset("fonts/UbuntuMono-BI.ttf"), 25);
     tFont = gl::TextureFont::create( fnt );
-
+    
     int yPos = 255;
     
     // ROLLER DIAMETER
@@ -58,6 +58,14 @@ SettingsView::SettingsView() : bVisible(false)
     vec2 t = mConnectionRect.getUpperLeft();;
     mCheckLine1 = ThickLine::create( p1+t, p2+t + vec2(1.5,1.5), 5 );
     mCheckLine2 = ThickLine::create( p2+t, p3+t, 5 );
+    
+    // KPH
+    yPos = 255;
+    float xPos = 1000;
+    mLabels.push_back( TextLabel(vec2(xPos, yPos-20), "UNITS") );
+    auto toggleFont =gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70));
+    mMphKphToggle = std::make_shared<ToggleBtn>("MPH", "KPH", toggleFont, vec2(xPos, yPos));
+    mMphKphToggle->setColors( mGlobal->playerColors[0], Color::black() );
     
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
@@ -101,10 +109,12 @@ void SettingsView::onStateChange(APP_STATE newState)
         mTxtDiameter->visible = true;
         mTxtDistance->visible = true;
         mTxtNumRacers->visible = true;
+        mMphKphToggle->setSelected( mModel->getUsesKph() );
     }else{
         mModel->setRollerDiameterMm( fromString<float>(mTxtDiameter->getText()));
         mModel->setNumRacers( fromString<int>(mTxtNumRacers->getText()) );
         mModel->setRaceLengthMeters( fromString<int>(mTxtDistance->getText()) );
+        mModel->setUseKph( mMphKphToggle->getSelected() );
         bVisible = false;
         
         mTxtDiameter->visible = false;
@@ -153,6 +163,11 @@ void SettingsView::draw()
         }else{
             mXLine1->draw();
             mXLine2->draw();
+        }
+        
+        // KPH
+        {
+            mMphKphToggle->draw();
         }
     }
 }
