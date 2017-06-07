@@ -15,7 +15,7 @@ The version of Cinder at the time of coding was 0.9.0 [[Download](https://github
 
 #### Installation
 1. Download the [Arduino Desktop IDE](https://www.arduino.cc/en/main/software)
-2. Use the IDE to upload this [custom sketch file](https://raw.githubusercontent.com/cwhitney/SilverSprint/master/Arduino/basic_msg/basic_msg.ino) to the Arduino Uno in the OpenSprints Hardware.  To restore the OpenSprints default upload the [basic_msg sketch](https://github.com/opensprints/basic_msg/releases/latest).
+2. Use the IDE to upload this [custom sketch file](https://raw.githubusercontent.com/cwhitney/SilverSprint/master/Arduino/ss_basic/ss_basic.ino) to the Arduino Uno in the OpenSprints Hardware.  To restore the OpenSprints default upload the [basic_msg sketch](https://github.com/opensprints/basic_msg/releases/latest).
 3. Download the latest [SilverSprint](https://github.com/cwhitney/SilverSprint/releases/latest) for your Operating System.  No additional software is needed.
 
 #### Settings
