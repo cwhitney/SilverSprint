@@ -159,7 +159,7 @@ void SettingsView::draw()
             mCheckLine2->draw();
             
             gl::ScopedColor scGr( Color::gray(0.55) );
-            tFont->drawString("VERSION", mConnectionRect.getLowerRight() + vec2(10, -30));
+            tFont->drawString("FIRMWARE VERSION", mConnectionRect.getLowerRight() + vec2(10, -30));
             tFont->drawString(mModel->mFirmwareVersion, mConnectionRect.getLowerRight() + vec2(10, -5));
         }else{
             mXLine1->draw();

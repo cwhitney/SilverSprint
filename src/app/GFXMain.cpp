@@ -71,13 +71,14 @@ void GFXMain::onAppStateChaged( APP_STATE as ) {
 void GFXMain::onRaceStateChanged( RACE_STATE rc ){
     
     if( rc == RACE_STATE::RACE_STARTING ){
+		mModel->resetPlayers();
         mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
         mSerialReader->startRace();
     }
     
     else if( rc == RACE_STATE::RACE_STOPPED ){
         mSerialReader->stopRace();
-        mModel->resetPlayers();
+     //   mModel->resetPlayers();
         mModel->elapsedRaceTimeMillis = 0.0;
     }
 }

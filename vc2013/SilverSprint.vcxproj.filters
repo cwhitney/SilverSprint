@@ -186,6 +186,9 @@
     <ClCompile Include="..\blocks\ParticleSystem\ParticleSystem.cpp">
       <Filter>Blocks\ParticleSystem</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ui\ToggleBtn.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
@@ -271,6 +274,9 @@
     </ClInclude>
     <ClInclude Include="..\blocks\ParticleSystem\ParticleSystem.h">
       <Filter>Blocks\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\ToggleBtn.h">
+      <Filter>Header Files\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

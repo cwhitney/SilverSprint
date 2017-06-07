@@ -223,6 +223,7 @@
     <ClCompile Include="..\src\ui\RaceText.cpp" />
     <ClCompile Include="..\src\ui\StartStopButton.cpp" />
     <ClCompile Include="..\src\ui\ThickLine.cpp" />
+    <ClCompile Include="..\src\ui\ToggleBtn.cpp" />
     <ClCompile Include="..\src\ui\WinnerModal.cpp" />
     <ClCompile Include="..\src\views\NavBarView.cpp" />
     <ClCompile Include="..\src\views\RaceView.cpp" />
@@ -254,6 +255,7 @@
     <ClInclude Include="..\include\ui\RaceText.h" />
     <ClInclude Include="..\include\ui\StartStopButton.h" />
     <ClInclude Include="..\include\ui\ThickLine.h" />
+    <ClInclude Include="..\include\ui\ToggleBtn.h" />
     <ClInclude Include="..\include\ui\WinnerModal.h" />
     <ClInclude Include="..\include\views\NavBarView.h" />
     <ClInclude Include="..\include\views\RaceView.h" />
