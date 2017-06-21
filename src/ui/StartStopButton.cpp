@@ -6,7 +6,13 @@
 //
 //
 
-#include "ui/StartStopButton.h"
+#ifdef __linux
+    //linux
+    #include "../../include/ui/StartStopButton.h"
+#else
+    // Windows & OSX
+    #include "ui/StartStopButton.h"
+#endif
 
 using namespace ci;
 using namespace ci::app;
@@ -17,13 +23,13 @@ StartStopButton::StartStopButton()
 {
     mBounds = Rectf(1700, 23, 1700 + 174, 23 + 48 );
     mBackground = ci::Color( 22.0/255.0, 146.0/255.0, 84.0/255.0 );
-    
+
     mStateManager = StateManager::getInstance();
 }
 
 void StartStopButton::update()
 {
-    
+
 }
 
 void StartStopButton::onMouseOver()
@@ -54,9 +60,9 @@ void StartStopButton::draw()
 {
     gl::color( mBackground );
     gl::drawSolidRect( mBounds );
-    
+
     gl::color( Color::white() );
-    
+
     if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
        mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
         gl::color( Color::black() );

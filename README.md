@@ -40,6 +40,7 @@ In the event of a crash, a log file will be created in a folder called "logs" in
 Please attach this file when asking for support along with any other relevant information.
 
 ## Code Setup
+### Windows
 1. Clone Cinder 0.9.0 or download via zipped archive. [[Cinder Github](https://github.com/cinder/Cinder)]
 2. SilverSprint wants to be in a directory one above the Cinder root. For example:  
 
@@ -53,8 +54,48 @@ Please attach this file when asking for support along with any other relevant in
    - lib
    - ...
 ```
-3. Open the project file for your platform. It will be in `SilverSprint/xcode/SilverSprint.xcodeproj` for mac, and `SilverSprint/vs2013` for PC.
+3. Open the project file for your platform. It will be in `SilverSprint/vs2013` for PC.
 4. Build and enjoy. There are no external dependencies aside from Cinder itself.
+### OSX
+1. Clone Cinder 0.9.0 or download via zipped archive. [[Cinder Github](https://github.com/cinder/Cinder)]
+2. SilverSprint wants to be in a directory one above the Cinder root. For example:  
+
+```
+- Cinder
+   - apps  
+     - SilverSprint
+   - blocks  
+   - docs
+   - include
+   - lib
+   - ...
+```
+3. Open the project file for your platform. It will be in `SilverSprint/xcode/SilverSprint.xcodeproj`.
+4. Build and enjoy. There are no external dependencies aside from Cinder itself.
+### Ubuntu
+1. [Install Cinder](https://libcinder.org/docs/branch/master/guides/linux-notes/ubuntu.html) NOTE: There might be other dependencies, just read the errors.
+2. Clone SilverSprint into a directory one above the Cinder root. Either use 'samples' or create 'apps' like Windows and OSX.
+
+```
+- Cinder
+   - examples  
+     - SilverSprint
+   - blocks  
+   - docs
+   - include
+   - lib
+   - ...
+```
+3. Build
+```
+$ cd Cinder/examples/SilverSprint/proj/cmake/
+$ mkdir build && cd build && cmake .. && make
+```
+4. Execute
+```
+$ cd Debug/SilverSprintApp
+$ ./SilverSprintApp
+```
 
 ## Credits
 

@@ -6,7 +6,14 @@
 //  Copyright 2015 Chorded Constructions. All rights reserved.
 //
 
-#include "SerialDevice.h"
+#ifdef __linux
+    // linux
+    #include "../include/SerialDevice.h"
+#else
+    // Windows & OSX
+    #include "SerialDevice.h"
+#endif
+
 
 namespace Cinder { namespace Serial {
 

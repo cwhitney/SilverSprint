@@ -6,7 +6,14 @@
 //
 //
 
-#include "ui/RaceText.h"
+#ifdef __linux
+    //linux
+    #include "../../include/ui/RaceText.h"
+#else
+    // Windows & OSX
+    #include "ui/RaceText.h"
+#endif
+
 #include <boost/algorithm/string.hpp>
 #include <sstream>
 
@@ -31,13 +38,13 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
 {
     gl::pushMatrices();{
         gl::translate( offset );
-        
+
         int w = 7;
-        
+
         gl::color( mColor );
         // PLAYER NUMBER ---------
-        
-        
+
+
         // COLORED GRID ----------
         gl::translate( 150, 0);
         if( !data->didFinishRace() ){
@@ -51,19 +58,19 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
             gl::color( Color::black() );
             gl::drawSolidRect( Rectf(1462-w,  w,      1462, 68-w) );  // MID
         }
-        
+
         // TEXT ------------------
         gl::color( Color::white() );
-        
+
         boost::to_upper(data->player_name);
         mGlobal->texFont->drawString(data->player_name, vec2(20, 44) );
-        
+
         if( mModel->getUsesKph()){
             gl::drawStringRight( toDec(data->getKph(), 0) + " KPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
         }else{
             gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
         }
-        
+
         if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_DISTANCE ){
 //            gl::drawString( toDec(data->getDistance(), 2) + " M", vec2(1485,28), Color::white(), mGlobal->uiFont );
         }
@@ -74,7 +81,6 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
                 mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( mModel->elapsedRaceTimeMillis ), vec2(1485,44) );
             }
         }
-        
+
     }gl::popMatrices();
 }
-

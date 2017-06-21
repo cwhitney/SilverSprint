@@ -1,4 +1,18 @@
-#include "ui/ToggleBtn.h"
+//
+//  ToggleBtn.cpp
+//  GoldsprintsFX
+//
+//  Created by Charlie Whitney on 1/6/15.
+//
+//
+
+#ifdef __linux
+    //linux
+    #include "../../include/ui/ToggleBtn.h"
+#else
+    // Windows & OSX
+    #include "ui/ToggleBtn.h"
+#endif
 
 using namespace ci;
 using namespace ci::app;
@@ -12,13 +26,13 @@ ToggleBtn::ToggleBtn(std::string choice1, std::string choice2, ci::gl::TextureFo
     mChoice2 = choice2;
     auto window = getWindow();
     mMouseDownCb = window->getSignalMouseDown().connect( std::bind(&ToggleBtn::onMouseDown, this, std::placeholders::_1) );
-    
+
     vec2 c1 = mFont->measureString(choice1);
     vec2 c2 = mFont->measureString(choice1);
-    
+
     float height = max(c1.y, c2.y);
     mTextPadding = vec2(20, 14);
-    
+
     mRectL = Rectf(mPos.x, mPos.y, mPos.x + c1.x + mTextPadding.x * 2.0f, mPos.y + height + mTextPadding.y * 2.0f);
     mRectR = Rectf(mRectL.getX2(), mPos.y, mRectL.getX2() + c2.x + mTextPadding.x * 2.0f, mPos.y + height + mTextPadding.y * 2.0f);
 }
@@ -36,7 +50,7 @@ void ToggleBtn::setColors(ci::ColorA bg, ci::ColorA text)
 void ToggleBtn::onMouseDown(ci::app::MouseEvent event)
 {
     vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
-    
+
     if( mRectL.contains(pos) ){
         bLeftActive = true;
     }else if(mRectR.contains(pos)){
@@ -50,7 +64,7 @@ void ToggleBtn::draw()
         gl::ScopedColor scCol(mBgColor);
         gl::drawStrokedRect(mRectL);
         gl::drawStrokedRect(mRectR);
-        
+
         if(bLeftActive){
             gl::drawSolidRect(mRectL);
             gl::ScopedColor sccc(ColorA(mBgColor.r, mBgColor.g, mBgColor.b, 0.4));

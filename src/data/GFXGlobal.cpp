@@ -6,7 +6,13 @@
 //
 //
 
-#include "data/GFXGlobal.h"
+#ifdef __linux
+    //linux
+    #include "../../include/data/GFXGlobal.h"
+#else
+    // Windows & OSX
+    #include "data/GFXGlobal.h"
+#endif
 
 using namespace ci;
 using namespace ci::app;
@@ -14,12 +20,12 @@ using namespace std;
 using namespace gfx;
 
 GFXGlobal* GFXGlobal::mInstance = NULL;
- 
+
 GFXGlobal * GFXGlobal::getInstance(){
     if (!mInstance){
         mInstance = new GFXGlobal();
-        
-        
+
+
 		mInstance->setup();
     }
     return mInstance;
@@ -45,7 +51,7 @@ void GFXGlobal::setScale( const ci::Rectf &scaledRect )
 {
     vec2 sc( (float)getWindowWidth() / 1920.0, (float)getWindowHeight() / 1080.0);
     mScreenScale = vec2( min(sc.x, sc.y) );
-    
+
     mScreenOffset = scaledRect.getUpperLeft();
 }
 
@@ -69,29 +75,29 @@ std::string addZ100(int n) {
 std::string GFXGlobal::toTimestampPrecise( int millis ){
     //    millis = 755020;
     // millis = 12048;
-    
+
     int ms = millis % 1000;
     millis = (millis - ms) / 1000;
     int secs = millis % 60;
     millis = (millis - secs) / 60;
     int mins = millis % 60;
-    
+
     return addZ(mins) + ":" + addZ(secs) + ":" + addZ100(ms);
 }
 
 std::string GFXGlobal::toTimestamp( int millis ){
     //    millis = 755020;
     // millis = 12048;
-    
+
     int ms = millis % 1000;
     millis = (millis - ms) / 1000;
     int secs = millis % 60;
     millis = (millis - secs) / 60;
     int mins = millis % 60;
-    
+
     while( ms > 100 ){
         ms /= 10.0;
     }
-    
+
     return addZ(mins) + ":" + addZ(secs) + ":" + addZ(ms);
 }

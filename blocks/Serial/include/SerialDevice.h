@@ -17,7 +17,14 @@
 #include <vector>
 #include <regex>
 
-#include "serial.h"
+#ifdef __linux
+    //linux
+    #include "../lib/serial/include/serial/serial.h"
+#else
+    // Windows & OSX
+    #include "serial.h"
+#endif
+
 
 namespace Cinder { namespace Serial {
 
