@@ -6,7 +6,13 @@
 //
 //
 
-#include "data/StateManager.h"
+#ifdef __linux
+    //linux
+    #include "../../include/data/StateManager.h"
+#else
+    // Windows & OSX
+    #include "data/StateManager.h"
+#endif
 
 using namespace ci;
 using namespace ci::app;
@@ -14,7 +20,7 @@ using namespace std;
 using namespace gfx;
 
 StateManager* StateManager::mInstance = NULL;
- 
+
 StateManager * StateManager::getInstance(){
     if (!mInstance){
         mInstance = new StateManager();

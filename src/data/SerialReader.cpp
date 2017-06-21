@@ -6,7 +6,13 @@
 //
 //
 
-#include "data/SerialReader.h"
+#ifdef __linux
+    //linux
+    #include "../../include/data/SerialReader.h"
+#else
+    // Windows & OSX
+    #include "data/SerialReader.h"
+#endif
 
 using namespace ci;
 using namespace ci::app;
@@ -24,7 +30,7 @@ SerialReader::SerialReader() :
     mReceiveBuffer(100),
     mSendBuffer(100)
 {
- 
+
 }
 
 SerialReader::~SerialReader()
@@ -38,7 +44,7 @@ void SerialReader::setup()
 {
     mStateManager = StateManager::getInstance();
     mModel = Model::getInstance();
-    
+
     mSerialThread = std::shared_ptr<std::thread>( new std::thread( std::bind(&SerialReader::updateSerialThread, this) ) );
 }
 
@@ -52,7 +58,7 @@ void SerialReader::update()
         onDisconnect();
     }
     bLastConnection = bSerialConnected;
-    
+
     // lock and parse buffered data
     std::lock_guard<std::mutex> guard(mSerialMutex);
     parseFromBuffer();
@@ -61,10 +67,10 @@ void SerialReader::update()
 void SerialReader::updateSerialThread()
 {
     ThreadSetup threadSetup;
-    
+
     while( !bThreadShouldQuit ){
         std::lock_guard<std::mutex> guard(mSerialMutex);
-        
+
         if(!bSerialConnected ){ // we aren't connected try to connect
 			auto ports = SerialPort::getPorts(true);
             /*
@@ -90,7 +96,7 @@ void SerialReader::updateSerialThread()
 					mSerial = SerialDevice::create(port, BAUD_RATE);
 					mSerial->flush();
 					bSerialConnected = true;
-					
+
 					for (int i = 0; i < mSendBuffer.getSize(); i++) {        // clear send buffer
 						std::string tmp;
 						mSendBuffer.popBack(&tmp);
@@ -120,14 +126,14 @@ void SerialReader::updateSerialThread()
 					mSerial->close();
 				}
                 bSerialConnected = false;
-            }else{ 
+            }else{
 				// send to arduino
                 for(int i=0; i<mSendBuffer.getSize(); i++){
                     std::string msgToSend;
                     mSendBuffer.popBack( &msgToSend );
                     mSerial->writeString( msgToSend );
                 }
-                
+
                 // receive from arduino
                 readSerial();
             }
@@ -154,12 +160,12 @@ void SerialReader::readSerial()
 			//mSerial = nullptr;
 		}
     }
-    
+
     auto index = mStringBuffer.find("\r\n");
     if(index != string::npos){
         std::string cmd = mStringBuffer.substr(0, index);
         mStringBuffer.replace(0, index+2, "");      // The newline is 2 bytes (\r\n) so add two to remove it
-        
+
         parseCommandToBuffer( cmd );
     }
 }
@@ -168,15 +174,15 @@ void SerialReader::parseCommandToBuffer( std::string command )
 {
     std::vector<std::string> strs;
     boost::split(strs, command, boost::is_any_of(":"));
-    
+
     std::vector<std::string> tmpBuffer;
     tmpBuffer.push_back( strs[0] );
-    
+
     std::string args = "";
     if( strs.size() > 1){
         tmpBuffer.push_back(strs[1]);
     }
-    
+
     mReceiveBuffer.tryPushFront(tmpBuffer);
 }
 
@@ -184,18 +190,18 @@ void SerialReader::parseCommandToBuffer( std::string command )
 void SerialReader::parseFromBuffer()
 {
     auto numCmds = mReceiveBuffer.getSize();
-    
+
     for( int i=0; i<numCmds; i++) {
         std::vector<std::string> cmdArgs;
         mReceiveBuffer.popBack( &cmdArgs );
-        
+
         std::string cmd = cmdArgs[0];
         std::string args = (cmdArgs.size() > 1) ? cmdArgs[1] : "";
-        
+
         if( cmd == ""){
             return;
         }
-        
+
         // ------------------------------------------------------------------------------
         // RACE FINISH
         if(cmd == "0F"){
@@ -218,17 +224,17 @@ void SerialReader::parseFromBuffer()
             mStateManager->signalRacerFinish.emit(3, fromString<int>(args));
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
-        
+
         // ------------------------------------------------------------------------------
         // RACE PROGRESS
         else if(cmd == "R"){
             std::vector<std::string> rdata;
             boost::split(rdata, args, boost::is_any_of(","));
-            
+
             int raceMillis = fromString<int>( rdata[4] );
-                                             
+
             float dt = raceMillis - mModel->elapsedRaceTimeMillis;
-            
+
             mModel->playerData[0]->updateRaceTicks( fromString<int>(rdata[0]), dt );
             mModel->playerData[1]->updateRaceTicks( fromString<int>(rdata[1]), dt );
             mModel->playerData[2]->updateRaceTicks( fromString<int>(rdata[2]), dt );
@@ -236,12 +242,12 @@ void SerialReader::parseFromBuffer()
             mModel->elapsedRaceTimeMillis = raceMillis;
             mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
         }
-        
+
         // ------------------------------------------------------------------------------
         // SETTINGS
         else if( cmd == "CD"){
             CI_LOG_D("SerialReader :: Countdown :: " + args);
-            
+
             if( args == "3" ){
                 mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_3 );
             }else if( args == "2"){
@@ -250,7 +256,7 @@ void SerialReader::parseFromBuffer()
                 mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_1 );
             }else if( args == "0" ){
                 mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0;
-                
+
                 mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_GO );
                 mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
             }
@@ -270,7 +276,7 @@ void SerialReader::parseFromBuffer()
             mFirmwareVersion = args;
             mModel->mFirmwareVersion = args;
         }
-        
+
         else{
             CI_LOG_D("SerialReader :: Unrecognized command :: '" + cmd);
             if(args != ""){
@@ -331,9 +337,6 @@ bool SerialReader::isRaceFinished()
             return false;
         }
     }
-    
+
     return true;
 }
-
-
-

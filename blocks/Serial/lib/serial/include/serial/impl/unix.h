@@ -40,7 +40,13 @@
 #ifndef SERIAL_IMPL_UNIX_H
 #define SERIAL_IMPL_UNIX_H
 
-#include "serial/serial.h"
+#ifdef __linux
+    // linux
+    #include "../serial.h"
+#else
+    // Windows & OSX
+    #include "serial/serial.h"
+#endif
 
 #include <pthread.h>
 
@@ -55,7 +61,7 @@ using serial::IOException;
 
 class MillisecondTimer {
 public:
-  MillisecondTimer(const uint32_t millis);         
+  MillisecondTimer(const uint32_t millis);
   int64_t remaining();
 
 private:

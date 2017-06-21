@@ -2,9 +2,17 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 
-#include "app/GFXMain.h"
-#include "data/GFXGlobal.h"
-#include "data/StateManager.h"
+#ifdef __linux
+    //linux
+    #include "../include/app/GFXMain.h"
+    #include "../include/data/GFXGlobal.h"
+    #include "../include/data/StateManager.h"
+#else
+    // Windows & OSX
+    #include "app/GFXMain.h"
+    #include "data/GFXGlobal.h"
+    #include "data/StateManager.h"
+#endif
 
 using namespace ci;
 using namespace ci::app;
@@ -19,7 +27,7 @@ class SilverSprintApp : public App {
 	void keyDown( KeyEvent event ) override;
 	void update() override;
 	void draw() override;
-    
+
     gfx::GFXMainRef mGfxMain;
     bool            bDebugState;
 };
@@ -27,11 +35,11 @@ class SilverSprintApp : public App {
 void SilverSprintApp::setup()
 {
 //    log::makeLogger<log::LoggerFile>( getAppPath().string() + "/logs/SilverSprint.log", false );
-    
+
     bDebugState = false;
-    
+
     gl::enableAlphaBlending();
-    
+
     mGfxMain = GFXMainRef( new GFXMain() );
     mGfxMain->setup();
 }
@@ -68,25 +76,25 @@ void SilverSprintApp::update()
 void SilverSprintApp::draw()
 {
 	gl::clear( Color( 0, 0, 0 ) );
-    
+
     // clear out the window with black
     gl::clear( Color( 0, 0, 0 ) );
-    
+
     gl::pushMatrices();{
         Rectf originalSize(0,0,1920,1080);
         Rectf scaledFit = originalSize.getCenteredFit(getWindowBounds(), true);
-        
+
         float hScale = getWindowWidth() / originalSize.getWidth();
         float vScale = getWindowHeight() / originalSize.getHeight();
-        
+
         float scaleAmt = ( hScale < vScale ) ? hScale : vScale;
-        
+
         gl::translate( vec2(scaledFit.x1, 0) );
         gl::scale(scaleAmt, scaleAmt);
-        
+
         mGfxMain->draw( scaledFit );
     }gl::popMatrices();
-    
+
     if( bDebugState ){
         gl::drawString( to_string( getAverageFps() ), vec2(10, getWindowHeight() - 60) );
         gl::drawString( StateManager::getInstance()->getCurrentAppStateString(), vec2(10, getWindowHeight() - 40) );

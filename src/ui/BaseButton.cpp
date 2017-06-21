@@ -6,7 +6,13 @@
 //
 //
 
-#include "ui/BaseButton.h"
+#ifdef __linux
+    //linux
+    #include "../../include/ui/BaseButton.h"
+#else
+    // Windows & OSX
+    #include "ui/BaseButton.h"
+#endif
 
 using namespace ci;
 using namespace ci::app;
@@ -16,7 +22,7 @@ BaseButton::BaseButton() {
     bActive = false;
     bHover = false;
     mBounds = Rectf( 0, 0, 100, 100 );
-    
+
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseMove().connect( std::bind(&BaseButton::onMouseMove, this, std::placeholders::_1));
     win->getSignalMouseUp().connect( std::bind(&BaseButton::onMouseUp, this, std::placeholders::_1));

@@ -1,3 +1,6 @@
+# Linux cruft
+proj/cmake/build/
+
 # Mac OS X cruft
 *.pbxuser
 *.mode1v3

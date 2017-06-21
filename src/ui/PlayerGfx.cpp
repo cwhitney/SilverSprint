@@ -6,4 +6,10 @@
 //
 //
 
-#include "ui/PlayerGfx.h"
+#ifdef __linux
+    //linux
+    #include "../../include/ui/PlayerGfx.h"
+#else
+    // Windows & OSX
+  #include "ui/PlayerGfx.h"
+#endif
