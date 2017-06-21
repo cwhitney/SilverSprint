@@ -73,7 +73,7 @@ Please attach this file when asking for support along with any other relevant in
 3. Open the project file for your platform. It will be in `SilverSprint/xcode/SilverSprint.xcodeproj`.
 4. Build and enjoy. There are no external dependencies aside from Cinder itself.
 ### Ubuntu
-1. [Install Cinder](https://libcinder.org/docs/branch/master/guides/linux-notes/ubuntu.html)] NOTE: There might be other dependencies, just read the errors.
+1. [Install Cinder](https://libcinder.org/docs/branch/master/guides/linux-notes/ubuntu.html) NOTE: There might be other dependencies, just read the errors.
 2. Clone SilverSprint into a directory one above the Cinder root. Either use 'samples' or create 'apps' like Windows and OSX.
 
 ```
