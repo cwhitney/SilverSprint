@@ -11,6 +11,7 @@
 #include "cinder/app/App.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/gl/gl.h"
+#include "cinder/Log.h"
 
 #include "data/StateManager.h"
 #include "data/Model.h"

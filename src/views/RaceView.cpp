@@ -162,12 +162,13 @@ void RaceView::draw()
     }
     
     // MAIN TIMER
-    
     gl::ScopedColor scB(0,0,0,1);
     
-    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING ){
+    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING )
+	{
         mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
-    }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
+    }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE )
+	{
         mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
     }else {
         mTimerFont->drawString( mGlobal->toTimestamp(0), vec2(867,154) );

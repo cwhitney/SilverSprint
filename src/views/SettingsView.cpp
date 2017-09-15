@@ -15,9 +15,9 @@ using namespace std;
 
 SettingsView::SettingsView() : bVisible(false)
 {
-    mGlobal = gfx::GFXGlobal::getInstance();
-    mStateManager = StateManager::getInstance();
-    mModel = Model::getInstance();
+    mGlobal			= gfx::GFXGlobal::getInstance();
+    mStateManager	= StateManager::getInstance();
+    mModel			= Model::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&SettingsView::onStateChange, this, std::placeholders::_1) );
     
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
@@ -112,6 +112,7 @@ void SettingsView::onStateChange(APP_STATE newState)
         mTxtNumRacers->visible = true;
         mMphKphToggle->setSelected( mModel->getUsesKph() );
     }else{
+		CI_LOG_I("Settings ::  Updating model");
         mModel->setRollerDiameterMm( fromString<float>(mTxtDiameter->getText()));
         mModel->setNumRacers( fromString<int>(mTxtNumRacers->getText()) );
         mModel->setRaceLengthMeters( fromString<int>(mTxtDistance->getText()) );

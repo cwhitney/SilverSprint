@@ -1,10 +1,13 @@
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
+#include "cinder/Log.h"
 
 #include "app/GFXMain.h"
 #include "data/GFXGlobal.h"
 #include "data/StateManager.h"
+
+#define DEBUG_MODE 1
 
 using namespace ci;
 using namespace ci::app;
@@ -21,15 +24,17 @@ class SilverSprintApp : public App {
 	void draw() override;
     
     gfx::GFXMainRef mGfxMain;
-    bool            bDebugState;
 };
 
 void SilverSprintApp::setup()
 {
-//    log::makeLogger<log::LoggerFile>( getAppPath().string() + "/logs/SilverSprint.log", false );
-    
-    bDebugState = false;
-    
+	if (DEBUG_MODE) {
+		log::makeLogger<log::LoggerFile>( getAppPath().string() + "/logs/SilverSprint.log", false );
+	}
+
+	auto sysLogger = log::makeLogger<log::LoggerSystem>();
+	sysLogger->setLoggingLevel(log::LEVEL_VERBOSE);
+
     gl::enableAlphaBlending();
     
     mGfxMain = GFXMainRef( new GFXMain() );
@@ -87,7 +92,7 @@ void SilverSprintApp::draw()
         mGfxMain->draw( scaledFit );
     }gl::popMatrices();
     
-    if( bDebugState ){
+    if( DEBUG_MODE ){
         gl::drawString( to_string( getAverageFps() ), vec2(10, getWindowHeight() - 60) );
         gl::drawString( StateManager::getInstance()->getCurrentAppStateString(), vec2(10, getWindowHeight() - 40) );
         gl::drawString( StateManager::getInstance()->getCurrentRaceStateString(), vec2(10, getWindowHeight() - 20) );
