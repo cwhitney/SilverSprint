@@ -7,7 +7,7 @@
 #include "data/GFXGlobal.h"
 #include "data/StateManager.h"
 
-#define DEBUG_MODE 1
+#define DEBUG_MODE 0
 
 using namespace ci;
 using namespace ci::app;
