@@ -15,7 +15,7 @@
  *
  */
 
-#define VERSION "SS_v0.1.1"
+#define VERSION "SS_v0.1.3"
 #define FALSE_START_TICKS 4
 
 int statusLEDPin = 13;
@@ -46,7 +46,7 @@ unsigned long lastCountDownMillis;
 int lastCountDown;
 
 char charBuff[8];
-unsigned int charBuffLen = 0;
+unsigned int charBuffPos = 0;
 boolean isReceivingRaceLength = false;
 
 int raceLengthTicks = 20;
@@ -100,6 +100,7 @@ void checkSerial(){
     if(val == '\r' || val == '\n') {
       if(isReceivingRaceLength){
         isReceivingRaceLength = false;
+        charBuff[charBuffPos] = '\0'; // null char to terminate the string
         raceLengthTicks = atoi(charBuff);
         Serial.print("L:");
         Serial.println(raceLengthTicks);  // send confirmation
@@ -109,12 +110,13 @@ void checkSerial(){
       return;
     }
     if(isReceivingRaceLength) {
-      charBuff[charBuffLen] = val;
-      charBuffLen++;
+      charBuff[charBuffPos] = val;
+      charBuffPos++;
     }
     else {
       if(val == 'l') {
-          charBuffLen = 0;
+          memset(charBuff, 0, sizeof(charBuff));
+          charBuffPos = 0;
           isReceivingRaceLength = true;
       }
       else if(val == 'v') {
