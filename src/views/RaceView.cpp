@@ -20,7 +20,6 @@ RaceView::RaceView() : bVisible(false) {
 void RaceView::setup()
 {
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
-//    mProgLine = gl::Texture::create( loadImage( loadAsset("img/progLine.png") ) );
     mLogo = gl::Texture::create( loadImage( loadAsset("img/opensprintsLogo.png") ) );
     
     mGlobal = gfx::GFXGlobal::getInstance();
@@ -33,13 +32,13 @@ void RaceView::setup()
     
     mDial = gl::Texture::create( loadImage(loadAsset("img/dial_bg_y.png")) );
     
-    mStateManager = StateManager::getInstance();
-    mModel = Model::getInstance();
-    mStateManager->signalOnStateChange.connect( std::bind(&RaceView::onStateChange, this, std::placeholders::_1) );
+    mStateManager	= StateManager::getInstance();
+    mModel			= Model::getInstance();
+    mCountDown		= CountDownGfx::create();
+    mWinnerModal	= WinnerModal::create();
     
-    mCountDown = CountDownGfx::create();
-    mWinnerModal = WinnerModal::create();
-    
+	mStateManager->signalOnStateChange.connect(std::bind(&RaceView::onStateChange, this, std::placeholders::_1));
+
     mStartStop.signalStartRace.connect( std::bind(&RaceView::onStartClicked, this ) );
     mStartStop.signalStopRace.connect( std::bind(&RaceView::onStopClicked, this ) );
     
