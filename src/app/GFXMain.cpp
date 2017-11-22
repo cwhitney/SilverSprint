@@ -49,8 +49,8 @@ void GFXMain::setup(){
     mStateManager->signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
     mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
     
-    mStateManager->signalRacerFinish.connect( [&](int _id, int _millis){
-        mModel->playerData[_id]->setFinished(_millis);
+    mStateManager->signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
+        mModel->playerData[_id]->setFinished(_finishMillis, _finishTicks);
     });
     
     // START --------------------------------------------------------------
@@ -71,7 +71,14 @@ void GFXMain::onAppStateChaged( APP_STATE as ) {
 void GFXMain::onRaceStateChanged( RACE_STATE rc ){
     
     if( rc == RACE_STATE::RACE_STARTING ){
-        mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
+        if(GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_DISTANCE ){
+            mSerialReader->setRaceType(RACE_TYPE_DISTANCE);
+            mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
+        }else{
+            mSerialReader->setRaceType(RACE_TYPE_TIME);
+            mSerialReader->setRaceDuration( mModel->getRaceTimeSeconds() );
+        }
+        
         mSerialReader->startRace();
     }
     

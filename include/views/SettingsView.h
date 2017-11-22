@@ -15,6 +15,8 @@
 #include "data/StateManager.h"
 #include "data/Model.h"
 #include "data/GFXGlobal.h"
+
+#include "ui/CheckBox.h"
 #include "ui/CiTextField.h"
 #include "ui/NumStepper.h"
 #include "ui/ThickLine.h"
@@ -26,6 +28,7 @@ namespace gfx {
     class SettingsView {
     public:
         SettingsView();
+        ~SettingsView();
         void update();
         void draw();
         
@@ -36,6 +39,7 @@ namespace gfx {
         void onMouseUp( ci::app::MouseEvent event );
         
         CiTextField* makeSetting(ci::Rectf rect, std::string label, std::string txt);
+        CiTextField* makeTextField(ci::Rectf rect, std::string txt);
         
         StateManager    *mStateManager;
         Model           *mModel;
@@ -48,10 +52,15 @@ namespace gfx {
         
         CiTextField*        mTxtDiameter;
         CiTextField*        mTxtDistance;
+        CiTextField*        mTxtTime;
         CiTextField*        mTxtNumRacers;
         
         NumStepper      mStepperPlus;
         NumStepper      mStepperMinus;
+        
+        CheckBoxRef     mConnectionBox;
+        CheckBoxRef     mDistanceCheck;
+        CheckBoxRef     mTimeTrialBox;
         
         struct TextLabel {
             TextLabel(ci::vec2 pos_, std::string txt_ ){ pos=pos_; txt=txt_; }
@@ -59,9 +68,8 @@ namespace gfx {
             std::string txt;
         };
         std::vector<TextLabel>  mLabels;
+        TextLabel   *mDistanceLabel, *mTimeLabel;
         
         ThickLineRef    mXLine1, mXLine2, mCheckLine1, mCheckLine2;
-        
-        ci::Rectf   mConnectionRect;
     };
 }

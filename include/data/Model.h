@@ -19,6 +19,7 @@ namespace gfx{
         friend class SerialReader;
         
       public:
+
         static Model* getInstance();
         void resetPlayers();
         
@@ -31,8 +32,13 @@ namespace gfx{
         void setRollerDiameterMm( const float &mm );
         const float& getRollerDiameterMm(){ return mRollerDiameterMm; }
         
+        void setRaceTimeSeconds(double seconds){ mRaceLengthMillis = seconds * 1000.0; };
+        const double getRaceTimeSeconds(){ return mRaceLengthMillis / 1000.0; };
+        
         const bool& isHardwareConnected(){ return bHardwareConnected; }
         PlayerData* getPlayerData(int num){ return playerData[num]; };
+        
+        const double& getRaceLengthMillis(){ return mRaceLengthMillis;}
 
         std::vector<gfx::PlayerData*>   playerData;
         ci::Color                       playerColors[4];
@@ -50,9 +56,14 @@ namespace gfx{
         static Model    *mInstance;
         
         int     mNumRacers;
+        
+        // For distance based
         void    setRaceLength(int ticks);
         int     totalRaceTicks;
         float   raceLengthMeters;
+        
+        // For time based
+        double    mRaceLengthMillis = 60000;
         
         float   mRollerDiameterMm;
         bool    bHardwareConnected;

@@ -37,10 +37,12 @@ namespace gfx {
         void reloadShader();
         
       private:
+        void drawTimeBased();
+        void drawDistanceBased();
+        
         void onStateChange( APP_STATE newState );
         void onStartClicked();
         void onStopClicked();
-        
         
         void setupVbos();
         ci::gl::VboMeshRef createVbo( float innerRad, float outerRad );

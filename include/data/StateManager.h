@@ -50,7 +50,7 @@ namespace gfx{
         ci::signals::Signal<void(RACE_STATE)>	signalOnRaceStateChange;
         
         ci::signals::Signal<void(void)>         signalOnRaceFinished;
-        ci::signals::Signal<void(int, int)>     signalRacerFinish;      // (Racer ID, finish time millis)
+        ci::signals::Signal<void(int, int, int)>signalRacerFinish;      // (Racer ID, finish time, race ticks)
         
         ci::signals::Signal<void(void)>         signalArduinoConnected, signalArduinoDisconnected;
         

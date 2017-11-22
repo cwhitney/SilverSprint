@@ -156,6 +156,15 @@ void RaceView::draw()
     gl::drawSolidRect( Rectf( 834, 105, 834+260, 105+185 ) );    // big white rect
     gl::drawSolidRect( Rectf( 60, 133, 1870, 135 ) );            // white line
     
+    if( GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_DISTANCE){
+        drawDistanceBased();
+    }else if(GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_TIME){
+        drawTimeBased();
+    }
+}
+
+void RaceView::drawDistanceBased()
+{
     // PLAYER INFO
     for( int i=0; i<mModel->getNumRacers(); i++){
         PlayerData *pd = Model::getInstance()->playerData[i];
@@ -163,12 +172,9 @@ void RaceView::draw()
     }
     
     // MAIN TIMER
-    
     gl::ScopedColor scB(0,0,0,1);
     
-    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING ){
-        mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
-    }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
+    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING  || mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE){
         mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
     }else {
         mTimerFont->drawString( mGlobal->toTimestamp(0), vec2(867,154) );
@@ -205,6 +211,58 @@ void RaceView::draw()
     mWinnerModal->draw();
 }
 
+void RaceView::drawTimeBased()
+{
+    // PLAYER INFO
+    for( int i=0; i<mModel->getNumRacers(); i++){
+        PlayerData *pd = Model::getInstance()->playerData[i];
+        mRaceTexts[i]->draw( pd, vec2(0, 390 + 102*i) );
+    }
+    
+    // MAIN TIMER
+    gl::ScopedColor scB(0,0,0,1);
+    
+    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING  || mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE){
+        double timeRemaining = max(0.0, mModel->getRaceLengthMillis() - mModel->elapsedRaceTimeMillis);
+        mTimerFont->drawString( mGlobal->toTimestamp(timeRemaining), vec2(867,154) );
+    }else {
+        mTimerFont->drawString( mGlobal->toTimestamp(mModel->getRaceLengthMillis()), vec2(867,154) );
+    }
+    
+    // DIAL
+    gl::ScopedColor scW(1,1,1,1);
+    gl::draw( mDial, vec2(mDial->getSize()) * vec2(-0.5) + mDialCenter );
+    
+    mStartStop.draw();
+    
+    if( mLogo ){
+        gl::color( 1, 1, 1, 1 );
+        gl::draw( mLogo, vec2(1920, 1080) - vec2(50,50) - vec2(mLogo->getSize()) );
+    }
+    
+    ci::ColorA tmpCol;
+    for( int i=0; i<mModel->getNumRacers(); i++){
+        PlayerData *pd = Model::getInstance()->playerData[i];
+        
+        if( mProgressShader){
+            gl::ScopedGlslProg scProg( mProgressShader );
+            
+            
+            // do one revolution of the track per 50 meters
+            float pct = pd->getDistance() / 50.0f;
+            
+            tmpCol = mGlobal->playerColors[i];
+            mProgressShader->uniform( "baseColor", tmpCol );
+            mProgressShader->uniform( "leadingEdgePct", pct );
+            mProgressShader->uniform( "trailingEdgePct", pct - 0.15f );
+            gl::draw( mVboList[i] );
+        }
+    }
+    
+    // GRAPHICS
+    mCountDown->draw();
+    mWinnerModal->draw();
+}
 
 
 

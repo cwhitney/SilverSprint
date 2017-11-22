@@ -13,6 +13,12 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
+SettingsView::~SettingsView()
+{
+    delete mDistanceLabel;
+    delete mTimeLabel;
+}
+
 SettingsView::SettingsView() : bVisible(false)
 {
     mGlobal = gfx::GFXGlobal::getInstance();
@@ -31,10 +37,6 @@ SettingsView::SettingsView() : bVisible(false)
     mTxtDiameter = makeSetting(Rectf(443,yPos, 443+431, yPos+100), "ROLLER DIAMETER (mm)", "114.3" );
     yPos += 160;
     
-    // RACE DISTANCE
-    mTxtDistance = makeSetting(Rectf(443,yPos, 443+431, yPos+100), "RACE LENGTH (meters)", "100" );
-    yPos += 160;
-    
     // RACERS
     mTxtNumRacers = makeSetting(Rectf(443,yPos, 443+431 - 50, yPos+100), "NUMBER OF RACERS (1-4)", "2" );
     mTxtNumRacers->disable();
@@ -48,16 +50,35 @@ SettingsView::SettingsView() : bVisible(false)
     yPos += 160;
     
     // CONNECTION
-    mConnectionRect = Rectf(443, yPos, 443+100, yPos+100);
-    mLabels.push_back( TextLabel(mConnectionRect.getUpperLeft() - vec2(0, 20), "HARDWARE CONNECTION STATUS") );
+    mConnectionBox = std::make_shared<CheckBox>(vec2(443, yPos), false);
+    mLabels.push_back( TextLabel(mConnectionBox->getBounds().getUpperLeft() - vec2(0, 20), "HARDWARE CONNECTION STATUS") );
     
-    mXLine1 = ThickLine::create( mConnectionRect.getUpperLeft()  + vec2(20,20),  mConnectionRect.getLowerRight() - vec2(20,20), 5);
-    mXLine2 = ThickLine::create( mConnectionRect.getUpperRight() + vec2(-20,20), mConnectionRect.getLowerLeft() + vec2(20,-20), 5);
+    // COL 2 ---------------------------------------------------------
+    yPos = 255;
+    mDistanceCheck = std::make_shared<CheckBox>(vec2(1043, yPos));
+    mDistanceCheck->setChecked(true);
+    mTimeTrialBox = std::make_shared<CheckBox>(vec2(1343-30, yPos));
     
-    vec2 p1(20,60), p2(40,80), p3(80,20);
-    vec2 t = mConnectionRect.getUpperLeft();;
-    mCheckLine1 = ThickLine::create( p1+t, p2+t + vec2(1.5,1.5), 5 );
-    mCheckLine2 = ThickLine::create( p2+t, p3+t, 5 );
+    yPos += 160;
+    
+    // RACE DISTANCE
+    mTxtDistance = makeTextField(Rectf(1043,yPos, 1043+431, yPos+100), "100" );
+    mTxtTime = makeTextField(Rectf(1043,yPos, 1043+431, yPos+100), "60" );
+    
+    mDistanceLabel = new TextLabel(vec2(1043,yPos) - vec2(0,20), "RACE LENGTH (meters)");
+    mTimeLabel = new TextLabel(vec2(1043,yPos) - vec2(0,20), "RACE TIME (seconds)");
+    mTxtTime->visible = false;
+    
+    mDistanceCheck->signalOnClick.connect([&](){
+        mTimeTrialBox->setChecked(false);
+        mTxtDistance->visible = true;
+        mTxtTime->visible = false;
+    });
+    mTimeTrialBox->signalOnClick.connect([&](){
+        mDistanceCheck->setChecked(false);
+        mTxtDistance->visible = false;
+        mTxtTime->visible = true;
+    });
     
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
@@ -77,6 +98,12 @@ void SettingsView::onStepperMinusClick()
 
 CiTextField* SettingsView::makeSetting(Rectf rect, std::string label, std::string txt)
 {
+    mLabels.push_back( TextLabel(vec2(rect.getUpperLeft() - vec2(0,20)), label) );
+    return makeTextField(rect, txt);
+}
+
+CiTextField* SettingsView::makeTextField(ci::Rectf rect, std::string txt)
+{
     CiTextField *tf = new CiTextField(txt, rect, ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70) );
     tf->mColorStroke = mGlobal->playerColors[0];
     tf->mColorFill = mGlobal->playerColors[0];
@@ -84,8 +111,6 @@ CiTextField* SettingsView::makeSetting(Rectf rect, std::string label, std::strin
     tf->padding = vec2(20,0);
     
     tf->bUseScissorTest = false;
-    
-    mLabels.push_back( TextLabel(vec2(rect.getUpperLeft() - vec2(0,20)), label) );
     
     return tf;
 }
@@ -99,12 +124,21 @@ void SettingsView::onStateChange(APP_STATE newState)
     if( newState == APP_STATE::SETTINGS ){
         bVisible = true;
         mTxtDiameter->visible = true;
-        mTxtDistance->visible = true;
         mTxtNumRacers->visible = true;
+        
+        if(mDistanceCheck->isChecked()){
+            mTxtDistance->visible = true;
+        }else{
+            mTxtTime->visible = true;
+        }
     }else{
         mModel->setRollerDiameterMm( fromString<float>(mTxtDiameter->getText()));
         mModel->setNumRacers( fromString<int>(mTxtNumRacers->getText()) );
         mModel->setRaceLengthMeters( fromString<int>(mTxtDistance->getText()) );
+        mModel->setRaceTimeSeconds( fromString<float>(mTxtTime->getText()) );
+        
+        GFXGlobal::getInstance()->currentRaceType = (mDistanceCheck->isChecked()) ? RACE_TYPE_DISTANCE : RACE_TYPE::RACE_TYPE_TIME;
+        
         bVisible = false;
         
         mTxtDiameter->visible = false;
@@ -127,7 +161,6 @@ void SettingsView::draw()
         }
         gl::color(1,1,1,1);
         mTxtDiameter->draw();
-        mTxtDistance->draw();
         mTxtNumRacers->draw();
         
         gl::ScopedColor scGr( Color::gray(0.55) );
@@ -138,21 +171,33 @@ void SettingsView::draw()
         mStepperPlus.draw();
         mStepperMinus.draw();
         
-        gl::ScopedColor scPc( mGlobal->playerColors[0] );
-        gl::drawSolidRect( mConnectionRect );
-        
-        gl::ScopedColor scCol(Color::gray(0.1));
-
         if( mModel->isHardwareConnected() ){
-            mCheckLine1->draw();
-            mCheckLine2->draw();
+            mConnectionBox->setChecked(true);
             
             gl::ScopedColor scGr( Color::gray(0.55) );
-            tFont->drawString("VERSION", mConnectionRect.getLowerRight() + vec2(10, -30));
-            tFont->drawString(mModel->mFirmwareVersion, mConnectionRect.getLowerRight() + vec2(10, -5));
+            tFont->drawString("VERSION", mConnectionBox->getBounds().getLowerRight() + vec2(10, -30));
+            tFont->drawString(mModel->mFirmwareVersion, mConnectionBox->getBounds().getLowerRight() + vec2(10, -5));
         }else{
-            mXLine1->draw();
-            mXLine2->draw();
+            mConnectionBox->setChecked(false);
+        }
+        mConnectionBox->draw();
+        
+        // COLUMN 2 ----------------
+        mDistanceCheck->draw();
+        mTimeTrialBox->draw();
+        
+        mTxtDistance->draw();
+        mTxtTime->draw();
+        
+        {
+            gl::ScopedColor scGr( Color::gray(0.55) );
+            if(mDistanceCheck->isChecked()){
+                tFont->drawString(mDistanceLabel->txt, mDistanceLabel->pos);
+            }else{
+                tFont->drawString(mTimeLabel->txt, mTimeLabel->pos);
+            }
+            tFont->drawString("DISTANCE\nRACE", mDistanceCheck->getBounds().getUpperRight() + vec2(10, 15));
+            tFont->drawString("TIME\nRACE", mTimeTrialBox->getBounds().getUpperRight() + vec2(10, 15));
         }
     }
 }

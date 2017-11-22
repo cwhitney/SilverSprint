@@ -64,8 +64,9 @@ namespace gfx {
             return bFinishedRace;
         }
         
-        void setFinished( const int &finalTimeMillis ){
+        void setFinished( const int &finalTimeMillis, const int &finalRaceTicks ){
             bFinishedRace = true;
+            updateRaceTicks(finalRaceTicks);
             finishTimeMillis = finalTimeMillis;
         }
         
@@ -77,6 +78,11 @@ namespace gfx {
         {
             lastRaceTicks = curRaceTicks;
             curRaceTicks = numTicks;
+        }
+        
+        const int& getCurrentRaceTicks()
+        {
+            return curRaceTicks;
         }
         
         void updateRaceTicks( const int &numTicks, const int &millisDt )

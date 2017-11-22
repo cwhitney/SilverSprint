@@ -61,9 +61,15 @@ void WinnerModal::getWinners()
         mWinnersSorted.push_back( Model::getInstance()->getPlayerData(i) );
     }
     
-    std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerData* a, PlayerData *b) {
-        return a->finishTimeMillis < b->finishTimeMillis;
-    });
+    if(GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_DISTANCE){
+        std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerData* a, PlayerData *b) {
+            return a->finishTimeMillis < b->finishTimeMillis;
+        });
+    }else{
+        std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerData* a, PlayerData *b) {
+            return a->getCurrentRaceTicks() < b->getCurrentRaceTicks();
+        });
+    }
     
 //    for( int i=0; i<mWinnersSorted.size(); i++){
 //        console() << " finish :: " << mWinnersSorted[i]->player_name << " - " <<mWinnersSorted[i]->finishTimeMillis << endl;

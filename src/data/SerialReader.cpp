@@ -137,7 +137,6 @@ void SerialReader::updateSerialThread()
 
 void SerialReader::readSerial()
 {
-
     try {
 		size_t bytesAvailable = mSerial->getNumBytesAvailable();
 		size_t charsAvailable = floor(bytesAvailable / sizeof(char));
@@ -200,22 +199,22 @@ void SerialReader::parseFromBuffer()
         // RACE FINISH
         if(cmd == "0F"){
             CI_LOG_D("RACER 1 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(0, fromString<int>(args));
+            mStateManager->signalRacerFinish.emit(0, fromString<int>(args), mModel->playerData[0]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "1F"){
             CI_LOG_D("RACER 2 FINISHED " +args);
-            mStateManager->signalRacerFinish.emit(1, fromString<int>(args));
+            mStateManager->signalRacerFinish.emit(1, fromString<int>(args), mModel->playerData[1]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "2F"){
             CI_LOG_D("RACER 3 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(2, fromString<int>(args));
+            mStateManager->signalRacerFinish.emit(2, fromString<int>(args), mModel->playerData[2]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "3F"){
             CI_LOG_D("RACER 4 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(3, fromString<int>(args));
+            mStateManager->signalRacerFinish.emit(3, fromString<int>(args), mModel->playerData[3]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         
@@ -302,7 +301,7 @@ void SerialReader::stopRace(){
 }
 
 void SerialReader::setRaceDuration(int numSeconds){
-    sendSerialMessage("t:" + to_string(numSeconds) );
+    sendSerialMessage("t" + to_string(numSeconds) );
 }
 
 void SerialReader::setRaceLengthTicks( int numTicks ){
@@ -316,6 +315,15 @@ void SerialReader::setMockMode( bool enabled ){
 
 void SerialReader::getVersion(){
     sendSerialMessage("v");
+}
+
+void SerialReader::setRaceType( gfx::RACE_TYPE raceType)
+{
+    if(raceType == RACE_TYPE_DISTANCE){
+        sendSerialMessage("d");
+    }else{
+        sendSerialMessage("x");
+    }
 }
 
 void SerialReader::sendSerialMessage( std::string msg )
