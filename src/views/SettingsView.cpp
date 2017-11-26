@@ -21,16 +21,16 @@ SettingsView::~SettingsView()
 
 SettingsView::SettingsView() : bVisible(false)
 {
-    mGlobal = gfx::GFXGlobal::getInstance();
-    mStateManager = StateManager::getInstance();
-    mModel = Model::getInstance();
+    mGlobal			= gfx::GFXGlobal::getInstance();
+    mStateManager	= StateManager::getInstance();
+    mModel			= Model::getInstance();
     mStateManager->signalOnStateChange.connect( std::bind(&SettingsView::onStateChange, this, std::placeholders::_1) );
     
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     
     ci::Font fnt(loadAsset("fonts/UbuntuMono-BI.ttf"), 25);
     tFont = gl::TextureFont::create( fnt );
-
+    
     int yPos = 255;
     
     // ROLLER DIAMETER
@@ -79,6 +79,16 @@ SettingsView::SettingsView() : bVisible(false)
         mTxtDistance->visible = false;
         mTxtTime->visible = true;
     });
+    
+    // KPH
+    yPos += 160;
+    //yPos = 255;
+    float xPos = 1043;
+    mLabels.push_back( TextLabel(vec2(xPos, yPos-20), "UNITS") );
+    auto toggleFont =gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70));
+    mMphKphToggle = std::make_shared<ToggleBtn>("MPH", "KPH", toggleFont, vec2(xPos, yPos));
+    mMphKphToggle->setColors( mGlobal->playerColors[0], Color::black() );
+    mMphKphToggle->setSelected(1);
     
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
@@ -131,14 +141,20 @@ void SettingsView::onStateChange(APP_STATE newState)
         }else{
             mTxtTime->visible = true;
         }
+
+        mMphKphToggle->setSelected( mModel->getUsesKph() );
+
     }else{
+		CI_LOG_I("Settings ::  Updating model");
         mModel->setRollerDiameterMm( fromString<float>(mTxtDiameter->getText()));
         mModel->setNumRacers( fromString<int>(mTxtNumRacers->getText()) );
         mModel->setRaceLengthMeters( fromString<int>(mTxtDistance->getText()) );
+
         mModel->setRaceTimeSeconds( fromString<float>(mTxtTime->getText()) );
         
         GFXGlobal::getInstance()->currentRaceType = (mDistanceCheck->isChecked()) ? RACE_TYPE_DISTANCE : RACE_TYPE::RACE_TYPE_TIME;
         
+        mModel->setUseKph( mMphKphToggle->getSelected() );
         bVisible = false;
         
         mTxtDiameter->visible = false;
@@ -175,8 +191,9 @@ void SettingsView::draw()
             mConnectionBox->setChecked(true);
             
             gl::ScopedColor scGr( Color::gray(0.55) );
-            tFont->drawString("VERSION", mConnectionBox->getBounds().getLowerRight() + vec2(10, -30));
+            tFont->drawString("FIRMWARE VERSION", mConnectionBox->getBounds().getLowerRight() + vec2(10, -30));
             tFont->drawString(mModel->mFirmwareVersion, mConnectionBox->getBounds().getLowerRight() + vec2(10, -5));
+
         }else{
             mConnectionBox->setChecked(false);
         }
@@ -198,6 +215,11 @@ void SettingsView::draw()
             }
             tFont->drawString("DISTANCE\nRACE", mDistanceCheck->getBounds().getUpperRight() + vec2(10, 15));
             tFont->drawString("TIME\nRACE", mTimeTrialBox->getBounds().getUpperRight() + vec2(10, 15));
+        }
+        
+        // KPH
+        {
+            mMphKphToggle->draw();
         }
     }
 }

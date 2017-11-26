@@ -13,7 +13,7 @@
 
 #include "PlayerData.h"
 
-namespace gfx{
+namespace gfx {
 
     class Model {
         friend class SerialReader;
@@ -39,6 +39,10 @@ namespace gfx{
         PlayerData* getPlayerData(int num){ return playerData[num]; };
         
         const double& getRaceLengthMillis(){ return mRaceLengthMillis;}
+
+        void setUseKph(bool useKph){ bUseKph = useKph;}
+        bool getUsesKph(){ return bUseKph; }
+
 
         std::vector<gfx::PlayerData*>   playerData;
         ci::Color                       playerColors[4];
@@ -67,5 +71,6 @@ namespace gfx{
         
         float   mRollerDiameterMm;
         bool    bHardwareConnected;
+        bool    bUseKph = true;
     };
 }

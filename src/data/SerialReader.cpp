@@ -46,6 +46,7 @@ void SerialReader::update()
 {
     // if we connected since the last update, notify
     if( bSerialConnected && !bLastConnection){
+		mSerial->flush();
         onConnect();
         timeline().add( [&](){ getVersion(); }, timeline().getCurrentTime() + 2.0 );
     }else if( !bSerialConnected && bLastConnection ){
@@ -78,11 +79,6 @@ void SerialReader::updateSerialThread()
 			try {
 				if (!ports.empty()) {
 					SerialPortRef port = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
-					/*
-					Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial", true);
-					if (dev.getName() == "") {
-						dev = Serial::findDeviceByNameContains("tty.usbmodem", true);
-					}*/
 					if (!port) {
 						port = ports.back();
 					}
@@ -112,8 +108,6 @@ void SerialReader::updateSerialThread()
         }else{
             // make sure we're still connected
 			auto pOpen = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
-			//auto pCom = SerialPort::findPortByNameMatching(std::regex("COM.*"), true);
-			//auto portList = SerialPort::getPorts();
 
             if(pOpen == nullptr){
 				if (mSerial && mSerial->isOpen()) {
@@ -125,6 +119,9 @@ void SerialReader::updateSerialThread()
                 for(int i=0; i<mSendBuffer.getSize(); i++){
                     std::string msgToSend;
                     mSendBuffer.popBack( &msgToSend );
+
+					CI_LOG_I("Sending :: ") << msgToSend;
+
                     mSerial->writeString( msgToSend );
                 }
                 
@@ -239,7 +236,7 @@ void SerialReader::parseFromBuffer()
         // ------------------------------------------------------------------------------
         // SETTINGS
         else if( cmd == "CD"){
-            CI_LOG_D("SerialReader :: Countdown :: " + args);
+            CI_LOG_I("SerialReader :: Countdown :: " + args);
             
             if( args == "3" ){
                 mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_3 );
@@ -255,15 +252,15 @@ void SerialReader::parseFromBuffer()
             }
         }
         else if( cmd == "FS"){
-            CI_LOG_D("SerialReader :: False start. Racer: " + args);    // 0 based
+            CI_LOG_I("SerialReader :: False start. Racer: " + args);    // 0 based
 //            mStateManager->changeRaceState( RACE_STATE::RACE_FALSE_START );
 //            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
         }
         else if( cmd == "L"){   // After sending a race length, it will send this confirmation
-            CI_LOG_D("SerialReader :: Race Length " + args);
+            CI_LOG_I("SerialReader :: Race Length " + args + ".");
         }
         else if( cmd == "M"){   // Mock mode confirmation
-            CI_LOG_D("SerialReader :: Mock mode turned " + args);
+            CI_LOG_I("SerialReader :: Mock mode turned " + args);
         }
         else if(cmd == "V"){   // version
             mFirmwareVersion = args;
@@ -271,9 +268,15 @@ void SerialReader::parseFromBuffer()
         }
         
         else{
-            CI_LOG_D("SerialReader :: Unrecognized command :: '" + cmd);
+            CI_LOG_I("SerialReader :: Unrecognized command :: ");
+			try {
+				CI_LOG_I(cmd);
+			}catch (...) {}
+
             if(args != ""){
-                CI_LOG_D(" with arg :: '"+ args+ "'");
+				try {
+					CI_LOG_I(" with arg :: '" + args + "'");
+				}catch (...) {}
             }
         }
     }

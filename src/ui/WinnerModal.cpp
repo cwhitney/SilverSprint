@@ -128,7 +128,14 @@ void WinnerModal::draw()
                 mGlobal->texFont->drawString(to_string(mWinnersSorted[0]->getDistanceMeters()) + "m", vec2(356, 362));
             }
             
-            mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxMph(), 1) + "mph", vec2(604-20, 362));
+
+            gl::color(1,1,1,mAlpha);
+            mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[0]->finishTimeMillis), vec2(356, 362));
+            if(mModel->getUsesKph()){
+                mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxKph(), 1) + "kph", vec2(604-20, 362));
+            }else{
+                mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxMph(), 1) + "mph", vec2(604-20, 362));
+            }
         }
         // Draw the individual boxes below
         {
@@ -163,7 +170,11 @@ void WinnerModal::draw()
                 
                 mGlobal->texFont->drawString( mWinnersSorted[i+1]->player_name, vec2(20, 42));
                 mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[i+1]->finishTimeMillis), vec2(20, 82));
-                mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxMph(), 1) + "mph", vec2(210, 82));
+                if(mModel->getUsesKph()){
+                    mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxKph(), 1) + "kph", vec2(210, 82));
+                }else{
+                    mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxMph(), 1) + "mph", vec2(210, 82));
+                }
             }
         }
         

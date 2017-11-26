@@ -16,8 +16,8 @@
 
 using WinnerModalRef = std::shared_ptr<class WinnerModal>;
 
-class WinnerModal {
-    
+class WinnerModal 
+{    
   public:
     static WinnerModalRef create(){ return WinnerModalRef( new WinnerModal() ); }
     

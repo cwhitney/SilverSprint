@@ -11,6 +11,7 @@
 #include "cinder/app/App.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/gl/gl.h"
+#include "cinder/Log.h"
 
 #include "data/StateManager.h"
 #include "data/Model.h"
@@ -20,6 +21,7 @@
 #include "ui/CiTextField.h"
 #include "ui/NumStepper.h"
 #include "ui/ThickLine.h"
+#include "ui/ToggleBtn.h"
 
 namespace gfx {
     
@@ -61,6 +63,9 @@ namespace gfx {
         CheckBoxRef     mConnectionBox;
         CheckBoxRef     mDistanceCheck;
         CheckBoxRef     mTimeTrialBox;
+
+        ToggleBtnRef    mMphKphToggle;
+
         
         struct TextLabel {
             TextLabel(ci::vec2 pos_, std::string txt_ ){ pos=pos_; txt=txt_; }

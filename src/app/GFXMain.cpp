@@ -32,10 +32,10 @@ void GFXMain::setup(){
     mStateManager = StateManager::getInstance();
     
     // VIEWS --------------------------------------------------------------
-    mNav = NavBarViewRef(new NavBarView());
-    mRaceView = RaceViewRef(new RaceView());
-    mRosterView = RosterViewRef(new RosterView());
-    mSettingsView = SettingsViewRef(new SettingsView());
+    mNav			= std::make_shared<NavBarView>();
+    mRaceView		= std::make_shared<RaceView>();
+    mRosterView		= std::make_shared<RosterView>();
+    mSettingsView	= std::make_shared<SettingsView>();
     
     mNav->setup();
     mRaceView->setup();
@@ -79,12 +79,13 @@ void GFXMain::onRaceStateChanged( RACE_STATE rc ){
             mSerialReader->setRaceDuration( mModel->getRaceTimeSeconds() );
         }
         
+		mModel->resetPlayers();
         mSerialReader->startRace();
     }
     
     else if( rc == RACE_STATE::RACE_STOPPED ){
         mSerialReader->stopRace();
-        mModel->resetPlayers();
+     //   mModel->resetPlayers();
         mModel->elapsedRaceTimeMillis = 0.0;
     }
 }

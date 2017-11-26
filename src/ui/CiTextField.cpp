@@ -49,7 +49,7 @@ CiTextField::CiTextField( std::string text, ci::Rectf bounds, ci::Font font ){
     
     bUseScissorTest = true;
     
-    mCaratIndex = mText.size();
+    mCaratIndex = (int)mText.size();
 }
 
 void CiTextField::setBounds( const ci::Rectf &bounds ){

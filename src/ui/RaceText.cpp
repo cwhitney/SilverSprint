@@ -58,7 +58,11 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
         boost::to_upper(data->player_name);
         mGlobal->texFont->drawString(data->player_name, vec2(20, 44) );
         
-        gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
+        if( mModel->getUsesKph()){
+            gl::drawStringRight( toDec(data->getKph(), 0) + " KPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
+        }else{
+            gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
+        }
         
         if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_DISTANCE ){
 //            gl::drawString( toDec(data->getDistance(), 2) + " M", vec2(1485,28), Color::white(), mGlobal->uiFont );

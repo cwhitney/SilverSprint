@@ -87,7 +87,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;..\..\..\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -138,7 +138,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;..\..\..\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -199,6 +199,7 @@
   <ItemGroup />
   <ItemGroup />
   <ItemGroup>
+    <ClCompile Include="..\blocks\ParticleSystem\ParticleSystem.cpp" />
     <ClCompile Include="..\blocks\Serial\lib\serial\src\impl\list_ports\list_ports_linux.cc" />
     <ClCompile Include="..\blocks\Serial\lib\serial\src\impl\list_ports\list_ports_osx.cc" />
     <ClCompile Include="..\blocks\Serial\lib\serial\src\impl\list_ports\list_ports_win.cc" />
@@ -222,6 +223,7 @@
     <ClCompile Include="..\src\ui\RaceText.cpp" />
     <ClCompile Include="..\src\ui\StartStopButton.cpp" />
     <ClCompile Include="..\src\ui\ThickLine.cpp" />
+    <ClCompile Include="..\src\ui\ToggleBtn.cpp" />
     <ClCompile Include="..\src\ui\WinnerModal.cpp" />
     <ClCompile Include="..\src\views\NavBarView.cpp" />
     <ClCompile Include="..\src\views\RaceView.cpp" />
@@ -229,6 +231,7 @@
     <ClCompile Include="..\src\views\SettingsView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\blocks\ParticleSystem\ParticleSystem.h" />
     <ClInclude Include="..\blocks\Serial\include\Cinder-Serial.h" />
     <ClInclude Include="..\blocks\Serial\include\SerialDevice.h" />
     <ClInclude Include="..\blocks\Serial\lib\serial\include\serial\impl\unix.h" />
@@ -252,6 +255,7 @@
     <ClInclude Include="..\include\ui\RaceText.h" />
     <ClInclude Include="..\include\ui\StartStopButton.h" />
     <ClInclude Include="..\include\ui\ThickLine.h" />
+    <ClInclude Include="..\include\ui\ToggleBtn.h" />
     <ClInclude Include="..\include\ui\WinnerModal.h" />
     <ClInclude Include="..\include\views\NavBarView.h" />
     <ClInclude Include="..\include\views\RaceView.h" />
