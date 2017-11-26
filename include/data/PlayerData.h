@@ -60,6 +60,16 @@ namespace gfx {
             return distMeters;
         }
         
+        double getDistanceMeters()
+        {
+            return getDistance();
+        }
+        
+        double getDistanceFeet()
+        {
+            return getDistance() * 3.28084;
+        }
+        
         bool isFinished(){
             return bFinishedRace;
         }

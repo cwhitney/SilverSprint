@@ -102,15 +102,35 @@ void WinnerModal::draw()
         gl::ScopedColor scA(1,1,1,mAlpha);
         gl::draw( mWinnerGraphic, mWinnerRect);
         float ww = mGlobal->winnerTexFont->measureString(mWinnersSorted[0]->player_name).x;
+        // draw the main winner
         {
             gl::ScopedMatrices scMat;
             gl::translate( mWinnerRect.getUpperLeft() );
             gl::color(0,0,0,mAlpha);
             mGlobal->winnerTexFont->drawString( mWinnersSorted[0]->player_name, vec2(550 - ww*0.5, 288));
-            gl::color(1,1,1,mAlpha);
-            mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[0]->finishTimeMillis), vec2(356, 362));
+            
+            // draw the correct race metric, time or distance
+            if(mGlobal->currentRaceType == RACE_TYPE_TIME){
+                gl::ScopedColor scCol(ColorA(0,0,0,mAlpha));
+                string winLabel = "TIME";
+                vec2 labelSize = mGlobal->winnerUiFont->measureString(winLabel);
+                mGlobal->winnerUiFont->drawString(winLabel, vec2(441, 319) - vec2(labelSize.x*0.5, 0));
+                
+                gl::color(1,1,1,mAlpha);
+                mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[0]->finishTimeMillis), vec2(356, 362));
+            }else{
+                gl::ScopedColor scCol(ColorA(0,0,0,mAlpha));
+                string winLabel = "DISTANCE";
+                vec2 labelSize = mGlobal->winnerUiFont->measureString(winLabel);
+                mGlobal->winnerUiFont->drawString(winLabel, vec2(441, 319) - vec2(labelSize.x*0.5, 0));
+                
+                gl::color(1,1,1,mAlpha);
+                mGlobal->texFont->drawString(to_string(mWinnersSorted[0]->getDistanceMeters()) + "m", vec2(356, 362));
+            }
+            
             mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxMph(), 1) + "mph", vec2(604-20, 362));
         }
+        // Draw the individual boxes below
         {
             gl::ScopedMatrices scMat;
             gl::translate( mWinnerRect.getUpperLeft() );

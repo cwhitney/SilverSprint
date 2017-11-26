@@ -30,6 +30,7 @@ void GFXGlobal::setup()
 	uiFont = ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 35);
 	texFont = gl::TextureFont::create(mInstance->uiFont);
 
+    winnerUiFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 18));
 	winnerTexFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70));
 	countdownFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 235));
 
