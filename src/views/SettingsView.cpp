@@ -38,7 +38,7 @@ SettingsView::SettingsView() : bVisible(false)
     yPos += 160;
     
     // RACERS
-    mTxtNumRacers = makeSetting(Rectf(443,yPos, 443+431 - 50, yPos+100), "NUMBER OF RACERS (1-4)", "2" );
+    mTxtNumRacers = makeSetting(Rectf(443,yPos, 443+431 - 50, yPos+100), "NUMBER OF RACERS (1-3)", "2" );
     mTxtNumRacers->disable();
     
     int gap = 6;
@@ -97,7 +97,7 @@ SettingsView::SettingsView() : bVisible(false)
 void SettingsView::onStepperPlusClick()
 {
     int numRacers = fromString<int>( mTxtNumRacers->getText() );
-    mTxtNumRacers->setText( toString( min( ++numRacers, 4) ) );
+    mTxtNumRacers->setText( toString( min( ++numRacers, 3) ) );
 }
 
 void SettingsView::onStepperMinusClick()

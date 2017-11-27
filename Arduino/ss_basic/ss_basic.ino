@@ -1,3 +1,5 @@
+#include "Bounce2.h"
+
 /*
  * Arduino wiring:
  *
@@ -15,10 +17,15 @@
  *
  */
 
-#define VERSION "SS_v0.1.4"
+#define VERSION "SS_v0.1.4_kiosk"
 #define FALSE_START_TICKS 4
 
 int statusLEDPin = 13;
+int kioskGoPin = 5;
+int kioskStopPin = 12;
+Bounce goBounce;
+Bounce stopBounce;
+
 long statusBlinkInterval = 250;
 int lastStatusLEDValue = LOW;
 long previousStatusBlinkMillis = 0;
@@ -34,7 +41,7 @@ char val = 0;
 int racer0GoLedPin = 9;
 int racer1GoLedPin = 10;
 int racer2GoLedPin = 11;
-int racer3GoLedPin = 12;
+//int racer3GoLedPin = 12;
 
 int sensorPins[4] = {2,3,4,5};
 int previoussensorValues[4] = {HIGH,HIGH,HIGH,HIGH};
@@ -65,15 +72,24 @@ void setup()
     pinMode(racer0GoLedPin, OUTPUT);
     pinMode(racer1GoLedPin, OUTPUT);
     pinMode(racer2GoLedPin, OUTPUT);
-    pinMode(racer3GoLedPin, OUTPUT);
+//    pinMode(racer3GoLedPin, OUTPUT);
     digitalWrite(racer0GoLedPin, LOW);
     digitalWrite(racer1GoLedPin, LOW);
     digitalWrite(racer2GoLedPin, LOW);
-    digitalWrite(racer3GoLedPin, LOW);
-    for(int i=0; i<=3; i++) {
+//    digitalWrite(racer3GoLedPin, LOW);
+    for(int i=0; i<3; i++) {
         pinMode(sensorPins[i], INPUT);
         digitalWrite(sensorPins[i], HIGH);
     }
+
+    pinMode(kioskGoPin, INPUT);
+    pinMode(kioskStopPin, INPUT);
+
+    digitalWrite(kioskGoPin, LOW);
+    digitalWrite(kioskStopPin, LOW);
+
+    goBounce.attach(kioskGoPin);
+    stopBounce.attach(kioskStopPin);
 }
 
 void blinkLED() 
@@ -136,7 +152,7 @@ void checkSerial()
                 Serial.println(VERSION);
             }
             else if(val == 'g') {   // start race
-                for(int i=0; i<=3; i++){
+                for(int i=0; i<3; i++){
                     racerTicks[i] = 0;
                     racerFinishTimeMillis[i] = 0;
                 }
@@ -158,7 +174,7 @@ void checkSerial()
                 digitalWrite(racer0GoLedPin,LOW);
                 digitalWrite(racer1GoLedPin,LOW);
                 digitalWrite(racer2GoLedPin,LOW);
-                digitalWrite(racer3GoLedPin,LOW);
+//                digitalWrite(racer3GoLedPin,LOW);
             }
             else if(val == 'x'){
                 bRaceTypeDistance = false;
@@ -179,13 +195,14 @@ void checkSerial()
     }
 }
 
-void printStatusUpdate() {
+void printStatusUpdate() 
+{
     if(currentTimeMillis - lastUpdateMillis > updateInterval) {
         lastUpdateMillis = currentTimeMillis;
 
         Serial.print("R:");
 
-        for(int i=0; i<=3; i++){
+        for(int i=0; i<3; i++){
             Serial.print(racerTicks[i], DEC);
             Serial.print(",");
         }
@@ -193,13 +210,25 @@ void printStatusUpdate() {
     }
 }
 
-void loop() {
+void loop() 
+{
     blinkLED();
     checkSerial();
 
+    //Serial.println( digitalRead(kioskGoPin));
+    
+    // check kiosk pins
+    stopBounce.update();
+    goBounce.update();
+    if(stopBounce.rose()){
+        Serial.println("S:");
+    }else if(goBounce.rose()){
+        Serial.println("G:");
+    }
+
     if (raceStarting) {
         // Report false starts
-        for(int i=0; i<=3; i++) {
+        for(int i=0; i<3; i++) {
             values[i] = digitalRead(sensorPins[i]);
             if(racerTicks[i] < FALSE_START_TICKS) {
                 if(values[i] == HIGH && previoussensorValues[i] == LOW){
@@ -224,7 +253,7 @@ void loop() {
             raceStarting = false;
             raceStarted = true;
 
-            for(int i=0; i<=3; i++) {
+            for(int i=0; i<3; i++) {
                 racerTicks[i] = 0;
                 racerFinishTimeMillis[i] = 0;
             }
@@ -232,7 +261,7 @@ void loop() {
             digitalWrite(racer0GoLedPin,HIGH);
             digitalWrite(racer1GoLedPin,HIGH);
             digitalWrite(racer2GoLedPin,HIGH);
-            digitalWrite(racer3GoLedPin,HIGH);
+//            digitalWrite(racer3GoLedPin,HIGH);
         }
     }
     if (raceStarted) {
@@ -251,7 +280,7 @@ void loop() {
 void reportDistanceBased()
 {
     bool bFinished = true;
-    for(int i=0; i<=3; i++) {
+    for(int i=0; i<3; i++) {
         values[i] = digitalRead(sensorPins[i]);
 
         if(mockMode){
@@ -286,7 +315,7 @@ void reportDistanceBased()
 
 void reportTimeBased()
 {
-    for(int i=0; i<4; i++) {
+    for(int i=0; i<3; i++) {
         values[i] = digitalRead(sensorPins[i]);
 
         if(mockMode){
@@ -306,14 +335,13 @@ void reportTimeBased()
     if(currentTimeMillis > raceLengthSecs * 1000){
         raceStarted = false;
         // print all racers
-        for(int i=0; i<4; i++) {
+        for(int i=0; i<3; i++) {
             Serial.print(i);
             Serial.print("F:");
             Serial.println(raceLengthSecs * 1000, DEC);
         }
         raceStarting = false;
         raceStarted = false;
-
     }
 }
 

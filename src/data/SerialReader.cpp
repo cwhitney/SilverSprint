@@ -191,10 +191,17 @@ void SerialReader::parseFromBuffer()
         if(cmd == ""){
             return;
         }
+        // ------------------------------------------------------------------------------
+        // KIOSK MODE
+        if(cmd == "G"){
+            mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+        }else if(cmd == "S"){
+            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
+        }
         
         // ------------------------------------------------------------------------------
         // RACE FINISH (ars are the time the race finished in millis)
-        if(cmd == "0F"){
+        else if(cmd == "0F"){
             CI_LOG_I("RACER 1 FINISHED " + args);
             mStateManager->signalRacerFinish.emit(0, fromString<int>(args), mModel->playerData[0]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
@@ -221,14 +228,17 @@ void SerialReader::parseFromBuffer()
             std::vector<std::string> rdata;
             boost::split(rdata, args, boost::is_any_of(","));
             
-            int raceMillis = fromString<int>( rdata[4] );
+            int raceMillis = fromString<int>( rdata.back() );
                                              
             float dt = raceMillis - mModel->elapsedRaceTimeMillis;
             
-            mModel->playerData[0]->updateRaceTicks( fromString<int>(rdata[0]), dt );
-            mModel->playerData[1]->updateRaceTicks( fromString<int>(rdata[1]), dt );
-            mModel->playerData[2]->updateRaceTicks( fromString<int>(rdata[2]), dt );
-            mModel->playerData[3]->updateRaceTicks( fromString<int>(rdata[3]), dt );
+            for( int i=0; i<rdata.size()-1; i++){
+                mModel->playerData[i]->updateRaceTicks( fromString<int>(rdata[i]), dt );
+            }
+//            mModel->playerData[0]->updateRaceTicks( fromString<int>(rdata[0]), dt );
+//            mModel->playerData[1]->updateRaceTicks( fromString<int>(rdata[1]), dt );
+//            mModel->playerData[2]->updateRaceTicks( fromString<int>(rdata[2]), dt );
+//            mModel->playerData[3]->updateRaceTicks( fromString<int>(rdata[3]), dt );
             mModel->elapsedRaceTimeMillis = raceMillis;
             mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
         }
