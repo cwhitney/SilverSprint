@@ -195,7 +195,6 @@ void printStatusUpdate() {
 
 void loop() {
     blinkLED();
-
     checkSerial();
 
     if (raceStarting) {
@@ -214,7 +213,6 @@ void loop() {
             }
             previoussensorValues[i] = values[i];
         }
-
         if((millis() - lastCountDownMillis) > 1000){
             lastCountDown -= 1;
             lastCountDownMillis = millis();
@@ -245,14 +243,14 @@ void loop() {
         }else{
             reportTimeBased();
         }
-    }
-    
-    printStatusUpdate();
+
+        printStatusUpdate();
+    }    
 }
 
 void reportDistanceBased()
 {
-    
+    bool bFinished = true;
     for(int i=0; i<=3; i++) {
         values[i] = digitalRead(sensorPins[i]);
 
@@ -274,13 +272,21 @@ void reportDistanceBased()
                 digitalWrite(racer0GoLedPin+i,LOW);
             }
         }
+        if(racerFinishTimeMillis[i] == 0){
+            bFinished = false;
+        }
         previoussensorValues[i] = values[i];
+    }
+
+    if(bFinished == true){
+        raceStarting = false;
+        raceStarted = false;
     }
 }
 
 void reportTimeBased()
 {
-    for(int i=0; i<=3; i++) {
+    for(int i=0; i<4; i++) {
         values[i] = digitalRead(sensorPins[i]);
 
         if(mockMode){
@@ -305,6 +311,9 @@ void reportTimeBased()
             Serial.print("F:");
             Serial.println(raceLengthSecs * 1000, DEC);
         }
+        raceStarting = false;
+        raceStarted = false;
+
     }
 }
 

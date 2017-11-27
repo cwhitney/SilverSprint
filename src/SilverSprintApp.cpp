@@ -61,6 +61,8 @@ void SilverSprintApp::keyDown( KeyEvent event )
         }
         else if( event.getChar() == '3' ){
             StateManager::getInstance()->changeAppState( APP_STATE::SETTINGS );
+        }else if( event.getChar() == 'r' ){
+            mGfxMain->reloadShaders();
         }
     }
 }

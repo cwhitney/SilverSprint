@@ -52,9 +52,9 @@ namespace gfx {
         double getDistance(){
             double oneTickMeters = rollerCircumfMm / 1000.0;
             
-            if( curRaceTicks > totalRaceTicks ){
-                curRaceTicks = totalRaceTicks;
-            }
+//            if( curRaceTicks > totalRaceTicks ){
+//                curRaceTicks = totalRaceTicks;
+//            }
             
             double distMeters = oneTickMeters * curRaceTicks;
             

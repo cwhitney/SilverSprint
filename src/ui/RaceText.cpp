@@ -55,19 +55,25 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
         // TEXT ------------------
         gl::color( Color::white() );
         
+        // NAME
         boost::to_upper(data->player_name);
         mGlobal->texFont->drawString(data->player_name, vec2(20, 44) );
         
+        // sPEED
         if( mModel->getUsesKph()){
             gl::drawStringRight( toDec(data->getKph(), 0) + " KPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
         }else{
             gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
         }
         
-        if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_DISTANCE ){
-//            gl::drawString( toDec(data->getDistance(), 2) + " M", vec2(1485,28), Color::white(), mGlobal->uiFont );
+        if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME ){
+            if(mModel->getUsesKph()){
+                mGlobal->texFont->drawString(toDec(data->getDistanceMeters(), 2) + "m", vec2(1485,44));
+            }else{
+                mGlobal->texFont->drawString(toDec(data->getDistanceFeet(), 2) + "ft", vec2(1485,44));
+            }
         }
-        else if(mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME){
+        else if(mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_DISTANCE){
             if( data->didFinishRace() ){
                 mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( data->finishTimeMillis ), vec2(1485,44) );
             }else{

@@ -58,6 +58,11 @@ void GFXMain::setup(){
     mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED, true );
 }
 
+void GFXMain::reloadShaders()
+{
+    mRaceView->reloadShader();
+}
+
 void GFXMain::onRaceFinished() {
     console() << "GFXMAIN :: RACE FINSIHED" << endl;
     mSerialReader->stopRace();

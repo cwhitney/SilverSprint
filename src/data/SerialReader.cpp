@@ -188,35 +188,35 @@ void SerialReader::parseFromBuffer()
         std::string cmd = cmdArgs[0];
         std::string args = (cmdArgs.size() > 1) ? cmdArgs[1] : "";
         
-        if( cmd == ""){
+        if(cmd == ""){
             return;
         }
         
         // ------------------------------------------------------------------------------
-        // RACE FINISH
+        // RACE FINISH (ars are the time the race finished in millis)
         if(cmd == "0F"){
-            CI_LOG_D("RACER 1 FINISHED " + args);
+            CI_LOG_I("RACER 1 FINISHED " + args);
             mStateManager->signalRacerFinish.emit(0, fromString<int>(args), mModel->playerData[0]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "1F"){
-            CI_LOG_D("RACER 2 FINISHED " +args);
+            CI_LOG_I("RACER 2 FINISHED " +args);
             mStateManager->signalRacerFinish.emit(1, fromString<int>(args), mModel->playerData[1]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "2F"){
-            CI_LOG_D("RACER 3 FINISHED " + args);
+            CI_LOG_I("RACER 3 FINISHED " + args);
             mStateManager->signalRacerFinish.emit(2, fromString<int>(args), mModel->playerData[2]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "3F"){
-            CI_LOG_D("RACER 4 FINISHED " + args);
+            CI_LOG_I("RACER 4 FINISHED " + args);
             mStateManager->signalRacerFinish.emit(3, fromString<int>(args), mModel->playerData[3]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         
         // ------------------------------------------------------------------------------
-        // RACE PROGRESS
+        // RACE PROGRESS (args are race ticks, then race time millis)
         else if(cmd == "R"){
             std::vector<std::string> rdata;
             boost::split(rdata, args, boost::is_any_of(","));

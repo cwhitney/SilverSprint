@@ -37,8 +37,6 @@ namespace gfx {
         void reloadShader();
         
       private:
-        void drawTimeBased();
-        void drawDistanceBased();
         
         void onStateChange( APP_STATE newState );
         void onStartClicked();
