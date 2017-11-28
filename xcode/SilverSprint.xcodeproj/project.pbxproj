@@ -66,7 +66,7 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		2FF84B46AB5B427BA94A3D7A /* SilverSprintApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = SilverSprintApp.cpp; path = ../src/SilverSprintApp.cpp; sourceTree = "<group>"; };
+		2FF84B46AB5B427BA94A3D7A /* SilverSprintApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SilverSprintApp.cpp; path = ../src/SilverSprintApp.cpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		80018D0C1B264B72BC049A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* SilverSprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverSprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +101,7 @@
 		CB49AA211E44F1A300820D70 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
 		CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToggleBtn.cpp; sourceTree = "<group>"; };
 		CB675B9F1FCB5A3E00AF05DA /* ToggleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToggleBtn.h; sourceTree = "<group>"; };
+		CB675BA01FCD16D200AF05DA /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXMain.cpp; sourceTree = "<group>"; };
 		CBF06EE81C5011ED0064CC52 /* SSManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SSManager.cpp; sourceTree = "<group>"; };
 		CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXGlobal.cpp; sourceTree = "<group>"; };
@@ -473,6 +474,7 @@
 		CBF06F131C5012070064CC52 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				CB675BA01FCD16D200AF05DA /* Config.h */,
 				CBF06F141C5012070064CC52 /* GFXGlobal.h */,
 				CBF06F151C5012070064CC52 /* Model.h */,
 				CBF06F161C5012070064CC52 /* PlayerData.h */,

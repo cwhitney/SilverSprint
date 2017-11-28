@@ -24,6 +24,7 @@ namespace gfx {
         void resetPlayers();
         
         void setRaceLengthMeters( const float &meters );
+        const float& getRaceLengthMeters(){ return raceLengthMeters; }
         const int& getRaceLengthTicks(){ return totalRaceTicks; }
         
         void setNumRacers( const int &num ){ mNumRacers = num; }

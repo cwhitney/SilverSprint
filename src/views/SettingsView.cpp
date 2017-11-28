@@ -136,19 +136,27 @@ void SettingsView::onStateChange(APP_STATE newState)
         mTxtDiameter->visible = true;
         mTxtNumRacers->visible = true;
         
-        if(mDistanceCheck->isChecked()){
+        mMphKphToggle->setSelected( mModel->getUsesKph() );
+        mTxtDiameter->setText(toString<float>(mModel->getRollerDiameterMm()));
+        mTxtNumRacers->setText(toString<int>(mModel->getNumRacers()));
+        mTxtDistance->setText(toString<float>(mModel->getRaceLengthMeters()));
+        mTxtTime->setText(toString<float>(mModel->getRaceTimeSeconds()));
+        
+        if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
+            mDistanceCheck->setChecked(true);
+            mTimeTrialBox->setChecked(false);
             mTxtDistance->visible = true;
         }else{
+            mDistanceCheck->setChecked(false);
+            mTimeTrialBox->setChecked(true);
             mTxtTime->visible = true;
         }
-
-        mMphKphToggle->setSelected( mModel->getUsesKph() );
 
     }else{
 		CI_LOG_I("Settings ::  Updating model");
         mModel->setRollerDiameterMm( fromString<float>(mTxtDiameter->getText()));
         mModel->setNumRacers( fromString<int>(mTxtNumRacers->getText()) );
-        mModel->setRaceLengthMeters( fromString<int>(mTxtDistance->getText()) );
+        mModel->setRaceLengthMeters( fromString<float>(mTxtDistance->getText()) );
 
         mModel->setRaceTimeSeconds( fromString<float>(mTxtTime->getText()) );
         
