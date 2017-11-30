@@ -60,18 +60,18 @@ namespace gfx {
         
         static Model    *mInstance;
         
-        int     mNumRacers;
+        int     mNumRacers = 2;
         
         // For distance based
         void    setRaceLength(int ticks);
         int     totalRaceTicks;
-        float   raceLengthMeters;
+        float   raceLengthMeters = 100;
         
         // For time based
         double    mRaceLengthMillis = 60000;
         
-        float   mRollerDiameterMm;
-        bool    bHardwareConnected;
+        float   mRollerDiameterMm = 114.3f;
+        bool    bHardwareConnected = false;
         bool    bUseKph = true;
     };
 }

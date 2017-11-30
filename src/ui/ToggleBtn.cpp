@@ -38,8 +38,12 @@ void ToggleBtn::onMouseDown(ci::app::MouseEvent event)
     vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
     
     if( mRectL.contains(pos) ){
+        if(!bLeftActive)
+            sOnToggleChange.emit(TOGGLE_SIDE::LEFT);
         bLeftActive = true;
     }else if(mRectR.contains(pos)){
+        if(bLeftActive)
+            sOnToggleChange.emit(TOGGLE_SIDE::RIGHT);
         bLeftActive = false;
     }
 }

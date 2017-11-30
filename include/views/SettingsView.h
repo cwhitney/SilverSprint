@@ -65,7 +65,6 @@ namespace gfx {
         CheckBoxRef     mTimeTrialBox;
 
         ToggleBtnRef    mMphKphToggle;
-
         
         struct TextLabel {
             TextLabel(ci::vec2 pos_, std::string txt_ ){ pos=pos_; txt=txt_; }

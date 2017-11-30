@@ -88,7 +88,7 @@ SettingsView::SettingsView() : bVisible(false)
     auto toggleFont =gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70));
     mMphKphToggle = std::make_shared<ToggleBtn>("MPH", "KPH", toggleFont, vec2(xPos, yPos));
     mMphKphToggle->setColors( mGlobal->playerColors[0], Color::black() );
-    mMphKphToggle->setSelected(1);
+    mMphKphToggle->setSelected(ToggleBtn::TOGGLE_SIDE::RIGHT);
     
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
@@ -136,7 +136,7 @@ void SettingsView::onStateChange(APP_STATE newState)
         mTxtDiameter->visible = true;
         mTxtNumRacers->visible = true;
         
-        mMphKphToggle->setSelected( mModel->getUsesKph() );
+        mMphKphToggle->setSelected(mModel->getUsesKph() ? ToggleBtn::TOGGLE_SIDE::RIGHT : ToggleBtn::TOGGLE_SIDE::LEFT);
         mTxtDiameter->setText(toString<float>(mModel->getRollerDiameterMm()));
         mTxtNumRacers->setText(toString<int>(mModel->getNumRacers()));
         mTxtDistance->setText(toString<float>(mModel->getRaceLengthMeters()));
@@ -162,7 +162,7 @@ void SettingsView::onStateChange(APP_STATE newState)
         
         GFXGlobal::getInstance()->currentRaceType = (mDistanceCheck->isChecked()) ? RACE_TYPE_DISTANCE : RACE_TYPE::RACE_TYPE_TIME;
         
-        mModel->setUseKph( mMphKphToggle->getSelected() );
+        mModel->setUseKph(mMphKphToggle->getSelected() == ToggleBtn::TOGGLE_SIDE::RIGHT);
         bVisible = false;
         
         mTxtDiameter->visible = false;
