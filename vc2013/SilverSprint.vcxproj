@@ -216,6 +216,7 @@
     <ClCompile Include="..\src\SilverSprintApp.cpp" />
     <ClCompile Include="..\blocks\OSC\src\cinder\osc\Osc.cpp" />
     <ClCompile Include="..\src\ui\BaseButton.cpp" />
+    <ClCompile Include="..\src\ui\CheckBox.cpp" />
     <ClCompile Include="..\src\ui\CiTextField.cpp" />
     <ClCompile Include="..\src\ui\CountDownGfx.cpp" />
     <ClCompile Include="..\src\ui\NumStepper.cpp" />
@@ -248,6 +249,7 @@
     <ClInclude Include="..\include\Resources.h" />
     <ClInclude Include="..\blocks\OSC\src\cinder\osc\Osc.h" />
     <ClInclude Include="..\include\ui\BaseButton.h" />
+    <ClInclude Include="..\include\ui\CheckBox.h" />
     <ClInclude Include="..\include\ui\CiTextField.h" />
     <ClInclude Include="..\include\ui\CountDownGfx.h" />
     <ClInclude Include="..\include\ui\NumStepper.h" />

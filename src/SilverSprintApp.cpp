@@ -37,12 +37,17 @@ class SilverSprintApp : public App {
 
 void SilverSprintApp::setup()
 {
-	if (DEBUG_MODE) {
-		log::makeLogger<log::LoggerFile>( getAppPath().string() + "/logs/SilverSprint.log", false );
+	if (_DEBUG) {
+		fs::path logPath = getAppPath().string() + "logs/SilverSprint.log";
+		log::makeLogger<log::LoggerFile>( logPath, false );
+		CI_LOG_I("Setting up log file at " << logPath );
+		console() << "path " << logPath.string() << endl;
 	}
 
 	auto sysLogger = log::makeLogger<log::LoggerSystem>();
 	sysLogger->setLoggingLevel(log::LEVEL_VERBOSE);
+	
+	CI_LOG_I("Start program");
 
     gl::enableAlphaBlending();
     
@@ -54,7 +59,14 @@ void SilverSprintApp::setup()
 
 void SilverSprintApp::loadSettings()
 {
-    fs::path targetPath = ci::app::Platform::get()->expandPath("~/Library") / "SilverSprint/settings.cfg";
+	CI_LOG_I("Load settings");
+
+#ifdef defined(CINDER_MAC)
+	fs::path targetPath = ci::app::Platform::get()->expandPath("~/Library") / fs::path("SilverSprints/settings.cfg");
+#elif defined(CINDER_MSW)
+	fs::path targetPath = getDocumentsDirectory() / fs::path("SilverSprints/settings.cfg");
+#endif
+
     if(fs::exists(targetPath)){
         config().read(loadFile(targetPath));
         
@@ -78,7 +90,14 @@ void SilverSprintApp::writeSettings()
     config().set("settings", "roller_diameter_mm", Model::getInstance()->getRollerDiameterMm());
     config().set("settings", "num_racers", Model::getInstance()->getNumRacers());
     
-    fs::path targetPath = ci::app::Platform::get()->expandPath("~/Library") / "SilverSprint/settings.cfg";
+#ifdef defined(CINDER_MAC)
+	fs::path targetPath = ci::app::Platform::get()->expandPath("~/Library") / fs::path("SilverSprints/settings.cfg");
+#elif defined(CINDER_MSW)
+	fs::path targetPath = getDocumentsDirectory() / fs::path("SilverSprints/settings.cfg");
+#endif
+
+	CI_LOG_I("Wiriting settings to " << targetPath);
+
     auto d = ci::DataTargetPath::createRef(targetPath);
     config().write(d);
 }
@@ -143,7 +162,7 @@ void SilverSprintApp::draw()
         mGfxMain->draw( scaledFit );
     }gl::popMatrices();
     
-    if( DEBUG_MODE ){
+    if(_DEBUG){
         gl::drawString( to_string( getAverageFps() ), vec2(10, getWindowHeight() - 60) );
         gl::drawString( StateManager::getInstance()->getCurrentAppStateString(), vec2(10, getWindowHeight() - 40) );
         gl::drawString( StateManager::getInstance()->getCurrentRaceStateString(), vec2(10, getWindowHeight() - 20) );
