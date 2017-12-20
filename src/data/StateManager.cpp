@@ -44,8 +44,9 @@ void StateManager::changeAppState( APP_STATE newState, bool forceEvent ){
     if( newState == mCurAppState && !forceEvent ){
         return;
     }
+    auto lastState = mCurAppState;
     mCurAppState = newState;
-    signalOnStateChange.emit( mCurAppState );
+    signalOnStateChange.emit(mCurAppState, lastState);
 }
 
 std::string StateManager::getCurrentAppStateString() {

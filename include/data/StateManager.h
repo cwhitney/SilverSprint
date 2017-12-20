@@ -46,7 +46,8 @@ namespace gfx{
         std::string getAppStateString( APP_STATE as );
         std::string getRaceStateString( RACE_STATE rs );
         
-        ci::signals::Signal<void(APP_STATE)>	signalOnStateChange;
+        //! Emits the current state, followed by the previous state
+        ci::signals::Signal<void(APP_STATE, APP_STATE)>	signalOnStateChange;
         ci::signals::Signal<void(RACE_STATE)>	signalOnRaceStateChange;
         
         ci::signals::Signal<void(void)>         signalOnRaceFinished;

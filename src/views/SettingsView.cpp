@@ -24,7 +24,10 @@ SettingsView::SettingsView() : bVisible(false)
     mGlobal			= gfx::GFXGlobal::getInstance();
     mStateManager	= StateManager::getInstance();
     mModel			= Model::getInstance();
-    mStateManager->signalOnStateChange.connect( std::bind(&SettingsView::onStateChange, this, std::placeholders::_1) );
+    mStateManager->signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState)
+                                               {
+                                                   onStateChange(newState, lastState);
+                                               });
     
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     
@@ -38,7 +41,7 @@ SettingsView::SettingsView() : bVisible(false)
     yPos += 160;
     
     // RACERS
-    mTxtNumRacers = makeSetting(Rectf(443,yPos, 443+431 - 50, yPos+100), "NUMBER OF RACERS (1-3)", "2" );
+    mTxtNumRacers = makeSetting(Rectf(443,yPos, 443+431 - 50, yPos+100), "NUMBER OF RACERS (1-"+to_string(mMaxRiders)+")", "2" );
     mTxtNumRacers->disable();
     
     int gap = 6;
@@ -97,7 +100,7 @@ SettingsView::SettingsView() : bVisible(false)
 void SettingsView::onStepperPlusClick()
 {
     int numRacers = fromString<int>( mTxtNumRacers->getText() );
-    mTxtNumRacers->setText( toString( min( ++numRacers, 3) ) );
+    mTxtNumRacers->setText( toString( min( ++numRacers, mMaxRiders) ) );
 }
 
 void SettingsView::onStepperMinusClick()
@@ -129,7 +132,7 @@ void SettingsView::onMouseUp(ci::app::MouseEvent event){
     
 }
 
-void SettingsView::onStateChange(APP_STATE newState)
+void SettingsView::onStateChange(APP_STATE newState, APP_STATE lastState)
 {
     if( newState == APP_STATE::SETTINGS ){
         bVisible = true;
@@ -152,7 +155,7 @@ void SettingsView::onStateChange(APP_STATE newState)
             mTxtTime->visible = true;
         }
 
-    }else{
+    }else if(lastState == APP_STATE::SETTINGS){
 		CI_LOG_I("Settings ::  Updating model");
         mModel->setRollerDiameterMm( fromString<float>(mTxtDiameter->getText()));
         mModel->setNumRacers( fromString<int>(mTxtNumRacers->getText()) );

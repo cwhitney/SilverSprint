@@ -194,7 +194,9 @@ void SerialReader::parseFromBuffer()
         // ------------------------------------------------------------------------------
         // KIOSK MODE
         if(cmd == "G"){
-            mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+            if(mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED){
+                mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+            }
         }else if(cmd == "S"){
             mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
         }

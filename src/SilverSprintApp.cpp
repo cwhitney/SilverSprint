@@ -61,7 +61,7 @@ void SilverSprintApp::loadSettings()
         gfx::GFXGlobal::getInstance()->currentRaceType = (gfx::RACE_TYPE)config().get("settings", "race_type", (int)RACE_TYPE_DISTANCE);
         Model::getInstance()->setRaceLengthMeters(  config().get("settings", "race_length_meters", 100));
         Model::getInstance()->setRaceTimeSeconds(   config().get("settings", "race_time", 60));
-        Model::getInstance()->setUseKph(            config().get("settings", "race_units", true));
+        Model::getInstance()->setUseKph(            config().get("settings", "race_kph", true));
         Model::getInstance()->setRollerDiameterMm(  config().get("settings", "roller_diameter_mm", 114.3));
         Model::getInstance()->setNumRacers(         config().get("settings", "num_racers", 114.3));
         
@@ -74,7 +74,7 @@ void SilverSprintApp::writeSettings()
     config().set("settings", "race_type", (int)gfx::GFXGlobal::getInstance()->currentRaceType);
     config().set("settings", "race_length_meters", Model::getInstance()->getRaceLengthMeters());
     config().set("settings", "race_time", Model::getInstance()->getRaceTimeSeconds());
-    config().set("settings", "race_units", Model::getInstance()->getUsesKph());
+    config().set("settings", "race_kph", Model::getInstance()->getUsesKph());
     config().set("settings", "roller_diameter_mm", Model::getInstance()->getRollerDiameterMm());
     config().set("settings", "num_racers", Model::getInstance()->getNumRacers());
     

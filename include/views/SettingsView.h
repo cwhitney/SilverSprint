@@ -35,7 +35,7 @@ namespace gfx {
         void draw();
         
       private:
-        void onStateChange( APP_STATE newState );
+        void onStateChange(APP_STATE newState, APP_STATE lastState);
         void onStepperPlusClick();
         void onStepperMinusClick();
         void onMouseUp( ci::app::MouseEvent event );
@@ -43,13 +43,15 @@ namespace gfx {
         CiTextField* makeSetting(ci::Rectf rect, std::string label, std::string txt);
         CiTextField* makeTextField(ci::Rectf rect, std::string txt);
         
+        const int       mMaxRiders = 4;
+        
         StateManager    *mStateManager;
         Model           *mModel;
         GFXGlobal       *mGlobal;
         
-        bool            bVisible;
+        bool            bVisible = false;
         
-        ci::gl::TextureRef  mBg;
+        ci::gl::TextureRef          mBg;
         ci::gl::TextureFontRef      tFont;
         
         CiTextField*        mTxtDiameter;

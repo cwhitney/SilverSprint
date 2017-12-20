@@ -21,8 +21,8 @@
 #define FALSE_START_TICKS 4
 
 int statusLEDPin = 13;
-int kioskGoPin = 5;
-int kioskStopPin = 12;
+int kioskStopPin = 5;
+int kioskGoPin = 12;
 Bounce goBounce;
 Bounce stopBounce;
 
@@ -220,9 +220,19 @@ void loop()
     // check kiosk pins
     stopBounce.update();
     goBounce.update();
+/*
+    int readGo = digitalRead(kioskGoPin);
+    int readStop = digitalRead(kioskStopPin);
+
+    Serial.print("G");
+    Serial.println(readGo, DEC);
+    Serial.print("S");
+    Serial.println(readStop, DEC);
+    Serial.println(readStop);
+*/
     if(stopBounce.rose()){
         Serial.println("S:");
-    }else if(goBounce.rose()){
+    }else if(goBounce.fell()){
         Serial.println("G:");
     }
 
