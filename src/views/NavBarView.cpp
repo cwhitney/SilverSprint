@@ -70,8 +70,8 @@ void NavBarView::mouseUp(cinder::app::MouseEvent event){
     
 }
 
-void NavBarView::draw() {
-    
+void NavBarView::draw()
+{
     for( int i=0; i<mIconList.size(); i++){
         if( mIconList[i].bActive ){
             gl::color( ColorA(1,1,1,1) );
@@ -81,7 +81,4 @@ void NavBarView::draw() {
         
         gl::draw( mIconList[i].tex, mIconList[i].rect);
     }
-    
-    
-    
 }

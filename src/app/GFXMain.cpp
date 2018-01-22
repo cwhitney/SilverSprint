@@ -95,12 +95,19 @@ void GFXMain::onRaceStateChanged( RACE_STATE rc ){
     }
 }
 
-void GFXMain::onKeyDown(KeyEvent event){
+void GFXMain::onKeyDown(KeyEvent event)
+{
+
+    if(event.getCode() == KeyEvent::KEY_SPACE && StateManager::getInstance()->getCurrentAppState() == gfx::APP_STATE::RACE){
+        if(StateManager::getInstance()->getCurrentRaceState() == gfx::RACE_STATE::RACE_STOPPED){
+            mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+        }else{
+            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
+        }
+    }
+    
     if( !event.isAccelDown() && !event.isControlDown() ){
         return;
-    }
-    else if( event.getChar() == 'r'){
-        mRaceView->reloadShader();
     }
     else if( event.getChar() == 'm'){
         mSerialReader->setMockMode();

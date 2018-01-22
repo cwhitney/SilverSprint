@@ -51,14 +51,14 @@ void RaceView::setup()
 
 void RaceView::reloadShader() {
     try {
+        CI_LOG_I("Reloaded shader");
         mProgressShader = gl::GlslProg::create( loadAsset("shaders/RaceProgress.vert"), loadAsset("shaders/RaceProgress.frag") );
     }
     catch( gl::GlslProgCompileExc &exc ) {
-        std::cout << "Shader compile error: " << std::endl;
-        std::cout << exc.what();
+        CI_LOG_EXCEPTION("Shader compile error: ", exc);
     }
     catch( ... ) {
-        std::cout << "Unable to load shader" << std::endl;
+        CI_LOG_E("Unable to load shader");
     }
 }
 

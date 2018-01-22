@@ -54,8 +54,7 @@ void SerialReader::update()
     }
     bLastConnection = bSerialConnected;
     
-    // lock and parse buffered data
-    std::lock_guard<std::mutex> guard(mSerialMutex);
+    // parse buffered data
     parseFromBuffer();
 }
 

@@ -19,6 +19,7 @@ StartStopButton::StartStopButton()
     mBackground = ci::Color( 22.0/255.0, 146.0/255.0, 84.0/255.0 );
     
     mStateManager = StateManager::getInstance();
+    //mStateManager->si
 }
 
 void StartStopButton::update()

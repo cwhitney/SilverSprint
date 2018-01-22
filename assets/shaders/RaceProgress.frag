@@ -39,9 +39,9 @@ void main()
 	float e2 = smoothstep(0.0, edgeDist, TexCoord0.t);
 
     if(colPct > 1.0){
-		// discard;
+		discard;
 	}
 
-	finalColor.a = colPct * sm * e1 * e2;
+	finalColor.a = colPct * sm;// * e1 * e2;
 	oColor = finalColor;
 } 
