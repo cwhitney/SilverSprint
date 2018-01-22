@@ -46,6 +46,7 @@ void SerialReader::update()
 {
     // if we connected since the last update, notify
     if( bSerialConnected && !bLastConnection){
+		mSerial->flush();
         onConnect();
         timeline().add( [&](){ getVersion(); }, timeline().getCurrentTime() + 2.0 );
     }else if( !bSerialConnected && bLastConnection ){
@@ -53,8 +54,7 @@ void SerialReader::update()
     }
     bLastConnection = bSerialConnected;
     
-    // lock and parse buffered data
-    std::lock_guard<std::mutex> guard(mSerialMutex);
+    // parse buffered data
     parseFromBuffer();
 }
 
@@ -78,11 +78,6 @@ void SerialReader::updateSerialThread()
 			try {
 				if (!ports.empty()) {
 					SerialPortRef port = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
-					/*
-					Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial", true);
-					if (dev.getName() == "") {
-						dev = Serial::findDeviceByNameContains("tty.usbmodem", true);
-					}*/
 					if (!port) {
 						port = ports.back();
 					}
@@ -112,8 +107,6 @@ void SerialReader::updateSerialThread()
         }else{
             // make sure we're still connected
 			auto pOpen = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
-			//auto pCom = SerialPort::findPortByNameMatching(std::regex("COM.*"), true);
-			//auto portList = SerialPort::getPorts();
 
             if(pOpen == nullptr){
 				if (mSerial && mSerial->isOpen()) {
@@ -125,6 +118,9 @@ void SerialReader::updateSerialThread()
                 for(int i=0; i<mSendBuffer.getSize(); i++){
                     std::string msgToSend;
                     mSendBuffer.popBack( &msgToSend );
+
+					CI_LOG_I("Sending :: ") << msgToSend;
+
                     mSerial->writeString( msgToSend );
                 }
                 
@@ -137,7 +133,6 @@ void SerialReader::updateSerialThread()
 
 void SerialReader::readSerial()
 {
-
     try {
 		size_t bytesAvailable = mSerial->getNumBytesAvailable();
 		size_t charsAvailable = floor(bytesAvailable / sizeof(char));
@@ -192,47 +187,59 @@ void SerialReader::parseFromBuffer()
         std::string cmd = cmdArgs[0];
         std::string args = (cmdArgs.size() > 1) ? cmdArgs[1] : "";
         
-        if( cmd == ""){
+        if(cmd == ""){
             return;
+        }
+        // ------------------------------------------------------------------------------
+        // KIOSK MODE
+        if(cmd == "G"){
+            if(mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED){
+                mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+            }
+        }else if(cmd == "S"){
+            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
         }
         
         // ------------------------------------------------------------------------------
-        // RACE FINISH
-        if(cmd == "0F"){
-            CI_LOG_D("RACER 1 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(0, fromString<int>(args));
+        // RACE FINISH (ars are the time the race finished in millis)
+        else if(cmd == "0F"){
+            CI_LOG_I("RACER 1 FINISHED " + args);
+            mStateManager->signalRacerFinish.emit(0, fromString<int>(args), mModel->playerData[0]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "1F"){
-            CI_LOG_D("RACER 2 FINISHED " +args);
-            mStateManager->signalRacerFinish.emit(1, fromString<int>(args));
+            CI_LOG_I("RACER 2 FINISHED " +args);
+            mStateManager->signalRacerFinish.emit(1, fromString<int>(args), mModel->playerData[1]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "2F"){
-            CI_LOG_D("RACER 3 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(2, fromString<int>(args));
+            CI_LOG_I("RACER 3 FINISHED " + args);
+            mStateManager->signalRacerFinish.emit(2, fromString<int>(args), mModel->playerData[2]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "3F"){
-            CI_LOG_D("RACER 4 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(3, fromString<int>(args));
+            CI_LOG_I("RACER 4 FINISHED " + args);
+            mStateManager->signalRacerFinish.emit(3, fromString<int>(args), mModel->playerData[3]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         
         // ------------------------------------------------------------------------------
-        // RACE PROGRESS
+        // RACE PROGRESS (args are race ticks, then race time millis)
         else if(cmd == "R"){
             std::vector<std::string> rdata;
             boost::split(rdata, args, boost::is_any_of(","));
             
-            int raceMillis = fromString<int>( rdata[4] );
+            int raceMillis = fromString<int>( rdata.back() );
                                              
             float dt = raceMillis - mModel->elapsedRaceTimeMillis;
             
-            mModel->playerData[0]->updateRaceTicks( fromString<int>(rdata[0]), dt );
-            mModel->playerData[1]->updateRaceTicks( fromString<int>(rdata[1]), dt );
-            mModel->playerData[2]->updateRaceTicks( fromString<int>(rdata[2]), dt );
-            mModel->playerData[3]->updateRaceTicks( fromString<int>(rdata[3]), dt );
+            for( int i=0; i<rdata.size()-1; i++){
+                mModel->playerData[i]->updateRaceTicks( fromString<int>(rdata[i]), dt );
+            }
+//            mModel->playerData[0]->updateRaceTicks( fromString<int>(rdata[0]), dt );
+//            mModel->playerData[1]->updateRaceTicks( fromString<int>(rdata[1]), dt );
+//            mModel->playerData[2]->updateRaceTicks( fromString<int>(rdata[2]), dt );
+//            mModel->playerData[3]->updateRaceTicks( fromString<int>(rdata[3]), dt );
             mModel->elapsedRaceTimeMillis = raceMillis;
             mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
         }
@@ -240,7 +247,7 @@ void SerialReader::parseFromBuffer()
         // ------------------------------------------------------------------------------
         // SETTINGS
         else if( cmd == "CD"){
-            CI_LOG_D("SerialReader :: Countdown :: " + args);
+            CI_LOG_I("SerialReader :: Countdown :: " + args);
             
             if( args == "3" ){
                 mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_3 );
@@ -256,15 +263,15 @@ void SerialReader::parseFromBuffer()
             }
         }
         else if( cmd == "FS"){
-            CI_LOG_D("SerialReader :: False start. Racer: " + args);    // 0 based
+            CI_LOG_I("SerialReader :: False start. Racer: " + args);    // 0 based
 //            mStateManager->changeRaceState( RACE_STATE::RACE_FALSE_START );
 //            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
         }
         else if( cmd == "L"){   // After sending a race length, it will send this confirmation
-            CI_LOG_D("SerialReader :: Race Length " + args);
+            CI_LOG_I("SerialReader :: Race Length " + args + ".");
         }
         else if( cmd == "M"){   // Mock mode confirmation
-            CI_LOG_D("SerialReader :: Mock mode turned " + args);
+            CI_LOG_I("SerialReader :: Mock mode turned " + args);
         }
         else if(cmd == "V"){   // version
             mFirmwareVersion = args;
@@ -272,9 +279,15 @@ void SerialReader::parseFromBuffer()
         }
         
         else{
-            CI_LOG_D("SerialReader :: Unrecognized command :: '" + cmd);
+            CI_LOG_I("SerialReader :: Unrecognized command :: ");
+			try {
+				CI_LOG_I(cmd);
+			}catch (...) {}
+
             if(args != ""){
-                CI_LOG_D(" with arg :: '"+ args+ "'");
+				try {
+					CI_LOG_I(" with arg :: '" + args + "'");
+				}catch (...) {}
             }
         }
     }
@@ -302,7 +315,7 @@ void SerialReader::stopRace(){
 }
 
 void SerialReader::setRaceDuration(int numSeconds){
-    sendSerialMessage("t:" + to_string(numSeconds) );
+    sendSerialMessage("t" + to_string(numSeconds) );
 }
 
 void SerialReader::setRaceLengthTicks( int numTicks ){
@@ -316,6 +329,15 @@ void SerialReader::setMockMode( bool enabled ){
 
 void SerialReader::getVersion(){
     sendSerialMessage("v");
+}
+
+void SerialReader::setRaceType( gfx::RACE_TYPE raceType)
+{
+    if(raceType == RACE_TYPE_DISTANCE){
+        sendSerialMessage("d");
+    }else{
+        sendSerialMessage("x");
+    }
 }
 
 void SerialReader::sendSerialMessage( std::string msg )

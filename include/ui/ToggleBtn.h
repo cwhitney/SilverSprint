@@ -3,19 +3,28 @@
 #include "cinder/app/App.h"
 #include "cinder/Signals.h"
 #include "cinder/gl/TextureFont.h"
+#include "cinder/Signals.h"
+
 #include "data/GFXGlobal.h"
 
 using ToggleBtnRef = std::shared_ptr<class ToggleBtn>;
 
 class ToggleBtn {
   public:
+    enum class TOGGLE_SIDE {
+        LEFT,
+        RIGHT
+    };
+    
     ToggleBtn(std::string choice1, std::string choice2, ci::gl::TextureFontRef font, ci::vec2 position = ci::vec2(0,0));
     ~ToggleBtn();
     
     void setColors( ci::ColorA bg, ci::ColorA text);
-    void setSelected(int side) { bLeftActive = (side) ? false : true; }
-    int getSelected(){ return bLeftActive ? 0 : 1; }
+    void setSelected(TOGGLE_SIDE side) { bLeftActive = (side == TOGGLE_SIDE::LEFT) ? true : false; }
+    TOGGLE_SIDE getSelected(){ return bLeftActive ? TOGGLE_SIDE::LEFT : TOGGLE_SIDE::RIGHT; }
     void draw();
+    
+    ci::signals::Signal<void(TOGGLE_SIDE)> sOnToggleChange;
     
   private:
     void onMouseDown(ci::app::MouseEvent event);

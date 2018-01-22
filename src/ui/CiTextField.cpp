@@ -193,16 +193,24 @@ void CiTextField::onMouseUp( ci::app::MouseEvent event ){
 }
 
 void CiTextField::focus( bool selectAll ){
+    if(!visible || !bEnabled){
+        return;
+    }
+    
     bActive = true;
     
     if( selectAll ){
         mCaratStart = 0;
-        mCaratIndex = mText.size();
+        mCaratIndex = (int)mText.size();
         bHighlighted = true;
     }
 }
 
 void CiTextField::blur(){
+    if(!visible || !bEnabled){
+        return;
+    }
+    
     bActive = false;
     
     boost::trim(mText);
@@ -230,13 +238,17 @@ int CiTextField::getCursorIndex( const ci::vec2 &localPos ){
     }
     // We didn't find it, so put the cursor at the end
     if( i == mText.size()+1 ){
-        return mText.size();
+        return (int)mText.size();
     }
     
     return mCaratIndex;
 }
 
-void CiTextField::draw(){
+void CiTextField::draw()
+{
+    if(!visible){
+        return;
+    }
     
     float alpha = 1.0;
 //    if( !bEnabled ){

@@ -61,9 +61,17 @@ void WinnerModal::getWinners()
         mWinnersSorted.push_back( Model::getInstance()->getPlayerData(i) );
     }
     
-    std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerData* a, PlayerData *b) {
-        return a->finishTimeMillis < b->finishTimeMillis;
-    });
+    if(GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_DISTANCE){
+        std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerData* a, PlayerData *b) {
+            return a->finishTimeMillis < b->finishTimeMillis;
+        });
+    }
+    // RACE_TYPE_TIME
+    else{
+        std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerData* a, PlayerData *b) {
+            return a->getCurrentRaceTicks() > b->getCurrentRaceTicks();
+        });
+    }
     
 //    for( int i=0; i<mWinnersSorted.size(); i++){
 //        console() << " finish :: " << mWinnersSorted[i]->player_name << " - " <<mWinnersSorted[i]->finishTimeMillis << endl;
@@ -96,19 +104,46 @@ void WinnerModal::draw()
         gl::ScopedColor scA(1,1,1,mAlpha);
         gl::draw( mWinnerGraphic, mWinnerRect);
         float ww = mGlobal->winnerTexFont->measureString(mWinnersSorted[0]->player_name).x;
+        // draw the main winner
         {
             gl::ScopedMatrices scMat;
             gl::translate( mWinnerRect.getUpperLeft() );
             gl::color(0,0,0,mAlpha);
             mGlobal->winnerTexFont->drawString( mWinnersSorted[0]->player_name, vec2(550 - ww*0.5, 288));
+            
+            // draw the correct race metric, time or distance
+            if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
+                gl::ScopedColor scCol(ColorA(0,0,0,mAlpha));
+                string winLabel = "TIME";
+                vec2 labelSize = mGlobal->winnerUiFont->measureString(winLabel);
+                mGlobal->winnerUiFont->drawString(winLabel, vec2(441, 319) - vec2(labelSize.x*0.5, 0));
+                
+                gl::color(1,1,1,mAlpha);
+                mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[0]->finishTimeMillis), vec2(356, 362));
+            }
+            // RACE_TYPE_TIME
+            else{
+                gl::ScopedColor scCol(ColorA(0,0,0,mAlpha));
+                string winLabel = "DISTANCE";
+                vec2 labelSize = mGlobal->winnerUiFont->measureString(winLabel);
+                mGlobal->winnerUiFont->drawString(winLabel, vec2(441, 319) - vec2(labelSize.x*0.5, 0));
+                
+                gl::color(1,1,1,mAlpha);
+                if(mModel->getUsesKph()){
+                    mGlobal->texFont->drawString(toString(mWinnersSorted[0]->getDistanceMeters(), 2) + "m", vec2(356, 362));
+                }else{
+                    mGlobal->texFont->drawString(toString(mWinnersSorted[0]->getDistanceFeet(), 2) + "ft", vec2(356, 362));
+                }
+            }
+            
             gl::color(1,1,1,mAlpha);
-            mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[0]->finishTimeMillis), vec2(356, 362));
             if(mModel->getUsesKph()){
                 mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxKph(), 1) + "kph", vec2(604-20, 362));
             }else{
                 mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxMph(), 1) + "mph", vec2(604-20, 362));
             }
         }
+        // Draw the individual boxes below
         {
             gl::ScopedMatrices scMat;
             gl::translate( mWinnerRect.getUpperLeft() );
@@ -140,7 +175,22 @@ void WinnerModal::draw()
                 }
                 
                 mGlobal->texFont->drawString( mWinnersSorted[i+1]->player_name, vec2(20, 42));
-                mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[i+1]->finishTimeMillis), vec2(20, 82));
+                
+                gl::color(1,1,1,mAlpha);
+                // draw finish stats
+                if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
+                    mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[i+1]->finishTimeMillis), vec2(20, 82));
+                }
+                // RACE_TYPE_TIME
+                else{
+                    if(mModel->getUsesKph()){
+                        mGlobal->texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceMeters(), 2) + "m", vec2(20, 82));
+                    }else{
+                        mGlobal->texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceFeet(), 2) + "ft", vec2(20, 82));
+                    }
+                }
+                
+                // draw top speed
                 if(mModel->getUsesKph()){
                     mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxKph(), 1) + "kph", vec2(210, 82));
                 }else{

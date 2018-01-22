@@ -20,7 +20,6 @@ RaceView::RaceView() : bVisible(false) {
 void RaceView::setup()
 {
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
-//    mProgLine = gl::Texture::create( loadImage( loadAsset("img/progLine.png") ) );
     mLogo = gl::Texture::create( loadImage( loadAsset("img/opensprintsLogo.png") ) );
     
     mGlobal = gfx::GFXGlobal::getInstance();
@@ -33,13 +32,13 @@ void RaceView::setup()
     
     mDial = gl::Texture::create( loadImage(loadAsset("img/dial_bg_y.png")) );
     
-    mStateManager = StateManager::getInstance();
-    mModel = Model::getInstance();
-    mStateManager->signalOnStateChange.connect( std::bind(&RaceView::onStateChange, this, std::placeholders::_1) );
+    mStateManager	= StateManager::getInstance();
+    mModel			= Model::getInstance();
+    mCountDown		= CountDownGfx::create();
+    mWinnerModal	= WinnerModal::create();
     
-    mCountDown = CountDownGfx::create();
-    mWinnerModal = WinnerModal::create();
-    
+	mStateManager->signalOnStateChange.connect(std::bind(&RaceView::onStateChange, this, std::placeholders::_1));
+
     mStartStop.signalStartRace.connect( std::bind(&RaceView::onStartClicked, this ) );
     mStartStop.signalStopRace.connect( std::bind(&RaceView::onStopClicked, this ) );
     
@@ -52,14 +51,14 @@ void RaceView::setup()
 
 void RaceView::reloadShader() {
     try {
+        CI_LOG_I("Reloaded shader");
         mProgressShader = gl::GlslProg::create( loadAsset("shaders/RaceProgress.vert"), loadAsset("shaders/RaceProgress.frag") );
     }
     catch( gl::GlslProgCompileExc &exc ) {
-        std::cout << "Shader compile error: " << std::endl;
-        std::cout << exc.what();
+        CI_LOG_EXCEPTION("Shader compile error: ", exc);
     }
     catch( ... ) {
-        std::cout << "Unable to load shader" << std::endl;
+        CI_LOG_E("Unable to load shader");
     }
 }
 
@@ -101,11 +100,11 @@ ci::gl::VboMeshRef RaceView::createVbo( float innerRad, float outerRad )
         
         float a = ((float)i / (float)segments);
 
-        vbr->color( ColorA(1,0,1,a) );
+        vbr->color( ColorA(1,1,1,1) );
         vbr->texCoord(a, 0);
         vbr->vertex( pti );
         
-        vbr->color( ColorA(1,0,1,a) );
+        vbr->color( ColorA(1,1,1,1) );
         vbr->texCoord(a, 1);
         vbr->vertex( pto );
     }
@@ -163,13 +162,23 @@ void RaceView::draw()
     }
     
     // MAIN TIMER
-    
     gl::ScopedColor scB(0,0,0,1);
     
-    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING ){
-        mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
-    }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
-        mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
+    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING )
+    {
+        if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
+            mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
+        }else{
+            double timeRemaining = max(0.0, mModel->getRaceLengthMillis() - mModel->elapsedRaceTimeMillis);
+            mTimerFont->drawString( mGlobal->toTimestamp(timeRemaining), vec2(867,154) );
+        }
+    }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE )
+    {
+        if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
+            mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
+        }else{
+            mTimerFont->drawString( mGlobal->toTimestamp(0), vec2(867,154) );
+        }
     }else {
         mTimerFont->drawString( mGlobal->toTimestamp(0), vec2(867,154) );
     }
@@ -189,24 +198,32 @@ void RaceView::draw()
     for( int i=0; i<mModel->getNumRacers(); i++){
         PlayerData *pd = Model::getInstance()->playerData[i];
         
-        if( mProgressShader){
+        if(mProgressShader){
             gl::ScopedGlslProg scProg( mProgressShader );
             
+            float radialPos = pd->getPercent();
+            if(mGlobal->currentRaceType == RACE_TYPE_TIME){
+                radialPos = pd->getDistanceMeters() / 100.0f;   // 100 meters will be one lap around the track
+            }
+            float tailLen = lmap(pd->getMph(), 0.0, 30.0, 0.0, 0.30);   // 30mph means a 30% tail
+            tailLen = clamp(tailLen, 0.0f, 0.50f);  // no more than 50 though
+            
             tmpCol = mGlobal->playerColors[i];
-            mProgressShader->uniform( "baseColor", tmpCol );
-            mProgressShader->uniform( "leadingEdgePct", (float)pd->getPercent() );
-            mProgressShader->uniform( "trailingEdgePct", (float)pd->getPercent() - 0.15f );
+            mProgressShader->uniform( "uBaseColor", tmpCol );
+            mProgressShader->uniform( "uLeadingEdgePct", (float)radialPos );
+            mProgressShader->uniform( "uTailLen", (float)tailLen );
+            
+            gl::ScopedColor scCol(mGlobal->playerColors[i]);
             gl::draw( mVboList[i] );
         }
+        
+        
     }
     
     // GRAPHICS
     mCountDown->draw();
     mWinnerModal->draw();
 }
-
-
-
 
 
 

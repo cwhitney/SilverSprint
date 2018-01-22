@@ -52,21 +52,32 @@ namespace gfx {
         double getDistance(){
             double oneTickMeters = rollerCircumfMm / 1000.0;
             
-            if( curRaceTicks > totalRaceTicks ){
-                curRaceTicks = totalRaceTicks;
-            }
+//            if( curRaceTicks > totalRaceTicks ){
+//                curRaceTicks = totalRaceTicks;
+//            }
             
             double distMeters = oneTickMeters * curRaceTicks;
             
             return distMeters;
         }
         
+        double getDistanceMeters()
+        {
+            return getDistance();
+        }
+        
+        double getDistanceFeet()
+        {
+            return getDistance() * 3.28084;
+        }
+        
         bool isFinished(){
             return bFinishedRace;
         }
         
-        void setFinished( const int &finalTimeMillis ){
+        void setFinished( const int &finalTimeMillis, const int &finalRaceTicks ){
             bFinishedRace = true;
+            updateRaceTicks(finalRaceTicks);
             finishTimeMillis = finalTimeMillis;
         }
         
@@ -78,6 +89,11 @@ namespace gfx {
         {
             lastRaceTicks = curRaceTicks;
             curRaceTicks = numTicks;
+        }
+        
+        const int& getCurrentRaceTicks()
+        {
+            return curRaceTicks;
         }
         
         void updateRaceTicks( const int &numTicks, const int &millisDt )

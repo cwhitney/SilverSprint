@@ -32,10 +32,10 @@ void GFXMain::setup(){
     mStateManager = StateManager::getInstance();
     
     // VIEWS --------------------------------------------------------------
-    mNav = NavBarViewRef(new NavBarView());
-    mRaceView = RaceViewRef(new RaceView());
-    mRosterView = RosterViewRef(new RosterView());
-    mSettingsView = SettingsViewRef(new SettingsView());
+    mNav			= std::make_shared<NavBarView>();
+    mRaceView		= std::make_shared<RaceView>();
+    mRosterView		= std::make_shared<RosterView>();
+    mSettingsView	= std::make_shared<SettingsView>();
     
     mNav->setup();
     mRaceView->setup();
@@ -49,13 +49,18 @@ void GFXMain::setup(){
     mStateManager->signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
     mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
     
-    mStateManager->signalRacerFinish.connect( [&](int _id, int _millis){
-        mModel->playerData[_id]->setFinished(_millis);
+    mStateManager->signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
+        mModel->playerData[_id]->setFinished(_finishMillis, _finishTicks);
     });
     
     // START --------------------------------------------------------------
     mStateManager->changeAppState( APP_STATE::RACE, true );
     mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED, true );
+}
+
+void GFXMain::reloadShaders()
+{
+    mRaceView->reloadShader();
 }
 
 void GFXMain::onRaceFinished() {
@@ -71,8 +76,15 @@ void GFXMain::onAppStateChaged( APP_STATE as ) {
 void GFXMain::onRaceStateChanged( RACE_STATE rc ){
     
     if( rc == RACE_STATE::RACE_STARTING ){
+        if(GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_DISTANCE ){
+            mSerialReader->setRaceType(RACE_TYPE_DISTANCE);
+            mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
+        }else{
+            mSerialReader->setRaceType(RACE_TYPE_TIME);
+            mSerialReader->setRaceDuration( mModel->getRaceTimeSeconds() );
+        }
+        
 		mModel->resetPlayers();
-        mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
         mSerialReader->startRace();
     }
     
@@ -83,12 +95,19 @@ void GFXMain::onRaceStateChanged( RACE_STATE rc ){
     }
 }
 
-void GFXMain::onKeyDown(KeyEvent event){
+void GFXMain::onKeyDown(KeyEvent event)
+{
+
+    if(event.getCode() == KeyEvent::KEY_SPACE && StateManager::getInstance()->getCurrentAppState() == gfx::APP_STATE::RACE){
+        if(StateManager::getInstance()->getCurrentRaceState() == gfx::RACE_STATE::RACE_STOPPED){
+            mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+        }else{
+            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
+        }
+    }
+    
     if( !event.isAccelDown() && !event.isControlDown() ){
         return;
-    }
-    else if( event.getChar() == 'r'){
-        mRaceView->reloadShader();
     }
     else if( event.getChar() == 'm'){
         mSerialReader->setMockMode();

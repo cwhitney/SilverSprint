@@ -30,7 +30,7 @@
 		CB202BB61E40FCE700E79AF7 /* Osc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB202BB41E40FCE700E79AF7 /* Osc.cpp */; };
 		CB37B3861E297897009FC93A /* ssIcn.icns in Resources */ = {isa = PBXBuildFile; fileRef = CB37B3851E297897009FC93A /* ssIcn.icns */; };
 		CB49AA221E44F1A300820D70 /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */; };
-		CB893EBA1EE8A7FC00787FD6 /* ToggleBtn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB893EB91EE8A7FC00787FD6 /* ToggleBtn.cpp */; };
+		CB675B9E1FCB5A3100AF05DA /* ToggleBtn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */; };
 		CBF06EFD1C5011ED0064CC52 /* GFXMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */; };
 		CBF06EFE1C5011ED0064CC52 /* SSManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE81C5011ED0064CC52 /* SSManager.cpp */; };
 		CBF06EFF1C5011ED0064CC52 /* GFXGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */; };
@@ -50,6 +50,7 @@
 		CBF06F0D1C5011ED0064CC52 /* RaceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EFA1C5011ED0064CC52 /* RaceView.cpp */; };
 		CBF06F0E1C5011ED0064CC52 /* RosterView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EFB1C5011ED0064CC52 /* RosterView.cpp */; };
 		CBF06F0F1C5011ED0064CC52 /* SettingsView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EFC1C5011ED0064CC52 /* SettingsView.cpp */; };
+		CBF0F7501FBD3FCE00421F89 /* CheckBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF0F74F1FBD3FCE00421F89 /* CheckBox.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +66,7 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		2FF84B46AB5B427BA94A3D7A /* SilverSprintApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = SilverSprintApp.cpp; path = ../src/SilverSprintApp.cpp; sourceTree = "<group>"; };
+		2FF84B46AB5B427BA94A3D7A /* SilverSprintApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SilverSprintApp.cpp; path = ../src/SilverSprintApp.cpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		80018D0C1B264B72BC049A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* SilverSprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverSprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,8 +99,9 @@
 		CB37B3851E297897009FC93A /* ssIcn.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ssIcn.icns; path = ../resources/ssIcn.icns; sourceTree = "<group>"; };
 		CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystem.cpp; sourceTree = "<group>"; };
 		CB49AA211E44F1A300820D70 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
-		CB893EB81EE8A7F200787FD6 /* ToggleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToggleBtn.h; sourceTree = "<group>"; };
-		CB893EB91EE8A7FC00787FD6 /* ToggleBtn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToggleBtn.cpp; sourceTree = "<group>"; };
+		CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToggleBtn.cpp; sourceTree = "<group>"; };
+		CB675B9F1FCB5A3E00AF05DA /* ToggleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToggleBtn.h; sourceTree = "<group>"; };
+		CB675BA01FCD16D200AF05DA /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXMain.cpp; sourceTree = "<group>"; };
 		CBF06EE81C5011ED0064CC52 /* SSManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SSManager.cpp; sourceTree = "<group>"; };
 		CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXGlobal.cpp; sourceTree = "<group>"; };
@@ -130,6 +132,8 @@
 		CBF06F251C5012070064CC52 /* RaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceView.h; sourceTree = "<group>"; };
 		CBF06F261C5012070064CC52 /* RosterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosterView.h; sourceTree = "<group>"; };
 		CBF06F271C5012070064CC52 /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsView.h; sourceTree = "<group>"; };
+		CBF0F74E1FBD3FC200421F89 /* CheckBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
+		CBF0F74F1FBD3FCE00421F89 /* CheckBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckBox.cpp; sourceTree = "<group>"; };
 		FECFA142AF1A4CF583EAA96C /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -429,6 +433,7 @@
 		CBF06EEE1C5011ED0064CC52 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				CBF0F74F1FBD3FCE00421F89 /* CheckBox.cpp */,
 				CBF06EEF1C5011ED0064CC52 /* BaseButton.cpp */,
 				CBF06EF01C5011ED0064CC52 /* CiTextField.cpp */,
 				CBF06EF11C5011ED0064CC52 /* CountDownGfx.cpp */,
@@ -437,7 +442,7 @@
 				CBF06EF41C5011ED0064CC52 /* RaceText.cpp */,
 				CBF06EF51C5011ED0064CC52 /* StartStopButton.cpp */,
 				CBF06EF61C5011ED0064CC52 /* ThickLine.cpp */,
-				CB893EB91EE8A7FC00787FD6 /* ToggleBtn.cpp */,
+				CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */,
 				CBF06EF71C5011ED0064CC52 /* WinnerModal.cpp */,
 			);
 			name = ui;
@@ -469,6 +474,7 @@
 		CBF06F131C5012070064CC52 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				CB675BA01FCD16D200AF05DA /* Config.h */,
 				CBF06F141C5012070064CC52 /* GFXGlobal.h */,
 				CBF06F151C5012070064CC52 /* Model.h */,
 				CBF06F161C5012070064CC52 /* PlayerData.h */,
@@ -482,6 +488,7 @@
 		CBF06F191C5012070064CC52 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				CBF0F74E1FBD3FC200421F89 /* CheckBox.h */,
 				CB37B37C1E296064009FC93A /* BaseButton.h */,
 				CB37B37D1E296064009FC93A /* CiTextField.h */,
 				CB37B37E1E296064009FC93A /* CountDownGfx.h */,
@@ -490,7 +497,7 @@
 				CB37B3811E296064009FC93A /* RaceText.h */,
 				CB37B3821E296064009FC93A /* StartStopButton.h */,
 				CB37B3831E296064009FC93A /* ThickLine.h */,
-				CB893EB81EE8A7F200787FD6 /* ToggleBtn.h */,
+				CB675B9F1FCB5A3E00AF05DA /* ToggleBtn.h */,
 				CB37B3841E296064009FC93A /* WinnerModal.h */,
 			);
 			name = ui;
@@ -576,6 +583,7 @@
 			files = (
 				CBF06F0C1C5011ED0064CC52 /* NavBarView.cpp in Sources */,
 				A483B093679443AD9AD9E0B7 /* SilverSprintApp.cpp in Sources */,
+				CBF0F7501FBD3FCE00421F89 /* CheckBox.cpp in Sources */,
 				CBF06F051C5011ED0064CC52 /* CountDownGfx.cpp in Sources */,
 				CBF06F021C5011ED0064CC52 /* StateManager.cpp in Sources */,
 				CBF06F081C5011ED0064CC52 /* RaceText.cpp in Sources */,
@@ -586,6 +594,7 @@
 				CB202BAF1E40FC9C00E79AF7 /* win.cc in Sources */,
 				CBF06EFD1C5011ED0064CC52 /* GFXMain.cpp in Sources */,
 				CB202BAD1E40FC9C00E79AF7 /* list_ports_win.cc in Sources */,
+				CB675B9E1FCB5A3100AF05DA /* ToggleBtn.cpp in Sources */,
 				CBF06F0D1C5011ED0064CC52 /* RaceView.cpp in Sources */,
 				CBF06F0E1C5011ED0064CC52 /* RosterView.cpp in Sources */,
 				CB202BB11E40FC9C00E79AF7 /* SerialDevice.cpp in Sources */,
@@ -598,7 +607,6 @@
 				CBF06F001C5011ED0064CC52 /* Model.cpp in Sources */,
 				CBF06F031C5011ED0064CC52 /* BaseButton.cpp in Sources */,
 				CBF06EFF1C5011ED0064CC52 /* GFXGlobal.cpp in Sources */,
-				CB893EBA1EE8A7FC00787FD6 /* ToggleBtn.cpp in Sources */,
 				CBF06F041C5011ED0064CC52 /* CiTextField.cpp in Sources */,
 				CBF06F0F1C5011ED0064CC52 /* SettingsView.cpp in Sources */,
 				CB202BB61E40FCE700E79AF7 /* Osc.cpp in Sources */,
@@ -629,7 +637,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/macosx/$(CONFIGURATION)/libcinder.a\"";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sharkbox.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SilverSprint;
 				SYMROOT = ./build;
 				WRAPPER_EXTENSION = app;
@@ -656,7 +664,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/macosx/$(CONFIGURATION)/libcinder.a\"";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sharkbox.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SilverSprint;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;

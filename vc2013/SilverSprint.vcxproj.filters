@@ -189,6 +189,9 @@
     <ClCompile Include="..\src\ui\ToggleBtn.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ui\CheckBox.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
@@ -276,6 +279,9 @@
       <Filter>Blocks\ParticleSystem</Filter>
     </ClInclude>
     <ClInclude Include="..\include\ui\ToggleBtn.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\CheckBox.h">
       <Filter>Header Files\ui</Filter>
     </ClInclude>
   </ItemGroup>

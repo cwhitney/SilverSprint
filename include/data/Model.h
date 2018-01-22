@@ -19,10 +19,12 @@ namespace gfx {
         friend class SerialReader;
         
       public:
+
         static Model* getInstance();
         void resetPlayers();
         
         void setRaceLengthMeters( const float &meters );
+        const float& getRaceLengthMeters(){ return raceLengthMeters; }
         const int& getRaceLengthTicks(){ return totalRaceTicks; }
         
         void setNumRacers( const int &num ){ mNumRacers = num; }
@@ -31,11 +33,17 @@ namespace gfx {
         void setRollerDiameterMm( const float &mm );
         const float& getRollerDiameterMm(){ return mRollerDiameterMm; }
         
+        void setRaceTimeSeconds(double seconds){ mRaceLengthMillis = seconds * 1000.0; };
+        const double getRaceTimeSeconds(){ return mRaceLengthMillis / 1000.0; };
+        
         const bool& isHardwareConnected(){ return bHardwareConnected; }
         PlayerData* getPlayerData(int num){ return playerData[num]; };
         
+        const double& getRaceLengthMillis(){ return mRaceLengthMillis;}
+
         void setUseKph(bool useKph){ bUseKph = useKph;}
         bool getUsesKph(){ return bUseKph; }
+
 
         std::vector<gfx::PlayerData*>   playerData;
         ci::Color                       playerColors[4];
@@ -52,13 +60,18 @@ namespace gfx {
         
         static Model    *mInstance;
         
-        int     mNumRacers;
+        int     mNumRacers = 2;
+        
+        // For distance based
         void    setRaceLength(int ticks);
         int     totalRaceTicks;
-        float   raceLengthMeters;
+        float   raceLengthMeters = 100;
         
-        float   mRollerDiameterMm;
-        bool    bHardwareConnected;
+        // For time based
+        double    mRaceLengthMillis = 60000;
+        
+        float   mRollerDiameterMm = 114.3f;
+        bool    bHardwareConnected = false;
         bool    bUseKph = true;
     };
 }

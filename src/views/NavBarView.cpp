@@ -40,13 +40,13 @@ void NavBarView::setup()
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&NavBarView::mouseUp, this, std::placeholders::_1));
     
-    StateManager::getInstance()->signalOnStateChange.connect( [&](APP_STATE state){
+    StateManager::getInstance()->signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState){
         for( int i=0; i<mIconList.size(); i++){
             mIconList[i].bActive = false;
         }
-        if( state == APP_STATE::RACE )      mIconList[0].bActive = true;
-        if( state == APP_STATE::ROSTER )    mIconList[1].bActive = true;
-        if( state == APP_STATE::SETTINGS )  mIconList[2].bActive = true;
+        if( newState == APP_STATE::RACE )      mIconList[0].bActive = true;
+        if( newState == APP_STATE::ROSTER )    mIconList[1].bActive = true;
+        if( newState == APP_STATE::SETTINGS )  mIconList[2].bActive = true;
     });
 }
 
@@ -70,8 +70,8 @@ void NavBarView::mouseUp(cinder::app::MouseEvent event){
     
 }
 
-void NavBarView::draw() {
-    
+void NavBarView::draw()
+{
     for( int i=0; i<mIconList.size(); i++){
         if( mIconList[i].bActive ){
             gl::color( ColorA(1,1,1,1) );
@@ -81,7 +81,4 @@ void NavBarView::draw() {
         
         gl::draw( mIconList[i].tex, mIconList[i].rect);
     }
-    
-    
-    
 }
