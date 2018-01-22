@@ -13,6 +13,8 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Log.h"
 
+#include "Version.h"
+
 #include "data/StateManager.h"
 #include "data/Model.h"
 #include "data/GFXGlobal.h"

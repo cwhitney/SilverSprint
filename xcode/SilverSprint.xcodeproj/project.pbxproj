@@ -99,6 +99,7 @@
 		CB37B3851E297897009FC93A /* ssIcn.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ssIcn.icns; path = ../resources/ssIcn.icns; sourceTree = "<group>"; };
 		CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystem.cpp; sourceTree = "<group>"; };
 		CB49AA211E44F1A300820D70 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
+		CB628DD120158AB3008FC730 /* Version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Version.h; path = ../include/Version.h; sourceTree = "<group>"; };
 		CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToggleBtn.cpp; sourceTree = "<group>"; };
 		CB675B9F1FCB5A3E00AF05DA /* ToggleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToggleBtn.h; sourceTree = "<group>"; };
 		CB675BA01FCD16D200AF05DA /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -232,6 +233,7 @@
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				CB628DD120158AB3008FC730 /* Version.h */,
 				CBF06F101C5012070064CC52 /* app */,
 				CBF06F131C5012070064CC52 /* data */,
 				CBF06F191C5012070064CC52 /* ui */,
