@@ -232,5 +232,9 @@ void SettingsView::draw()
         {
             mMphKphToggle->draw();
         }
+        {
+            gl::ScopedColor scGr( Color::gray(0.55) );
+            tFont->drawString("SILVERSPRINT VERSION: " + std::string(SILVERSPRINT_VERSION_STR), vec2(60, 1080- 20));
+        }
     }
 }
