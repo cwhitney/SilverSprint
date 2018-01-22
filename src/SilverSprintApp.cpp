@@ -61,9 +61,9 @@ void SilverSprintApp::loadSettings()
 {
 	CI_LOG_I("Load settings");
     fs::path targetPath = ci::app::getAppPath().parent_path() / fs::path("settings.cfg");
-#ifdef CINDER_MAC
+#if defined(CINDER_MAC)
 	targetPath = ci::app::Platform::get()->expandPath("~/Library") / fs::path("SilverSprints/settings.cfg");
-#elif CINDER_MSW
+#elif defined(CINDER_MSW)
 	targetPath = getDocumentsDirectory() / fs::path("SilverSprints/settings.cfg");
 #endif
 
@@ -92,9 +92,9 @@ void SilverSprintApp::writeSettings()
     
     fs::path targetPath = ci::app::getAppPath().parent_path() / fs::path("settings.cfg");
     
-#ifdef CINDER_MAC
+#if defined(CINDER_MAC)
 	targetPath = ci::app::Platform::get()->expandPath("~/Library") / fs::path("SilverSprints/settings.cfg");
-#elif CINDER_MSW
+#elif defined(CINDER_MSW)
 	targetPath = getDocumentsDirectory() / fs::path("SilverSprints/settings.cfg");
 #endif
 
