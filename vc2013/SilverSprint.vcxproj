@@ -259,6 +259,7 @@
     <ClInclude Include="..\include\ui\ThickLine.h" />
     <ClInclude Include="..\include\ui\ToggleBtn.h" />
     <ClInclude Include="..\include\ui\WinnerModal.h" />
+    <ClInclude Include="..\include\Version.h" />
     <ClInclude Include="..\include\views\NavBarView.h" />
     <ClInclude Include="..\include\views\RaceView.h" />
     <ClInclude Include="..\include\views\RosterView.h" />
