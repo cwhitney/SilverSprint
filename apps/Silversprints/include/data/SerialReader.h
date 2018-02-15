@@ -54,7 +54,6 @@ namespace gfx
         bool                isRaceFinished();
         
         StateManager        *mStateManager;
-        Model               *mModel;
         
         void                readSerial();
         void                sendSerialMessage( std::string msg );

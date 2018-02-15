@@ -79,11 +79,11 @@ void SilverSprintApp::loadSettings()
 //        config().load(targetPath);
         
         gfx::GFXGlobal::getInstance()->currentRaceType = (gfx::RACE_TYPE)config().get("settings", "race_type", (int)RACE_TYPE_DISTANCE);
-        Model::getInstance()->setRaceLengthMeters(  config().get("settings", "race_length_meters", 100));
-        Model::getInstance()->setRaceTimeSeconds(   config().get("settings", "race_time", 60));
-        Model::getInstance()->setUseKph(            config().get("settings", "race_kph", true));
-        Model::getInstance()->setRollerDiameterMm(  config().get("settings", "roller_diameter_mm", 114.3));
-        Model::getInstance()->setNumRacers(         config().get("settings", "num_racers", 114.3));
+        Model::instance().setRaceLengthMeters(  config().get("settings", "race_length_meters", 100));
+        Model::instance().setRaceTimeSeconds(   config().get("settings", "race_time", 60));
+        Model::instance().setUseKph(            config().get("settings", "race_kph", true));
+        Model::instance().setRollerDiameterMm(  config().get("settings", "roller_diameter_mm", 114.3));
+        Model::instance().setNumRacers(         config().get("settings", "num_racers", 114.3));
         
         setFullScreen( config().get("app", "fullscreen", false));
     }
@@ -92,11 +92,11 @@ void SilverSprintApp::loadSettings()
 void SilverSprintApp::writeSettings()
 {
     config().set("settings", "race_type", (int)gfx::GFXGlobal::getInstance()->currentRaceType);
-    config().set("settings", "race_length_meters", Model::getInstance()->getRaceLengthMeters());
-    config().set("settings", "race_time", Model::getInstance()->getRaceTimeSeconds());
-    config().set("settings", "race_kph", Model::getInstance()->getUsesKph());
-    config().set("settings", "roller_diameter_mm", Model::getInstance()->getRollerDiameterMm());
-    config().set("settings", "num_racers", Model::getInstance()->getNumRacers());
+    config().set("settings", "race_length_meters", Model::instance().getRaceLengthMeters());
+    config().set("settings", "race_time", Model::instance().getRaceTimeSeconds());
+    config().set("settings", "race_kph", Model::instance().getUsesKph());
+    config().set("settings", "roller_diameter_mm", Model::instance().getRollerDiameterMm());
+    config().set("settings", "num_racers", Model::instance().getNumRacers());
     
     fs::path targetPath = ci::app::getAppPath().parent_path() / fs::path("settings.cfg");
     

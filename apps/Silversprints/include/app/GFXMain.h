@@ -52,7 +52,6 @@ namespace gfx{
         RosterViewRef       mRosterView;
         SettingsViewRef     mSettingsView;
         
-        Model               *mModel;
         SerialReaderRef     mSerialReader;
         StateManager        *mStateManager;
         

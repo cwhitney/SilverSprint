@@ -16,14 +16,15 @@ using namespace gfx;
 Model* Model::mInstance = NULL;
 
 Model::Model(){
+    /*
     elapsedRaceTimeMillis = 0;
     raceLengthMeters = 50;
-    mRollerDiameterMm = 114.3; // This is 4.5 inches in mm
+    mRollerDiameterMm = 114.3;
     totalRaceTicks = 0;
     startTimeMillis = 0;
     mNumRacers = 2;
     bHardwareConnected = false;
-    
+    */
     playerColors[0] = ci::ColorA(185.0 / 255.0, 33.0 / 255.0, 64.0 / 255.0, 1.0);
     playerColors[1] = ci::ColorA(28.0 / 255.0, 145.0 / 255.0, 133.0 / 255.0, 1.0);
     playerColors[2] = ci::ColorA(22.0 / 255.0, 146.0 / 255.0, 84.0 / 255.0, 1.0);
@@ -48,37 +49,30 @@ Model::~Model(){
     }
 }
 
-Model * Model::getInstance(){
-    if (!mInstance){
-        mInstance = new Model();
-    }
-    return mInstance;
-}
-
 // --------------------------------------------------------------------
 
 void Model::setRollerDiameterMm(const float &mm)
 {
-    mRollerDiameterMm = mm;
+    RaceSettings.mRollerDiameterMm = mm;
     for( int i=0; i<playerData.size(); i++){
         playerData[i]->setRollerDiameter(mm);
     }
 }
 
 void Model::setRaceLengthMeters(const float &meters){
-    raceLengthMeters = meters;
+    RaceSettings.raceLengthMeters = meters;
     
     float totalDistMm = meters * 1000.0;
-    float oneRollerRev = mRollerDiameterMm * M_PI;
+    float oneRollerRev = RaceSettings.mRollerDiameterMm * M_PI;
     int numTicks =  floor(totalDistMm / oneRollerRev);
     setRaceLength( numTicks );
 }
 
 void Model::setRaceLength(int ticks) {
-    totalRaceTicks = ticks;
+    RaceSettings.totalRaceTicks = ticks;
     
     for( int i=0; i<playerData.size(); i++){
-        playerData[i]->totalRaceTicks = totalRaceTicks;
+        playerData[i]->totalRaceTicks = RaceSettings.totalRaceTicks;
     }
 }
 

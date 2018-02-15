@@ -18,7 +18,6 @@ RosterView::RosterView() : bVisible(false) {
 }
 
 void RosterView::setup(){
-    mModel = Model::getInstance();
     mGlobal = gfx::GFXGlobal::getInstance();
     
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
@@ -108,7 +107,7 @@ void RosterView::animateOut(){
     }
     
     for( int i=0; i<mPlayerNames.size(); i++ ){
-        mModel->playerData[i]->player_name = mPlayerNames[i]->getText();
+        Model::instance().playerData[i]->player_name = mPlayerNames[i]->getText();
     }
     
     bVisible = false;
@@ -139,7 +138,7 @@ void RosterView::draw(){
         gl::draw( mBg );
     }
     
-    for(int i=0; i<mModel->getNumRacers(); i++){
+    for(int i=0; i < Model::instance().getNumRacers(); i++){
         mPlayerNames[i]->draw();
         
 //        if( mPlayerNames[i]->isEnabled() ){

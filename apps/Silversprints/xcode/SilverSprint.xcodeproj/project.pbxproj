@@ -32,7 +32,6 @@
 		CB49AA221E44F1A300820D70 /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */; };
 		CB675B9E1FCB5A3100AF05DA /* ToggleBtn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */; };
 		CBF06EFD1C5011ED0064CC52 /* GFXMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */; };
-		CBF06EFE1C5011ED0064CC52 /* SSManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE81C5011ED0064CC52 /* SSManager.cpp */; };
 		CBF06EFF1C5011ED0064CC52 /* GFXGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */; };
 		CBF06F001C5011ED0064CC52 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEB1C5011ED0064CC52 /* Model.cpp */; };
 		CBF06F011C5011ED0064CC52 /* SerialReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEC1C5011ED0064CC52 /* SerialReader.cpp */; };
@@ -104,9 +103,7 @@
 		CB675B9F1FCB5A3E00AF05DA /* ToggleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToggleBtn.h; sourceTree = "<group>"; };
 		CB675BA01FCD16D200AF05DA /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		CB6D5B762017F9EF008D7EE2 /* CsvLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CsvLogger.h; sourceTree = "<group>"; };
-		CB6D5B7A2019194C008D7EE2 /* LIEGLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LIEGLogger.h; sourceTree = "<group>"; };
 		CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXMain.cpp; sourceTree = "<group>"; };
-		CBF06EE81C5011ED0064CC52 /* SSManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SSManager.cpp; sourceTree = "<group>"; };
 		CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXGlobal.cpp; sourceTree = "<group>"; };
 		CBF06EEB1C5011ED0064CC52 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		CBF06EEC1C5011ED0064CC52 /* SerialReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SerialReader.cpp; sourceTree = "<group>"; };
@@ -125,7 +122,6 @@
 		CBF06EFB1C5011ED0064CC52 /* RosterView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RosterView.cpp; sourceTree = "<group>"; };
 		CBF06EFC1C5011ED0064CC52 /* SettingsView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsView.cpp; sourceTree = "<group>"; };
 		CBF06F111C5012070064CC52 /* GFXMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXMain.h; sourceTree = "<group>"; };
-		CBF06F121C5012070064CC52 /* SSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSManager.h; sourceTree = "<group>"; };
 		CBF06F141C5012070064CC52 /* GFXGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXGlobal.h; sourceTree = "<group>"; };
 		CBF06F151C5012070064CC52 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		CBF06F161C5012070064CC52 /* PlayerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerData.h; sourceTree = "<group>"; };
@@ -416,7 +412,6 @@
 			isa = PBXGroup;
 			children = (
 				CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */,
-				CBF06EE81C5011ED0064CC52 /* SSManager.cpp */,
 			);
 			name = app;
 			path = ../src/app;
@@ -469,7 +464,6 @@
 			isa = PBXGroup;
 			children = (
 				CBF06F111C5012070064CC52 /* GFXMain.h */,
-				CBF06F121C5012070064CC52 /* SSManager.h */,
 			);
 			name = app;
 			path = ../include/app;
@@ -478,7 +472,6 @@
 		CBF06F131C5012070064CC52 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				CB6D5B7A2019194C008D7EE2 /* LIEGLogger.h */,
 				CB6D5B762017F9EF008D7EE2 /* CsvLogger.h */,
 				CB675BA01FCD16D200AF05DA /* Config.h */,
 				CBF06F141C5012070064CC52 /* GFXGlobal.h */,
@@ -616,7 +609,6 @@
 				CBF06F041C5011ED0064CC52 /* CiTextField.cpp in Sources */,
 				CBF06F0F1C5011ED0064CC52 /* SettingsView.cpp in Sources */,
 				CB202BB61E40FCE700E79AF7 /* Osc.cpp in Sources */,
-				CBF06EFE1C5011ED0064CC52 /* SSManager.cpp in Sources */,
 				CBF06F071C5011ED0064CC52 /* PlayerGfx.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

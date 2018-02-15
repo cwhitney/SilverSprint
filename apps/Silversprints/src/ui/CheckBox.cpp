@@ -18,7 +18,6 @@ CheckBox::CheckBox(ci::vec2 position, bool interactive) :
     bInteractive(interactive)
 {
     
-    mModel = Model::getInstance();
     mGlobal = GFXGlobal::getInstance();
     
     mBounds = Rectf(position, position + vec2(100));

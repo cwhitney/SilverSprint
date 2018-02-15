@@ -23,7 +23,6 @@ SettingsView::SettingsView() : bVisible(false)
 {
     mGlobal			= gfx::GFXGlobal::getInstance();
     mStateManager	= StateManager::getInstance();
-    mModel			= Model::getInstance();
     mStateManager->signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState)
                                                {
                                                    onStateChange(newState, lastState);
@@ -93,6 +92,13 @@ SettingsView::SettingsView() : bVisible(false)
     mMphKphToggle->setColors( mGlobal->playerColors[0], Color::black() );
     mMphKphToggle->setSelected(ToggleBtn::TOGGLE_SIDE::RIGHT);
     
+    // Race Logging
+    yPos += 160;
+    mLabels.push_back( TextLabel(vec2(xPos, yPos-20), "LOG RACES TO FILE") );
+    mRaceLoggingBox = std::make_shared<CheckBox>(vec2(1043, yPos));
+    mRaceLoggingBox->setChecked(false);
+    
+    // Listen for events
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
 }
@@ -139,11 +145,11 @@ void SettingsView::onStateChange(APP_STATE newState, APP_STATE lastState)
         mTxtDiameter->visible = true;
         mTxtNumRacers->visible = true;
         
-        mMphKphToggle->setSelected(mModel->getUsesKph() ? ToggleBtn::TOGGLE_SIDE::RIGHT : ToggleBtn::TOGGLE_SIDE::LEFT);
-        mTxtDiameter->setText(toString<float>(mModel->getRollerDiameterMm()));
-        mTxtNumRacers->setText(toString<int>(mModel->getNumRacers()));
-        mTxtDistance->setText(toString<float>(mModel->getRaceLengthMeters()));
-        mTxtTime->setText(toString<float>(mModel->getRaceTimeSeconds()));
+        mMphKphToggle->setSelected(Model::instance().getUsesKph() ? ToggleBtn::TOGGLE_SIDE::RIGHT : ToggleBtn::TOGGLE_SIDE::LEFT);
+        mTxtDiameter->setText(toString<float>(Model::instance().getRollerDiameterMm()));
+        mTxtNumRacers->setText(toString<int>(Model::instance().getNumRacers()));
+        mTxtDistance->setText(toString<float>(Model::instance().getRaceLengthMeters()));
+        mTxtTime->setText(toString<float>(Model::instance().getRaceTimeSeconds()));
         
         if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
             mDistanceCheck->setChecked(true);
@@ -157,15 +163,15 @@ void SettingsView::onStateChange(APP_STATE newState, APP_STATE lastState)
 
     }else if(lastState == APP_STATE::SETTINGS){
 		CI_LOG_I("Settings ::  Updating model");
-        mModel->setRollerDiameterMm( fromString<float>(mTxtDiameter->getText()));
-        mModel->setNumRacers( fromString<int>(mTxtNumRacers->getText()) );
-        mModel->setRaceLengthMeters( fromString<float>(mTxtDistance->getText()) );
+        Model::instance().setRollerDiameterMm( fromString<float>(mTxtDiameter->getText()));
+        Model::instance().setNumRacers( fromString<int>(mTxtNumRacers->getText()) );
+        Model::instance().setRaceLengthMeters( fromString<float>(mTxtDistance->getText()) );
 
-        mModel->setRaceTimeSeconds( fromString<float>(mTxtTime->getText()) );
+        Model::instance().setRaceTimeSeconds( fromString<float>(mTxtTime->getText()) );
         
         GFXGlobal::getInstance()->currentRaceType = (mDistanceCheck->isChecked()) ? RACE_TYPE_DISTANCE : RACE_TYPE::RACE_TYPE_TIME;
         
-        mModel->setUseKph(mMphKphToggle->getSelected() == ToggleBtn::TOGGLE_SIDE::RIGHT);
+        Model::instance().setUseKph(mMphKphToggle->getSelected() == ToggleBtn::TOGGLE_SIDE::RIGHT);
         bVisible = false;
         
         mTxtDiameter->visible = false;
@@ -198,12 +204,12 @@ void SettingsView::draw()
         mStepperPlus.draw();
         mStepperMinus.draw();
         
-        if( mModel->isHardwareConnected() ){
+        if( Model::instance().isHardwareConnected() ){
             mConnectionBox->setChecked(true);
             
             gl::ScopedColor scGr( Color::gray(0.55) );
             tFont->drawString("FIRMWARE VERSION", mConnectionBox->getBounds().getLowerRight() + vec2(10, -30));
-            tFont->drawString(mModel->mFirmwareVersion, mConnectionBox->getBounds().getLowerRight() + vec2(10, -5));
+            tFont->drawString(Model::instance().mFirmwareVersion, mConnectionBox->getBounds().getLowerRight() + vec2(10, -5));
 
         }else{
             mConnectionBox->setChecked(false);
@@ -235,6 +241,11 @@ void SettingsView::draw()
         {
             gl::ScopedColor scGr( Color::gray(0.55) );
             tFont->drawString("SILVERSPRINT VERSION: " + std::string(SILVERSPRINT_VERSION_STR), vec2(60, 1080- 20));
+        }
+        
+        // RACE LOGGING
+        {
+            mRaceLoggingBox->draw();
         }
     }
 }

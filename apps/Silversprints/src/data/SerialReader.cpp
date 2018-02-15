@@ -37,7 +37,6 @@ SerialReader::~SerialReader()
 void SerialReader::setup()
 {
     mStateManager = StateManager::getInstance();
-    mModel = Model::getInstance();
     
     mSerialThread = std::shared_ptr<std::thread>( new std::thread( std::bind(&SerialReader::updateSerialThread, this) ) );
 }
@@ -204,22 +203,22 @@ void SerialReader::parseFromBuffer()
         // RACE FINISH (ars are the time the race finished in millis)
         else if(cmd == "0F"){
             CI_LOG_I("RACER 1 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(0, fromString<int>(args), mModel->playerData[0]->getCurrentRaceTicks());
+            mStateManager->signalRacerFinish.emit(0, fromString<int>(args), Model::instance().playerData[0]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "1F"){
             CI_LOG_I("RACER 2 FINISHED " +args);
-            mStateManager->signalRacerFinish.emit(1, fromString<int>(args), mModel->playerData[1]->getCurrentRaceTicks());
+            mStateManager->signalRacerFinish.emit(1, fromString<int>(args), Model::instance().playerData[1]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "2F"){
             CI_LOG_I("RACER 3 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(2, fromString<int>(args), mModel->playerData[2]->getCurrentRaceTicks());
+            mStateManager->signalRacerFinish.emit(2, fromString<int>(args), Model::instance().playerData[2]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         else if( cmd == "3F"){
             CI_LOG_I("RACER 4 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(3, fromString<int>(args), mModel->playerData[3]->getCurrentRaceTicks());
+            mStateManager->signalRacerFinish.emit(3, fromString<int>(args), Model::instance().playerData[3]->getCurrentRaceTicks());
             if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
         }
         
@@ -231,17 +230,17 @@ void SerialReader::parseFromBuffer()
             
             int raceMillis = fromString<int>( rdata.back() );
                                              
-            float dt = raceMillis - mModel->elapsedRaceTimeMillis;
+            float dt = raceMillis - Model::instance().elapsedRaceTimeMillis;
             
             for( int i=0; i<rdata.size()-1; i++){
-                mModel->playerData[i]->updateRaceTicks( fromString<int>(rdata[i]), dt );
+                Model::instance().playerData[i]->updateRaceTicks( fromString<int>(rdata[i]), dt );
             }
-//            mModel->playerData[0]->updateRaceTicks( fromString<int>(rdata[0]), dt );
-//            mModel->playerData[1]->updateRaceTicks( fromString<int>(rdata[1]), dt );
-//            mModel->playerData[2]->updateRaceTicks( fromString<int>(rdata[2]), dt );
-//            mModel->playerData[3]->updateRaceTicks( fromString<int>(rdata[3]), dt );
-            mModel->elapsedRaceTimeMillis = raceMillis;
-            mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - mModel->elapsedRaceTimeMillis;
+//            Model::instance().playerData[0]->updateRaceTicks( fromString<int>(rdata[0]), dt );
+//            Model::instance().playerData[1]->updateRaceTicks( fromString<int>(rdata[1]), dt );
+//            Model::instance().playerData[2]->updateRaceTicks( fromString<int>(rdata[2]), dt );
+//            Model::instance().playerData[3]->updateRaceTicks( fromString<int>(rdata[3]), dt );
+            Model::instance().elapsedRaceTimeMillis = raceMillis;
+            Model::instance().startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - Model::instance().elapsedRaceTimeMillis;
         }
         
         // ------------------------------------------------------------------------------
@@ -256,7 +255,7 @@ void SerialReader::parseFromBuffer()
             }else if( args == "1"){
                 mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_1 );
             }else if( args == "0" ){
-                mModel->startTimeMillis = ci::app::getElapsedSeconds() * 1000.0;
+                Model::instance().startTimeMillis = ci::app::getElapsedSeconds() * 1000.0;
                 
                 mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_GO );
                 mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
@@ -275,7 +274,7 @@ void SerialReader::parseFromBuffer()
         }
         else if(cmd == "V"){   // version
             mFirmwareVersion = args;
-            mModel->mFirmwareVersion = args;
+            Model::instance().mFirmwareVersion = args;
         }
         
         else{
@@ -296,14 +295,14 @@ void SerialReader::parseFromBuffer()
 void SerialReader::onConnect()
 {
     CI_LOG_I("OpenSprints hardware connected.");
-    mModel->bHardwareConnected = bSerialConnected;
-    mModel->mFirmwareVersion = "Unknown";
+    Model::instance().setHardwareConnected(bSerialConnected);
+    Model::instance().mFirmwareVersion = "Unknown";
 }
 
 void SerialReader::onDisconnect()
 {
     CI_LOG_I("OpenSprints hardware disconnected.");
-    mModel->bHardwareConnected = bSerialConnected;
+    Model::instance().setHardwareConnected(bSerialConnected);
 }
 
 void SerialReader::startRace(){
@@ -348,8 +347,8 @@ void SerialReader::sendSerialMessage( std::string msg )
 
 bool SerialReader::isRaceFinished()
 {
-    for( int i=0; i<mModel->getNumRacers(); i++){
-        if( !mModel->playerData[i]->isFinished() ){
+    for( int i=0; i<Model::instance().getNumRacers(); i++){
+        if( !Model::instance().playerData[i]->isFinished() ){
             return false;
         }
     }

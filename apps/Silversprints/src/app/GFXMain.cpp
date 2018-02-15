@@ -23,7 +23,6 @@ GFXMain::~GFXMain(){
 
 void GFXMain::setup(){
     // INIT --------------------------------------------------------------
-    mModel = Model::getInstance();
     mGlobal = GFXGlobal::getInstance();
     
     mSerialReader = SerialReaderRef( new SerialReader() );
@@ -48,7 +47,7 @@ void GFXMain::setup(){
     mStateManager->signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
     mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
     mStateManager->signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
-        mModel->playerData[_id]->setFinished(_finishMillis, _finishTicks);
+        Model::instance().playerData[_id]->setFinished(_finishMillis, _finishTicks);
     });
     
     // START --------------------------------------------------------------
@@ -76,20 +75,20 @@ void GFXMain::onRaceStateChanged( RACE_STATE rc ){
     if( rc == RACE_STATE::RACE_STARTING ){
         if(GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_DISTANCE ){
             mSerialReader->setRaceType(RACE_TYPE_DISTANCE);
-            mSerialReader->setRaceLengthTicks( mModel->getRaceLengthTicks() );
+            mSerialReader->setRaceLengthTicks( Model::instance().getRaceLengthTicks() );
         }else{
             mSerialReader->setRaceType(RACE_TYPE_TIME);
-            mSerialReader->setRaceDuration( mModel->getRaceTimeSeconds() );
+            mSerialReader->setRaceDuration( Model::instance().getRaceTimeSeconds() );
         }
         
-		mModel->resetPlayers();
+		Model::instance().resetPlayers();
         mSerialReader->startRace();
     }
     
     else if( rc == RACE_STATE::RACE_STOPPED ){
         mSerialReader->stopRace();
-     //   mModel->resetPlayers();
-        mModel->elapsedRaceTimeMillis = 0.0;
+     //   Model::instance().resetPlayers();
+        Model::instance().elapsedRaceTimeMillis = 0.0;
     }
 }
 
@@ -112,9 +111,9 @@ void GFXMain::onKeyDown(KeyEvent event)
 }
 
 void GFXMain::resetPlayerData(){
-    for( int i=0; i<mModel->playerData.size(); i++){
-        mModel->playerData[i]->reset();
-        mModel->playerData[i]->setRollerDiameter(mModel->getRollerDiameterMm());
+    for( int i=0; i<Model::instance().playerData.size(); i++){
+        Model::instance().playerData[i]->reset();
+        Model::instance().playerData[i]->setRollerDiameter(Model::instance().getRollerDiameterMm());
     }
 }
 

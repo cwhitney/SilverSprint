@@ -25,6 +25,5 @@ namespace gfx{
         
         ci::Color mColor;
         gfx::GFXGlobal  *mGlobal;
-        Model           *mModel;
     };
 }

@@ -8,7 +8,6 @@ using namespace gfx;
 WinnerModal::WinnerModal() :
     bVisible(false)
 {
-    mModel = Model::getInstance();
     mGlobal = GFXGlobal::getInstance();
 //    mWinnerRect = Rectf(100,100,500,500);
     
@@ -57,8 +56,8 @@ void WinnerModal::getWinners()
 {
     mWinnersSorted.clear();
     
-    for( int i=0; i<mModel->getNumRacers(); i++){
-        mWinnersSorted.push_back( Model::getInstance()->getPlayerData(i) );
+    for( int i=0; i<Model::instance().getNumRacers(); i++){
+        mWinnersSorted.push_back( Model::instance().getPlayerData(i) );
     }
     
     if(GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_DISTANCE){
@@ -129,7 +128,7 @@ void WinnerModal::draw()
                 mGlobal->winnerUiFont->drawString(winLabel, vec2(441, 319) - vec2(labelSize.x*0.5, 0));
                 
                 gl::color(1,1,1,mAlpha);
-                if(mModel->getUsesKph()){
+                if(Model::instance().getUsesKph()){
                     mGlobal->texFont->drawString(toString(mWinnersSorted[0]->getDistanceMeters(), 2) + "m", vec2(356, 362));
                 }else{
                     mGlobal->texFont->drawString(toString(mWinnersSorted[0]->getDistanceFeet(), 2) + "ft", vec2(356, 362));
@@ -137,7 +136,7 @@ void WinnerModal::draw()
             }
             
             gl::color(1,1,1,mAlpha);
-            if(mModel->getUsesKph()){
+            if(Model::instance().getUsesKph()){
                 mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxKph(), 1) + "kph", vec2(604-20, 362));
             }else{
                 mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxMph(), 1) + "mph", vec2(604-20, 362));
@@ -149,7 +148,7 @@ void WinnerModal::draw()
             gl::translate( mWinnerRect.getUpperLeft() );
             gl::translate( vec2(0, 688) );
             
-            int NR = (mModel->getNumRacers()-1);
+            int NR = (Model::instance().getNumRacers()-1);
             float gap = 24;
             float totalWidth = (360 * NR) + gap * (NR-1);
             Rectf bgRect(0,0,360,100);
@@ -183,7 +182,7 @@ void WinnerModal::draw()
                 }
                 // RACE_TYPE_TIME
                 else{
-                    if(mModel->getUsesKph()){
+                    if(Model::instance().getUsesKph()){
                         mGlobal->texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceMeters(), 2) + "m", vec2(20, 82));
                     }else{
                         mGlobal->texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceFeet(), 2) + "ft", vec2(20, 82));
@@ -191,7 +190,7 @@ void WinnerModal::draw()
                 }
                 
                 // draw top speed
-                if(mModel->getUsesKph()){
+                if(Model::instance().getUsesKph()){
                     mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxKph(), 1) + "kph", vec2(210, 82));
                 }else{
                     mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxMph(), 1) + "mph", vec2(210, 82));

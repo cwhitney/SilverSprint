@@ -47,8 +47,7 @@ namespace gfx{
         
         ci::gl::TextureRef  mBg, mCancelBtn;
         StateManager        *mStateManager;
-        Model               *mModel;
-        GFXGlobal      *mGlobal;
+        GFXGlobal           *mGlobal;
         
         
         BOOL        bVisible;

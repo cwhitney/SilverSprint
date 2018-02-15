@@ -20,30 +20,36 @@ namespace gfx {
         
       public:
 
-        static Model* getInstance();
+        static Model &instance(){
+            static Model sInstance;
+            return sInstance;
+        }
+        
         void resetPlayers();
         
         void setRaceLengthMeters( const float &meters );
-        const float& getRaceLengthMeters(){ return raceLengthMeters; }
-        const int& getRaceLengthTicks(){ return totalRaceTicks; }
+        const float& getRaceLengthMeters(){ return RaceSettings.raceLengthMeters; }
+        const int& getRaceLengthTicks(){ return RaceSettings.totalRaceTicks; }
         
-        void setNumRacers( const int &num ){ mNumRacers = num; }
-        const int& getNumRacers(){ return mNumRacers; }
+        void setNumRacers( const int &num ){ RaceSettings.numRacers = num; }
+        const int& getNumRacers(){ return RaceSettings.numRacers; }
         
         void setRollerDiameterMm( const float &mm );
-        const float& getRollerDiameterMm(){ return mRollerDiameterMm; }
+        const float& getRollerDiameterMm(){ return RaceSettings.mRollerDiameterMm; }
         
-        void setRaceTimeSeconds(double seconds){ mRaceLengthMillis = seconds * 1000.0; };
-        const double getRaceTimeSeconds(){ return mRaceLengthMillis / 1000.0; };
+        void setRaceTimeSeconds(const double &seconds){ RaceSettings.mRaceLengthMillis = seconds * 1000.0; };
+        const double getRaceTimeSeconds(){ return RaceSettings.mRaceLengthMillis / 1000.0; };
         
-        const bool& isHardwareConnected(){ return bHardwareConnected; }
-        PlayerData* getPlayerData(int num){ return playerData[num]; };
+        void setHardwareConnected(const bool &connected){ RaceSettings.bHardwareConnected = connected; }
+        const bool& isHardwareConnected(){ return RaceSettings.bHardwareConnected; }
+        PlayerData* getPlayerData(const int &num){ return playerData[num]; };
         
-        const double& getRaceLengthMillis(){ return mRaceLengthMillis;}
+        const double& getRaceLengthMillis(){ return RaceSettings.mRaceLengthMillis;}
 
-        void setUseKph(bool useKph){ bUseKph = useKph;}
-        bool getUsesKph(){ return bUseKph; }
+        void setUseKph(bool useKph){ RaceSettings.bUseKph = useKph;}
+        bool getUsesKph(){ return RaceSettings.bUseKph; }
 
+//        bool isHardwareConnected(){ return RaceSettings.bHardwareConnected; }
 
         std::vector<gfx::PlayerData*>   playerData;
         ci::Color                       playerColors[4];
@@ -60,18 +66,25 @@ namespace gfx {
         
         static Model    *mInstance;
         
-        int     mNumRacers = 2;
-        
-        // For distance based
         void    setRaceLength(int ticks);
-        int     totalRaceTicks;
-        float   raceLengthMeters = 100;
         
-        // For time based
-        double    mRaceLengthMillis = 60000;
+        struct RaceSettings {
+            int numRacers = 2;
+            // For distance based
+            
+            int     totalRaceTicks = 0;
+            float   raceLengthMeters = 100;
+            
+            // For time based
+            double    mRaceLengthMillis = 60000;
+            
+            float   mRollerDiameterMm = 114.3f;     // This is 4.5 inches in mm
+            bool    bHardwareConnected = false;
+            bool    bUseKph = true;
+        } RaceSettings;
         
-        float   mRollerDiameterMm = 114.3f;
-        bool    bHardwareConnected = false;
-        bool    bUseKph = true;
+       
+        
+        
     };
 }

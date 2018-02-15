@@ -18,7 +18,6 @@ using namespace std;
 RaceText::RaceText( const ci::Color &color ){
     mColor = color;
     mGlobal = gfx::GFXGlobal::getInstance();
-    mModel = gfx::Model::getInstance();
 }
 
 std::string RaceText::toDec( float num, int decPlaces ) {
@@ -60,14 +59,14 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
         mGlobal->texFont->drawString(data->player_name, vec2(20, 44) );
         
         // sPEED
-        if( mModel->getUsesKph()){
+        if( Model::instance().getUsesKph()){
             gl::drawStringRight( toDec(data->getKph(), 0) + " KPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
         }else{
             gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
         }
         
         if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME ){
-            if(mModel->getUsesKph()){
+            if(Model::instance().getUsesKph()){
                 mGlobal->texFont->drawString(toDec(data->getDistanceMeters(), 2) + "m", vec2(1485,44));
             }else{
                 mGlobal->texFont->drawString(toDec(data->getDistanceFeet(), 2) + "ft", vec2(1485,44));
@@ -77,7 +76,7 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
             if( data->didFinishRace() ){
                 mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( data->finishTimeMillis ), vec2(1485,44) );
             }else{
-                mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( mModel->elapsedRaceTimeMillis ), vec2(1485,44) );
+                mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( Model::instance().elapsedRaceTimeMillis ), vec2(1485,44) );
             }
         }
         

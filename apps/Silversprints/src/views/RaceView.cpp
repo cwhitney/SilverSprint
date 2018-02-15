@@ -33,7 +33,6 @@ void RaceView::setup()
     mDial = gl::Texture::create( loadImage(loadAsset("img/dial_bg_y.png")) );
     
     mStateManager	= StateManager::getInstance();
-    mModel			= Model::getInstance();
     mCountDown		= CountDownGfx::create();
     mWinnerModal	= WinnerModal::create();
     
@@ -115,14 +114,14 @@ ci::gl::VboMeshRef RaceView::createVbo( float innerRad, float outerRad )
 
 void RaceView::onStartClicked()
 {
-    if( mModel->isHardwareConnected() ){
+    if( Model::instance().isHardwareConnected() ){
         mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
     }
 }
 
 void RaceView::onStopClicked()
 {
-    if( mModel->isHardwareConnected() ){
+    if( Model::instance().isHardwareConnected() ){
         mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
     }
 }
@@ -156,8 +155,8 @@ void RaceView::draw()
     gl::drawSolidRect( Rectf( 60, 133, 1870, 135 ) );            // white line
     
     // PLAYER INFO
-    for( int i=0; i<mModel->getNumRacers(); i++){
-        PlayerData *pd = Model::getInstance()->playerData[i];
+    for( int i=0; i<Model::instance().getNumRacers(); i++){
+        PlayerData *pd = Model::instance().playerData[i];
         mRaceTexts[i]->draw( pd, vec2(0, 390 + 102*i) );
     }
     
@@ -167,15 +166,15 @@ void RaceView::draw()
     if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING )
     {
         if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
-            mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
+            mTimerFont->drawString( mGlobal->toTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );
         }else{
-            double timeRemaining = max(0.0, mModel->getRaceLengthMillis() - mModel->elapsedRaceTimeMillis);
+            double timeRemaining = max(0.0, Model::instance().getRaceLengthMillis() - Model::instance().elapsedRaceTimeMillis);
             mTimerFont->drawString( mGlobal->toTimestamp(timeRemaining), vec2(867,154) );
         }
     }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE )
     {
         if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
-            mTimerFont->drawString( mGlobal->toTimestamp(mModel->elapsedRaceTimeMillis ), vec2(867,154) );
+            mTimerFont->drawString( mGlobal->toTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );
         }else{
             mTimerFont->drawString( mGlobal->toTimestamp(0), vec2(867,154) );
         }
@@ -195,8 +194,8 @@ void RaceView::draw()
     }
     
     ci::ColorA tmpCol;
-    for( int i=0; i<mModel->getNumRacers(); i++){
-        PlayerData *pd = Model::getInstance()->playerData[i];
+    for( int i=0; i<Model::instance().getNumRacers(); i++){
+        PlayerData *pd = Model::instance().playerData[i];
         
         if(mProgressShader){
             gl::ScopedGlslProg scProg( mProgressShader );

@@ -48,7 +48,6 @@ namespace gfx {
         const int       mMaxRiders = 4;
         
         StateManager    *mStateManager;
-        Model           *mModel;
         GFXGlobal       *mGlobal;
         
         bool            bVisible = false;
@@ -67,6 +66,7 @@ namespace gfx {
         CheckBoxRef     mConnectionBox;
         CheckBoxRef     mDistanceCheck;
         CheckBoxRef     mTimeTrialBox;
+        CheckBoxRef     mRaceLoggingBox;
 
         ToggleBtnRef    mMphKphToggle;
         

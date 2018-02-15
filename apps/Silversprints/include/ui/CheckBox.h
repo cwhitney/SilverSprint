@@ -31,7 +31,6 @@ class CheckBox : public BaseButton {
     bool        bInteractive = true;
     bool        bChecked = false;
     
-    gfx::Model           *mModel;
     gfx::GFXGlobal       *mGlobal;
     
     ThickLineRef    mXLine1, mXLine2, mCheckLine1, mCheckLine2;
