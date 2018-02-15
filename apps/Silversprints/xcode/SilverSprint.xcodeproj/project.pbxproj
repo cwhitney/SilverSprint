@@ -103,6 +103,8 @@
 		CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToggleBtn.cpp; sourceTree = "<group>"; };
 		CB675B9F1FCB5A3E00AF05DA /* ToggleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToggleBtn.h; sourceTree = "<group>"; };
 		CB675BA01FCD16D200AF05DA /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		CB6D5B762017F9EF008D7EE2 /* CsvLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CsvLogger.h; sourceTree = "<group>"; };
+		CB6D5B7A2019194C008D7EE2 /* LIEGLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LIEGLogger.h; sourceTree = "<group>"; };
 		CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXMain.cpp; sourceTree = "<group>"; };
 		CBF06EE81C5011ED0064CC52 /* SSManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SSManager.cpp; sourceTree = "<group>"; };
 		CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXGlobal.cpp; sourceTree = "<group>"; };
@@ -476,6 +478,8 @@
 		CBF06F131C5012070064CC52 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				CB6D5B7A2019194C008D7EE2 /* LIEGLogger.h */,
+				CB6D5B762017F9EF008D7EE2 /* CsvLogger.h */,
 				CB675BA01FCD16D200AF05DA /* Config.h */,
 				CBF06F141C5012070064CC52 /* GFXGlobal.h */,
 				CBF06F151C5012070064CC52 /* Model.h */,
@@ -678,7 +682,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CINDER_PATH = ../../..;
+				CINDER_PATH = "../../..//libs/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -714,7 +718,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CINDER_PATH = ../../..;
+				CINDER_PATH = "../../..//libs/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_BOOL_CONVERSION = YES;

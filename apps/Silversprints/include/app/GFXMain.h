@@ -21,6 +21,8 @@
 #include "views/RosterView.h"
 #include "views/SettingsView.h"
 
+#include "data/CsvLogger.h"
+
 namespace gfx{
     
     using GFXMainRef = std::shared_ptr<class GFXMain>;

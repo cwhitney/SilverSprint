@@ -34,8 +34,8 @@ namespace gfx{
     public:
         static StateManager* getInstance();
         
-        void changeAppState( APP_STATE newState, bool forceEvent=false );
-        void changeRaceState( RACE_STATE newState, bool forceEvent=false );
+        void changeAppState( APP_STATE newState, bool forceEvent = false );
+        void changeRaceState( RACE_STATE newState, bool forceEvent = false );
         
         APP_STATE getCurrentAppState();
         RACE_STATE getCurrentRaceState();
@@ -48,12 +48,12 @@ namespace gfx{
         
         //! Emits the current state, followed by the previous state
         ci::signals::Signal<void(APP_STATE, APP_STATE)>	signalOnStateChange;
-        ci::signals::Signal<void(RACE_STATE)>	signalOnRaceStateChange;
+        ci::signals::Signal<void(RACE_STATE)>	        signalOnRaceStateChange;
         
-        ci::signals::Signal<void(void)>         signalOnRaceFinished;
-        ci::signals::Signal<void(int, int, int)>signalRacerFinish;      // (Racer ID, finish time, race ticks)
+        ci::signals::Signal<void(void)>                 signalOnRaceFinished;
+        ci::signals::Signal<void(int, int, int)>        signalRacerFinish;      // (Racer ID, finish time, race ticks)
         
-        ci::signals::Signal<void(void)>         signalArduinoConnected, signalArduinoDisconnected;
+        ci::signals::Signal<void(void)>                 signalArduinoConnected, signalArduinoDisconnected;
         
     private:
         // PRIVATE CONSTRUCTOR + COPY

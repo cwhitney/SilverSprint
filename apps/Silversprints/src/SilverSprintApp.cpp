@@ -12,12 +12,15 @@
 #include "data/StateManager.h"
 #include "data/Config.h"
 
+#include "data/LIEGLogger.h"
+
 #define DEBUG_MODE 0
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
 using namespace tools;
+//using namespace sb;
 
 using namespace gfx;
 
@@ -55,6 +58,10 @@ void SilverSprintApp::setup()
     mGfxMain->setup();
     
     loadSettings();
+    
+    hush::liegLog().log(hush::LIEGLogger::LIEG_EVENT::HERO_SELECT_1, "blah", "ok", 42);
+    hush::liegLog().log(hush::LIEGLogger::WAKE);
+    hush::liegLog().write();
 }
 
 void SilverSprintApp::loadSettings()
@@ -69,6 +76,7 @@ void SilverSprintApp::loadSettings()
 
     if(fs::exists(targetPath)){
         config().read(loadFile(targetPath));
+//        config().load(targetPath);
         
         gfx::GFXGlobal::getInstance()->currentRaceType = (gfx::RACE_TYPE)config().get("settings", "race_type", (int)RACE_TYPE_DISTANCE);
         Model::getInstance()->setRaceLengthMeters(  config().get("settings", "race_length_meters", 100));
@@ -102,6 +110,7 @@ void SilverSprintApp::writeSettings()
 
     auto d = ci::DataTargetPath::createRef(targetPath);
     config().write(d);
+//    config().write(targetPath);
 }
 
 void SilverSprintApp::cleanup()

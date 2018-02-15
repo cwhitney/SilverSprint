@@ -45,10 +45,8 @@ void GFXMain::setup(){
     getWindow()->getSignalKeyDown().connect(std::bind(&GFXMain::onKeyDown, this, std::placeholders::_1));
     
     mStateManager->signalOnRaceFinished.connect( bind( &GFXMain::onRaceFinished, this ) );
-    
     mStateManager->signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
     mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
-    
     mStateManager->signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
         mModel->playerData[_id]->setFinished(_finishMillis, _finishTicks);
     });
@@ -97,7 +95,6 @@ void GFXMain::onRaceStateChanged( RACE_STATE rc ){
 
 void GFXMain::onKeyDown(KeyEvent event)
 {
-
     if(event.getCode() == KeyEvent::KEY_SPACE && StateManager::getInstance()->getCurrentAppState() == gfx::APP_STATE::RACE){
         if(StateManager::getInstance()->getCurrentRaceState() == gfx::RACE_STATE::RACE_STOPPED){
             mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
