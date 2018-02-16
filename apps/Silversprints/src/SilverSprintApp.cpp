@@ -8,7 +8,6 @@
 #endif
 
 #include "app/GFXMain.h"
-#include "data/GFXGlobal.h"
 #include "data/StateManager.h"
 #include "data/Config.h"
 
@@ -72,7 +71,7 @@ void SilverSprintApp::loadSettings()
         config().read(loadFile(targetPath));
 //        config().load(targetPath);
         
-        gfx::GFXGlobal::getInstance()->currentRaceType = (gfx::RACE_TYPE)config().get("settings", "race_type", (int)RACE_TYPE_DISTANCE);
+        Model::instance().setCurrentRaceType((Model::RACE_TYPE)config().get("settings", "race_type", (int)Model::RACE_TYPE::RACE_TYPE_DISTANCE));
         Model::instance().setRaceLengthMeters(  config().get("settings", "race_length_meters", 100));
         Model::instance().setRaceTimeSeconds(   config().get("settings", "race_time", 60));
         Model::instance().setUseKph(            config().get("settings", "race_kph", true));
@@ -86,7 +85,7 @@ void SilverSprintApp::loadSettings()
 
 void SilverSprintApp::writeSettings()
 {
-    config().set("settings", "race_type", (int)gfx::GFXGlobal::getInstance()->currentRaceType);
+    config().set("settings", "race_type", (int)Model::instance().getCurrentRaceType());
     config().set("settings", "race_length_meters", Model::instance().getRaceLengthMeters());
     config().set("settings", "race_time", Model::instance().getRaceTimeSeconds());
     config().set("settings", "race_kph", Model::instance().getUsesKph());
@@ -117,7 +116,7 @@ void SilverSprintApp::cleanup()
 void SilverSprintApp::resize()
 {
     Rectf originalSize(0,0,1920,1080);
-    gfx::GFXGlobal::getInstance()->setScale( originalSize.getCenteredFit(getWindowBounds(), true) );
+    Model::instance().setScale( originalSize.getCenteredFit(getWindowBounds(), true) );
 }
 
 void SilverSprintApp::keyDown( KeyEvent event )

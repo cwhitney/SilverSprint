@@ -16,10 +16,7 @@ using namespace gfx;
 CheckBox::CheckBox(ci::vec2 position, bool interactive) :
     BaseButton(),
     bInteractive(interactive)
-{
-    
-    mGlobal = GFXGlobal::getInstance();
-    
+{    
     mBounds = Rectf(position, position + vec2(100));
     
     mXLine1 = ThickLine::create( mBounds.getUpperLeft()  + vec2(20,20),  mBounds.getLowerRight() - vec2(20,20), 5);
@@ -55,7 +52,7 @@ void CheckBox::onClick()
 void CheckBox::draw()
 {
     if(bInteractive){
-        gl::ScopedColor scPc( mGlobal->playerColors[0] );
+        gl::ScopedColor scPc( Model::instance().playerColors[0] );
         gl::drawStrokedRect(mBounds, 5);
         
         if(bChecked){
@@ -69,7 +66,7 @@ void CheckBox::draw()
         }
         
     }else{
-        gl::ScopedColor scPc( mGlobal->playerColors[0] );
+        gl::ScopedColor scPc( Model::instance().playerColors[0] );
         gl::drawSolidRect( mBounds );
         
         gl::ScopedColor scCol(Color::gray(0.1));

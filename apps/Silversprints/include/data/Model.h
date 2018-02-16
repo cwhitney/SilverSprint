@@ -25,6 +25,13 @@ namespace gfx {
             return sInstance;
         }
         
+        enum RACE_TYPE {
+            RACE_TYPE_TIME = 0,
+            RACE_TYPE_DISTANCE
+        };
+        const RACE_TYPE& getCurrentRaceType(){ return mCurrentRaceType; }
+        void setCurrentRaceType(const RACE_TYPE &type){ mCurrentRaceType = type; }
+        
         void resetPlayers();
         
         void setRaceLengthMeters( const float &meters );
@@ -61,15 +68,22 @@ namespace gfx {
         int                             elapsedRaceTimeMillis;
         std::string                     mFirmwareVersion = "Unknown";
         
+        // FONTS
+        ci::Font uiFont;
+        ci::gl::TextureFontRef      texFont, winnerTexFont, winnerUiFont;
+        ci::gl::TextureFontRef      countdownFont;
+                
+        ci::vec2   localToGlobal( ci::vec2 pos );
+        void setScale( const ci::Rectf &scaledRect );
+        
       private:
         // PRIVATE CONSTRUCTOR + COPY
         Model();
         ~Model();
         Model(Model const&){};
-        
-        static Model    *mInstance;
-        
         void    setRaceLength(int ticks);
+        
+        RACE_TYPE mCurrentRaceType = RACE_TYPE::RACE_TYPE_TIME;
         
         struct RaceSettings {
             int numRacers = 2;
@@ -86,6 +100,8 @@ namespace gfx {
             bool    bUseKph = true;
             bool    bLogRacesToFile = false;
         } RaceSettings;
+        
+         ci::vec2 mScreenScale, mScreenOffset;
         
        
         

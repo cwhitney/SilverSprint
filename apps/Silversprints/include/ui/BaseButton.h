@@ -10,8 +10,6 @@
 
 #include "cinder/app/App.h"
 
-#include "data/GFXGlobal.h"
-
 class BaseButton {
   public:
     BaseButton();

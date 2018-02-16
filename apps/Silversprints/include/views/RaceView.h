@@ -14,10 +14,11 @@
 #include "cinder/gl/GlslProg.h"
 #include "cinder/ImageIo.h"
 
+#include "tools/Utils.h"
+
 #include "data/StateManager.h"
 #include "data/Model.h"
 #include "ui/RaceText.h"
-#include "data/GFXGlobal.h"
 #include "ui/StartStopButton.h"
 #include "ui/CountDownGfx.h"
 #include "ui/WinnerModal.h"
@@ -48,8 +49,6 @@ namespace gfx {
         ci::gl::TextureRef  mBg, mDial, mLogo;
         ci::vec2            mDialCenter;
         StateManager        *mStateManager;
-        Model               *mModel;
-        gfx::GFXGlobal      *mGlobal;
         
         std::vector<RaceText*>  mRaceTexts;
         bool    bVisible;

@@ -10,7 +10,8 @@
 
 #include "cinder/app/App.h"
 #include "cinder/gl/TextureFont.h"
-#include "data/GFXGlobal.h"
+
+#include "data/Model.h"
 
 #include <boost/algorithm/string.hpp>
 

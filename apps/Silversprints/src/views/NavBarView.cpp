@@ -51,7 +51,7 @@ void NavBarView::setup()
 }
 
 void NavBarView::mouseUp(cinder::app::MouseEvent event){
-    vec2 pos = GFXGlobal::getInstance()->localToGlobal(event.getPos());
+    vec2 pos = gfx::Model::instance().localToGlobal(event.getPos());
     
     int prev = activeIcon;
     

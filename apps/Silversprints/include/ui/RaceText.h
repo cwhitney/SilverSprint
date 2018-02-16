@@ -9,8 +9,9 @@
 #pragma once
 
 #include "cinder/app/App.h"
+#include "tools/Utils.h"
+
 #include "data/PlayerData.h"
-#include "data/GFXGlobal.h"
 #include "data/Model.h"
 
 namespace gfx{
@@ -24,6 +25,5 @@ namespace gfx{
         std::string toDec( float num, int decPlaces );
         
         ci::Color mColor;
-        gfx::GFXGlobal  *mGlobal;
     };
 }
