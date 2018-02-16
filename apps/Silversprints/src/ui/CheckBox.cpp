@@ -46,7 +46,7 @@ bool CheckBox::isChecked()
 
 void CheckBox::onClick()
 {
-    if(bInteractive && !bChecked){
+    if(bInteractive){
         bChecked = !bChecked;
         signalOnClick.emit();
     }

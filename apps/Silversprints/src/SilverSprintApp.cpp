@@ -12,8 +12,6 @@
 #include "data/StateManager.h"
 #include "data/Config.h"
 
-#include "data/LIEGLogger.h"
-
 #define DEBUG_MODE 0
 
 using namespace ci;
@@ -41,7 +39,7 @@ class SilverSprintApp : public App {
 void SilverSprintApp::setup()
 {
 #ifdef DEBUG_MODE
-    fs::path logPath = getAppPath().string() + "logs/SilverSprint.log";
+    fs::path logPath = getAppPath().string() + "/logs/SilverSprint.log";
     log::makeLogger<log::LoggerFile>( logPath, false );
     CI_LOG_I("Setting up log file at " << logPath );
     console() << "path " << logPath.string() << endl;
@@ -58,10 +56,6 @@ void SilverSprintApp::setup()
     mGfxMain->setup();
     
     loadSettings();
-    
-    hush::liegLog().log(hush::LIEGLogger::LIEG_EVENT::HERO_SELECT_1, "blah", "ok", 42);
-    hush::liegLog().log(hush::LIEGLogger::WAKE);
-    hush::liegLog().write();
 }
 
 void SilverSprintApp::loadSettings()
@@ -84,6 +78,7 @@ void SilverSprintApp::loadSettings()
         Model::instance().setUseKph(            config().get("settings", "race_kph", true));
         Model::instance().setRollerDiameterMm(  config().get("settings", "roller_diameter_mm", 114.3));
         Model::instance().setNumRacers(         config().get("settings", "num_racers", 114.3));
+        Model::instance().setRaceLogging(       config().get("settings", "log_races", false));
         
         setFullScreen( config().get("app", "fullscreen", false));
     }
@@ -97,6 +92,7 @@ void SilverSprintApp::writeSettings()
     config().set("settings", "race_kph", Model::instance().getUsesKph());
     config().set("settings", "roller_diameter_mm", Model::instance().getRollerDiameterMm());
     config().set("settings", "num_racers", Model::instance().getNumRacers());
+    config().set("settings", "log_races", Model::instance().getRaceLogging());
     
     fs::path targetPath = ci::app::getAppPath().parent_path() / fs::path("settings.cfg");
     
@@ -106,11 +102,10 @@ void SilverSprintApp::writeSettings()
 	targetPath = getDocumentsDirectory() / fs::path("SilverSprints/settings.cfg");
 #endif
 
-	CI_LOG_I("Wiriting settings to " << targetPath);
+	CI_LOG_I("Writing settings to " << targetPath);
 
     auto d = ci::DataTargetPath::createRef(targetPath);
     config().write(d);
-//    config().write(targetPath);
 }
 
 void SilverSprintApp::cleanup()

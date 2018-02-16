@@ -40,7 +40,6 @@
 		CBF06F041C5011ED0064CC52 /* CiTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EF01C5011ED0064CC52 /* CiTextField.cpp */; };
 		CBF06F051C5011ED0064CC52 /* CountDownGfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EF11C5011ED0064CC52 /* CountDownGfx.cpp */; };
 		CBF06F061C5011ED0064CC52 /* NumStepper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EF21C5011ED0064CC52 /* NumStepper.cpp */; };
-		CBF06F071C5011ED0064CC52 /* PlayerGfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EF31C5011ED0064CC52 /* PlayerGfx.cpp */; };
 		CBF06F081C5011ED0064CC52 /* RaceText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EF41C5011ED0064CC52 /* RaceText.cpp */; };
 		CBF06F091C5011ED0064CC52 /* StartStopButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EF51C5011ED0064CC52 /* StartStopButton.cpp */; };
 		CBF06F0A1C5011ED0064CC52 /* ThickLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EF61C5011ED0064CC52 /* ThickLine.cpp */; };
@@ -90,7 +89,6 @@
 		CB37B37D1E296064009FC93A /* CiTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CiTextField.h; sourceTree = "<group>"; };
 		CB37B37E1E296064009FC93A /* CountDownGfx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDownGfx.h; sourceTree = "<group>"; };
 		CB37B37F1E296064009FC93A /* NumStepper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumStepper.h; sourceTree = "<group>"; };
-		CB37B3801E296064009FC93A /* PlayerGfx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerGfx.h; sourceTree = "<group>"; };
 		CB37B3811E296064009FC93A /* RaceText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaceText.h; sourceTree = "<group>"; };
 		CB37B3821E296064009FC93A /* StartStopButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartStopButton.h; sourceTree = "<group>"; };
 		CB37B3831E296064009FC93A /* ThickLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThickLine.h; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		CBF06EF01C5011ED0064CC52 /* CiTextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CiTextField.cpp; sourceTree = "<group>"; };
 		CBF06EF11C5011ED0064CC52 /* CountDownGfx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CountDownGfx.cpp; sourceTree = "<group>"; };
 		CBF06EF21C5011ED0064CC52 /* NumStepper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumStepper.cpp; sourceTree = "<group>"; };
-		CBF06EF31C5011ED0064CC52 /* PlayerGfx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerGfx.cpp; sourceTree = "<group>"; };
 		CBF06EF41C5011ED0064CC52 /* RaceText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaceText.cpp; sourceTree = "<group>"; };
 		CBF06EF51C5011ED0064CC52 /* StartStopButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartStopButton.cpp; sourceTree = "<group>"; };
 		CBF06EF61C5011ED0064CC52 /* ThickLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThickLine.cpp; sourceTree = "<group>"; };
@@ -437,7 +434,6 @@
 				CBF06EF01C5011ED0064CC52 /* CiTextField.cpp */,
 				CBF06EF11C5011ED0064CC52 /* CountDownGfx.cpp */,
 				CBF06EF21C5011ED0064CC52 /* NumStepper.cpp */,
-				CBF06EF31C5011ED0064CC52 /* PlayerGfx.cpp */,
 				CBF06EF41C5011ED0064CC52 /* RaceText.cpp */,
 				CBF06EF51C5011ED0064CC52 /* StartStopButton.cpp */,
 				CBF06EF61C5011ED0064CC52 /* ThickLine.cpp */,
@@ -492,7 +488,6 @@
 				CB37B37D1E296064009FC93A /* CiTextField.h */,
 				CB37B37E1E296064009FC93A /* CountDownGfx.h */,
 				CB37B37F1E296064009FC93A /* NumStepper.h */,
-				CB37B3801E296064009FC93A /* PlayerGfx.h */,
 				CB37B3811E296064009FC93A /* RaceText.h */,
 				CB37B3821E296064009FC93A /* StartStopButton.h */,
 				CB37B3831E296064009FC93A /* ThickLine.h */,
@@ -609,7 +604,6 @@
 				CBF06F041C5011ED0064CC52 /* CiTextField.cpp in Sources */,
 				CBF06F0F1C5011ED0064CC52 /* SettingsView.cpp in Sources */,
 				CB202BB61E40FCE700E79AF7 /* Osc.cpp in Sources */,
-				CBF06F071C5011ED0064CC52 /* PlayerGfx.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

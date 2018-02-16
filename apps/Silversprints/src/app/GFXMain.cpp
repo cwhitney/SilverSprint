@@ -13,6 +13,21 @@ using namespace ci::app;
 using namespace std;
 using namespace gfx;
 
+std::string msToTimeStr(const size_t &millis){
+    int ms = millis % 1000;
+    int seconds = int(millis / 1000) % 60 ;
+    int minutes = int(millis / (1000*60));
+    //int hours   = int(millis / (1000*60*60)) % 24;
+    
+    stringstream ss;
+    ss  << setfill('0') << setw(2) << minutes << ":"
+    << setfill('0') << setw(2) << seconds << ":"
+    << setfill('0') << setw(3) << ms;
+
+    return ss.str();
+}
+
+// -------------------------------------
 GFXMain::GFXMain(){
     
 }
@@ -29,6 +44,8 @@ void GFXMain::setup(){
     mSerialReader->setup();
     
     mStateManager = StateManager::getInstance();
+    
+    CsvLogger::instance().setHeaders({"Timestamp", "Event", "Racer 1", "Racer 2", "Racer 3", "Racer 4"});
     
     // VIEWS --------------------------------------------------------------
     mNav			= std::make_shared<NavBarView>();
@@ -49,10 +66,12 @@ void GFXMain::setup(){
     mStateManager->signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
         Model::instance().playerData[_id]->setFinished(_finishMillis, _finishTicks);
     });
-    
+        
     // START --------------------------------------------------------------
     mStateManager->changeAppState( APP_STATE::RACE, true );
     mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED, true );
+    
+    msToTimeStr(13660001);
 }
 
 void GFXMain::reloadShaders()
@@ -64,6 +83,35 @@ void GFXMain::onRaceFinished() {
     console() << "GFXMAIN :: RACE FINSIHED" << endl;
     mSerialReader->stopRace();
     mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE );
+    
+    if(Model::instance().getRaceLogging()){
+        // If it's a distance race, log the times
+        if(GFXGlobal::getInstance()->currentRaceType == gfx::RACE_TYPE::RACE_TYPE_DISTANCE){
+            CsvLogger::instance().log(CsvLogger::RACE_FINISH,
+                                      msToTimeStr(Model::instance().playerData[0]->finishTimeMillis),
+                                      msToTimeStr(Model::instance().playerData[1]->finishTimeMillis),
+                                      msToTimeStr(Model::instance().playerData[2]->finishTimeMillis),
+                                      msToTimeStr(Model::instance().playerData[3]->finishTimeMillis));
+        }
+        // If it's a time race, log the distance
+        else {
+            if(Model::instance().getUsesKph()){
+                CsvLogger::instance().log(CsvLogger::RACE_FINISH,
+                                          Model::instance().playerData[0]->getDistanceMeters(),
+                                          Model::instance().playerData[1]->getDistanceMeters(),
+                                          Model::instance().playerData[2]->getDistanceMeters(),
+                                          Model::instance().playerData[3]->getDistanceMeters());
+            }else{
+                CsvLogger::instance().log(CsvLogger::RACE_FINISH,
+                                          Model::instance().playerData[0]->getDistanceFeet(),
+                                          Model::instance().playerData[1]->getDistanceFeet(),
+                                          Model::instance().playerData[2]->getDistanceFeet(),
+                                          Model::instance().playerData[3]->getDistanceFeet());
+            }
+        }
+        
+        CsvLogger::instance().write();
+    }
 }
 
 void GFXMain::onAppStateChaged( APP_STATE as ) {

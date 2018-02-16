@@ -48,8 +48,11 @@ namespace gfx {
 
         void setUseKph(bool useKph){ RaceSettings.bUseKph = useKph;}
         bool getUsesKph(){ return RaceSettings.bUseKph; }
-
-//        bool isHardwareConnected(){ return RaceSettings.bHardwareConnected; }
+        
+        void setRaceLogging(const bool &bShouldLog){
+            RaceSettings.bLogRacesToFile = bShouldLog;
+        }
+        const bool getRaceLogging(){ return RaceSettings.bLogRacesToFile; }
 
         std::vector<gfx::PlayerData*>   playerData;
         ci::Color                       playerColors[4];
@@ -76,11 +79,12 @@ namespace gfx {
             float   raceLengthMeters = 100;
             
             // For time based
-            double    mRaceLengthMillis = 60000;
+            double  mRaceLengthMillis = 60000;
             
             float   mRollerDiameterMm = 114.3f;     // This is 4.5 inches in mm
             bool    bHardwareConnected = false;
             bool    bUseKph = true;
+            bool    bLogRacesToFile = false;
         } RaceSettings;
         
        

@@ -97,10 +97,9 @@ SettingsView::SettingsView() : bVisible(false)
     mLabels.push_back( TextLabel(vec2(xPos, yPos-20), "LOG RACES TO FILE") );
     mRaceLoggingBox = std::make_shared<CheckBox>(vec2(1043, yPos));
     mRaceLoggingBox->setChecked(false);
-    
-    // Listen for events
-    ci::app::WindowRef win = getWindow();
-    win->getSignalMouseUp().connect(std::bind(&SettingsView::onMouseUp, this, std::placeholders::_1));
+    mRaceLoggingBox->signalOnClick.connect([&](){
+        Model::instance().setRaceLogging(mRaceLoggingBox->isChecked());
+    });
 }
 
 void SettingsView::onStepperPlusClick()
@@ -134,10 +133,6 @@ CiTextField* SettingsView::makeTextField(ci::Rectf rect, std::string txt)
     return tf;
 }
 
-void SettingsView::onMouseUp(ci::app::MouseEvent event){
-    
-}
-
 void SettingsView::onStateChange(APP_STATE newState, APP_STATE lastState)
 {
     if( newState == APP_STATE::SETTINGS ){
@@ -160,6 +155,7 @@ void SettingsView::onStateChange(APP_STATE newState, APP_STATE lastState)
             mTimeTrialBox->setChecked(true);
             mTxtTime->visible = true;
         }
+        mRaceLoggingBox->setChecked( Model::instance().getRaceLogging());
 
     }else if(lastState == APP_STATE::SETTINGS){
 		CI_LOG_I("Settings ::  Updating model");

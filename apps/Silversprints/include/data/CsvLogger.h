@@ -58,6 +58,15 @@ class CsvLogger
     void setHeaders (const std::vector<std::string> &headerList)
     {
         mHeaderList = headerList;
+        for( int i=0; i<headerList.size(); i++){
+            logStr.append(mHeaderList[i]);
+            
+            if(i == headerList.size()-1){
+                logStr.append("\n");
+            }else{
+                logStr.append(",");
+            }
+        }
     }
     
     //! Timestamp will log in ISO 8601 format: 2018-01-24T18:19:57
@@ -97,7 +106,7 @@ class CsvLogger
         char buffer[80];
         time (&rawtime);
         timeinfo = localtime(&rawtime);
-        strftime(buffer,sizeof(buffer),"%Y_%m_%d_SilverSprintsLog.csv", timeinfo);
+        strftime(buffer,sizeof(buffer),"%Y_%m_%d_SilverSprintsRaceLog.csv", timeinfo);
         
         pth /= fs::path(string(buffer));
         write(pth);
@@ -119,6 +128,7 @@ class CsvLogger
             outfile << logStr;
             outfile.close();
         }
+        clear();
     }
     
     void clear()
@@ -136,8 +146,3 @@ class CsvLogger
     std::string                 logStr = "";
     std::vector<std::string>    mHeaderList;
 };
-
-static inline CsvLogger &raceLog()
-{
-    return CsvLogger::instance();
-}
