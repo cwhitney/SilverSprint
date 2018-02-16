@@ -84,10 +84,11 @@ void GFXMain::onRaceFinished() {
     mSerialReader->stopRace();
     mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE );
     
+	// Log the race
     if(Model::instance().getRaceLogging()){
         // If it's a distance race, log the times
         if(GFXGlobal::getInstance()->currentRaceType == gfx::RACE_TYPE::RACE_TYPE_DISTANCE){
-            CsvLogger::instance().log(CsvLogger::RACE_FINISH,
+            CsvLogger::instance().log(CsvLogger::RACE_FINISH_DISTANCE,
                                       msToTimeStr(Model::instance().playerData[0]->finishTimeMillis),
                                       msToTimeStr(Model::instance().playerData[1]->finishTimeMillis),
                                       msToTimeStr(Model::instance().playerData[2]->finishTimeMillis),
@@ -96,13 +97,13 @@ void GFXMain::onRaceFinished() {
         // If it's a time race, log the distance
         else {
             if(Model::instance().getUsesKph()){
-                CsvLogger::instance().log(CsvLogger::RACE_FINISH,
+                CsvLogger::instance().log(CsvLogger::RACE_FINISH_TIME,
                                           Model::instance().playerData[0]->getDistanceMeters(),
                                           Model::instance().playerData[1]->getDistanceMeters(),
                                           Model::instance().playerData[2]->getDistanceMeters(),
                                           Model::instance().playerData[3]->getDistanceMeters());
             }else{
-                CsvLogger::instance().log(CsvLogger::RACE_FINISH,
+                CsvLogger::instance().log(CsvLogger::RACE_FINISH_TIME,
                                           Model::instance().playerData[0]->getDistanceFeet(),
                                           Model::instance().playerData[1]->getDistanceFeet(),
                                           Model::instance().playerData[2]->getDistanceFeet(),

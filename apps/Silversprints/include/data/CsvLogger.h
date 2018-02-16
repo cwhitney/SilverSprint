@@ -29,16 +29,18 @@ class CsvLogger
     typedef enum {
         RACE_START,
         RACE_STOP,
-        RACE_FINISH,
+		RACE_FINISH_TIME,
+		RACE_FINISH_DISTANCE,
         RACE_FALSE_START
     } SS_EVENT;
     
     std::string enumToStr(SS_EVENT evt){
         switch (evt) {
-            case SS_EVENT::RACE_START:          return "RACE_START";
-            case SS_EVENT::RACE_STOP:           return "RACE_STOP";
-            case SS_EVENT::RACE_FINISH:         return "RACE_FINISH";
-            case SS_EVENT::RACE_FALSE_START:    return "RACE_FALSE_START";
+            case SS_EVENT::RACE_START:				return "RACE_START";
+            case SS_EVENT::RACE_STOP:				return "RACE_STOP";
+			case SS_EVENT::RACE_FINISH_TIME:		return "RACE_FINISH_TIME";
+			case SS_EVENT::RACE_FINISH_DISTANCE:	return "RACE_FINISH_DISTANCE";
+			case SS_EVENT::RACE_FALSE_START:		return "RACE_FALSE_START";
             default:
                 break;
         }

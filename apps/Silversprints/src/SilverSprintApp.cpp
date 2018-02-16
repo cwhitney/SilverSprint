@@ -12,7 +12,7 @@
 #include "data/StateManager.h"
 #include "data/Config.h"
 
-#define DEBUG_MODE 0
+//#define DEBUG_MODE 0
 
 using namespace ci;
 using namespace ci::app;
@@ -38,7 +38,7 @@ class SilverSprintApp : public App {
 
 void SilverSprintApp::setup()
 {
-#ifdef DEBUG_MODE
+#if defined(DEBUG_MODE)
     fs::path logPath = getAppPath().string() + "/logs/SilverSprint.log";
     log::makeLogger<log::LoggerFile>( logPath, false );
     CI_LOG_I("Setting up log file at " << logPath );
@@ -168,11 +168,11 @@ void SilverSprintApp::draw()
         mGfxMain->draw( scaledFit );
     }gl::popMatrices();
     
-    if(DEBUG_MODE){
+#if defined(DEBUG_MODE)
         gl::drawString( to_string( getAverageFps() ), vec2(10, getWindowHeight() - 60) );
         gl::drawString( StateManager::getInstance()->getCurrentAppStateString(), vec2(10, getWindowHeight() - 40) );
         gl::drawString( StateManager::getInstance()->getCurrentRaceStateString(), vec2(10, getWindowHeight() - 20) );
-    }
+#endif
 }
 
 CINDER_APP( SilverSprintApp, RendererGl(RendererGl::Options().msaa(8)), [&](SilverSprintApp::Settings *settings){
