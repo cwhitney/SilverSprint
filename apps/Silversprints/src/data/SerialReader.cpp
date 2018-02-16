@@ -279,15 +279,21 @@ void SerialReader::parseFromBuffer()
         
         else{
             CI_LOG_I("SerialReader :: Unrecognized command :: ");
+			/*
 			try {
 				CI_LOG_I(cmd);
-			}catch (...) {}
+			}catch (std::exception exc) {
+				CI_LOG_EXCEPTION("Error parsing arduino", exc);
+			}
 
             if(args != ""){
 				try {
 					CI_LOG_I(" with arg :: '" + args + "'");
-				}catch (...) {}
+				}catch (std::exception exc) {
+					CI_LOG_EXCEPTION("Error parsing arduino", exc);
+				}
             }
+			*/
         }
     }
 }
