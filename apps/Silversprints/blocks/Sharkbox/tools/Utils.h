@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 namespace sb { namespace utils {  
 
 using namespace std;
@@ -13,7 +15,7 @@ inline std::string millisToTimestamp( int millis, int precision = 3 ){
     stringstream ss;
     ss  << setfill('0') << setw(2) << minutes << ":"
     << setfill('0') << setw(2) << seconds << ":"
-    << setfill('0') << setw(precision) << ms;
+    << setfill('0') << setw(precision) << floor((float)ms / 1000.0 * pow(10, precision));
     
     return ss.str();
 }

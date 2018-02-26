@@ -179,6 +179,9 @@ void SerialReader::parseFromBuffer()
 {
     auto numCmds = mReceiveBuffer.getSize();
     
+//    if(numCmds > 0)
+//        CI_LOG_I("Num cmds " << numCmds);
+    
     for( int i=0; i<numCmds; i++) {
         std::vector<std::string> cmdArgs;
         mReceiveBuffer.popBack( &cmdArgs );
@@ -229,16 +232,15 @@ void SerialReader::parseFromBuffer()
             boost::split(rdata, args, boost::is_any_of(","));
             
             int raceMillis = fromString<int>( rdata.back() );
-                                             
-            float dt = raceMillis - Model::instance().elapsedRaceTimeMillis;
+            //float dt = raceMillis - Model::instance().elapsedRaceTimeMillis;
             
             for( int i=0; i<rdata.size()-1; i++){
-                Model::instance().playerData[i]->updateRaceTicks( fromString<int>(rdata[i]), dt );
+//                if(i == 0){
+//                    console() <<fromString<int>(rdata[i]) << endl;
+//                }
+                Model::instance().playerData[i]->updateRaceTicks( fromString<int>(rdata[i]), raceMillis );
             }
-//            Model::instance().playerData[0]->updateRaceTicks( fromString<int>(rdata[0]), dt );
-//            Model::instance().playerData[1]->updateRaceTicks( fromString<int>(rdata[1]), dt );
-//            Model::instance().playerData[2]->updateRaceTicks( fromString<int>(rdata[2]), dt );
-//            Model::instance().playerData[3]->updateRaceTicks( fromString<int>(rdata[3]), dt );
+            
             Model::instance().elapsedRaceTimeMillis = raceMillis;
             Model::instance().startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - Model::instance().elapsedRaceTimeMillis;
         }

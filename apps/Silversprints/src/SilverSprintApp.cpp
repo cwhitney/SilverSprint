@@ -72,12 +72,13 @@ void SilverSprintApp::loadSettings()
 //        config().load(targetPath);
         
         Model::instance().setCurrentRaceType((Model::RACE_TYPE)config().get("settings", "race_type", (int)Model::RACE_TYPE::RACE_TYPE_DISTANCE));
-        Model::instance().setRaceLengthMeters(  config().get("settings", "race_length_meters", 100));
-        Model::instance().setRaceTimeSeconds(   config().get("settings", "race_time", 60));
         Model::instance().setUseKph(            config().get("settings", "race_kph", true));
         Model::instance().setRollerDiameterMm(  config().get("settings", "roller_diameter_mm", 114.3));
         Model::instance().setNumRacers(         config().get("settings", "num_racers", 114.3));
         Model::instance().setRaceLogging(       config().get("settings", "log_races", false));
+        Model::instance().setRaceTimeSeconds(   config().get("settings", "race_time", 60));
+        // this must be called after the roller diameter is set
+        Model::instance().setRaceLengthMeters(  config().get("settings", "race_length_meters", 100));
         
         setFullScreen( config().get("app", "fullscreen", false));
     }

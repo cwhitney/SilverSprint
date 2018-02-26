@@ -76,6 +76,9 @@ namespace gfx {
         ci::vec2   localToGlobal( ci::vec2 pos );
         void setScale( const ci::Rectf &scaledRect );
         
+        //! How often the mph is updated for racers
+        const float speedUpdateInterval = 0.5f;
+        
       private:
         // PRIVATE CONSTRUCTOR + COPY
         Model();

@@ -212,8 +212,6 @@ void RaceView::draw()
             gl::ScopedColor scCol(Model::instance().playerColors[i]);
             gl::draw( mVboList[i] );
         }
-        
-        
     }
     
     // GRAPHICS

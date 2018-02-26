@@ -23,10 +23,6 @@ void main()
 	float le = fract(uLeadingEdgePct);
 	float te = le - max(0.05, uTailLen);
 
-	// for testing
-	// le = fract(ciElapsedSeconds);
-	// te = le - 0.25;
-
 	// calculate alpha fade out for tail
     float dist = le - te;
     float tt = le - dist;
