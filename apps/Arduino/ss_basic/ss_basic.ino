@@ -15,7 +15,7 @@
  *
  */
 
-#define VERSION "SS_v0.1.4"
+#define VERSION "SS_v0.1.5"
 #define FALSE_START_TICKS 4
 #define MAX_RACERS 4
 
@@ -56,8 +56,12 @@ int raceLengthTicks = 20;
 int raceLengthSecs = 60;
 int previousFakeTickMillis = 0;
 
-int updateInterval = 50;
+int updateInterval = 10;
 unsigned long lastUpdateMillis = 0;
+
+//float mockSpeedsKph[4] = {10.0, 20.0, 30.0, 40.0};
+float mockSpeedsKph[4] = {40.0, 56.0, 48.0, 32.0};
+
 bool bRaceTypeDistance = true;
 
 void setup() 
@@ -88,12 +92,7 @@ void blinkLED()
     }
 }
 
-void raceStart() 
-{
-    raceStartMillis = millis();
-}
-
-boolean isAlphaNum(char c) 
+boolean isAlphaNum(char c)
 {
     if(c >= '0' && c <= '9'){
         return true;
@@ -182,21 +181,6 @@ void checkSerial()
     }
 }
 
-void printStatusUpdate() 
-{
-    if(currentTimeMillis - lastUpdateMillis > updateInterval) {
-        lastUpdateMillis = currentTimeMillis;
-
-        Serial.print("R:");
-
-        for(int i=0; i<MAX_RACERS; i++){
-            Serial.print(racerTicks[i], DEC);
-            Serial.print(",");
-        }
-        Serial.println(currentTimeMillis, DEC);
-    }
-}
-
 void loop() 
 {
     blinkLED();
@@ -226,61 +210,96 @@ void loop()
         }
         if(lastCountDown == 0) {
             raceStart();
-            raceStarting = false;
-            raceStarted = true;
-
-            for(int i=0; i<MAX_RACERS; i++) {
-                racerTicks[i] = 0;
-                racerFinishTimeMillis[i] = 0;
-            }
-
-            digitalWrite(racer0GoLedPin,HIGH);
-            digitalWrite(racer1GoLedPin,HIGH);
-            digitalWrite(racer2GoLedPin,HIGH);
-            digitalWrite(racer3GoLedPin,HIGH);
         }
     }
     if (raceStarted) {
         currentTimeMillis = millis() - raceStartMillis;
 
+        updateRacerTicks();
+        
         if(bRaceTypeDistance == true){
-            reportDistanceBased();
+            checkDistanceBased();
         }else{
-            reportTimeBased();
+            checkTimeBased();
         }
 
-        printStatusUpdate();
+        printRacerUpdate();
     }    
 }
 
-void reportDistanceBased()
+void updateRacerTicks()
 {
-    bool bFinished = true;
     for(int i=0; i<MAX_RACERS; i++) {
+        previoussensorValues[i] = values[i];
         values[i] = digitalRead(sensorPins[i]);
 
         if(mockMode){
-            values[i] = LOW;
-            if(currentTimeMillis - lastUpdateMillis > updateInterval) {
-                racerTicks[i] += i;
-                values[i] = HIGH;
-            }
+            // 1 km/hr = 0.2778 mm/ms
+            // 114.3mm == fake roller diameter            
+            float mmSec = mockSpeedsKph[i] * 277.77778;
+            float curTimeSecs = currentTimeMillis / 1000;
+            //racerTicks[i] = floor( curTimeSecs * mmSec / (114.3 * PI));
+            racerTicks[i] = floor( currentTimeMillis * mockSpeedsKph[i] * 0.2778 / (114.3 * PI));
         }
 
         if(values[i] == HIGH && previoussensorValues[i] == LOW){
             racerTicks[i]++;
-            if(racerFinishTimeMillis[i] == 0 && racerTicks[i] >= raceLengthTicks) {
-                racerFinishTimeMillis[i] = currentTimeMillis;
-                Serial.print(i);
-                Serial.print("F:");
-                Serial.println(racerFinishTimeMillis[i], DEC);
-                digitalWrite(racer0GoLedPin+i,LOW);
-            }
         }
+    }
+}
+
+void printRacerUpdate() 
+{
+    if(currentTimeMillis - lastUpdateMillis > updateInterval) {
+        lastUpdateMillis = currentTimeMillis;
+
+        Serial.print("R:");
+
+        for(int i=0; i<MAX_RACERS; i++){
+            Serial.print(racerTicks[i], DEC);
+            Serial.print(",");
+        }
+        Serial.println(currentTimeMillis, DEC);
+    }
+}
+
+void raceStart() 
+{
+    raceStartMillis = millis();
+    lastUpdateMillis = raceStartMillis;
+
+    raceStarting = false;
+    raceStarted = true;
+
+    // reset all racers
+    for(int i=0; i<MAX_RACERS; i++) {
+        racerTicks[i] = 0;
+        racerFinishTimeMillis[i] = 0;
+    }
+
+    digitalWrite(racer0GoLedPin,HIGH);
+    digitalWrite(racer1GoLedPin,HIGH);
+    digitalWrite(racer2GoLedPin,HIGH);
+    digitalWrite(racer3GoLedPin,HIGH);
+}
+
+void checkDistanceBased()
+{
+    bool bFinished = true;
+    for(int i=0; i<MAX_RACERS; i++) {
+        // check to see if they have finished
+        if(racerFinishTimeMillis[i] == 0 && racerTicks[i] >= raceLengthTicks) {
+            racerFinishTimeMillis[i] = currentTimeMillis;
+            
+            Serial.print(i);
+            Serial.print("F:");
+            Serial.println(racerFinishTimeMillis[i], DEC);
+            digitalWrite(racer0GoLedPin+i,LOW);
+        }
+        
         if(racerFinishTimeMillis[i] == 0){
             bFinished = false;
         }
-        previoussensorValues[i] = values[i];
     }
 
     if(bFinished == true){
@@ -289,25 +308,8 @@ void reportDistanceBased()
     }
 }
 
-void reportTimeBased()
+void checkTimeBased()
 {
-    for(int i=0; i<MAX_RACERS; i++) {
-        values[i] = digitalRead(sensorPins[i]);
-
-        if(mockMode){
-            values[i] = LOW;
-            if(currentTimeMillis - lastUpdateMillis > updateInterval) {
-                racerTicks[i] += i;
-                values[i] = HIGH;
-            }
-        }
-        
-        if(values[i] == HIGH && previoussensorValues[i] == LOW){
-            racerTicks[i]++;
-        }
-        previoussensorValues[i] = values[i];
-    }
-
     if(currentTimeMillis > raceLengthSecs * 1000){
         raceStarted = false;
         // print all racers

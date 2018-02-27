@@ -282,16 +282,12 @@ void SerialReader::parseFromBuffer()
 			/*
 			try {
 				CI_LOG_I(cmd);
-			}catch (std::exception exc) {
-				CI_LOG_EXCEPTION("Error parsing arduino", exc);
-			}
+			}catch (...) {}
 
             if(args != ""){
 				try {
 					CI_LOG_I(" with arg :: '" + args + "'");
-				}catch (std::exception exc) {
-					CI_LOG_EXCEPTION("Error parsing arduino", exc);
-				}
+				}catch (...) {}
             }
 			*/
         }

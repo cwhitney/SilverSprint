@@ -19,7 +19,6 @@
 		036291EBBB274D178BE12B43 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = FECFA142AF1A4CF583EAA96C /* CinderApp.icns */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		A483B093679443AD9AD9E0B7 /* SilverSprintApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FF84B46AB5B427BA94A3D7A /* SilverSprintApp.cpp */; };
 		CB202BAB1E40FC9C00E79AF7 /* list_ports_linux.cc in Sources */ = {isa = PBXBuildFile; fileRef = CB202BA31E40FC9C00E79AF7 /* list_ports_linux.cc */; };
 		CB202BAC1E40FC9C00E79AF7 /* list_ports_osx.cc in Sources */ = {isa = PBXBuildFile; fileRef = CB202BA41E40FC9C00E79AF7 /* list_ports_osx.cc */; };
 		CB202BAD1E40FC9C00E79AF7 /* list_ports_win.cc in Sources */ = {isa = PBXBuildFile; fileRef = CB202BA51E40FC9C00E79AF7 /* list_ports_win.cc */; };
@@ -31,6 +30,7 @@
 		CB37B3861E297897009FC93A /* ssIcn.icns in Resources */ = {isa = PBXBuildFile; fileRef = CB37B3851E297897009FC93A /* ssIcn.icns */; };
 		CB49AA221E44F1A300820D70 /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */; };
 		CB675B9E1FCB5A3100AF05DA /* ToggleBtn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */; };
+		CB93D34F2045BE16004D01EA /* SilverSprintsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB93D34E2045BE16004D01EA /* SilverSprintsApp.cpp */; };
 		CBF06EFD1C5011ED0064CC52 /* GFXMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */; };
 		CBF06EFF1C5011ED0064CC52 /* GFXGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */; };
 		CBF06F001C5011ED0064CC52 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEB1C5011ED0064CC52 /* Model.cpp */; };
@@ -64,7 +64,6 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		2FF84B46AB5B427BA94A3D7A /* SilverSprintApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SilverSprintApp.cpp; path = ../src/SilverSprintApp.cpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		80018D0C1B264B72BC049A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* SilverSprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverSprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +100,7 @@
 		CB675B9F1FCB5A3E00AF05DA /* ToggleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToggleBtn.h; sourceTree = "<group>"; };
 		CB675BA01FCD16D200AF05DA /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		CB6D5B762017F9EF008D7EE2 /* CsvLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CsvLogger.h; sourceTree = "<group>"; };
+		CB93D34E2045BE16004D01EA /* SilverSprintsApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SilverSprintsApp.cpp; path = ../src/SilverSprintsApp.cpp; sourceTree = "<group>"; };
 		CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXMain.cpp; sourceTree = "<group>"; };
 		CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXGlobal.cpp; sourceTree = "<group>"; };
 		CBF06EEB1C5011ED0064CC52 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2FF84B46AB5B427BA94A3D7A /* SilverSprintApp.cpp */,
+				CB93D34E2045BE16004D01EA /* SilverSprintsApp.cpp */,
 				CBF06EE61C5011ED0064CC52 /* app */,
 				CBF06EE91C5011ED0064CC52 /* data */,
 				CBF06EEE1C5011ED0064CC52 /* ui */,
@@ -576,7 +576,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF06F0C1C5011ED0064CC52 /* NavBarView.cpp in Sources */,
-				A483B093679443AD9AD9E0B7 /* SilverSprintApp.cpp in Sources */,
 				CBF0F7501FBD3FCE00421F89 /* CheckBox.cpp in Sources */,
 				CBF06F051C5011ED0064CC52 /* CountDownGfx.cpp in Sources */,
 				CBF06F021C5011ED0064CC52 /* StateManager.cpp in Sources */,
@@ -603,6 +602,7 @@
 				CBF06EFF1C5011ED0064CC52 /* GFXGlobal.cpp in Sources */,
 				CBF06F041C5011ED0064CC52 /* CiTextField.cpp in Sources */,
 				CBF06F0F1C5011ED0064CC52 /* SettingsView.cpp in Sources */,
+				CB93D34F2045BE16004D01EA /* SilverSprintsApp.cpp in Sources */,
 				CB202BB61E40FCE700E79AF7 /* Osc.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
