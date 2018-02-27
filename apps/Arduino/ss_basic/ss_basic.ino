@@ -15,7 +15,7 @@
  *
  */
 
-#define VERSION "SS_v0.1.4"
+#define VERSION "SS_v0.1.5"
 #define FALSE_START_TICKS 4
 #define MAX_RACERS 4
 
