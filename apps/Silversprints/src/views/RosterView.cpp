@@ -17,8 +17,9 @@ RosterView::RosterView() : bVisible(false) {
     
 }
 
-void RosterView::setup()
-{    
+void RosterView::setup(){
+    mGlobal = gfx::GFXGlobal::getInstance();
+    
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     mCancelBtn = gl::Texture::create( loadImage( loadAsset("img/rosterCancel.png") ) );
     
@@ -29,8 +30,8 @@ void RosterView::setup()
         float yPos = 190 + 183 * i;
         
         CiTextField *tf = new CiTextField("Player "+to_string(i+1), Rectf(574, yPos, 574 + 910, yPos+150), ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 75) );
-        tf->mColorStroke = Model::instance().playerColors[i];
-        tf->mColorFill = Model::instance().playerColors[i];
+        tf->mColorStroke = mGlobal->playerColors[i];
+        tf->mColorFill = mGlobal->playerColors[i];
         tf->mColorText = Color::black();
         tf->padding = vec2(30,30);
         
@@ -49,7 +50,7 @@ void RosterView::setup()
 
 void RosterView::onMouseUp( ci::app::MouseEvent event ) {
     
-//    vec2 pos = Model::instance().localToGlobal( event.getPos() );
+//    vec2 pos = mGlobal->localToGlobal( event.getPos() );
 //    
 //    for( int i=0; i<4; i++){
 //        if( mCancelRects[i].contains(pos) ){

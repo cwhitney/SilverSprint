@@ -11,7 +11,6 @@
 using namespace ci;
 using namespace ci::app;
 using namespace std;
-using namespace gfx;
 
 CiTextField::~CiTextField(){
     mMouseDownCb.disconnect();
@@ -150,7 +149,7 @@ void CiTextField::onMouseDown( ci::app::MouseEvent event ){
     bDragging = false;
     blur();
     
-    vec2 pos = Model::instance().localToGlobal(event.getPos());
+    vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
     
     if( mBounds.contains(pos) ){
         bDragging = true;
@@ -165,7 +164,7 @@ void CiTextField::onMouseDrag( ci::app::MouseEvent event ){
         return;
     }
     
-    vec2 pos = Model::instance().localToGlobal(event.getPos());
+    vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
     
     if( bDragging ){
         mCaratIndex = getCursorIndex( pos - mBounds.getUpperLeft() );
@@ -176,7 +175,7 @@ void CiTextField::onMouseUp( ci::app::MouseEvent event ){
         return;
     }
     
-    vec2 pos = Model::instance().localToGlobal(event.getPos());
+    vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
     
     if( bDragging ){
         bActive = true;

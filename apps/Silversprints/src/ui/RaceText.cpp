@@ -17,15 +17,16 @@ using namespace std;
 
 RaceText::RaceText( const ci::Color &color ){
     mColor = color;
+    mGlobal = gfx::GFXGlobal::getInstance();
 }
 
-std::string RaceText::toDec( const float &num, const int &decPlaces ) {
+std::string RaceText::toDec( float num, int decPlaces ) {
     std::ostringstream buffer;
     buffer << fixed << setprecision( decPlaces ) << num;
     return buffer.str();
 }
 
-void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
+void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
 {
     gl::pushMatrices();{
         gl::translate( offset );
@@ -55,35 +56,27 @@ void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
         
         // NAME
         boost::to_upper(data->player_name);
-        Model::instance().texFont->drawString(data->player_name, vec2(20, 44) );
+        mGlobal->texFont->drawString(data->player_name, vec2(20, 44) );
         
-        // SPEED
+        // sPEED
         if( Model::instance().getUsesKph()){
-            if( getElapsedSeconds() - mLastSpeedUpdate > Model::instance().speedUpdateInterval){
-                mLastSpeed = data->getKph();
-                mLastSpeedUpdate = getElapsedSeconds();
-            }
-            gl::drawStringRight( toDec(mLastSpeed, 1) + " KPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
+            gl::drawStringRight( toDec(data->getKph(), 0) + " KPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
         }else{
-            if( getElapsedSeconds() - mLastSpeedUpdate > Model::instance().speedUpdateInterval){
-                mLastSpeed = data->getMph();
-                mLastSpeedUpdate = getElapsedSeconds();
-            }
-            gl::drawStringRight( toDec(mLastSpeed, 1) + " MPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
+            gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
         }
         
-        if( Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_TIME ){
+        if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME ){
             if(Model::instance().getUsesKph()){
-                Model::instance().texFont->drawString(toDec(data->getDistanceMeters(), 2) + "m", vec2(1485,44));
+                mGlobal->texFont->drawString(toDec(data->getDistanceMeters(), 2) + "m", vec2(1485,44));
             }else{
-                Model::instance().texFont->drawString(toDec(data->getDistanceFeet(), 2) + "ft", vec2(1485,44));
+                mGlobal->texFont->drawString(toDec(data->getDistanceFeet(), 2) + "ft", vec2(1485,44));
             }
         }
-        else if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_DISTANCE){
+        else if(mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_DISTANCE){
             if( data->didFinishRace() ){
-                Model::instance().texFont->drawString(sb::utils::millisToTimestamp( data->finishTimeMillis ), vec2(1485,44) );
+                mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( data->finishTimeMillis ), vec2(1485,44) );
             }else{
-                Model::instance().texFont->drawString(sb::utils::millisToTimestamp( Model::instance().elapsedRaceTimeMillis ), vec2(1485,44) );
+                mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( Model::instance().elapsedRaceTimeMillis ), vec2(1485,44) );
             }
         }
         

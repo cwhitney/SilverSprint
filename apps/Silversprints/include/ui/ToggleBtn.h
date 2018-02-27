@@ -5,7 +5,7 @@
 #include "cinder/gl/TextureFont.h"
 #include "cinder/Signals.h"
 
-#include "data/Model.h"
+#include "data/GFXGlobal.h"
 
 using ToggleBtnRef = std::shared_ptr<class ToggleBtn>;
 

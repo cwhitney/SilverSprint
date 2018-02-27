@@ -7,9 +7,8 @@
 #include "cinder/Signals.h"
 #include "cinder/Camera.h"
 
-#include "tools/Utils.h"
-
 #include "data/StateManager.h"
+#include "data/GFXGlobal.h"
 #include "data/Model.h"
 #include "data/PlayerData.h"
 
@@ -31,7 +30,11 @@ class WinnerModal
     std::string toString(float num, int precision);
     
     bool                bVisible = false;
+    
     ci::Rectf           mWinnerRect;
+    gfx::GFXGlobal      *mGlobal;
+    gfx::Model          *mModel;
+    
     ci::gl::TextureRef  mWinnerGraphic;
     ci::Anim<float>     mAlpha = 0.0;
     

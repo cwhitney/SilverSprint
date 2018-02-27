@@ -32,6 +32,7 @@
 		CB49AA221E44F1A300820D70 /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */; };
 		CB675B9E1FCB5A3100AF05DA /* ToggleBtn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */; };
 		CBF06EFD1C5011ED0064CC52 /* GFXMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */; };
+		CBF06EFF1C5011ED0064CC52 /* GFXGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */; };
 		CBF06F001C5011ED0064CC52 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEB1C5011ED0064CC52 /* Model.cpp */; };
 		CBF06F011C5011ED0064CC52 /* SerialReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EEC1C5011ED0064CC52 /* SerialReader.cpp */; };
 		CBF06F021C5011ED0064CC52 /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF06EED1C5011ED0064CC52 /* StateManager.cpp */; };
@@ -100,8 +101,8 @@
 		CB675B9F1FCB5A3E00AF05DA /* ToggleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToggleBtn.h; sourceTree = "<group>"; };
 		CB675BA01FCD16D200AF05DA /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		CB6D5B762017F9EF008D7EE2 /* CsvLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CsvLogger.h; sourceTree = "<group>"; };
-		CB93D34A20376A76004D01EA /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../blocks/Sharkbox/tools/Utils.h; sourceTree = "<group>"; };
 		CBF06EE71C5011ED0064CC52 /* GFXMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXMain.cpp; sourceTree = "<group>"; };
+		CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GFXGlobal.cpp; sourceTree = "<group>"; };
 		CBF06EEB1C5011ED0064CC52 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		CBF06EEC1C5011ED0064CC52 /* SerialReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SerialReader.cpp; sourceTree = "<group>"; };
 		CBF06EED1C5011ED0064CC52 /* StateManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateManager.cpp; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		CBF06EFB1C5011ED0064CC52 /* RosterView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RosterView.cpp; sourceTree = "<group>"; };
 		CBF06EFC1C5011ED0064CC52 /* SettingsView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsView.cpp; sourceTree = "<group>"; };
 		CBF06F111C5012070064CC52 /* GFXMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXMain.h; sourceTree = "<group>"; };
+		CBF06F141C5012070064CC52 /* GFXGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXGlobal.h; sourceTree = "<group>"; };
 		CBF06F151C5012070064CC52 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		CBF06F161C5012070064CC52 /* PlayerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerData.h; sourceTree = "<group>"; };
 		CBF06F171C5012070064CC52 /* SerialReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialReader.h; sourceTree = "<group>"; };
@@ -156,7 +158,6 @@
 		01B97315FEAEA392516A2CEA /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				CB93D34820376A5C004D01EA /* Sharkbox */,
 				CB49AA1F1E44F1A300820D70 /* ParticleSystem */,
 				CB202B931E40FC7900E79AF7 /* Cinder-Serial */,
 				87961E75141E4E46957E5344 /* OSC */,
@@ -404,22 +405,6 @@
 			path = ../blocks/ParticleSystem;
 			sourceTree = "<group>";
 		};
-		CB93D34820376A5C004D01EA /* Sharkbox */ = {
-			isa = PBXGroup;
-			children = (
-				CB93D34920376A6D004D01EA /* tools */,
-			);
-			name = Sharkbox;
-			sourceTree = "<group>";
-		};
-		CB93D34920376A6D004D01EA /* tools */ = {
-			isa = PBXGroup;
-			children = (
-				CB93D34A20376A76004D01EA /* Utils.h */,
-			);
-			name = tools;
-			sourceTree = "<group>";
-		};
 		CBF06EE61C5011ED0064CC52 /* app */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +417,7 @@
 		CBF06EE91C5011ED0064CC52 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				CBF06EEA1C5011ED0064CC52 /* GFXGlobal.cpp */,
 				CBF06EEB1C5011ED0064CC52 /* Model.cpp */,
 				CBF06EEC1C5011ED0064CC52 /* SerialReader.cpp */,
 				CBF06EED1C5011ED0064CC52 /* StateManager.cpp */,
@@ -484,6 +470,7 @@
 			children = (
 				CB6D5B762017F9EF008D7EE2 /* CsvLogger.h */,
 				CB675BA01FCD16D200AF05DA /* Config.h */,
+				CBF06F141C5012070064CC52 /* GFXGlobal.h */,
 				CBF06F151C5012070064CC52 /* Model.h */,
 				CBF06F161C5012070064CC52 /* PlayerData.h */,
 				CBF06F171C5012070064CC52 /* SerialReader.h */,
@@ -613,6 +600,7 @@
 				CB202BB01E40FC9C00E79AF7 /* serial.cc in Sources */,
 				CBF06F001C5011ED0064CC52 /* Model.cpp in Sources */,
 				CBF06F031C5011ED0064CC52 /* BaseButton.cpp in Sources */,
+				CBF06EFF1C5011ED0064CC52 /* GFXGlobal.cpp in Sources */,
 				CBF06F041C5011ED0064CC52 /* CiTextField.cpp in Sources */,
 				CBF06F0F1C5011ED0064CC52 /* SettingsView.cpp in Sources */,
 				CB202BB61E40FCE700E79AF7 /* Osc.cpp in Sources */,
@@ -708,7 +696,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../blocks/OSC/src/cinder/osc ../blocks/Serial/lib/serial/include/serial ../blocks/Serial/lib/serial/include ../blocks/Serial/include ../blocks/Sharkbox/";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../blocks/OSC/src/cinder/osc ../blocks/Serial/lib/serial/include/serial ../blocks/Serial/lib/serial/include ../blocks/Serial/include";
 			};
 			name = Debug;
 		};
@@ -742,7 +730,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../blocks/OSC/src/cinder/osc ../blocks/Serial/lib/serial/include/serial ../blocks/Serial/lib/serial/include ../blocks/Serial/include ../blocks/Sharkbox/";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../blocks/OSC/src/cinder/osc ../blocks/Serial/lib/serial/include/serial ../blocks/Serial/lib/serial/include ../blocks/Serial/include";
 			};
 			name = Release;
 		};

@@ -21,6 +21,7 @@ SettingsView::~SettingsView()
 
 SettingsView::SettingsView() : bVisible(false)
 {
+    mGlobal			= gfx::GFXGlobal::getInstance();
     mStateManager	= StateManager::getInstance();
     mStateManager->signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState)
                                                {
@@ -88,7 +89,7 @@ SettingsView::SettingsView() : bVisible(false)
     mLabels.push_back( TextLabel(vec2(xPos, yPos-20), "UNITS") );
     auto toggleFont =gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70));
     mMphKphToggle = std::make_shared<ToggleBtn>("MPH", "KPH", toggleFont, vec2(xPos, yPos));
-    mMphKphToggle->setColors( Model::instance().playerColors[0], Color::black() );
+    mMphKphToggle->setColors( mGlobal->playerColors[0], Color::black() );
     mMphKphToggle->setSelected(ToggleBtn::TOGGLE_SIDE::RIGHT);
     
     // Race Logging
@@ -122,8 +123,8 @@ CiTextField* SettingsView::makeSetting(Rectf rect, std::string label, std::strin
 CiTextField* SettingsView::makeTextField(ci::Rectf rect, std::string txt)
 {
     CiTextField *tf = new CiTextField(txt, rect, ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70) );
-    tf->mColorStroke = Model::instance().playerColors[0];
-    tf->mColorFill = Model::instance().playerColors[0];
+    tf->mColorStroke = mGlobal->playerColors[0];
+    tf->mColorFill = mGlobal->playerColors[0];
     tf->mColorText = Color::black();
     tf->padding = vec2(20,0);
     
@@ -145,7 +146,7 @@ void SettingsView::onStateChange(APP_STATE newState, APP_STATE lastState)
         mTxtDistance->setText(toString<float>(Model::instance().getRaceLengthMeters()));
         mTxtTime->setText(toString<float>(Model::instance().getRaceTimeSeconds()));
         
-        if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
+        if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
             mDistanceCheck->setChecked(true);
             mTimeTrialBox->setChecked(false);
             mTxtDistance->visible = true;
@@ -164,7 +165,7 @@ void SettingsView::onStateChange(APP_STATE newState, APP_STATE lastState)
 
         Model::instance().setRaceTimeSeconds( fromString<float>(mTxtTime->getText()) );
         
-        Model::instance().setCurrentRaceType( (mDistanceCheck->isChecked()) ? Model::RACE_TYPE_DISTANCE : Model::RACE_TYPE::RACE_TYPE_TIME);
+        GFXGlobal::getInstance()->currentRaceType = (mDistanceCheck->isChecked()) ? RACE_TYPE_DISTANCE : RACE_TYPE::RACE_TYPE_TIME;
         
         Model::instance().setUseKph(mMphKphToggle->getSelected() == ToggleBtn::TOGGLE_SIDE::RIGHT);
         bVisible = false;

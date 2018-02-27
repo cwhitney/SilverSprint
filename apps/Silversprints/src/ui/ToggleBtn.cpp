@@ -3,7 +3,6 @@
 using namespace ci;
 using namespace ci::app;
 using namespace std;
-using namespace gfx;
 
 ToggleBtn::ToggleBtn(std::string choice1, std::string choice2, ci::gl::TextureFontRef font, ci::vec2 position)
 {
@@ -36,7 +35,7 @@ void ToggleBtn::setColors(ci::ColorA bg, ci::ColorA text)
 
 void ToggleBtn::onMouseDown(ci::app::MouseEvent event)
 {
-    vec2 pos = Model::instance().localToGlobal(event.getPos());
+    vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
     
     if( mRectL.contains(pos) ){
         if(!bLeftActive)

@@ -14,6 +14,7 @@
 
 #include "data/StateManager.h"
 #include "data/Model.h"
+#include "data/GFXGlobal.h"
 
 #include "ui/CiTextField.h"
 
@@ -46,8 +47,10 @@ namespace gfx{
         
         ci::gl::TextureRef  mBg, mCancelBtn;
         StateManager        *mStateManager;
-
-        bool        bVisible;
+        GFXGlobal           *mGlobal;
+        
+        
+        BOOL        bVisible;
     };
 
 }

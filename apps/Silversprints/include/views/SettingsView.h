@@ -17,6 +17,7 @@
 
 #include "data/StateManager.h"
 #include "data/Model.h"
+#include "data/GFXGlobal.h"
 
 #include "ui/CheckBox.h"
 #include "ui/CiTextField.h"
@@ -46,7 +47,9 @@ namespace gfx {
         
         const int       mMaxRiders = 4;
         
-        StateManager    *mStateManager;        
+        StateManager    *mStateManager;
+        GFXGlobal       *mGlobal;
+        
         bool            bVisible = false;
         
         ci::gl::TextureRef          mBg;

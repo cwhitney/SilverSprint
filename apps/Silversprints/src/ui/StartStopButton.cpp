@@ -61,9 +61,9 @@ void StartStopButton::draw()
     if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
        mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
         gl::color( Color::black() );
-        Model::instance().texFont->drawString("START", mBounds.getLowerLeft() + vec2(40, -15) );
+        GFXGlobal::getInstance()->texFont->drawString("START", mBounds.getLowerLeft() + vec2(40, -15) );
     }else {
         gl::color( Color::black() );
-       Model::instance().texFont->drawString("STOP", mBounds.getLowerLeft() + vec2(45, -15) );
+        GFXGlobal::getInstance()->texFont->drawString("STOP", mBounds.getLowerLeft() + vec2(45, -15) );
     }
 }

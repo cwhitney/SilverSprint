@@ -11,7 +11,7 @@
 #include "cinder/app/App.h"
 #include "cinder/gl/Texture.h"
 
-#include "data/Model.h"
+#include "data/GFXGlobal.h"
 #include "data/StateManager.h"
 
 namespace gfx {
