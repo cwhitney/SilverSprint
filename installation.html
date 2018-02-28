@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="SilverSprint : SilverSprint is an opensource app for bike racing.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>SilverSprints</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <!-- <a id="forkme_banner" href="https://github.com/cwhitney/SilverSprint">View on GitHub</a> -->
+          <!-- <div class="head_bg">.</div> -->
+          <h1 id="project_title">Silversprint</h1>
+          <!-- <h2 id="project_tagline">Open source roller racing</h2> -->
+        
+            <!-- <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/cwhitney/SilverSprint/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/cwhitney/SilverSprint/tarball/master">Download this project as a tar.gz file</a>
+            </section> -->
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+      <div id="left_nav">
+        <!-- <h4>Navigation</h4> -->
+        <ul>
+          <li><a href="index.html">Welcome</a></li>
+          <li><a href="using.html">Using SilverSprints</a></li>
+          <li class="m_active">Installation</li>
+          <li><a href="https://github.com/cwhitney/SilverSprint/">SilverSprint on Github</a></li>
+        </ul>
+      </div>
+      
+      <h3>Installation</h3>
+      <p>In order to use the latest version of SilverSprints, you will need to update the openSprints hardware as well.  Inside the downloaded zip file, there should be a folder called "Arduino", this is the code we'll be updating.</p>
+      <h5>Updating Hardware</h5>
+      <ol>
+        <li>
+          <p>Download the free <b>Arduino IDE</b> software from here: <a href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a></p>
+          <p>In the downloaded SilverSprints zip file, there is an <code>Arduino</code> folder that contains the code we'll be updating. Open the file in <code>ss_basic.ino</code> in Arduino.</p>
+        </li>
+        <li>
+          <p>Make sure you have selected the correct board from the Tools menu. In almost all cases, this will be <code>Arduino/Genuino Uno</code>.</p>
+          <p><img src="images/arduino_01.jpg" alt="Select Arduino Uno in the tools menu." class="outer"></p>
+        </li>
+        <li>
+          <p>Next, we'll make sure we have the correct port selected.  On Mac, it will be called something like <code>/dev/tty.usbserial</code> and on Windows you'll see something similar to <code>COM3</code>.</p>
+        </li>
+        <li>
+          <p>Now press the upload button <img src="images/arduino_upload_nobg.png" width="31px" alt="Press the upload arrow"> located in the top left.</p>
+        </li>
+      </ol>
+      <p>If all went well, you should see a message letting you know the board has been updated. That's it! It it didn't work, double check steps 2 and 3.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Developed by <a href="http://sharkbox.com">Charlie Whitney</a><br>
+        Designed by <a href="http://peprally.co">Erica Goroshow</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-73097311-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
