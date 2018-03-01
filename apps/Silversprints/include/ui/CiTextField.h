@@ -10,7 +10,7 @@
 
 #include "cinder/app/App.h"
 #include "cinder/gl/TextureFont.h"
-#include "data/GFXGlobal.h"
+#include "data/Model.h"
 
 #include <boost/algorithm/string.hpp>
 
@@ -73,11 +73,11 @@ class CiTextField {
     ci::gl::TextureFontRef      tFont;
     
     // mouse events
-    ci::signals::ScopedConnection       mMouseDownCb,
-                                        mMouseDragCb,
-                                        mMouseUpCb,
-                                        mKeyDownCb,
-                                        mKeyUpCb;
+    ci::signals::Connection       mMouseDownCb,
+                                  mMouseDragCb,
+                                  mMouseUpCb,
+                                  mKeyDownCb,
+                                  mKeyUpCb;
 };
 
 typedef std::shared_ptr<CiTextField> CiTextFieldRef;

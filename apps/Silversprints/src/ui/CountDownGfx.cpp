@@ -7,7 +7,6 @@
 //
 
 #include "ui/CountDownGfx.h"
-#include "data/GFXGlobal.h"
 
 using namespace gfx;
 using namespace ci;

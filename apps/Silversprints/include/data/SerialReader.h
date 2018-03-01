@@ -17,7 +17,6 @@
 #include <boost/algorithm/string.hpp>
 
 #include "data/StateManager.h"
-#include "data/GFXGlobal.h"
 #include "data/Model.h"
 
 #include "Cinder-Serial.h"
@@ -37,7 +36,7 @@ namespace gfx
         void stopRace();
         
         void setRaceDuration( int );
-        void setRaceType( gfx::RACE_TYPE raceType);
+        void setRaceType( Model::RACE_TYPE raceType);
         void setRaceLengthTicks( int numTicks );
         void setMockMode( bool enabled=true );
         void getVersion();

@@ -12,7 +12,6 @@
 #include "cinder/app/KeyEvent.h"
 
 #include "data/Model.h"
-#include "data/GFXGlobal.h"
 #include "data/SerialReader.h"
 #include "data/StateManager.h"
 
@@ -44,8 +43,6 @@ namespace gfx{
         void onRaceStateChanged( RACE_STATE rc );
         
         void onRaceFinished();
-        
-        GFXGlobal       *mGlobal;
         
         NavBarViewRef       mNav;
         RaceViewRef         mRaceView;

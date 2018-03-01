@@ -17,7 +17,6 @@ using namespace std;
 
 RaceText::RaceText( const ci::Color &color ){
     mColor = color;
-    mGlobal = gfx::GFXGlobal::getInstance();
 }
 
 std::string RaceText::toDec( float num, int decPlaces ) {
@@ -56,27 +55,27 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
         
         // NAME
         boost::to_upper(data->player_name);
-        mGlobal->texFont->drawString(data->player_name, vec2(20, 44) );
+        Model::instance().texFont->drawString(data->player_name, vec2(20, 44) );
         
         // sPEED
         if( Model::instance().getUsesKph()){
-            gl::drawStringRight( toDec(data->getKph(), 0) + " KPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
+            gl::drawStringRight( toDec(data->getKph(), 0) + " KPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
         }else{
-            gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", vec2(1430,20), Color::white(), mGlobal->uiFont );
+            gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
         }
         
-        if( mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_TIME ){
+        if( Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_TIME ){
             if(Model::instance().getUsesKph()){
-                mGlobal->texFont->drawString(toDec(data->getDistanceMeters(), 2) + "m", vec2(1485,44));
+                Model::instance().texFont->drawString(toDec(data->getDistanceMeters(), 2) + "m", vec2(1485,44));
             }else{
-                mGlobal->texFont->drawString(toDec(data->getDistanceFeet(), 2) + "ft", vec2(1485,44));
+                Model::instance().texFont->drawString(toDec(data->getDistanceFeet(), 2) + "ft", vec2(1485,44));
             }
         }
-        else if(mGlobal->currentRaceType == RACE_TYPE::RACE_TYPE_DISTANCE){
+        else if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_DISTANCE){
             if( data->didFinishRace() ){
-                mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( data->finishTimeMillis ), vec2(1485,44) );
+                Model::instance().texFont->drawString(sb::utils::millisToTimestamp( data->finishTimeMillis ), vec2(1485,44) );
             }else{
-                mGlobal->texFont->drawString(mGlobal->toTimestampPrecise( Model::instance().elapsedRaceTimeMillis ), vec2(1485,44) );
+                Model::instance().texFont->drawString(sb::utils::millisToTimestamp( Model::instance().elapsedRaceTimeMillis ), vec2(1485,44) );
             }
         }
         

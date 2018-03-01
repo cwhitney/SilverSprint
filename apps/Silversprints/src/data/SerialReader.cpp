@@ -332,9 +332,9 @@ void SerialReader::getVersion(){
     sendSerialMessage("v");
 }
 
-void SerialReader::setRaceType( gfx::RACE_TYPE raceType)
+void SerialReader::setRaceType( Model::RACE_TYPE raceType)
 {
-    if(raceType == RACE_TYPE_DISTANCE){
+    if(raceType == Model::RACE_TYPE_DISTANCE){
         sendSerialMessage("d");
     }else{
         sendSerialMessage("x");

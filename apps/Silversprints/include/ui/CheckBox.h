@@ -1,7 +1,6 @@
 #pragma once
 
 #include "cinder/app/App.h"
-#include "data/GFXGlobal.h"
 #include "data/Model.h"
 #include "ui/ThickLine.h"
 #include "ui/BaseButton.h"
@@ -30,8 +29,6 @@ class CheckBox : public BaseButton {
     //ci::Rectf   mBounds;
     bool        bInteractive = true;
     bool        bChecked = false;
-    
-    gfx::GFXGlobal       *mGlobal;
     
     ThickLineRef    mXLine1, mXLine2, mCheckLine1, mCheckLine2;
 };

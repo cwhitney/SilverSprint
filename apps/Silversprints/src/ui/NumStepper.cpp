@@ -23,15 +23,14 @@ void NumStepper::setup( ci::vec2 pos, int gap, string symbol ){
     
     mTxt = symbol;
     
-    mGlobal = GFXGlobal::getInstance();
-    mBgColor = mGlobal->playerColors[0];
+    mBgColor = Model::instance().playerColors[0];
 }
 
 void NumStepper::draw() {
     gl::color( mBgColor );
     gl::drawSolidRect( mBounds );
     
-    ci::Color txtCol = (mBgColor == Color::black()) ? mGlobal->playerColors[0] : Color::black();
+    ci::Color txtCol = (mBgColor == Color::black()) ? Model::instance().playerColors[0] : Color::black();
     gl::color( txtCol );
 
     gl::pushMatrices();
@@ -49,7 +48,7 @@ void NumStepper::onMouseOver(){
 }
 
 void NumStepper::onMouseOut(){
-    mBgColor = mGlobal->playerColors[0];
+    mBgColor = Model::instance().playerColors[0];
 }
 
 void NumStepper::onClick(){

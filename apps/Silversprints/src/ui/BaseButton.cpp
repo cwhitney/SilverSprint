@@ -11,6 +11,7 @@
 using namespace ci;
 using namespace ci::app;
 using namespace std;
+using namespace gfx;
 
 BaseButton::BaseButton() {
     bActive = false;
@@ -23,14 +24,14 @@ BaseButton::BaseButton() {
 }
 
 void BaseButton::onMouseUp( cinder::app::MouseEvent event ){
-    vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal( event.getPos() );
+    vec2 pos = Model::instance().localToGlobal( event.getPos() );
     if( mBounds.contains( pos ) ){
         onClick();
     }
 }
 
 void BaseButton::onMouseMove( cinder::app::MouseEvent event ){
-    vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal( event.getPos() );
+    vec2 pos = Model::instance().localToGlobal( event.getPos() );
 
     if( mBounds.contains( pos ) ){
         if( !bHover ){

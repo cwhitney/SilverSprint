@@ -22,12 +22,10 @@ void RaceView::setup()
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     mLogo = gl::Texture::create( loadImage( loadAsset("img/opensprintsLogo.png") ) );
     
-    mGlobal = gfx::GFXGlobal::getInstance();
-    
     mDialCenter = vec2(1920.0 * 0.5, 612.0);
     
     for(int i=0; i<4; i++){
-        mRaceTexts.push_back( new RaceText( mGlobal->playerColors[i] ) );
+        mRaceTexts.push_back( new RaceText( Model::instance().playerColors[i] ) );
     }
     
     mDial = gl::Texture::create( loadImage(loadAsset("img/dial_bg_y.png")) );
@@ -165,21 +163,21 @@ void RaceView::draw()
     
     if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING )
     {
-        if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
-            mTimerFont->drawString( mGlobal->toTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );
+        if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
+            mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );
         }else{
             double timeRemaining = max(0.0, Model::instance().getRaceLengthMillis() - Model::instance().elapsedRaceTimeMillis);
-            mTimerFont->drawString( mGlobal->toTimestamp(timeRemaining), vec2(867,154) );
+            mTimerFont->drawString( sb::utils::millisToTimestamp(timeRemaining), vec2(867,154) );
         }
     }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE )
     {
-        if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
-            mTimerFont->drawString( mGlobal->toTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );
+        if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
+            mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );
         }else{
-            mTimerFont->drawString( mGlobal->toTimestamp(0), vec2(867,154) );
+            mTimerFont->drawString(sb::utils::millisToTimestamp(0), vec2(867,154) );
         }
     }else {
-        mTimerFont->drawString( mGlobal->toTimestamp(0), vec2(867,154) );
+        mTimerFont->drawString( sb::utils::millisToTimestamp(0), vec2(867,154) );
     }
     
     // DIAL
@@ -201,18 +199,18 @@ void RaceView::draw()
             gl::ScopedGlslProg scProg( mProgressShader );
             
             float radialPos = pd->getPercent();
-            if(mGlobal->currentRaceType == RACE_TYPE_TIME){
+            if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_TIME){
                 radialPos = pd->getDistanceMeters() / 100.0f;   // 100 meters will be one lap around the track
             }
             float tailLen = lmap(pd->getMph(), 0.0, 30.0, 0.0, 0.30);   // 30mph means a 30% tail
             tailLen = clamp(tailLen, 0.0f, 0.50f);  // no more than 50 though
             
-            tmpCol = mGlobal->playerColors[i];
+            tmpCol = Model::instance().playerColors[i];
             mProgressShader->uniform( "uBaseColor", tmpCol );
             mProgressShader->uniform( "uLeadingEdgePct", (float)radialPos );
             mProgressShader->uniform( "uTailLen", (float)tailLen );
             
-            gl::ScopedColor scCol(mGlobal->playerColors[i]);
+            gl::ScopedColor scCol(Model::instance().playerColors[i]);
             gl::draw( mVboList[i] );
         }
         

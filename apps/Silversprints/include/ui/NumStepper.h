@@ -11,7 +11,7 @@
 #include "cinder/app/App.h"
 
 #include "BaseButton.h"
-#include "data/GFXGlobal.h"
+#include "data/Model.h"
 
 namespace gfx {
 
@@ -28,7 +28,6 @@ class NumStepper : public BaseButton {
     ci::signals::Signal<void(void)>	signalOnClick;
     
   private:
-    GFXGlobal       *mGlobal;
     ci::Color       mBgColor;
     std::string     mTxt;
 };

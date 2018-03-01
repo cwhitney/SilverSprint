@@ -8,9 +8,6 @@ using namespace gfx;
 WinnerModal::WinnerModal() :
     bVisible(false)
 {
-    mGlobal = GFXGlobal::getInstance();
-//    mWinnerRect = Rectf(100,100,500,500);
-    
     mWinnerGraphic = gl::Texture::create( loadImage( loadAsset("img/WinnerModal.png") ));
     mWinnerRect = mWinnerGraphic->getBounds();
     mWinnerRect.offset( (vec2(1920, 1080) - (vec2)mWinnerGraphic->getSize()) * vec2(0.5) );
@@ -38,7 +35,7 @@ WinnerModal::WinnerModal() :
             mParticles->resetSystem();
 
 			mConn = getWindow()->getSignalMouseUp().connect([&](MouseEvent event) {
-				//if (mWinnerRect.contains(mGlobal->localToGlobal(event.getPos()))) {
+				//if (mWinnerRect.contains(Model::instance().localToGlobal(event.getPos()))) {
 					StateManager::getInstance()->changeRaceState(RACE_STOPPED);
 				//}
 			});
@@ -60,7 +57,7 @@ void WinnerModal::getWinners()
         mWinnersSorted.push_back( Model::instance().getPlayerData(i) );
     }
     
-    if(GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_DISTANCE){
+    if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
         std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerData* a, PlayerData *b) {
             return a->finishTimeMillis < b->finishTimeMillis;
         });
@@ -102,44 +99,44 @@ void WinnerModal::draw()
         
         gl::ScopedColor scA(1,1,1,mAlpha);
         gl::draw( mWinnerGraphic, mWinnerRect);
-        float ww = mGlobal->winnerTexFont->measureString(mWinnersSorted[0]->player_name).x;
+        float ww = Model::instance().winnerTexFont->measureString(mWinnersSorted[0]->player_name).x;
         // draw the main winner
         {
             gl::ScopedMatrices scMat;
             gl::translate( mWinnerRect.getUpperLeft() );
             gl::color(0,0,0,mAlpha);
-            mGlobal->winnerTexFont->drawString( mWinnersSorted[0]->player_name, vec2(550 - ww*0.5, 288));
+            Model::instance().winnerTexFont->drawString( mWinnersSorted[0]->player_name, vec2(550 - ww*0.5, 288));
             
             // draw the correct race metric, time or distance
-            if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
+            if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
                 gl::ScopedColor scCol(ColorA(0,0,0,mAlpha));
                 string winLabel = "TIME";
-                vec2 labelSize = mGlobal->winnerUiFont->measureString(winLabel);
-                mGlobal->winnerUiFont->drawString(winLabel, vec2(441, 319) - vec2(labelSize.x*0.5, 0));
+                vec2 labelSize = Model::instance().winnerUiFont->measureString(winLabel);
+                Model::instance().winnerUiFont->drawString(winLabel, vec2(441, 319) - vec2(labelSize.x*0.5, 0));
                 
                 gl::color(1,1,1,mAlpha);
-                mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[0]->finishTimeMillis), vec2(356, 362));
+                Model::instance().texFont->drawString( sb::utils::millisToTimestamp(mWinnersSorted[0]->finishTimeMillis), vec2(356, 362));
             }
             // RACE_TYPE_TIME
             else{
                 gl::ScopedColor scCol(ColorA(0,0,0,mAlpha));
                 string winLabel = "DISTANCE";
-                vec2 labelSize = mGlobal->winnerUiFont->measureString(winLabel);
-                mGlobal->winnerUiFont->drawString(winLabel, vec2(441, 319) - vec2(labelSize.x*0.5, 0));
+                vec2 labelSize = Model::instance().winnerUiFont->measureString(winLabel);
+                Model::instance().winnerUiFont->drawString(winLabel, vec2(441, 319) - vec2(labelSize.x*0.5, 0));
                 
                 gl::color(1,1,1,mAlpha);
                 if(Model::instance().getUsesKph()){
-                    mGlobal->texFont->drawString(toString(mWinnersSorted[0]->getDistanceMeters(), 2) + "m", vec2(356, 362));
+                    Model::instance().texFont->drawString(toString(mWinnersSorted[0]->getDistanceMeters(), 2) + "m", vec2(356, 362));
                 }else{
-                    mGlobal->texFont->drawString(toString(mWinnersSorted[0]->getDistanceFeet(), 2) + "ft", vec2(356, 362));
+                    Model::instance().texFont->drawString(toString(mWinnersSorted[0]->getDistanceFeet(), 2) + "ft", vec2(356, 362));
                 }
             }
             
             gl::color(1,1,1,mAlpha);
             if(Model::instance().getUsesKph()){
-                mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxKph(), 1) + "kph", vec2(604-20, 362));
+                Model::instance().texFont->drawString( toString(mWinnersSorted[0]->getMaxKph(), 1) + "kph", vec2(604-20, 362));
             }else{
-                mGlobal->texFont->drawString( toString(mWinnersSorted[0]->getMaxMph(), 1) + "mph", vec2(604-20, 362));
+                Model::instance().texFont->drawString( toString(mWinnersSorted[0]->getMaxMph(), 1) + "mph", vec2(604-20, 362));
             }
         }
         // Draw the individual boxes below
@@ -173,27 +170,27 @@ void WinnerModal::draw()
                     gl::drawSolidRect( botRect );
                 }
                 
-                mGlobal->texFont->drawString( mWinnersSorted[i+1]->player_name, vec2(20, 42));
+                Model::instance().texFont->drawString( mWinnersSorted[i+1]->player_name, vec2(20, 42));
                 
                 gl::color(1,1,1,mAlpha);
                 // draw finish stats
-                if(mGlobal->currentRaceType == RACE_TYPE_DISTANCE){
-                    mGlobal->texFont->drawString( mGlobal->toTimestampPrecise(mWinnersSorted[i+1]->finishTimeMillis), vec2(20, 82));
+                if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
+                    Model::instance().texFont->drawString( sb::utils::millisToTimestamp(mWinnersSorted[i+1]->finishTimeMillis), vec2(20, 82));
                 }
                 // RACE_TYPE_TIME
                 else{
                     if(Model::instance().getUsesKph()){
-                        mGlobal->texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceMeters(), 2) + "m", vec2(20, 82));
+                        Model::instance().texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceMeters(), 2) + "m", vec2(20, 82));
                     }else{
-                        mGlobal->texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceFeet(), 2) + "ft", vec2(20, 82));
+                        Model::instance().texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceFeet(), 2) + "ft", vec2(20, 82));
                     }
                 }
                 
                 // draw top speed
                 if(Model::instance().getUsesKph()){
-                    mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxKph(), 1) + "kph", vec2(210, 82));
+                    Model::instance().texFont->drawString( toString(mWinnersSorted[i+1]->getMaxKph(), 1) + "kph", vec2(210, 82));
                 }else{
-                    mGlobal->texFont->drawString( toString(mWinnersSorted[i+1]->getMaxMph(), 1) + "mph", vec2(210, 82));
+                    Model::instance().texFont->drawString( toString(mWinnersSorted[i+1]->getMaxMph(), 1) + "mph", vec2(210, 82));
                 }
             }
         }

@@ -11,6 +11,7 @@
 using namespace ci;
 using namespace ci::app;
 using namespace std;
+using namespace gfx;
 
 CiTextField::~CiTextField(){
     mMouseDownCb.disconnect();
@@ -149,7 +150,7 @@ void CiTextField::onMouseDown( ci::app::MouseEvent event ){
     bDragging = false;
     blur();
     
-    vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
+    vec2 pos = Model::instance().localToGlobal(event.getPos());
     
     if( mBounds.contains(pos) ){
         bDragging = true;
@@ -164,7 +165,7 @@ void CiTextField::onMouseDrag( ci::app::MouseEvent event ){
         return;
     }
     
-    vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
+    vec2 pos = Model::instance().localToGlobal(event.getPos());
     
     if( bDragging ){
         mCaratIndex = getCursorIndex( pos - mBounds.getUpperLeft() );
@@ -175,7 +176,7 @@ void CiTextField::onMouseUp( ci::app::MouseEvent event ){
         return;
     }
     
-    vec2 pos = gfx::GFXGlobal::getInstance()->localToGlobal(event.getPos());
+    vec2 pos = Model::instance().localToGlobal(event.getPos());
     
     if( bDragging ){
         bActive = true;
@@ -251,9 +252,9 @@ void CiTextField::draw()
     }
     
     float alpha = 1.0;
-//    if( !bEnabled ){
-//        alpha = 0.2;
-//    }
+    //    if( !bEnabled ){
+    //        alpha = 0.2;
+    //    }
     
     if( bActive ){
         mColorStroke.a = 1.0;
@@ -300,7 +301,7 @@ void CiTextField::draw()
             gl::translate( 0, mBounds.y1 + emSize.y*0.1);
             gl::drawLine( mCursorPos, mCursorPos + vec2(0, emSize.y) );
         }gl::popMatrices();
-    
+        
         if( bDragging || bHighlighted ) {
             gl::color( mColorHighlight );
             
@@ -321,4 +322,3 @@ void CiTextField::draw()
         glDisable(GL_SCISSOR_TEST);
     }
 }
-

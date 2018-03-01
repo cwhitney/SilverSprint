@@ -9,8 +9,9 @@
 #pragma once
 
 #include "cinder/app/App.h"
+#include "tools/Utils.h"
+
 #include "data/PlayerData.h"
-#include "data/GFXGlobal.h"
 #include "data/Model.h"
 
 namespace gfx{
@@ -18,12 +19,11 @@ namespace gfx{
     class RaceText {
       public:
         RaceText( const ci::Color &color );
-        void draw( gfx::PlayerData *data, ci::vec2 offset );
+        void draw( PlayerData *data, ci::vec2 offset );
         
       private:
         std::string toDec( float num, int decPlaces );
         
         ci::Color mColor;
-        gfx::GFXGlobal  *mGlobal;
     };
 }

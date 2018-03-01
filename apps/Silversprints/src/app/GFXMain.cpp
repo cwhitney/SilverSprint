@@ -12,20 +12,21 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 using namespace gfx;
-
-std::string msToTimeStr(const size_t &millis){
-    int ms = millis % 1000;
-    int seconds = int(millis / 1000) % 60 ;
-    int minutes = int(millis / (1000*60));
-    //int hours   = int(millis / (1000*60*60)) % 24;
-    
-    stringstream ss;
-    ss  << setfill('0') << setw(2) << minutes << ":"
-    << setfill('0') << setw(2) << seconds << ":"
-    << setfill('0') << setw(3) << ms;
-
-    return ss.str();
-}
+/*
+ std::string msToTimeStr(const size_t &millis){
+ int ms = millis % 1000;
+ int seconds = int(millis / 1000) % 60 ;
+ int minutes = int(millis / (1000*60));
+ //int hours   = int(millis / (1000*60*60)) % 24;
+ 
+ stringstream ss;
+ ss  << setfill('0') << setw(2) << minutes << ":"
+ << setfill('0') << setw(2) << seconds << ":"
+ << setfill('0') << setw(3) << ms;
+ 
+ return ss.str();
+ }
+ */
 
 // -------------------------------------
 GFXMain::GFXMain(){
@@ -38,8 +39,6 @@ GFXMain::~GFXMain(){
 
 void GFXMain::setup(){
     // INIT --------------------------------------------------------------
-    mGlobal = GFXGlobal::getInstance();
-    
     mSerialReader = SerialReaderRef( new SerialReader() );
     mSerialReader->setup();
     
@@ -48,10 +47,10 @@ void GFXMain::setup(){
     CsvLogger::instance().setHeaders({"Timestamp", "Event", "Racer 1", "Racer 2", "Racer 3", "Racer 4"});
     
     // VIEWS --------------------------------------------------------------
-    mNav			= std::make_shared<NavBarView>();
-    mRaceView		= std::make_shared<RaceView>();
-    mRosterView		= std::make_shared<RosterView>();
-    mSettingsView	= std::make_shared<SettingsView>();
+    mNav            = std::make_shared<NavBarView>();
+    mRaceView        = std::make_shared<RaceView>();
+    mRosterView        = std::make_shared<RosterView>();
+    mSettingsView    = std::make_shared<SettingsView>();
     
     mNav->setup();
     mRaceView->setup();
@@ -66,12 +65,12 @@ void GFXMain::setup(){
     mStateManager->signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
         Model::instance().playerData[_id]->setFinished(_finishMillis, _finishTicks);
     });
-        
+    
     // START --------------------------------------------------------------
     mStateManager->changeAppState( APP_STATE::RACE, true );
     mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED, true );
     
-    msToTimeStr(13660001);
+    //    sb::tools::msToTimeStr(13660001);
 }
 
 void GFXMain::reloadShaders()
@@ -84,15 +83,15 @@ void GFXMain::onRaceFinished() {
     mSerialReader->stopRace();
     mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE );
     
-	// Log the race
+    // Log the race
     if(Model::instance().getRaceLogging()){
         // If it's a distance race, log the times
-        if(GFXGlobal::getInstance()->currentRaceType == gfx::RACE_TYPE::RACE_TYPE_DISTANCE){
+        if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_DISTANCE){
             CsvLogger::instance().log(CsvLogger::RACE_FINISH_DISTANCE,
-                                      msToTimeStr(Model::instance().playerData[0]->finishTimeMillis),
-                                      msToTimeStr(Model::instance().playerData[1]->finishTimeMillis),
-                                      msToTimeStr(Model::instance().playerData[2]->finishTimeMillis),
-                                      msToTimeStr(Model::instance().playerData[3]->finishTimeMillis));
+                                      sb::utils::millisToTimestamp(Model::instance().playerData[0]->finishTimeMillis),
+                                      sb::utils::millisToTimestamp(Model::instance().playerData[1]->finishTimeMillis),
+                                      sb::utils::millisToTimestamp(Model::instance().playerData[2]->finishTimeMillis),
+                                      sb::utils::millisToTimestamp(Model::instance().playerData[3]->finishTimeMillis));
         }
         // If it's a time race, log the distance
         else {
@@ -122,21 +121,21 @@ void GFXMain::onAppStateChaged( APP_STATE as ) {
 void GFXMain::onRaceStateChanged( RACE_STATE rc ){
     
     if( rc == RACE_STATE::RACE_STARTING ){
-        if(GFXGlobal::getInstance()->currentRaceType == RACE_TYPE_DISTANCE ){
-            mSerialReader->setRaceType(RACE_TYPE_DISTANCE);
+        if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE ){
+            mSerialReader->setRaceType(Model::RACE_TYPE_DISTANCE);
             mSerialReader->setRaceLengthTicks( Model::instance().getRaceLengthTicks() );
         }else{
-            mSerialReader->setRaceType(RACE_TYPE_TIME);
+            mSerialReader->setRaceType(Model::RACE_TYPE_TIME);
             mSerialReader->setRaceDuration( Model::instance().getRaceTimeSeconds() );
         }
         
-		Model::instance().resetPlayers();
+        Model::instance().resetPlayers();
         mSerialReader->startRace();
     }
     
     else if( rc == RACE_STATE::RACE_STOPPED ){
         mSerialReader->stopRace();
-     //   Model::instance().resetPlayers();
+        //   Model::instance().resetPlayers();
         Model::instance().elapsedRaceTimeMillis = 0.0;
     }
 }
@@ -172,7 +171,7 @@ void GFXMain::update()
     start_t = getElapsedSeconds();
     mSerialReader->update();
     end_t = getElapsedSeconds();
-//    console() << "SerialReader update time :: " << start_t << " -- " << (end_t - start_t) << endl;
+    //    console() << "SerialReader update time :: " << start_t << " -- " << (end_t - start_t) << endl;
     
     mRaceView->update();
     mRosterView->update();
@@ -180,7 +179,7 @@ void GFXMain::update()
 }
 
 void GFXMain::draw( const Rectf &drawRect ){
-//    mGlobal->setScale(drawRect);
+    //    Model::instance().setScale(drawRect);
     
     mRaceView->draw();
     mRosterView->draw();
