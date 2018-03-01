@@ -1,6 +1,6 @@
 //
 //  NavBarView.cpp
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Grampa Charlie on 10/24/14.
 //

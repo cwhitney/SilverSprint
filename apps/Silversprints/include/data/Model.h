@@ -14,16 +14,23 @@
 #include "PlayerData.h"
 
 namespace gfx {
-
+    
     class Model {
         friend class SerialReader;
         
-      public:
-
+    public:
+        
         static Model &instance(){
             static Model sInstance;
             return sInstance;
         }
+        
+        enum RACE_TYPE {
+            RACE_TYPE_TIME = 0,
+            RACE_TYPE_DISTANCE
+        };
+        const RACE_TYPE& getCurrentRaceType(){ return mCurrentRaceType; }
+        void setCurrentRaceType(const RACE_TYPE &type){ mCurrentRaceType = type; }
         
         void resetPlayers();
         
@@ -45,7 +52,7 @@ namespace gfx {
         PlayerData* getPlayerData(const int &num){ return playerData[num]; };
         
         const double& getRaceLengthMillis(){ return RaceSettings.mRaceLengthMillis;}
-
+        
         void setUseKph(bool useKph){ RaceSettings.bUseKph = useKph;}
         bool getUsesKph(){ return RaceSettings.bUseKph; }
         
@@ -53,7 +60,7 @@ namespace gfx {
             RaceSettings.bLogRacesToFile = bShouldLog;
         }
         const bool getRaceLogging(){ return RaceSettings.bLogRacesToFile; }
-
+        
         std::vector<gfx::PlayerData*>   playerData;
         ci::Color                       playerColors[4];
         
@@ -61,15 +68,25 @@ namespace gfx {
         int                             elapsedRaceTimeMillis;
         std::string                     mFirmwareVersion = "Unknown";
         
-      private:
+        // FONTS
+        ci::Font uiFont;
+        ci::gl::TextureFontRef      texFont, winnerTexFont, winnerUiFont;
+        ci::gl::TextureFontRef      countdownFont;
+        
+        ci::vec2   localToGlobal( ci::vec2 pos );
+        void setScale( const ci::Rectf &scaledRect );
+        
+        //! How often the mph is updated for racers
+        const float speedUpdateInterval = 0.5f;
+        
+    private:
         // PRIVATE CONSTRUCTOR + COPY
         Model();
         ~Model();
         Model(Model const&){};
-        
-        static Model    *mInstance;
-        
         void    setRaceLength(int ticks);
+        
+        RACE_TYPE mCurrentRaceType = RACE_TYPE::RACE_TYPE_TIME;
         
         struct RaceSettings {
             int numRacers = 2;
@@ -87,8 +104,6 @@ namespace gfx {
             bool    bLogRacesToFile = false;
         } RaceSettings;
         
-       
-        
-        
+        ci::vec2 mScreenScale, mScreenOffset;
     };
 }

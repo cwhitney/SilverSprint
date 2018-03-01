@@ -1,6 +1,6 @@
 //
 //  SettingsView.cpp
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 10/15/14.
 //

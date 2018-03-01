@@ -1,6 +1,6 @@
 //
 //  RaceText.h
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 10/13/14.
 //
@@ -15,15 +15,17 @@
 #include "data/Model.h"
 
 namespace gfx{
-
+    
     class RaceText {
-      public:
+    public:
         RaceText( const ci::Color &color );
-        void draw( PlayerData *data, ci::vec2 offset );
+        void draw( gfx::PlayerData *data, const ci::vec2 &offset );
         
-      private:
-        std::string toDec( float num, int decPlaces );
+    private:
+        std::string toDec( const float &num, const int &decPlaces );
         
         ci::Color mColor;
+        double  mLastSpeedUpdate = 0.0;
+        double  mLastSpeed = 0.0;
     };
 }

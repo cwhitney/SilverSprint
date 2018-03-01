@@ -1,6 +1,6 @@
 //
 //  RaceText.cpp
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 10/13/14.
 //
@@ -19,13 +19,13 @@ RaceText::RaceText( const ci::Color &color ){
     mColor = color;
 }
 
-std::string RaceText::toDec( float num, int decPlaces ) {
+std::string RaceText::toDec( const float &num, const int &decPlaces ) {
     std::ostringstream buffer;
     buffer << fixed << setprecision( decPlaces ) << num;
     return buffer.str();
 }
 
-void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
+void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
 {
     gl::pushMatrices();{
         gl::translate( offset );
@@ -57,13 +57,23 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
         boost::to_upper(data->player_name);
         Model::instance().texFont->drawString(data->player_name, vec2(20, 44) );
         
-        // sPEED
+        // SPEED
         if( Model::instance().getUsesKph()){
-            gl::drawStringRight( toDec(data->getKph(), 0) + " KPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
+            if(getElapsedSeconds() - mLastSpeedUpdate > Model::instance().speedUpdateInterval){
+                mLastSpeed = data->getKph();
+                mLastSpeedUpdate = getElapsedSeconds();
+            }
+            gl::drawStringRight( toDec(mLastSpeed, 1) + " KPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
         }else{
-            gl::drawStringRight( toDec(data->getMph(), 0) + " MPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
+            if(getElapsedSeconds() - mLastSpeedUpdate > Model::instance().speedUpdateInterval){
+                mLastSpeed = data->getMph();
+                mLastSpeedUpdate = getElapsedSeconds();
+            }
+            gl::drawStringRight( toDec(mLastSpeed, 1) + " MPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
         }
         
+        
+        // DISTANCE AND TIME
         if( Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_TIME ){
             if(Model::instance().getUsesKph()){
                 Model::instance().texFont->drawString(toDec(data->getDistanceMeters(), 2) + "m", vec2(1485,44));
@@ -81,4 +91,3 @@ void RaceText::draw( gfx::PlayerData *data, ci::vec2 offset )
         
     }gl::popMatrices();
 }
-

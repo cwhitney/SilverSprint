@@ -1,6 +1,6 @@
 //
 //  CountDownGfx.h
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 3/17/15.
 //

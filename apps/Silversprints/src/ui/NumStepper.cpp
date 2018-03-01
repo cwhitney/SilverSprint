@@ -1,6 +1,6 @@
 //
 //  NumStepper.cpp
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 1/7/15.
 //

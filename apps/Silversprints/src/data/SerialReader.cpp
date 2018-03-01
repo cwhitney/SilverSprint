@@ -1,6 +1,6 @@
 //
 //  SerialReader.cpp
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 8/28/14.
 //
@@ -15,16 +15,15 @@ using namespace gfx;
 using namespace Cinder::Serial;
 
 SerialReader::SerialReader() :
-    BAUD_RATE(115200),
-    mStringBuffer(""),
-    mHardwareVersion(""),
-    mProtoculVersion(""),
-    mFirmwareVersion(""),
-    mSerial(NULL),
-    mReceiveBuffer(100),
-    mSendBuffer(100)
+BAUD_RATE(115200),
+mStringBuffer(""),
+mProtoculVersion(""),
+mFirmwareVersion(""),
+mSerial(NULL),
+mReceiveBuffer(100),
+mSendBuffer(100)
 {
- 
+    
 }
 
 SerialReader::~SerialReader()
@@ -45,7 +44,7 @@ void SerialReader::update()
 {
     // if we connected since the last update, notify
     if( bSerialConnected && !bLastConnection){
-		mSerial->flush();
+        mSerial->flush();
         onConnect();
         timeline().add( [&](){ getVersion(); }, timeline().getCurrentTime() + 2.0 );
     }else if( !bSerialConnected && bLastConnection ){
@@ -65,61 +64,61 @@ void SerialReader::updateSerialThread()
         std::lock_guard<std::mutex> guard(mSerialMutex);
         
         if(!bSerialConnected ){ // we aren't connected try to connect
-			auto ports = SerialPort::getPorts(true);
+            auto ports = SerialPort::getPorts(true);
             /*
-			for (auto port : ports) {
-				console() << "SERIAL DEVICE" << endl;
-				console() << "\tNAME: " << port->getName() << endl;
-				console() << "\tDESCRIPTION: " << port->getDescription() << endl;
-				console() << "\tHARDWARE IDENTIFIER: " << port->getHardwareIdentifier() << endl;
-			}
+             for (auto port : ports) {
+             console() << "SERIAL DEVICE" << endl;
+             console() << "\tNAME: " << port->getName() << endl;
+             console() << "\tDESCRIPTION: " << port->getDescription() << endl;
+             console() << "\tHARDWARE IDENTIFIER: " << port->getHardwareIdentifier() << endl;
+             }
              */
-			try {
-				if (!ports.empty()) {
-					SerialPortRef port = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
-					if (!port) {
-						port = ports.back();
-					}
-
-					mSerial = SerialDevice::create(port, BAUD_RATE);
-					mSerial->flush();
-					bSerialConnected = true;
-					
-					for (int i = 0; i < mSendBuffer.getSize(); i++) {        // clear send buffer
-						std::string tmp;
-						mSendBuffer.popBack(&tmp);
-					}
-					stopRace();
-
-					for (int i = 0; i < mReceiveBuffer.getSize(); i++) {    // clear receive buffer
-						std::vector<std::string> tmp;
-						mReceiveBuffer.popBack(&tmp);
-					}
-					CI_LOG_I("OpenSprints hardware found successfully. :: ") << mSerial->getPortName();
-				}
-			}catch (serial::IOException& e) {
-				if (mSerial && mSerial->isOpen()) {
-					mSerial->close();
-				}
+            try {
+                if (!ports.empty()) {
+                    SerialPortRef port = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
+                    if (!port) {
+                        port = ports.back();
+                    }
+                    
+                    mSerial = SerialDevice::create(port, BAUD_RATE);
+                    mSerial->flush();
+                    bSerialConnected = true;
+                    
+                    for (int i = 0; i < mSendBuffer.getSize(); i++) {        // clear send buffer
+                        std::string tmp;
+                        mSendBuffer.popBack(&tmp);
+                    }
+                    stopRace();
+                    
+                    for (int i = 0; i < mReceiveBuffer.getSize(); i++) {    // clear receive buffer
+                        std::vector<std::string> tmp;
+                        mReceiveBuffer.popBack(&tmp);
+                    }
+                    CI_LOG_I("OpenSprints hardware found successfully. :: ") << mSerial->getPortName();
+                }
+            }catch (serial::IOException& e) {
+                if (mSerial && mSerial->isOpen()) {
+                    mSerial->close();
+                }
                 bSerialConnected = false;
             }
         }else{
             // make sure we're still connected
-			auto pOpen = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
-
+            auto pOpen = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
+            
             if(pOpen == nullptr){
-				if (mSerial && mSerial->isOpen()) {
-					mSerial->close();
-				}
+                if (mSerial && mSerial->isOpen()) {
+                    mSerial->close();
+                }
                 bSerialConnected = false;
-            }else{ 
-				// send to arduino
+            }else{
+                // send to arduino
                 for(int i=0; i<mSendBuffer.getSize(); i++){
                     std::string msgToSend;
                     mSendBuffer.popBack( &msgToSend );
-
-					CI_LOG_I("Sending :: ") << msgToSend;
-
+                    
+                    CI_LOG_I("Sending :: ") << msgToSend;
+                    
                     mSerial->writeString( msgToSend );
                 }
                 
@@ -133,20 +132,20 @@ void SerialReader::updateSerialThread()
 void SerialReader::readSerial()
 {
     try {
-		size_t bytesAvailable = mSerial->getNumBytesAvailable();
-		size_t charsAvailable = floor(bytesAvailable / sizeof(char));
-
+        size_t bytesAvailable = mSerial->getNumBytesAvailable();
+        size_t charsAvailable = floor(bytesAvailable / sizeof(char));
+        
         for(int i=0; i<charsAvailable; i++){
-			unsigned char c;	// uint8_t
-			mSerial->readBytes(&c, 1);
+            unsigned char c;    // uint8_t
+            mSerial->readBytes(&c, 1);
             mStringBuffer += c;
         }
     }catch(serial::IOException& e){
         bSerialConnected = false;
-		if (mSerial && mSerial->isOpen()) {
-			mSerial->close();
-			//mSerial = nullptr;
-		}
+        if (mSerial && mSerial->isOpen()) {
+            mSerial->close();
+            //mSerial = nullptr;
+        }
     }
     
     auto index = mStringBuffer.find("\r\n");
@@ -178,6 +177,9 @@ void SerialReader::parseCommandToBuffer( std::string command )
 void SerialReader::parseFromBuffer()
 {
     auto numCmds = mReceiveBuffer.getSize();
+    
+//        if(numCmds > 0)
+//            CI_LOG_I("Num cmds " << numCmds);
     
     for( int i=0; i<numCmds; i++) {
         std::vector<std::string> cmdArgs;
@@ -229,16 +231,15 @@ void SerialReader::parseFromBuffer()
             boost::split(rdata, args, boost::is_any_of(","));
             
             int raceMillis = fromString<int>( rdata.back() );
-                                             
-            float dt = raceMillis - Model::instance().elapsedRaceTimeMillis;
+            //float dt = raceMillis - Model::instance().elapsedRaceTimeMillis;
             
             for( int i=0; i<rdata.size()-1; i++){
-                Model::instance().playerData[i]->updateRaceTicks( fromString<int>(rdata[i]), dt );
+                //                if(i == 0){
+                //                    console() <<fromString<int>(rdata[i]) << endl;
+                //                }
+                Model::instance().playerData[i]->updateRaceTicks( fromString<int>(rdata[i]), raceMillis );
             }
-//            Model::instance().playerData[0]->updateRaceTicks( fromString<int>(rdata[0]), dt );
-//            Model::instance().playerData[1]->updateRaceTicks( fromString<int>(rdata[1]), dt );
-//            Model::instance().playerData[2]->updateRaceTicks( fromString<int>(rdata[2]), dt );
-//            Model::instance().playerData[3]->updateRaceTicks( fromString<int>(rdata[3]), dt );
+            
             Model::instance().elapsedRaceTimeMillis = raceMillis;
             Model::instance().startTimeMillis = ci::app::getElapsedSeconds() * 1000.0 - Model::instance().elapsedRaceTimeMillis;
         }
@@ -263,8 +264,8 @@ void SerialReader::parseFromBuffer()
         }
         else if( cmd == "FS"){
             CI_LOG_I("SerialReader :: False start. Racer: " + args);    // 0 based
-//            mStateManager->changeRaceState( RACE_STATE::RACE_FALSE_START );
-//            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
+            //            mStateManager->changeRaceState( RACE_STATE::RACE_FALSE_START );
+            //            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
         }
         else if( cmd == "L"){   // After sending a race length, it will send this confirmation
             CI_LOG_I("SerialReader :: Race Length " + args + ".");
@@ -279,17 +280,21 @@ void SerialReader::parseFromBuffer()
         
         else{
             CI_LOG_I("SerialReader :: Unrecognized command :: ");
-			/*
-			try {
-				CI_LOG_I(cmd);
-			}catch (...) {}
-
-            if(args != ""){
-				try {
-					CI_LOG_I(" with arg :: '" + args + "'");
-				}catch (...) {}
-            }
-			*/
+            /*
+             try {
+             CI_LOG_I(cmd);
+             }catch (std::exception exc) {
+             CI_LOG_EXCEPTION("Error parsing arduino", exc);
+             }
+             
+             if(args != ""){
+             try {
+             CI_LOG_I(" with arg :: '" + args + "'");
+             }catch (std::exception exc) {
+             CI_LOG_EXCEPTION("Error parsing arduino", exc);
+             }
+             }
+             */
         }
     }
 }
@@ -357,6 +362,5 @@ bool SerialReader::isRaceFinished()
     
     return true;
 }
-
 
 

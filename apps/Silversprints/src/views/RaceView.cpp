@@ -1,6 +1,6 @@
 //
 //  RaceView.cpp
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 8/27/14.
 //
@@ -164,20 +164,20 @@ void RaceView::draw()
     if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING )
     {
         if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
-            mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );
+            mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis, 2), vec2(867,154) );
         }else{
             double timeRemaining = max(0.0, Model::instance().getRaceLengthMillis() - Model::instance().elapsedRaceTimeMillis);
-            mTimerFont->drawString( sb::utils::millisToTimestamp(timeRemaining), vec2(867,154) );
+            mTimerFont->drawString( sb::utils::millisToTimestamp(timeRemaining, 2), vec2(867,154) );
         }
     }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE )
     {
         if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
             mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );
         }else{
-            mTimerFont->drawString(sb::utils::millisToTimestamp(0), vec2(867,154) );
+            mTimerFont->drawString(sb::utils::millisToTimestamp(0, 2), vec2(867,154) );
         }
     }else {
-        mTimerFont->drawString( sb::utils::millisToTimestamp(0), vec2(867,154) );
+        mTimerFont->drawString( sb::utils::millisToTimestamp(0, 2), vec2(867,154) );
     }
     
     // DIAL

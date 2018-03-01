@@ -1,6 +1,6 @@
 //
 //  StartStopButton.cpp
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 1/6/15.
 //

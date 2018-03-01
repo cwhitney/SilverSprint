@@ -15,7 +15,7 @@
  *
  */
 
-#define VERSION "SS_v0.1.6"
+#define VERSION "SS_v0.1.4"
 #define FALSE_START_TICKS 4
 #define MAX_RACERS 4
 
@@ -237,7 +237,7 @@ void updateRacerTicks()
             // 1 km/hr = 0.2778 mm/ms
             // 114.3mm == fake roller diameter            
             float mmSec = mockSpeedsKph[i] * 277.77778;
-            float curTimeSecs = currentTimeMillis / 1000;
+            float curTimeSecs = currentTimeMillis / 1000.0;
             //racerTicks[i] = floor( curTimeSecs * mmSec / (114.3 * PI));
             racerTicks[i] = floor( currentTimeMillis * mockSpeedsKph[i] * 0.2778 / (114.3 * PI));
         }

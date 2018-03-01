@@ -1,6 +1,6 @@
 //
 //  GFXMain.cpp
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 8/27/14.
 //

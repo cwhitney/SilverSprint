@@ -1,6 +1,6 @@
 //
 //  CheckBox.cpp
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 15/11/17.
 //

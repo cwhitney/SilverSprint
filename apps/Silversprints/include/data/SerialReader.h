@@ -1,6 +1,6 @@
 //
 //  SerialReader.h
-//  GoldsprintsFX
+//  SilverSprints
 //
 //  Created by Charlie Whitney on 8/28/14.
 //
@@ -68,7 +68,6 @@ namespace gfx
         
         std::string         mFirmwareVersion;
         std::string         mProtoculVersion;
-        std::string         mHardwareVersion;   // currently unimplemented in arduino software
         
         // threading
         std::shared_ptr<std::thread>    mSerialThread;
