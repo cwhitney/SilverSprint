@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>SilverSprints</title>
+    
+    <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
+    <script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>
   </head>
 
   <body>
@@ -36,8 +39,15 @@
         <h3>Open Source Roller Racing</h3>
 
         <p><b>SilverSprint</b> is a free and open source application for bicycle roller racing.  It integrates with the OpenSprints hardware kit, or you can make your own.</p>
-          <!-- It takes it name from <a href="https://en.wikipedia.org/wiki/Goldsprint">Goldsprints</a>, which is this style of roller racing.</p> -->
         <img src="images/ss/01_Race.png" alt="SilverSprint Race Screen">
+        <div id="contrib_wrap">
+          
+            <div class="contrib_btn"><script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
+<a class="dbox-donation-button" href="https://donorbox.org/silversprints?amount=10" style="background:#2d81c5 url(https://d1iczxrky3cnb2.cloudfront.net/red_logo.png) no-repeat 18px center; color: #fff;text-decoration: none;font-family: Verdana,sans-serif;display: inline-block;font-size: 16px;padding: 13px 17px 13px 56px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; box-shadow: 0 1px 0 0 #1f5a89; text-shadow: 0 1px rgba(0, 0, 0, 0.3);" >Contribute</a>
+          </div>
+          <div class="contrib_copy"><p>SilverSprints will always be free and open-source, but if it has helped you make money, please consider contributing to help support ongoing development!</p>
+          </div>
+        </div>
         <div id="dl_div">
           <div class="dl">
             <a href="https://github.com/cwhitney/SilverSprint/releases/latest">
@@ -70,17 +80,29 @@
         Designed by <a href="http://peprally.co">Erica Goroshow</a></p>
       </footer>
     </div>
+    
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-73097311-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-73097311-1");
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+    <script type="text/javascript">
+      var slider = document.getElementById("slider_bg");
+      var output = document.getElementById("contrib_amt");
+      slider.oninput = function() {
+        output.value = parseFloat($(this).val()).toFixed(2);
+      }
+    </script>
 
 
   </body>

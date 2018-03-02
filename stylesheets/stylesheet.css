@@ -366,12 +366,44 @@ Full-Width Styles
 }
 
 #main_content {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 #footer_wrap {
   background: #212121;
 }
+
+/*******************************************************************************
+Contribute
+*******************************************************************************/
+
+#contrib_wrap {
+  display: flex;
+  align-items: stretch;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+#contrib_cont p {
+  
+}
+
+.contrib_btn {
+  min-width: 180px;
+  width: 180px;
+  /*float: left;*/
+}
+
+.contrib_copy {
+  width: 100%;
+  font-size: 0.85em;
+  /*margin-left: 100%;*/
+  /*float: left;*/
+}
+
+
 
 /*******************************************************************************
 Download
