@@ -28,6 +28,7 @@
 		CB202BB11E40FC9C00E79AF7 /* SerialDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB202BAA1E40FC9C00E79AF7 /* SerialDevice.cpp */; };
 		CB202BB61E40FCE700E79AF7 /* Osc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB202BB41E40FCE700E79AF7 /* Osc.cpp */; };
 		CB37B3861E297897009FC93A /* ssIcn.icns in Resources */ = {isa = PBXBuildFile; fileRef = CB37B3851E297897009FC93A /* ssIcn.icns */; };
+		CB39FC922048B5EE003ABCB5 /* DropDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB39FC912048B5EE003ABCB5 /* DropDown.cpp */; };
 		CB49AA221E44F1A300820D70 /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */; };
 		CB675B9E1FCB5A3100AF05DA /* ToggleBtn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB675B9D1FCB5A3100AF05DA /* ToggleBtn.cpp */; };
 		CB93D34F2045BE16004D01EA /* SilverSprintsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB93D34E2045BE16004D01EA /* SilverSprintsApp.cpp */; };
@@ -93,6 +94,8 @@
 		CB37B3841E296064009FC93A /* WinnerModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WinnerModal.h; sourceTree = "<group>"; };
 		CB37B3851E297897009FC93A /* ssIcn.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ssIcn.icns; path = ../resources/ssIcn.icns; sourceTree = "<group>"; };
 		CB39FC8F204898E1003ABCB5 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../blocks/Sharkbox/tools/Utils.h; sourceTree = "<group>"; };
+		CB39FC902048B5E4003ABCB5 /* DropDown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DropDown.h; sourceTree = "<group>"; };
+		CB39FC912048B5EE003ABCB5 /* DropDown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DropDown.cpp; sourceTree = "<group>"; };
 		CB49AA201E44F1A300820D70 /* ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystem.cpp; sourceTree = "<group>"; };
 		CB49AA211E44F1A300820D70 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
 		CB628DD120158AB3008FC730 /* Version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Version.h; path = ../include/Version.h; sourceTree = "<group>"; };
@@ -443,6 +446,7 @@
 		CBF06EEE1C5011ED0064CC52 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				CB39FC912048B5EE003ABCB5 /* DropDown.cpp */,
 				CBF0F74F1FBD3FCE00421F89 /* CheckBox.cpp */,
 				CBF06EEF1C5011ED0064CC52 /* BaseButton.cpp */,
 				CBF06EF01C5011ED0064CC52 /* CiTextField.cpp */,
@@ -497,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				CBF0F74E1FBD3FC200421F89 /* CheckBox.h */,
+				CB39FC902048B5E4003ABCB5 /* DropDown.h */,
 				CB37B37C1E296064009FC93A /* BaseButton.h */,
 				CB37B37D1E296064009FC93A /* CiTextField.h */,
 				CB37B37E1E296064009FC93A /* CountDownGfx.h */,
@@ -607,6 +612,7 @@
 				CBF06F0A1C5011ED0064CC52 /* ThickLine.cpp in Sources */,
 				CB202BAC1E40FC9C00E79AF7 /* list_ports_osx.cc in Sources */,
 				CBF06F0B1C5011ED0064CC52 /* WinnerModal.cpp in Sources */,
+				CB39FC922048B5EE003ABCB5 /* DropDown.cpp in Sources */,
 				CBF06F091C5011ED0064CC52 /* StartStopButton.cpp in Sources */,
 				CBF06F011C5011ED0064CC52 /* SerialReader.cpp in Sources */,
 				CB202BB01E40FC9C00E79AF7 /* serial.cc in Sources */,

@@ -35,8 +35,6 @@ SerialReader::~SerialReader()
 
 void SerialReader::setup()
 {
-    mStateManager = StateManager::getInstance();
-    
     mSerialThread = std::shared_ptr<std::thread>( new std::thread( std::bind(&SerialReader::updateSerialThread, this) ) );
 }
 
@@ -56,6 +54,17 @@ void SerialReader::update()
     parseFromBuffer();
 }
 
+void SerialReader::selectSerialDevice(const std::string &deviceName)
+{
+    std::lock_guard<std::mutex> guard(mSerialMutex);
+    
+    mConnectedPortName = deviceName;
+    if (mSerial && mSerial->isOpen()) {
+        mSerial->close();
+    }
+    bSerialConnected = false;
+}
+
 void SerialReader::updateSerialThread()
 {
     ThreadSetup threadSetup;
@@ -72,11 +81,12 @@ void SerialReader::updateSerialThread()
              console() << "\tDESCRIPTION: " << port->getDescription() << endl;
              console() << "\tHARDWARE IDENTIFIER: " << port->getHardwareIdentifier() << endl;
              }
-             */
+             //*/
             try {
                 if (!ports.empty()) {
-                    SerialPortRef port = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
-                    if (!port) {
+                    // This will be default try to find an Arduino
+                    auto port = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
+                    if(port == nullptr){
                         port = ports.back();
                     }
                     
@@ -103,30 +113,59 @@ void SerialReader::updateSerialThread()
                 bSerialConnected = false;
             }
         }else{
-            // make sure we're still connected
-            auto pOpen = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
-            
-            if(pOpen == nullptr){
-                if (mSerial && mSerial->isOpen()) {
-                    mSerial->close();
-                }
-                bSerialConnected = false;
-            }else{
-                // send to arduino
-                for(int i=0; i<mSendBuffer.getSize(); i++){
-                    std::string msgToSend;
-                    mSendBuffer.popBack( &msgToSend );
-                    
-                    CI_LOG_I("Sending :: ") << msgToSend;
-                    
-                    mSerial->writeString( msgToSend );
-                }
-                
-                // receive from arduino
-                readSerial();
+            if( getElapsedSeconds() - mLastKeepAlive > 1.0){
+                keepAlive();
             }
+           
+            // Send queued commands to arduino
+            for(int i=0; i<mSendBuffer.getSize(); i++){
+                std::string msgToSend;
+                mSendBuffer.popBack( &msgToSend );
+                
+                CI_LOG_I("Sending :: ") << msgToSend;
+                
+                mSerial->writeString( msgToSend );
+            }
+            
+            // receive from arduino
+            readSerial();
         }
     }
+}
+
+void SerialReader::keepAlive()
+{
+    if(!bSerialConnected)
+        return;
+    
+    mLastKeepAlive = getElapsedSeconds();
+    
+    // Check for our original port we connected to
+    // If disconnected, try to find an arduino
+    auto pOpen = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
+    if(pOpen == nullptr){
+        pOpen = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
+    }
+    
+    // If we can't find anything connected, then close the serial port
+    if(pOpen == nullptr){
+        if (mSerial && mSerial->isOpen()) {
+            mSerial->close();
+        }
+        bSerialConnected = false;
+    }
+    
+    
+    // update the model with what's connected
+    auto ports = SerialPort::getPorts(true);
+    std::vector<std::string> mPortList;
+    for (auto port : ports) {
+        mPortList.push_back(port->getName() + ": " + port->getDescription());
+    }
+    if(mPortList.size() != Model::instance().mSerialDeviceList.size())
+        StateManager::instance().signalSerialDevicesUpdated.emit();
+    
+    Model::instance().mSerialDeviceList = mPortList;
 }
 
 void SerialReader::readSerial()
@@ -151,7 +190,7 @@ void SerialReader::readSerial()
     auto index = mStringBuffer.find("\r\n");
     if(index != string::npos){
         std::string cmd = mStringBuffer.substr(0, index);
-        mStringBuffer.replace(0, index+2, "");      // The newline is 2 bytes (\r\n) so add two to remove it
+        mStringBuffer.replace(0, index+2, "");      // The newline is 2 chars (\r\n) so add two to remove it
         
         parseCommandToBuffer( cmd );
     }
@@ -194,34 +233,34 @@ void SerialReader::parseFromBuffer()
         // ------------------------------------------------------------------------------
         // KIOSK MODE
         if(cmd == "G"){
-            if(mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED){
-                mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+            if(StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_STOPPED){
+                StateManager::instance().changeRaceState( RACE_STATE::RACE_STARTING );
             }
         }else if(cmd == "S"){
-            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
+            StateManager::instance().changeRaceState( RACE_STATE::RACE_STOPPED );
         }
         
         // ------------------------------------------------------------------------------
         // RACE FINISH (ars are the time the race finished in millis)
         else if(cmd == "0F"){
             CI_LOG_I("RACER 1 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(0, fromString<int>(args), Model::instance().playerData[0]->getCurrentRaceTicks());
-            if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
+            StateManager::instance().signalRacerFinish.emit(0, fromString<int>(args), Model::instance().playerData[0]->getCurrentRaceTicks());
+            if( isRaceFinished() ){ StateManager::instance().signalOnRaceFinished.emit(); }
         }
         else if( cmd == "1F"){
             CI_LOG_I("RACER 2 FINISHED " +args);
-            mStateManager->signalRacerFinish.emit(1, fromString<int>(args), Model::instance().playerData[1]->getCurrentRaceTicks());
-            if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
+            StateManager::instance().signalRacerFinish.emit(1, fromString<int>(args), Model::instance().playerData[1]->getCurrentRaceTicks());
+            if( isRaceFinished() ){ StateManager::instance().signalOnRaceFinished.emit(); }
         }
         else if( cmd == "2F"){
             CI_LOG_I("RACER 3 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(2, fromString<int>(args), Model::instance().playerData[2]->getCurrentRaceTicks());
-            if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
+            StateManager::instance().signalRacerFinish.emit(2, fromString<int>(args), Model::instance().playerData[2]->getCurrentRaceTicks());
+            if( isRaceFinished() ){ StateManager::instance().signalOnRaceFinished.emit(); }
         }
         else if( cmd == "3F"){
             CI_LOG_I("RACER 4 FINISHED " + args);
-            mStateManager->signalRacerFinish.emit(3, fromString<int>(args), Model::instance().playerData[3]->getCurrentRaceTicks());
-            if( isRaceFinished() ){ mStateManager->signalOnRaceFinished.emit(); }
+            StateManager::instance().signalRacerFinish.emit(3, fromString<int>(args), Model::instance().playerData[3]->getCurrentRaceTicks());
+            if( isRaceFinished() ){ StateManager::instance().signalOnRaceFinished.emit(); }
         }
         
         // ------------------------------------------------------------------------------
@@ -250,22 +289,22 @@ void SerialReader::parseFromBuffer()
             CI_LOG_I("SerialReader :: Countdown :: " + args);
             
             if( args == "3" ){
-                mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_3 );
+                StateManager::instance().changeRaceState( RACE_STATE::RACE_COUNTDOWN_3 );
             }else if( args == "2"){
-                mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_2 );
+                StateManager::instance().changeRaceState( RACE_STATE::RACE_COUNTDOWN_2 );
             }else if( args == "1"){
-                mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_1 );
+                StateManager::instance().changeRaceState( RACE_STATE::RACE_COUNTDOWN_1 );
             }else if( args == "0" ){
                 Model::instance().startTimeMillis = ci::app::getElapsedSeconds() * 1000.0;
                 
-                mStateManager->changeRaceState( RACE_STATE::RACE_COUNTDOWN_GO );
-                mStateManager->changeRaceState( RACE_STATE::RACE_RUNNING );
+                StateManager::instance().changeRaceState( RACE_STATE::RACE_COUNTDOWN_GO );
+                StateManager::instance().changeRaceState( RACE_STATE::RACE_RUNNING );
             }
         }
         else if( cmd == "FS"){
             CI_LOG_I("SerialReader :: False start. Racer: " + args);    // 0 based
-            //            mStateManager->changeRaceState( RACE_STATE::RACE_FALSE_START );
-            //            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
+            //            StateManager::instance().changeRaceState( RACE_STATE::RACE_FALSE_START );
+            //            StateManager::instance().changeRaceState( RACE_STATE::RACE_STOPPED );
         }
         else if( cmd == "L"){   // After sending a race length, it will send this confirmation
             CI_LOG_I("SerialReader :: Race Length " + args + ".");

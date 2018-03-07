@@ -23,6 +23,7 @@
 #include "ui/NumStepper.h"
 #include "ui/ThickLine.h"
 #include "ui/ToggleBtn.h"
+#include "ui/DropDown.h"
 
 namespace gfx {
     
@@ -45,9 +46,6 @@ namespace gfx {
         CiTextField* makeTextField(ci::Rectf rect, std::string txt);
         
         const int       mMaxRiders = 4;
-        
-        StateManager    *mStateManager;
-        
         bool            bVisible = false;
         
         ci::gl::TextureRef          mBg;
@@ -67,6 +65,7 @@ namespace gfx {
         CheckBoxRef     mRaceLoggingBox;
 
         ToggleBtnRef    mMphKphToggle;
+        DropDownRef     mArduinoDropDown;
         
         struct TextLabel {
             TextLabel(ci::vec2 pos_, std::string txt_ ){ pos=pos_; txt=txt_; }

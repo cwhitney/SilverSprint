@@ -21,8 +21,7 @@ void RosterView::setup(){
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     mCancelBtn = gl::Texture::create( loadImage( loadAsset("img/rosterCancel.png") ) );
     
-    mStateManager = StateManager::getInstance();
-    mStateManager->signalOnStateChange.connect( std::bind(&RosterView::onStateChange, this, std::placeholders::_1) );
+    StateManager::instance().signalOnStateChange.connect( std::bind(&RosterView::onStateChange, this, std::placeholders::_1) );
     
     for( int i=0; i<4; i++){
         float yPos = 190 + 183 * i;

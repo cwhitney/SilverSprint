@@ -21,8 +21,7 @@ SettingsView::~SettingsView()
 
 SettingsView::SettingsView() : bVisible(false)
 {
-    mStateManager    = StateManager::getInstance();
-    mStateManager->signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState)
+    StateManager::instance().signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState)
                                                {
                                                    onStateChange(newState, lastState);
                                                });
@@ -51,8 +50,10 @@ SettingsView::SettingsView() : bVisible(false)
     yPos += 160;
     
     // CONNECTION
-    mConnectionBox = std::make_shared<CheckBox>(vec2(443, yPos), false);
-    mLabels.push_back( TextLabel(mConnectionBox->getBounds().getUpperLeft() - vec2(0, 20), "HARDWARE CONNECTION STATUS") );
+    mArduinoDropDown = std::make_shared<DropDown>(Rectf(443, yPos, 443+431, yPos + 100), tFont);
+    
+    mConnectionBox = std::make_shared<CheckBox>(vec2(443, yPos + 260), false);
+    mLabels.push_back( TextLabel(vec2(443, yPos) - vec2(0, 20), "HARDWARE CONNECTION STATUS") );
     
     // COL 2 ---------------------------------------------------------
     yPos = 255;
@@ -199,6 +200,7 @@ void SettingsView::draw()
         mStepperPlus.draw();
         mStepperMinus.draw();
         
+        
         if( Model::instance().isHardwareConnected() ){
             mConnectionBox->setChecked(true);
             
@@ -210,6 +212,8 @@ void SettingsView::draw()
             mConnectionBox->setChecked(false);
         }
         mConnectionBox->draw();
+        
+        mArduinoDropDown->draw();
         
         // COLUMN 2 ----------------
         mDistanceCheck->draw();

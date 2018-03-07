@@ -30,7 +30,6 @@ class StartStopButton : public BaseButton {
     
   protected:
     ci::Color       mBackground;
-    StateManager    *mStateManager;
 };
 
 }

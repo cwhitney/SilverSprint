@@ -41,9 +41,6 @@ void GFXMain::setup(){
     // INIT --------------------------------------------------------------
     mSerialReader = SerialReaderRef( new SerialReader() );
     mSerialReader->setup();
-    
-    mStateManager = StateManager::getInstance();
-    
     CsvLogger::instance().setHeaders({"Timestamp", "Event", "Racer 1", "Racer 2", "Racer 3", "Racer 4"});
     
     // VIEWS --------------------------------------------------------------
@@ -59,16 +56,16 @@ void GFXMain::setup(){
     // EVENTS --------------------------------------------------------------
     getWindow()->getSignalKeyDown().connect(std::bind(&GFXMain::onKeyDown, this, std::placeholders::_1));
     
-    mStateManager->signalOnRaceFinished.connect( bind( &GFXMain::onRaceFinished, this ) );
-    mStateManager->signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
-    mStateManager->signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
-    mStateManager->signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
+    StateManager::instance().signalOnRaceFinished.connect( bind( &GFXMain::onRaceFinished, this ) );
+    StateManager::instance().signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
+    StateManager::instance().signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
+    StateManager::instance().signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
         Model::instance().playerData[_id]->setFinished(_finishMillis, _finishTicks);
     });
     
     // START --------------------------------------------------------------
-    mStateManager->changeAppState( APP_STATE::RACE, true );
-    mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED, true );
+    StateManager::instance().changeAppState( APP_STATE::RACE, true );
+    StateManager::instance().changeRaceState( RACE_STATE::RACE_STOPPED, true );
     
     //    sb::tools::msToTimeStr(13660001);
 }
@@ -81,7 +78,7 @@ void GFXMain::reloadShaders()
 void GFXMain::onRaceFinished() {
     console() << "GFXMAIN :: RACE FINSIHED" << endl;
     mSerialReader->stopRace();
-    mStateManager->changeRaceState( RACE_STATE::RACE_COMPLETE );
+    StateManager::instance().changeRaceState( RACE_STATE::RACE_COMPLETE );
     
     // Log the race
     if(Model::instance().getRaceLogging()){
@@ -142,11 +139,11 @@ void GFXMain::onRaceStateChanged( RACE_STATE rc ){
 
 void GFXMain::onKeyDown(KeyEvent event)
 {
-    if(event.getCode() == KeyEvent::KEY_SPACE && StateManager::getInstance()->getCurrentAppState() == gfx::APP_STATE::RACE){
-        if(StateManager::getInstance()->getCurrentRaceState() == gfx::RACE_STATE::RACE_STOPPED){
-            mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+    if(event.getCode() == KeyEvent::KEY_SPACE && StateManager::instance().getCurrentAppState() == gfx::APP_STATE::RACE){
+        if(StateManager::instance().getCurrentRaceState() == gfx::RACE_STATE::RACE_STOPPED){
+            StateManager::instance().changeRaceState( RACE_STATE::RACE_STARTING );
         }else{
-            mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
+            StateManager::instance().changeRaceState( RACE_STATE::RACE_STOPPED );
         }
     }
     

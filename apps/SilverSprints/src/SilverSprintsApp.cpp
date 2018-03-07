@@ -37,6 +37,10 @@ public:
 
 void SilverSprintApp::setup()
 {
+    // init
+    Model::instance();
+    StateManager::instance();
+    
 #if defined(DEBUG_MODE)
     fs::path logPath = getAppPath().string() + "/logs/SilverSprint.log";
     log::makeLogger<log::LoggerFile>( logPath, false );
@@ -128,13 +132,13 @@ void SilverSprintApp::keyDown( KeyEvent event )
             config().set("app", "fullscreen", isFullScreen());
         }
         else if( event.getChar() == '1' ){
-            StateManager::getInstance()->changeAppState( APP_STATE::RACE );
+            StateManager::instance().changeAppState( APP_STATE::RACE );
         }
         else if( event.getChar() == '2' ){
-            StateManager::getInstance()->changeAppState( APP_STATE::ROSTER );
+            StateManager::instance().changeAppState( APP_STATE::ROSTER );
         }
         else if( event.getChar() == '3' ){
-            StateManager::getInstance()->changeAppState( APP_STATE::SETTINGS );
+            StateManager::instance().changeAppState( APP_STATE::SETTINGS );
         }else if( event.getChar() == 'r' ){
             mGfxMain->reloadShaders();
         }

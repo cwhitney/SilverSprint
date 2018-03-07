@@ -40,7 +40,7 @@ void NavBarView::setup()
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseUp().connect(std::bind(&NavBarView::mouseUp, this, std::placeholders::_1));
     
-    StateManager::getInstance()->signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState){
+    StateManager::instance().signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState){
         for( int i=0; i<mIconList.size(); i++){
             mIconList[i].bActive = false;
         }
@@ -65,7 +65,7 @@ void NavBarView::mouseUp(cinder::app::MouseEvent event){
     mIconList[activeIcon].bActive = true;
     
     if( activeIcon != prev){
-        StateManager::getInstance()->changeAppState( mIconList[activeIcon].state );
+        StateManager::instance().changeAppState( mIconList[activeIcon].state );
     }
     
 }

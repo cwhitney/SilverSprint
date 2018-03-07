@@ -50,7 +50,6 @@ namespace gfx{
         SettingsViewRef     mSettingsView;
         
         SerialReaderRef     mSerialReader;
-        StateManager        *mStateManager;
         
         void onKeyDown( ci::app::KeyEvent event );
     };

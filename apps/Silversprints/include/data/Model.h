@@ -66,6 +66,8 @@ namespace gfx {
         
         int                             startTimeMillis;
         int                             elapsedRaceTimeMillis;
+        
+        std::vector<std::string>        mSerialDeviceList;
         std::string                     mFirmwareVersion = "Unknown";
         
         // FONTS

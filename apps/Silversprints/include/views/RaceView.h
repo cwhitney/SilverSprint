@@ -48,7 +48,6 @@ namespace gfx {
         
         ci::gl::TextureRef  mBg, mDial, mLogo;
         ci::vec2            mDialCenter;
-        StateManager        *mStateManager;
         
         std::vector<RaceText*>  mRaceTexts;
         bool    bVisible;

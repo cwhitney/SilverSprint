@@ -32,7 +32,10 @@ namespace gfx{
 
     class StateManager {
     public:
-        static StateManager* getInstance();
+        static StateManager &instance(){
+            static StateManager sInstance;
+            return sInstance;
+        }
         
         void changeAppState( APP_STATE newState, bool forceEvent = false );
         void changeRaceState( RACE_STATE newState, bool forceEvent = false );
@@ -54,11 +57,13 @@ namespace gfx{
         ci::signals::Signal<void(int, int, int)>        signalRacerFinish;      // (Racer ID, finish time, race ticks)
         
         ci::signals::Signal<void(void)>                 signalArduinoConnected, signalArduinoDisconnected;
+        ci::signals::Signal<void(void)>                 signalSerialDevicesUpdated;
         
     private:
         // PRIVATE CONSTRUCTOR + COPY
         StateManager() : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};
-        StateManager(StateManager const&) : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};
+//        StateManager(StateManager const&) : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};
+        StateManager(StateManager const&){};
         static StateManager		*mInstance;
         
         APP_STATE   mCurAppState;

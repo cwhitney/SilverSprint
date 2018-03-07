@@ -41,8 +41,11 @@ namespace gfx
         void setMockMode( bool enabled=true );
         void getVersion();
         
+        void selectSerialDevice(const std::string &deviceName);
+        
       private:
         void updateSerialThread();
+        void keepAlive();
         
         void onConnect();
         void onDisconnect();
@@ -50,10 +53,7 @@ namespace gfx
         void parseCommandToBuffer( std::string command );
         void parseFromBuffer();
         
-        bool                isRaceFinished();
-        
-        StateManager        *mStateManager;
-        
+        bool                isRaceFinished();        
         void                readSerial();
         void                sendSerialMessage( std::string msg );
         
@@ -68,6 +68,9 @@ namespace gfx
         
         std::string         mFirmwareVersion;
         std::string         mProtoculVersion;
+        
+        std::string         mConnectedPortName = "Arduino.*";
+        double              mLastKeepAlive = 0.0;
         
         // threading
         std::shared_ptr<std::thread>    mSerialThread;

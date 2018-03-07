@@ -41,13 +41,10 @@ namespace gfx{
         
         std::vector<CiTextField*>   mPlayerNames;
         ci::gl::TextureFontRef      tFont;
-        
         std::vector<ci::Rectf>      mCancelRects;
         
         ci::gl::TextureRef  mBg, mCancelBtn;
-        StateManager        *mStateManager;
-        
-        BOOL        bVisible;
+        bool                bVisible;
     };
 
 }

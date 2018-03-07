@@ -27,7 +27,7 @@ WinnerModal::WinnerModal() :
     mParticles->particleRotSpeed = 0.1;
     mParticles->particleLifespan = 10.0;
     
-    StateManager::getInstance()->signalOnRaceStateChange.connect( [&](RACE_STATE newState){
+    StateManager::instance().signalOnRaceStateChange.connect( [&](RACE_STATE newState){
         if( newState == RACE_STATE::RACE_COMPLETE ){
             getWinners();
             timeline().apply( &mAlpha, 0.0f, 1.0f, 1.0f, EaseOutQuad());
@@ -36,7 +36,7 @@ WinnerModal::WinnerModal() :
 
 			mConn = getWindow()->getSignalMouseUp().connect([&](MouseEvent event) {
 				//if (mWinnerRect.contains(Model::instance().localToGlobal(event.getPos()))) {
-					StateManager::getInstance()->changeRaceState(RACE_STOPPED);
+					StateManager::instance().changeRaceState(RACE_STOPPED);
 				//}
 			});
         }else{

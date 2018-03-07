@@ -19,8 +19,7 @@ CountDownGfx::CountDownGfx() :
     mAnim1(0.0),
     mAnimGo(0.0)
 {
-    mStateManager = StateManager::getInstance();
-    mStateManager->signalOnRaceStateChange.connect( std::bind(&CountDownGfx::onRaceStateChange, this, std::placeholders::_1) );
+    StateManager::instance().signalOnRaceStateChange.connect( std::bind(&CountDownGfx::onRaceStateChange, this, std::placeholders::_1) );
     
     mTxt = "";
     

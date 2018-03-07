@@ -28,7 +28,6 @@ namespace gfx {
         CountDownGfx();
         void onRaceStateChange( RACE_STATE newState );
         
-        StateManager        *mStateManager;
         RACE_STATE          mCurRaceState;
         
         std::string         mTxt;

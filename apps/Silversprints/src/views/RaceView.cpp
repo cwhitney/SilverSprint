@@ -30,11 +30,10 @@ void RaceView::setup()
     
     mDial = gl::Texture::create( loadImage(loadAsset("img/dial_bg_y.png")) );
     
-    mStateManager	= StateManager::getInstance();
     mCountDown		= CountDownGfx::create();
     mWinnerModal	= WinnerModal::create();
     
-	mStateManager->signalOnStateChange.connect(std::bind(&RaceView::onStateChange, this, std::placeholders::_1));
+	StateManager::instance().signalOnStateChange.connect(std::bind(&RaceView::onStateChange, this, std::placeholders::_1));
 
     mStartStop.signalStartRace.connect( std::bind(&RaceView::onStartClicked, this ) );
     mStartStop.signalStopRace.connect( std::bind(&RaceView::onStopClicked, this ) );
@@ -113,14 +112,14 @@ ci::gl::VboMeshRef RaceView::createVbo( float innerRad, float outerRad )
 void RaceView::onStartClicked()
 {
     if( Model::instance().isHardwareConnected() ){
-        mStateManager->changeRaceState( RACE_STATE::RACE_STARTING );
+        StateManager::instance().changeRaceState( RACE_STATE::RACE_STARTING );
     }
 }
 
 void RaceView::onStopClicked()
 {
     if( Model::instance().isHardwareConnected() ){
-        mStateManager->changeRaceState( RACE_STATE::RACE_STOPPED );
+        StateManager::instance().changeRaceState( RACE_STATE::RACE_STOPPED );
     }
 }
 
@@ -161,7 +160,7 @@ void RaceView::draw()
     // MAIN TIMER
     gl::ScopedColor scB(0,0,0,1);
     
-    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING )
+    if( StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_RUNNING )
     {
         if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
             mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis, 2), vec2(867,154) );
@@ -169,7 +168,7 @@ void RaceView::draw()
             double timeRemaining = max(0.0, Model::instance().getRaceLengthMillis() - Model::instance().elapsedRaceTimeMillis);
             mTimerFont->drawString( sb::utils::millisToTimestamp(timeRemaining, 2), vec2(867,154) );
         }
-    }else if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE )
+    }else if( StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_COMPLETE )
     {
         if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
             mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );

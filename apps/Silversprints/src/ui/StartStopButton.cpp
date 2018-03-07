@@ -17,9 +17,6 @@ StartStopButton::StartStopButton()
 {
     mBounds = Rectf(1700, 23, 1700 + 174, 23 + 48 );
     mBackground = ci::Color( 22.0/255.0, 146.0/255.0, 84.0/255.0 );
-    
-    mStateManager = StateManager::getInstance();
-    //mStateManager->si
 }
 
 void StartStopButton::update()
@@ -34,7 +31,7 @@ void StartStopButton::onMouseOver()
 
 void StartStopButton::onMouseOut()
 {
-    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_RUNNING ){
+    if( StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_RUNNING ){
         mBackground = ci::Color::hex( 0x1c9185 );
     }else{
         mBackground = ci::Color( 22.0/255.0, 146.0/255.0, 84.0/255.0 );
@@ -43,8 +40,8 @@ void StartStopButton::onMouseOut()
 
 void StartStopButton::onClick()
 {
-    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
-       mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
+    if( StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
+       StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
         signalStartRace.emit();
     }else{
         signalStopRace.emit();
@@ -58,8 +55,8 @@ void StartStopButton::draw()
     
     gl::color( Color::white() );
     
-    if( mStateManager->getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
-       mStateManager->getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
+    if( StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
+       StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
         gl::color( Color::black() );
         Model::instance().texFont->drawString("START", mBounds.getLowerLeft() + vec2(40, -15) );
     }else {

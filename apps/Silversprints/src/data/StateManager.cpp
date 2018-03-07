@@ -13,17 +13,6 @@ using namespace ci::app;
 using namespace std;
 using namespace gfx;
 
-StateManager* StateManager::mInstance = NULL;
- 
-StateManager * StateManager::getInstance(){
-    if (!mInstance){
-        mInstance = new StateManager();
-//        mInstance->changeAppState( APP_STATE::RACE );
-//        mInstance->changeRaceState( RACE_STATE::RACE_STOPPED );
-    }
-    return mInstance;
-}
-
 APP_STATE StateManager::getCurrentAppState() {
     return mCurAppState;
 }
