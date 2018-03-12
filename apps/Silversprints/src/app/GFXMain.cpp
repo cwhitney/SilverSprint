@@ -39,15 +39,14 @@ GFXMain::~GFXMain(){
 
 void GFXMain::setup(){
     // INIT --------------------------------------------------------------
-    mSerialReader = SerialReaderRef( new SerialReader() );
-    mSerialReader->setup();
+    mSerialReader = std::make_shared<SerialReader>();
     CsvLogger::instance().setHeaders({"Timestamp", "Event", "Racer 1", "Racer 2", "Racer 3", "Racer 4"});
     
     // VIEWS --------------------------------------------------------------
     mNav            = std::make_shared<NavBarView>();
-    mRaceView        = std::make_shared<RaceView>();
-    mRosterView        = std::make_shared<RosterView>();
-    mSettingsView    = std::make_shared<SettingsView>();
+    mRaceView       = std::make_shared<RaceView>();
+    mRosterView     = std::make_shared<RosterView>();
+    mSettingsView   = std::make_shared<SettingsView>();
     
     mNav->setup();
     mRaceView->setup();
@@ -67,7 +66,12 @@ void GFXMain::setup(){
     StateManager::instance().changeAppState( APP_STATE::RACE, true );
     StateManager::instance().changeRaceState( RACE_STATE::RACE_STOPPED, true );
     
-    //    sb::tools::msToTimeStr(13660001);
+    // SERIAL -------------------------------------------------------------
+    StateManager::instance().signalSerialDeviceSelected.connect([&](const std::string &portName){
+        mSerialReader->selectSerialDevice(portName);
+    });
+    
+    mSerialReader->setup();
 }
 
 void GFXMain::reloadShaders()

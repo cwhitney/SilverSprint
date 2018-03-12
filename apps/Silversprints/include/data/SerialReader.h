@@ -35,22 +35,23 @@ namespace gfx
         void startRace();
         void stopRace();
         
-        void setRaceDuration( int );
-        void setRaceType( Model::RACE_TYPE raceType);
-        void setRaceLengthTicks( int numTicks );
-        void setMockMode( bool enabled=true );
+        void setRaceDuration( int numSeconds );
+        void setRaceType(Model::RACE_TYPE raceType);
+        void setRaceLengthTicks(int numTicks);
+        void setMockMode(bool enabled=true);
         void getVersion();
         
-        void selectSerialDevice(const std::string &deviceName);
+        void selectSerialDevice(const std::string &portName);
         
       private:
         void updateSerialThread();
         void keepAlive();
+        void updatePortList();
         
         void onConnect();
         void onDisconnect();
         
-        void parseCommandToBuffer( std::string command );
+        void parseCommandToBuffer(std::string command);
         void parseFromBuffer();
         
         bool                isRaceFinished();        
@@ -58,8 +59,10 @@ namespace gfx
         void                sendSerialMessage( std::string msg );
         
         int                 BAUD_RATE = 115200;
-        //ci::SerialRef       mSerial;
+        
 		Cinder::Serial::SerialDeviceRef		mSerial;
+        bool                bForceSerialDescUpdate = false;
+        
         bool                bSerialConnected = false, bLastConnection = false;
         bool                bThreadShouldQuit = false;
         bool                bMockEnabled = false;

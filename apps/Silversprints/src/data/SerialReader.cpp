@@ -54,15 +54,19 @@ void SerialReader::update()
     parseFromBuffer();
 }
 
-void SerialReader::selectSerialDevice(const std::string &deviceName)
+void SerialReader::selectSerialDevice(const std::string &portName)
 {
-    std::lock_guard<std::mutex> guard(mSerialMutex);
+    CI_LOG_I("Select serial device :: " << portName);
     
-    mConnectedPortName = deviceName;
+    mConnectedPortName = portName;
+    
+//    std::lock_guard<std::mutex> guard(mSerialMutex);
     if (mSerial && mSerial->isOpen()) {
-        mSerial->close();
+        if(mSerial->getPortName() != portName){
+            mSerial->close();
+            bSerialConnected = false;
+        }
     }
-    bSerialConnected = false;
 }
 
 void SerialReader::updateSerialThread()
@@ -82,9 +86,12 @@ void SerialReader::updateSerialThread()
              console() << "\tHARDWARE IDENTIFIER: " << port->getHardwareIdentifier() << endl;
              }
              //*/
+            updatePortList();
+            
+            // Try to find an arduino
             try {
                 if (!ports.empty()) {
-                    // This will be default try to find an Arduino
+                    // This will be default try to find an Arduino, or another device if you've selected one in the dropdown
                     auto port = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
                     if(port == nullptr){
                         port = ports.back();
@@ -104,7 +111,9 @@ void SerialReader::updateSerialThread()
                         std::vector<std::string> tmp;
                         mReceiveBuffer.popBack(&tmp);
                     }
+                    bForceSerialDescUpdate = true;
                     CI_LOG_I("OpenSprints hardware found successfully. :: ") << mSerial->getPortName();
+                    Model::instance().setSerialPortName( mSerial->getPortName() );
                 }
             }catch (serial::IOException& e) {
                 if (mSerial && mSerial->isOpen()) {
@@ -112,6 +121,12 @@ void SerialReader::updateSerialThread()
                 }
                 bSerialConnected = false;
             }
+            
+            // If we didn't find an arduino, sleep for 500ms before retrying
+            if(!bSerialConnected){
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            }
+            
         }else{
             if( getElapsedSeconds() - mLastKeepAlive > 1.0){
                 keepAlive();
@@ -155,17 +170,26 @@ void SerialReader::keepAlive()
         bSerialConnected = false;
     }
     
-    
+    updatePortList();
+}
+
+void SerialReader::updatePortList()
+{
     // update the model with what's connected
     auto ports = SerialPort::getPorts(true);
-    std::vector<std::string> mPortList;
-    for (auto port : ports) {
-        mPortList.push_back(port->getName() + ": " + port->getDescription());
-    }
-    if(mPortList.size() != Model::instance().mSerialDeviceList.size())
+    if(bForceSerialDescUpdate || ports.size() != Model::instance().mSerialDeviceList.size()){
+        bForceSerialDescUpdate = false;
+        std::vector<Model::SerialDeviceDesc> portList;
+        for (auto port : ports) {
+            Model::SerialDeviceDesc sdd;
+            sdd.portName = port->getName();
+            sdd.portDescription = port->getDescription();
+            portList.push_back(sdd);
+        }
+        
+        Model::instance().mSerialDeviceList = portList;
         StateManager::instance().signalSerialDevicesUpdated.emit();
-    
-    Model::instance().mSerialDeviceList = mPortList;
+    }
 }
 
 void SerialReader::readSerial()
@@ -182,7 +206,11 @@ void SerialReader::readSerial()
     }catch(serial::IOException& e){
         bSerialConnected = false;
         if (mSerial && mSerial->isOpen()) {
-            mSerial->close();
+            try{
+                mSerial->close();
+            }catch(serial::IOException exc){
+                CI_LOG_EXCEPTION("Error closing serial port", exc);
+            }
             //mSerial = nullptr;
         }
     }

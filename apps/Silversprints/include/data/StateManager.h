@@ -58,11 +58,11 @@ namespace gfx{
         
         ci::signals::Signal<void(void)>                 signalArduinoConnected, signalArduinoDisconnected;
         ci::signals::Signal<void(void)>                 signalSerialDevicesUpdated;
+        ci::signals::Signal<void(std::string)>          signalSerialDeviceSelected; // portName
         
     private:
         // PRIVATE CONSTRUCTOR + COPY
         StateManager() : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};
-//        StateManager(StateManager const&) : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};
         StateManager(StateManager const&){};
         static StateManager		*mInstance;
         

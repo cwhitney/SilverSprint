@@ -21,11 +21,6 @@ SettingsView::~SettingsView()
 
 SettingsView::SettingsView() : bVisible(false)
 {
-    StateManager::instance().signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState)
-                                               {
-                                                   onStateChange(newState, lastState);
-                                               });
-    
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     
     ci::Font fnt(loadAsset("fonts/UbuntuMono-BI.ttf"), 25);
@@ -49,8 +44,16 @@ SettingsView::SettingsView() : bVisible(false)
     
     yPos += 160;
     
-    // CONNECTION
+    // ARDUINO CONNECTION
     mArduinoDropDown = std::make_shared<DropDown>(Rectf(443, yPos, 443+431, yPos + 100), tFont);
+    mArduinoDropDown->signalOnOptionSelect.connect([&](std::string selectedOption){
+        Model::instance().setSerialPortName(selectedOption);
+        StateManager::instance().signalSerialDeviceSelected.emit(selectedOption);
+    });
+    StateManager::instance().signalSerialDevicesUpdated.connect([&](){
+        CI_LOG_I("Dropdown got device list update from state manager");
+        mArduinoDropDown->setOptions(Model::instance().mSerialDeviceList);
+    });
     
     mConnectionBox = std::make_shared<CheckBox>(vec2(443, yPos + 260), false);
     mLabels.push_back( TextLabel(vec2(443, yPos) - vec2(0, 20), "HARDWARE CONNECTION STATUS") );
@@ -100,6 +103,11 @@ SettingsView::SettingsView() : bVisible(false)
     mRaceLoggingBox->signalOnClick.connect([&](){
         Model::instance().setRaceLogging(mRaceLoggingBox->isChecked());
     });
+    mArduinoDropDown->setOptions(Model::instance().mSerialDeviceList);
+    
+    StateManager::instance().signalOnStateChange.connect( [&](APP_STATE newState, APP_STATE lastState) {
+                                                             onStateChange(newState, lastState);
+                                                         });
 }
 
 void SettingsView::onStepperPlusClick()
@@ -146,6 +154,9 @@ void SettingsView::onStateChange(APP_STATE newState, APP_STATE lastState)
         mTxtDistance->setText(toString<float>(Model::instance().getRaceLengthMeters()));
         mTxtTime->setText(toString<float>(Model::instance().getRaceTimeSeconds()));
         
+        mArduinoDropDown->setSelected( Model::instance().getPortName() );
+        mArduinoDropDown->visible = true;
+        
         if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
             mDistanceCheck->setChecked(true);
             mTimeTrialBox->setChecked(false);
@@ -173,6 +184,7 @@ void SettingsView::onStateChange(APP_STATE newState, APP_STATE lastState)
         mTxtDiameter->visible = false;
         mTxtDistance->visible = false;
         mTxtNumRacers->visible = false;
+        mArduinoDropDown->visible = false;
     }
 }
 

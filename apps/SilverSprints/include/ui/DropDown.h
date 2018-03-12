@@ -2,6 +2,7 @@
 
 #include "cinder/app/App.h"
 #include "cinder/Signals.h"
+#include "cinder/Log.h"
 
 #include "data/Model.h"
 
@@ -13,22 +14,33 @@ class DropDown {
   public:
     DropDown(const ci::Rectf &bounds, ci::gl::TextureFontRef font);
     
-    void setOptions( const std::vector<std::string> &opts );
+    template <typename T>
+    void setOptions( const std::vector<T> &opts );
+    
     void setSelected( const int &num );
-    const int& getSelected(){ return mSelected; }
+    void setSelected( const std::string &value );
+    //const int& getSelected(){ return mSelected; }
     
     void draw();
+    bool visible = false;
+    
+    ci::signals::Signal<void(std::string)> signalOnOptionSelect;
     
   private:
     void onMouseDown( ci::app::MouseEvent event );
-    void onMouseUp( ci::app::MouseEvent event );
+    void onMouseMove( ci::app::MouseEvent event );
     
-    ci::signals::Connection     mMouseDownCb, mMouseUpCb;
+    ci::signals::Connection     mMouseDownCb, mMouseMoveCb;
     
     ci::gl::TextureFontRef  mFont;
-    vector<string>          mOptions;
+    vector<string>          mOptions, mOptionsRaw;
+    vector<int>             mIndices;
+    
     ci::Rectf   mBounds;
     int         mSelected = 0;
-    bool        bVisible = false;
+    std::string mSelectedStr = "";
     bool        bOpen = false;
+    
+    ci::Rectf   mDrawerRect;
+    int         mHighlight = -1;
 };

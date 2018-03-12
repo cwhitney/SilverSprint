@@ -11,6 +11,7 @@
 #include "cinder/app/App.h"
 #include "cinder/Utilities.h"
 
+#include "StateManager.h"
 #include "PlayerData.h"
 
 namespace gfx {
@@ -61,13 +62,29 @@ namespace gfx {
         }
         const bool getRaceLogging(){ return RaceSettings.bLogRacesToFile; }
         
+        //! Set the currently selected serial ports name. Returns true if different from the current value. Returns false if it's the same.
+        bool setSerialPortName(const std::string &portName){
+            ci::app::console() << "Model serial port :: " << portName << std::endl;
+            if(mSelectedPortName != portName){
+                mSelectedPortName = portName;
+                return true;
+//                StateManager::instance().signalSerialDeviceSelected.emit(mSelectedPortName);
+            }
+            return false;
+        }
+        const std::string& getPortName(){ return mSelectedPortName; }
+        
         std::vector<gfx::PlayerData*>   playerData;
         ci::Color                       playerColors[4];
         
         int                             startTimeMillis;
         int                             elapsedRaceTimeMillis;
         
-        std::vector<std::string>        mSerialDeviceList;
+        struct SerialDeviceDesc {
+            std::string portName = "Unknown";
+            std::string portDescription = "Unknown";
+        };
+        std::vector<SerialDeviceDesc>   mSerialDeviceList;
         std::string                     mFirmwareVersion = "Unknown";
         
         // FONTS
@@ -107,5 +124,6 @@ namespace gfx {
         } RaceSettings;
         
         ci::vec2 mScreenScale, mScreenOffset;
+        std::string     mSelectedPortName = "";
     };
 }
