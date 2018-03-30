@@ -168,6 +168,7 @@ void SerialReader::keepAlive()
             mSerial->close();
         }
         bSerialConnected = false;
+        Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
     }
     
     updatePortList();
@@ -211,6 +212,7 @@ void SerialReader::readSerial()
             }catch(serial::IOException exc){
                 CI_LOG_EXCEPTION("Error closing serial port", exc);
             }
+            Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
             //mSerial = nullptr;
         }
     }
@@ -343,6 +345,7 @@ void SerialReader::parseFromBuffer()
         else if(cmd == "V"){   // version
             mFirmwareVersion = args;
             Model::instance().mFirmwareVersion = args;
+            Model::instance().mSerialConnectionState = Model::SerialConnectionState::CONNECTED_SILVERSPRINTS;
         }
         
         else{
@@ -371,12 +374,16 @@ void SerialReader::onConnect()
     CI_LOG_I("OpenSprints hardware connected.");
     Model::instance().setHardwareConnected(bSerialConnected);
     Model::instance().mFirmwareVersion = "Unknown";
+    
+    Model::instance().mSerialConnectionState = Model::SerialConnectionState::CONNECTED_UNKNOWN;
 }
 
 void SerialReader::onDisconnect()
 {
     CI_LOG_I("OpenSprints hardware disconnected.");
     Model::instance().setHardwareConnected(bSerialConnected);
+    
+    Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
 }
 
 void SerialReader::startRace(){

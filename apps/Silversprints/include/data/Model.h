@@ -74,6 +74,14 @@ namespace gfx {
         }
         const std::string& getPortName(){ return mSelectedPortName; }
         
+        enum SerialConnectionState {
+            DISCONNECTED,
+            CONNECTED_UNKNOWN,
+            CONNECTED_SILVERSPRINTS
+        };
+        
+        SerialConnectionState           mSerialConnectionState = SerialConnectionState::DISCONNECTED;
+        
         std::vector<gfx::PlayerData*>   playerData;
         ci::Color                       playerColors[4];
         

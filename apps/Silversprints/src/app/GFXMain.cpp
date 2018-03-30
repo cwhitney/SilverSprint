@@ -35,6 +35,7 @@ GFXMain::GFXMain(){
 
 GFXMain::~GFXMain(){
     CI_LOG_I("GFX main shutting down");
+//    ci::stackTrace();
 }
 
 void GFXMain::setup(){
