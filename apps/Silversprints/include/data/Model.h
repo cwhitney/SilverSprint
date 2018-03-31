@@ -9,6 +9,8 @@
 #pragma once
 
 #include "cinder/app/App.h"
+#include "cinder/Font.h"
+#include "cinder/gl/gl.h"
 #include "cinder/Utilities.h"
 
 #include "StateManager.h"

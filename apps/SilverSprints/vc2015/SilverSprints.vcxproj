@@ -79,7 +79,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem;..\blocks\Sharkbox</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -94,7 +94,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)";"..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)"</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\libs\Cinder\lib\msw\$(PlatformTarget);..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -106,7 +106,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem;..\blocks\Sharkbox</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -120,7 +120,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)";"..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)"</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\libs\Cinder\lib\msw\$(PlatformTarget);..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -130,7 +130,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem;..\blocks\Sharkbox</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -146,7 +146,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)";"..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)"</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\libs\Cinder\lib\msw\$(PlatformTarget);..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -159,7 +159,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem;..\blocks\Sharkbox</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -175,7 +175,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)";"..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)"</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\libs\Cinder\lib\msw\$(PlatformTarget);..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -198,7 +198,6 @@
     <ClCompile Include="..\blocks\Serial\lib\serial\src\serial.cc" />
     <ClCompile Include="..\blocks\Serial\src\SerialDevice.cpp" />
     <ClCompile Include="..\src\app\GFXMain.cpp" />
-    <ClCompile Include="..\src\data\GFXGlobal.cpp" />
     <ClCompile Include="..\src\data\Model.cpp" />
     <ClCompile Include="..\src\data\SerialReader.cpp" />
     <ClCompile Include="..\src\data\StateManager.cpp" />
@@ -207,6 +206,7 @@
     <ClCompile Include="..\src\ui\CheckBox.cpp" />
     <ClCompile Include="..\src\ui\CiTextField.cpp" />
     <ClCompile Include="..\src\ui\CountDownGfx.cpp" />
+    <ClCompile Include="..\src\ui\DropDown.cpp" />
     <ClCompile Include="..\src\ui\NumStepper.cpp" />
     <ClCompile Include="..\src\ui\RaceText.cpp" />
     <ClCompile Include="..\src\ui\StartStopButton.cpp" />
@@ -230,7 +230,6 @@
     <ClInclude Include="..\include\app\GFXMain.h" />
     <ClInclude Include="..\include\data\Config.h" />
     <ClInclude Include="..\include\data\CsvLogger.h" />
-    <ClInclude Include="..\include\data\GFXGlobal.h" />
     <ClInclude Include="..\include\data\Model.h" />
     <ClInclude Include="..\include\data\PlayerData.h" />
     <ClInclude Include="..\include\data\SerialReader.h" />
@@ -240,6 +239,7 @@
     <ClInclude Include="..\include\ui\CheckBox.h" />
     <ClInclude Include="..\include\ui\CiTextField.h" />
     <ClInclude Include="..\include\ui\CountDownGfx.h" />
+    <ClInclude Include="..\include\ui\DropDown.h" />
     <ClInclude Include="..\include\ui\NumStepper.h" />
     <ClInclude Include="..\include\ui\RaceText.h" />
     <ClInclude Include="..\include\ui\StartStopButton.h" />

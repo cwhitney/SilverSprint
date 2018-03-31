@@ -75,9 +75,6 @@
     <ClCompile Include="..\src\app\GFXMain.cpp">
       <Filter>Source Files\app</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\data\GFXGlobal.cpp">
-      <Filter>Source Files\data</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\data\Model.cpp">
       <Filter>Source Files\data</Filter>
     </ClCompile>
@@ -147,6 +144,9 @@
     <ClCompile Include="..\blocks\Serial\src\SerialDevice.cpp">
       <Filter>Blocks\Serial\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ui\DropDown.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
@@ -159,9 +159,6 @@
       <Filter>Header Files\data</Filter>
     </ClInclude>
     <ClInclude Include="..\include\data\CsvLogger.h">
-      <Filter>Header Files\data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\data\GFXGlobal.h">
       <Filter>Header Files\data</Filter>
     </ClInclude>
     <ClInclude Include="..\include\data\Model.h">
@@ -244,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="..\blocks\Serial\lib\serial\include\serial\v8stdint.h">
       <Filter>Blocks\Serial\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\DropDown.h">
+      <Filter>Header Files\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
