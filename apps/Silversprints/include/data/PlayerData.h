@@ -230,15 +230,17 @@ namespace gfx {
             
             
             const T& getAverage(){
-                T t;
+                T t = 0;
                 for( auto d : mData){
                     t += d;
                 }
-                return t / (double)mSize;
+                mCurAverage = t / (double)mSize;
+                return mCurAverage;
             }
         private:
             int dex = 0;
             int mSize = 30;
+            T   mCurAverage;
             
             std::vector<T> mData;
         };
