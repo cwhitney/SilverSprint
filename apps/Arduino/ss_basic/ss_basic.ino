@@ -67,7 +67,7 @@ bool bRaceTypeDistance = true;
 void setup() 
 {
     Serial.begin(115200);
-    pinMode(statusLEDPin, OUTPUT);
+    pinMode(statusLEDPin, INPUT);
     pinMode(racer0GoLedPin, OUTPUT);
     pinMode(racer1GoLedPin, OUTPUT);
     pinMode(racer2GoLedPin, OUTPUT);
@@ -321,6 +321,3 @@ void checkTimeBased()
         raceStarted = false;
     }
 }
-
-
-

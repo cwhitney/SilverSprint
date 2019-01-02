@@ -70,6 +70,7 @@ void GFXMain::setup(){
     // SERIAL -------------------------------------------------------------
     StateManager::instance().signalSerialDeviceSelected.connect([&](const std::string &portName){
         mSerialReader->selectSerialDevice(portName);
+        mSerialReader->getVersion();
     });
     
     mSerialReader->setup();

@@ -76,7 +76,7 @@ void SerialReader::updateSerialThread()
     while( !bThreadShouldQuit ){
         std::lock_guard<std::mutex> guard(mSerialMutex);
         
-        if(!bSerialConnected ){ // we aren't connected try to connect
+        if(!bSerialConnected){ // we aren't connected try to connect
             auto ports = SerialPort::getPorts(true);
             /*
              for (auto port : ports) {
@@ -106,6 +106,7 @@ void SerialReader::updateSerialThread()
                         mSendBuffer.popBack(&tmp);
                     }
                     stopRace();
+                    getVersion();
                     
                     for (int i = 0; i < mReceiveBuffer.getSize(); i++) {    // clear receive buffer
                         std::vector<std::string> tmp;
