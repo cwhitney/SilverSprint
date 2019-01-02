@@ -26,7 +26,7 @@ void RosterView::setup(){
     for( int i=0; i<4; i++){
         float yPos = 190 + 183 * i;
         
-        CiTextField *tf = new CiTextField("Player "+to_string(i+1), Rectf(574, yPos, 574 + 910, yPos+150), ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 75) );
+        CiTextField *tf = new CiTextField(Model::instance().playerData[i]->player_name, Rectf(574, yPos, 574 + 910, yPos+150), ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 75) );
         tf->mColorStroke = Model::instance().playerColors[i];
         tf->mColorFill = Model::instance().playerColors[i];
         tf->mColorText = Color::black();

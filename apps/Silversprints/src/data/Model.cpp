@@ -31,10 +31,10 @@ Model::Model(){
         playerData.back()->playerColor = playerColors[i];
     }
     
-    playerData[0]->player_name = "Player 1";
-    playerData[1]->player_name = "Player 2";
-    playerData[2]->player_name = "Player 3";
-    playerData[3]->player_name = "Player 4";
+    playerData[0]->player_name = "Rider 1";
+    playerData[1]->player_name = "Rider 2";
+    playerData[2]->player_name = "Rider 3";
+    playerData[3]->player_name = "Rider 4";
 }
 
 Model::~Model(){
