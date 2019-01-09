@@ -59,6 +59,8 @@ void SilverSprintApp::setup()
     mGfxMain->setup();
     
     loadSettings();
+    
+    CI_LOG_I("High density? ") << isHighDensityDisplayEnabled();
 }
 
 void SilverSprintApp::loadSettings()
@@ -182,6 +184,7 @@ void SilverSprintApp::draw()
 CINDER_APP( SilverSprintApp, RendererGl(RendererGl::Options().msaa(8)), [&](SilverSprintApp::Settings *settings){
     settings->setFrameRate(60.0);
     settings->setWindowSize(1280, 700);
+    settings->setHighDensityDisplayEnabled(true);
     //  settings->setWindowPos((1400-1280)/2, 0 );
     settings->setTitle("SilverSprint");
 })
