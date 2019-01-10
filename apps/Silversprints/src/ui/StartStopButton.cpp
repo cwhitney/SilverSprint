@@ -13,9 +13,10 @@ using namespace ci::app;
 using namespace std;
 using namespace gfx;
 
-StartStopButton::StartStopButton()
+StartStopButton::StartStopButton() :
+    BaseButton()
 {
-    mBounds = Rectf(1700, 23, 1700 + 174, 23 + 48 );
+    BaseButton::set(1700, 23, 1700 + 174, 23 + 48 );
     mBackground = ci::Color( 22.0/255.0, 146.0/255.0, 84.0/255.0 );
 }
 
@@ -51,16 +52,16 @@ void StartStopButton::onClick()
 void StartStopButton::draw()
 {
     gl::color( mBackground );
-    gl::drawSolidRect( mBounds );
+    gl::drawSolidRect( *this );
     
     gl::color( Color::white() );
     
     if( StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
        StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
         gl::color( Color::black() );
-        Model::instance().texFont->drawString("START", mBounds.getLowerLeft() + vec2(40, -15) );
+        Model::instance().texFont->drawString("START", this->getLowerLeft() + vec2(40, -15) );
     }else {
         gl::color( Color::black() );
-        Model::instance().texFont->drawString("STOP", mBounds.getLowerLeft() + vec2(45, -15) );
+        Model::instance().texFont->drawString("STOP", this->getLowerLeft() + vec2(45, -15) );
     }
 }

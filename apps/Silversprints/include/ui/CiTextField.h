@@ -9,12 +9,13 @@
 #pragma once
 
 #include "cinder/app/App.h"
+#include "cinder/Rect.h"
 #include "cinder/gl/TextureFont.h"
 #include "data/Model.h"
 
 #include <boost/algorithm/string.hpp>
 
-class CiTextField {
+class CiTextField : public ci::Rectf {
   public:
     CiTextField( std::string text, ci::Rectf bounds, ci::Font font );
     ~CiTextField();
@@ -23,7 +24,7 @@ class CiTextField {
     std::string getText(){ return mText; }
     
     void setBounds( const ci::Rectf &bounds );
-    const ci::Rectf& getBounds(){ return mBounds; }
+//    const ci::Rectf& getBounds(){ return mBounds; }
 
     void focus( bool selectAll=false);   // Become active.
     void blur();    // Become inactive. (Same as unfocus)

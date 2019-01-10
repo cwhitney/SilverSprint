@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cinder/app/App.h"
+#include "cinder/Rect.h"
 #include "data/Model.h"
 #include "ui/ThickLine.h"
 #include "ui/BaseButton.h"
@@ -16,8 +17,8 @@ class CheckBox : public BaseButton {
     
     bool isChecked();
     
-    const ci::vec2 getPosition(){ return mBounds.getUpperLeft(); };
-    const ci::Rectf getBounds(){ return mBounds; };
+    const ci::vec2 getPosition(){ return BaseButton::getUpperLeft(); };
+    const ci::Rectf getBounds(){ return (ci::Rectf)*this; };
     
     ci::signals::Signal<void(void)>	signalOnClick;
     
@@ -26,7 +27,6 @@ class CheckBox : public BaseButton {
     virtual void onMouseOut();
     virtual void onClick();
 
-    //ci::Rectf   mBounds;
     bool        bInteractive = true;
     bool        bChecked = false;
     

@@ -9,10 +9,10 @@
 #pragma once
 
 #include "cinder/app/App.h"
-
+#include "cinder/Rect.h"
 #include "data/Model.h"
 
-class BaseButton {
+class BaseButton : public ci::Rectf {
   public:
     BaseButton();
     
@@ -28,7 +28,6 @@ class BaseButton {
     virtual void onClick() = 0;
     
   protected:
-    ci::Rectf   mBounds;
     bool        bEnabled;
     bool        bHover;
     bool        bActive;

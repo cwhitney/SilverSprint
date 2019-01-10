@@ -16,7 +16,8 @@ using namespace gfx;
 BaseButton::BaseButton() {
     bActive = false;
     bHover = false;
-    mBounds = Rectf( 0, 0, 100, 100 );
+//    mBounds = Rectf( 0, 0, 100, 100 );
+    Rectf::set(0,0, 100, 100);
     
     ci::app::WindowRef win = getWindow();
     win->getSignalMouseMove().connect( std::bind(&BaseButton::onMouseMove, this, std::placeholders::_1));
@@ -25,7 +26,7 @@ BaseButton::BaseButton() {
 
 void BaseButton::onMouseUp( cinder::app::MouseEvent event ){
     vec2 pos = Model::instance().localToGlobal( event.getPos() );
-    if( mBounds.contains( pos ) ){
+    if( this->contains( pos ) ){
         onClick();
     }
 }
@@ -33,7 +34,7 @@ void BaseButton::onMouseUp( cinder::app::MouseEvent event ){
 void BaseButton::onMouseMove( cinder::app::MouseEvent event ){
     vec2 pos = Model::instance().localToGlobal( event.getPos() );
 
-    if( mBounds.contains( pos ) ){
+    if( this->contains( pos ) ){
         if( !bHover ){
             onMouseOver();
         }

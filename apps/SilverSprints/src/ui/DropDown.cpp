@@ -13,6 +13,9 @@ DropDown::DropDown( const ci::Rectf &bounds, ci::gl::TextureFontRef font) {
     mMouseMoveCb = window->getSignalMouseMove().connect( std::bind(&DropDown::onMouseMove, this, std::placeholders::_1) );
     
     mFont = font;
+    
+    mBgRect = Rectf(mBounds.getUpperLeft(), mBounds.getLowerRight() - vec2(50,0));
+    mDropDownRect = Rectf(mBgRect.getUpperRight() + vec2(5, 0), mBounds.getLowerRight() );
 }
 
 template <>
@@ -135,14 +138,16 @@ void DropDown::draw() {
     gl::ScopedColor scCol(Model::instance().playerColors[0]);
     
     if(!bOpen){
-        gl::drawSolidRect( mBounds );
+        gl::drawSolidRect(mBgRect);
+        gl::drawSolidRect(mDropDownRect);
         
         if(mOptions.size() > 0){
             gl::ScopedColor scC(Color::black());
-            mFont->drawString(mOptions[mIndices[0]], mBounds + vec2(10, 25));
+            mFont->drawString(mOptions[mIndices[0]], mBounds + vec2(-50, 25));
         }
     }else{
-        gl::drawSolidRect(mDrawerRect);
+        gl::drawSolidRect(mBgRect);
+        gl::drawSolidRect(mDropDownRect);
         
         gl::ScopedColor scC(Color::black());
         for( int i=0; i<mOptions.size(); i++){

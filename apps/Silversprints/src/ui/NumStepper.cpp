@@ -13,13 +13,15 @@ using namespace ci::app;
 using namespace std;
 using namespace gfx;
 
-NumStepper::NumStepper(){
+NumStepper::NumStepper() :
+    BaseButton()
+{
 
 }
                        
 void NumStepper::setup( ci::vec2 pos, int gap, string symbol ){
-    mBounds = Rectf( 0, 0, 50 - gap/2, 50 - gap/2 );
-    mBounds.offset( pos );
+    BaseButton::set( pos.x, pos.y, pos.x + 50 - gap/2, pos.y + 50 - gap/2 );
+//    BaseButton::offset( pos );
     
     mTxt = symbol;
     
@@ -28,13 +30,13 @@ void NumStepper::setup( ci::vec2 pos, int gap, string symbol ){
 
 void NumStepper::draw() {
     gl::color( mBgColor );
-    gl::drawSolidRect( mBounds );
+    gl::drawSolidRect( *this );
     
     ci::Color txtCol = (mBgColor == Color::black()) ? Model::instance().playerColors[0] : Color::black();
     gl::color( txtCol );
 
     gl::pushMatrices();
-        gl::translate( mBounds.getUpperLeft() );
+        gl::translate( this->getUpperLeft() );
         gl::drawSolidRect( Rectf(10, 22, 40, 26) );
     
         if( mTxt == "+"){

@@ -26,26 +26,28 @@ SettingsView::SettingsView() : bVisible(false)
     ci::Font fnt(loadAsset("fonts/UbuntuMono-BI.ttf"), 25);
     tFont = gl::TextureFont::create( fnt );
     
+    int xPos = 443;
     int yPos = 255;
+    int colWidth = 431;
     
     // ROLLER DIAMETER
-    mTxtDiameter = makeSetting(Rectf(443,yPos, 443+431, yPos+100), "ROLLER DIAMETER (mm)", "114.3" );
+    mTxtDiameter = makeSetting(Rectf(xPos,yPos, xPos+colWidth, yPos+100), "ROLLER DIAMETER (mm)", "114.3" );
     yPos += 160;
     
     // RACERS
-    mTxtNumRacers = makeSetting(Rectf(443,yPos, 443+431 - 50, yPos+100), "NUMBER OF RACERS (1-"+to_string(mMaxRiders)+")", "2" );
+    mTxtNumRacers = makeSetting(Rectf(xPos,yPos, xPos+colWidth - 50, yPos+100), "NUMBER OF RACERS (1-"+to_string(mMaxRiders)+")", "2" );
     mTxtNumRacers->disable();
     
     int gap = 6;
-    mStepperPlus.setup( mTxtNumRacers->getBounds().getUpperRight() + vec2(gap, 0), gap, "+" );
+    mStepperPlus.setup( mTxtNumRacers->getUpperRight() + vec2(gap, 0), gap, "+" );
     mStepperPlus.signalOnClick.connect( std::bind(&SettingsView::onStepperPlusClick, this ) );
-    mStepperMinus.setup( mTxtNumRacers->getBounds().getUpperRight() + vec2(gap, 100 - 50+gap/2), gap, "-");
+    mStepperMinus.setup( mTxtNumRacers->getUpperRight() + vec2(gap, 100 - 50+gap/2), gap, "-");
     mStepperMinus.signalOnClick.connect( std::bind(&SettingsView::onStepperMinusClick, this ) );
-    
     yPos += 160;
     
     // ARDUINO CONNECTION
-    mArduinoDropDown = std::make_shared<DropDown>(Rectf(443, yPos, 443+431, yPos + 100), tFont);
+    mLabels.push_back( TextLabel(vec2(xPos, yPos) - vec2(0, 20), "HARDWARE SELECT") );
+    mArduinoDropDown = std::make_shared<DropDown>(Rectf(xPos, yPos, xPos+colWidth, yPos + 100), tFont);
     mArduinoDropDown->signalOnOptionSelect.connect([&](std::string selectedOption){
         Model::instance().setSerialPortName(selectedOption);
         StateManager::instance().signalSerialDeviceSelected.emit(selectedOption);
@@ -55,23 +57,26 @@ SettingsView::SettingsView() : bVisible(false)
         mArduinoDropDown->setOptions(Model::instance().mSerialDeviceList);
     });
     
-    mConnectionBox = std::make_shared<CheckBox>(vec2(443, yPos + 260), false);
-    mLabels.push_back( TextLabel(vec2(443, yPos) - vec2(0, 20), "HARDWARE CONNECTION STATUS") );
+    yPos += 160;
+    mConnectionBox = std::make_shared<CheckBox>(vec2(xPos, yPos), false);
+    mLabels.push_back( TextLabel(vec2(xPos, yPos) - vec2(0, 20), "HARDWARE CONNECTION STATUS") );
     
     // COL 2 ---------------------------------------------------------
+    xPos = 1043;
     yPos = 255;
-    mDistanceCheck = std::make_shared<CheckBox>(vec2(1043, yPos));
+    
+    mDistanceCheck = std::make_shared<CheckBox>(vec2(xPos, yPos));
     mDistanceCheck->setChecked(true);
     mTimeTrialBox = std::make_shared<CheckBox>(vec2(1343-30, yPos));
     
     yPos += 160;
     
     // RACE DISTANCE
-    mTxtDistance = makeTextField(Rectf(1043,yPos, 1043+431, yPos+100), "100" );
-    mTxtTime = makeTextField(Rectf(1043,yPos, 1043+431, yPos+100), "60" );
+    mTxtDistance = makeTextField(Rectf(xPos,yPos, xPos+colWidth, yPos+100), "100" );
+    mTxtTime = makeTextField(Rectf(xPos,yPos, xPos+colWidth, yPos+100), "60" );
     
-    mDistanceLabel = new TextLabel(vec2(1043,yPos) - vec2(0,20), "RACE LENGTH (meters)");
-    mTimeLabel = new TextLabel(vec2(1043,yPos) - vec2(0,20), "RACE TIME (seconds)");
+    mDistanceLabel = new TextLabel(vec2(xPos,yPos) - vec2(0,20), "RACE LENGTH (meters)");
+    mTimeLabel = new TextLabel(vec2(xPos,yPos) - vec2(0,20), "RACE TIME (seconds)");
     mTxtTime->visible = false;
     
     mDistanceCheck->signalOnClick.connect([&](){
@@ -87,8 +92,6 @@ SettingsView::SettingsView() : bVisible(false)
     
     // KPH
     yPos += 160;
-    //yPos = 255;
-    float xPos = 1043;
     mLabels.push_back( TextLabel(vec2(xPos, yPos-20), "UNITS") );
     auto toggleFont =gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70));
     mMphKphToggle = std::make_shared<ToggleBtn>("MPH", "KPH", toggleFont, vec2(xPos, yPos));

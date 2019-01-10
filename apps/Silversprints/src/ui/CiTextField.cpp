@@ -18,9 +18,11 @@ CiTextField::~CiTextField(){
     mMouseDragCb.disconnect();
 }
 
-CiTextField::CiTextField( std::string text, ci::Rectf bounds, ci::Font font ){
+CiTextField::CiTextField( std::string text, ci::Rectf bounds, ci::Font font )
+ : Rectf(bounds)
+{
     setText(text);
-    setBounds(bounds);
+//    setBounds(bounds);
     
     mColorStroke = Color(1,1,1);
     mColorFill = Color::gray(0.2);
@@ -54,7 +56,7 @@ CiTextField::CiTextField( std::string text, ci::Rectf bounds, ci::Font font ){
 }
 
 void CiTextField::setBounds( const ci::Rectf &bounds ){
-    mBounds = bounds;
+    this->set(bounds.x1, bounds.y1, bounds.x2, bounds.y2);
 }
 
 void CiTextField::setText(std::string text){
@@ -152,11 +154,11 @@ void CiTextField::onMouseDown( ci::app::MouseEvent event ){
     
     vec2 pos = Model::instance().localToGlobal(event.getPos());
     
-    if( mBounds.contains(pos) ){
+    if( this->contains(pos) ){
         bDragging = true;
         bActive = true;
         
-        mCaratStart = mCaratIndex = getCursorIndex( pos - mBounds.getUpperLeft() ); // pass in the local pos
+        mCaratStart = mCaratIndex = getCursorIndex( pos - getUpperLeft() ); // pass in the local pos
         mCaratIndex = mCaratStart;
     }
 }
@@ -168,7 +170,7 @@ void CiTextField::onMouseDrag( ci::app::MouseEvent event ){
     vec2 pos = Model::instance().localToGlobal(event.getPos());
     
     if( bDragging ){
-        mCaratIndex = getCursorIndex( pos - mBounds.getUpperLeft() );
+        mCaratIndex = getCursorIndex( pos - getUpperLeft() );
     }
 }
 void CiTextField::onMouseUp( ci::app::MouseEvent event ){
@@ -180,7 +182,7 @@ void CiTextField::onMouseUp( ci::app::MouseEvent event ){
     
     if( bDragging ){
         bActive = true;
-        mCaratIndex = getCursorIndex( pos - mBounds.getUpperLeft() );
+        mCaratIndex = getCursorIndex( pos - getUpperLeft() );
         if( mCaratStart != mCaratIndex ){
             bHighlighted = true;
         }
@@ -284,21 +286,21 @@ void CiTextField::draw()
     }
     
     gl::color( mColorFill );
-    gl::drawSolidRect( mBounds );
+    gl::drawSolidRect( *this );
     
     gl::color( mColorStroke );
-    gl::drawStrokedRect( mBounds );
+    gl::drawStrokedRect( *this );
     
     gl::pushMatrices();
     gl::translate( padding );
     
     // draw our cursor line
     if( bActive ){
-        mCursorPos.x = tFont->measureString( mText.substr(0, mCaratIndex) ).x + mBounds.x1;
+        mCursorPos.x = tFont->measureString( mText.substr(0, mCaratIndex) ).x + this->x1;
         
         gl::color( mColorHighlight );
         gl::pushMatrices();{
-            gl::translate( 0, mBounds.y1 + emSize.y*0.1);
+            gl::translate( 0, this->y1 + emSize.y*0.1);
             gl::drawLine( mCursorPos, mCursorPos + vec2(0, emSize.y) );
         }gl::popMatrices();
         
@@ -308,13 +310,13 @@ void CiTextField::draw()
             vec2 UL( tFont->measureString( mText.substr(0, mCaratStart) ).x, 0);
             vec2 LR( tFont->measureString( mText.substr(0, mCaratIndex) ).x, emSize.y);
             Rectf highlighRect(UL, LR);
-            highlighRect.offset( mBounds.getUpperLeft() + vec2(0, emSize.y *0.1) );
+            highlighRect.offset( getUpperLeft() + vec2(0, emSize.y *0.1) );
             gl::drawSolidRect( highlighRect );
         }
     }
     
     gl::color( mColorText );
-    tFont->drawString(mText, vec2(mBounds.x1,mBounds.y1 + emSize.y) );
+    tFont->drawString(mText, vec2(this->x1, this->y1 + emSize.y) );
     
     gl::popMatrices();
     

@@ -59,8 +59,6 @@ void SilverSprintApp::setup()
     mGfxMain->setup();
     
     loadSettings();
-    
-    CI_LOG_I("High density? ") << isHighDensityDisplayEnabled();
 }
 
 void SilverSprintApp::loadSettings()
