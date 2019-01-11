@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\app">
+      <UniqueIdentifier>{e3150c29-01a5-4e0e-99cb-57c119dd8400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{4a5711e7-617b-46ed-8bfb-21e5713d4546}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\data">
+      <UniqueIdentifier>{621a8138-98b1-4c9e-9587-e01e943e9338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\views">
+      <UniqueIdentifier>{0a8ceaf6-48a5-46ac-be78-8e375a6de4e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app">
+      <UniqueIdentifier>{02b164aa-bc0f-4956-90dd-3be06c54b98f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\data">
+      <UniqueIdentifier>{de66b4db-264f-4f83-9413-9bb9fed2b528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\views">
+      <UniqueIdentifier>{327defec-61cd-44fe-be14-04f9275b191f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ui">
+      <UniqueIdentifier>{6183c13e-b62b-445a-be80-2bc1d8ac6eba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{9ca2baa7-ef59-4d74-b2ce-fdc1fc1b3066}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Sharkbox">
+      <UniqueIdentifier>{27f40a3c-0e6c-432d-a435-ff96cb96c73f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Sharkbox\tools">
+      <UniqueIdentifier>{f66daec2-6132-4ede-b5ca-134f2ac93af0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\ParticleSystem">
+      <UniqueIdentifier>{c0fca033-a2dd-49a2-baa7-a9fb28c009f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Serial">
+      <UniqueIdentifier>{c35f3e99-3b8e-4a8f-972f-48629c53ce96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Serial\include">
+      <UniqueIdentifier>{9ba963d5-6099-4919-8107-34e0ca755b6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Serial\lib">
+      <UniqueIdentifier>{79522659-c2fa-48a7-b262-df10d435d440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Serial\src">
+      <UniqueIdentifier>{1873f8c9-9466-45c3-9bd2-65f0565cabae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\SilverSprintsApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SilverSprintsApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="..\src\app\GFXMain.cpp">
+      <Filter>Source Files\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\data\Model.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\data\SerialReader.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\data\StateManager.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\BaseButton.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\CheckBox.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\CiTextField.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\CountDownGfx.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\NumStepper.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\RaceText.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\StartStopButton.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\ThickLine.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\ToggleBtn.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\WinnerModal.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\views\NavBarView.cpp">
+      <Filter>Source Files\views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\views\RaceView.cpp">
+      <Filter>Source Files\views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\views\RosterView.cpp">
+      <Filter>Source Files\views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\views\SettingsView.cpp">
+      <Filter>Source Files\views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\ParticleSystem\ParticleSystem.cpp">
+      <Filter>Blocks\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\Serial\lib\serial\src\impl\list_ports\list_ports_win.cc">
+      <Filter>Blocks\Serial\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\Serial\lib\serial\src\impl\unix.cc">
+      <Filter>Blocks\Serial\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\Serial\lib\serial\src\impl\win.cc">
+      <Filter>Blocks\Serial\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\Serial\lib\serial\src\serial.cc">
+      <Filter>Blocks\Serial\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\Serial\src\SerialDevice.cpp">
+      <Filter>Blocks\Serial\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\DropDown.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\app\GFXMain.h">
+      <Filter>Header Files\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\data\Config.h">
+      <Filter>Header Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\data\CsvLogger.h">
+      <Filter>Header Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\data\Model.h">
+      <Filter>Header Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\data\PlayerData.h">
+      <Filter>Header Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\data\SerialReader.h">
+      <Filter>Header Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\data\StateManager.h">
+      <Filter>Header Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\BaseButton.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\CheckBox.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\CiTextField.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\CountDownGfx.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\NumStepper.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\RaceText.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\StartStopButton.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\ThickLine.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\ToggleBtn.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\WinnerModal.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\views\NavBarView.h">
+      <Filter>Header Files\views</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\views\RaceView.h">
+      <Filter>Header Files\views</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\views\RosterView.h">
+      <Filter>Header Files\views</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\views\SettingsView.h">
+      <Filter>Header Files\views</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Sharkbox\tools\Utils.h">
+      <Filter>Blocks\Sharkbox\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\ParticleSystem\ParticleSystem.h">
+      <Filter>Blocks\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Serial\include\Cinder-Serial.h">
+      <Filter>Blocks\Serial\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Serial\include\SerialDevice.h">
+      <Filter>Blocks\Serial\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Serial\lib\serial\include\serial\impl\unix.h">
+      <Filter>Blocks\Serial\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Serial\lib\serial\include\serial\impl\win.h">
+      <Filter>Blocks\Serial\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Serial\lib\serial\include\serial\serial.h">
+      <Filter>Blocks\Serial\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Serial\lib\serial\include\serial\v8stdint.h">
+      <Filter>Blocks\Serial\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ui\DropDown.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
