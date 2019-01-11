@@ -3,14 +3,16 @@
 #include "cinder/app/App.h"
 #include "cinder/Signals.h"
 #include "cinder/Log.h"
+#include "cinder/Rect.h"
 
 #include "data/Model.h"
+#include "ui/ThickLine.h"
 
 using namespace std;
 
 using DropDownRef = std::shared_ptr<class DropDown>;
 
-class DropDown {
+class DropDown : public ci::Rectf {
   public:
     DropDown(const ci::Rectf &bounds, ci::gl::TextureFontRef font);
     
@@ -36,11 +38,13 @@ class DropDown {
     vector<string>          mOptions, mOptionsRaw;
     vector<int>             mIndices;
     
-    ci::Rectf   mBounds;
+//    ci::Rectf   mBounds;
     int         mSelected = 0;
     std::string mSelectedStr = "";
     bool        bOpen = false;
     
-    ci::Rectf   mDrawerRect;
+    ci::Rectf   mDrawerRect, mBgRect, mDropDownRect;
     int         mHighlight = -1;
+    
+    ThickLineRef    mDn1, mDn2;
 };

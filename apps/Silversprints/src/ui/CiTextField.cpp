@@ -22,6 +22,7 @@ CiTextField::CiTextField( std::string text, ci::Rectf bounds, ci::Font font )
  : Rectf(bounds)
 {
     setText(text);
+    this->set(bounds.x1, bounds.y1, bounds.x2, bounds.y2);
 //    setBounds(bounds);
     
     mColorStroke = Color(1,1,1);

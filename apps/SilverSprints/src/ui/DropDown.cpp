@@ -6,7 +6,8 @@ using namespace std;
 using namespace gfx;
 
 DropDown::DropDown( const ci::Rectf &bounds, ci::gl::TextureFontRef font) {
-    mBounds = bounds;
+//    mBounds = bounds;
+    Rectf::set(bounds.x1, bounds.y1, bounds.x2, bounds.y2);
     
     ci::app::WindowRef window = cinder::app::getWindow();
     mMouseDownCb = window->getSignalMouseDown().connect( std::bind(&DropDown::onMouseDown, this, std::placeholders::_1) );
@@ -14,8 +15,12 @@ DropDown::DropDown( const ci::Rectf &bounds, ci::gl::TextureFontRef font) {
     
     mFont = font;
     
-    mBgRect = Rectf(mBounds.getUpperLeft(), mBounds.getLowerRight() - vec2(50,0));
-    mDropDownRect = Rectf(mBgRect.getUpperRight() + vec2(5, 0), mBounds.getLowerRight() );
+    mBgRect = Rectf( getUpperLeft(), getLowerRight() - vec2(50,0));
+    mDropDownRect = Rectf(mBgRect.getUpperRight() + vec2(5, 0), getLowerRight() );
+    
+    float ll = 10;
+    mDn1 = ThickLine::create( mDropDownRect.getCenter() - vec2(ll, ll*0.5), mDropDownRect.getCenter() + vec2(2, ll*0.5), 5);
+    mDn2 = ThickLine::create( mDropDownRect.getCenter() + vec2(ll, -ll*0.5), mDropDownRect.getCenter() + vec2(-1, ll*0.5), 5);
 }
 
 template <>
@@ -23,13 +28,13 @@ void DropDown::setOptions(const std::vector<std::string> &opts )
 {
     mOptions = opts;
     mOptionsRaw = opts;
-    vec2 drawerSize(mBounds.getWidth(), min<float>(mBounds.getHeight() * 3.0, mBounds.getHeight() * opts.size()));
-    mDrawerRect = Rectf(mBounds.getUpperLeft(), mBounds.getUpperLeft() + drawerSize);
+    vec2 drawerSize( getWidth(), min<float>( getHeight() * 3.0, getHeight() * opts.size()));
+    mDrawerRect = Rectf( getUpperLeft(), getUpperLeft() + drawerSize);
 }
 
 template <>
 void DropDown::setOptions(const std::vector<Model::SerialDeviceDesc> &opts )
-{    
+{
     mIndices.resize(opts.size());
     for(int i=0; i<opts.size(); i++){
         mIndices[i] = i;
@@ -41,12 +46,13 @@ void DropDown::setOptions(const std::vector<Model::SerialDeviceDesc> &opts )
         std::string pn = opt.portName;
         std::string pd = opt.portDescription;
         
-        if(mFont->measureString(pd).x > mBounds.getWidth() - 10){
-            while( mFont->measureString(pd).x > mBounds.getWidth() - 10 ){
+        if(mFont->measureString(pd).x > getWidth() - 90){
+            while( mFont->measureString(pd).x > getWidth() - 90 ){
                 pd = pd.substr(0, pd.size()-1);
             }
             pd = pd.substr(0, pd.size()-1);
-            pd.append("…");                     // this might not show up in all fonts
+//            pd.append("…");                     // this might not show up in all fonts
+            pd.append("..");                     // this might not show up in all fonts
         }
         
         pn.append("\n");
@@ -78,7 +84,7 @@ void DropDown::onMouseDown( ci::app::MouseEvent event ){
             mHighlight = -1;
         }
         bOpen = false;
-    }else if( mBounds.contains(pos) && mOptions.size() > 1){
+    }else if( this->contains(pos) && mOptions.size() > 1){
         bOpen = !bOpen;
     }
 }
@@ -91,7 +97,7 @@ void DropDown::onMouseMove(ci::app::MouseEvent event){
     if(bOpen){
         vec2 pos = Model::instance().localToGlobal(event.getPos());
         if(mDrawerRect.contains(pos)){
-            mHighlight = (pos.y - mDrawerRect.y1) / mBounds.getHeight();
+            mHighlight = (pos.y - mDrawerRect.y1) / getHeight();
         }else{
             mHighlight = -1;
         }
@@ -140,23 +146,43 @@ void DropDown::draw() {
     if(!bOpen){
         gl::drawSolidRect(mBgRect);
         gl::drawSolidRect(mDropDownRect);
+        gl::ScopedColor scC(Color::black());
+        mDn1->draw();
+        mDn2->draw();
         
         if(mOptions.size() > 0){
             gl::ScopedColor scC(Color::black());
-            mFont->drawString(mOptions[mIndices[0]], mBounds + vec2(-50, 25));
+            mFont->drawString(mOptions[mIndices[0]], Rectf(mBgRect.getUpperLeft() + vec2(25, 25), mBgRect.getLowerRight() ));
         }
     }else{
         gl::drawSolidRect(mBgRect);
         gl::drawSolidRect(mDropDownRect);
+        {
+            gl::ScopedMatrices scMat;
+            gl::ScopedColor scC(Color::black());
+            gl::translate(vec3(9,0,0));
+            mDn1->draw();
+            gl::translate(vec3(-18,0,0));
+            mDn2->draw();
+        }
+        
+        gl::drawSolidRect(Rectf(mBgRect.getLowerLeft()+  vec2(0, 5), mDrawerRect.getLowerRight()));
         
         gl::ScopedColor scC(Color::black());
         for( int i=0; i<mOptions.size(); i++){
             if(mHighlight == i){
                 gl::ScopedColor scBg(Color::white());
-                gl::drawSolidRect(Rectf(mBounds.x1, mBounds.y1 + mBounds.getHeight() * i, mBounds.x2, mBounds.y2 + (mBounds.getHeight()+1) * i));
+                gl::drawSolidRect(Rectf(x1, y1 + getHeight() * i, x2, y2 + (getHeight()+1) * i));
             }
             
-            mFont->drawString(mOptions[mIndices[i]], mBounds + vec2(10, 25 + i * mBounds.getHeight()));
+            mFont->drawString(mOptions[mIndices[i]], (Rectf)*this + vec2(25, 25 + i * getHeight()));
+            
+            float yp = y2 + getHeight() * i + 1;
+            
+            if(i != mOptions.size()-1){
+                gl::drawLine(vec2(x1+20, yp), vec2(x2-20, yp));
+                gl::drawLine(vec2(x1+20, yp+1), vec2(x2-20, yp+1));
+            }
         }
         
     }

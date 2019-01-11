@@ -52,6 +52,7 @@ SettingsView::SettingsView() : bVisible(false)
         Model::instance().setSerialPortName(selectedOption);
         StateManager::instance().signalSerialDeviceSelected.emit(selectedOption);
     });
+    
     StateManager::instance().signalSerialDevicesUpdated.connect([&](){
         CI_LOG_I("Dropdown got device list update from state manager");
         mArduinoDropDown->setOptions(Model::instance().mSerialDeviceList);
