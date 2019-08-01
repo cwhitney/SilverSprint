@@ -84,6 +84,10 @@ void Model::setRaceLength(int ticks) {
     }
 }
 
+//void Model::setPlayerNames() {
+//
+//}
+
 void Model::resetPlayers() {
     for( int i=0; i<playerData.size(); i++){
         playerData[i]->reset();

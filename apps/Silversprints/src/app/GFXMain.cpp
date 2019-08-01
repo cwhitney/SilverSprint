@@ -41,7 +41,11 @@ GFXMain::~GFXMain(){
 void GFXMain::setup(){
     // INIT --------------------------------------------------------------
     mSerialReader = std::make_shared<SerialReader>();
-    CsvLogger::instance().setHeaders({"Timestamp", "Event", "Racer 1", "Racer 2", "Racer 3", "Racer 4"});
+    if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_DISTANCE){
+        CsvLogger::instance().setHeaders({"Timestamp", "Event", "Racer 1", "Distance 1", "Racer 2", "Distance 2", "Racer 3", "Distance 3", "Racer 4", "Distance 4"});
+    } else {
+        CsvLogger::instance().setHeaders({"Timestamp", "Event", "Racer 1", "Time 1", "Racer 2", "Time 2", "Racer 3", "Time 3", "Racer 4", "Time 4"});
+    }
     
     // VIEWS --------------------------------------------------------------
     mNav            = std::make_shared<NavBarView>();
@@ -91,24 +95,36 @@ void GFXMain::onRaceFinished() {
         // If it's a distance race, log the times
         if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_DISTANCE){
             CsvLogger::instance().log(CsvLogger::RACE_FINISH_DISTANCE,
+                                      Model::instance().playerData[0]->player_name,
                                       sb::utils::millisToTimestamp(Model::instance().playerData[0]->finishTimeMillis),
+                                      Model::instance().playerData[1]->player_name,
                                       sb::utils::millisToTimestamp(Model::instance().playerData[1]->finishTimeMillis),
+                                      Model::instance().playerData[2]->player_name,
                                       sb::utils::millisToTimestamp(Model::instance().playerData[2]->finishTimeMillis),
+                                      Model::instance().playerData[3]->player_name,
                                       sb::utils::millisToTimestamp(Model::instance().playerData[3]->finishTimeMillis));
         }
         // If it's a time race, log the distance
         else {
             if(Model::instance().getUsesKph()){
                 CsvLogger::instance().log(CsvLogger::RACE_FINISH_TIME,
+                                          Model::instance().playerData[0]->player_name,
                                           Model::instance().playerData[0]->getDistanceMeters(),
+                                          Model::instance().playerData[1]->player_name,
                                           Model::instance().playerData[1]->getDistanceMeters(),
+                                          Model::instance().playerData[2]->player_name,
                                           Model::instance().playerData[2]->getDistanceMeters(),
+                                          Model::instance().playerData[3]->player_name,
                                           Model::instance().playerData[3]->getDistanceMeters());
             }else{
                 CsvLogger::instance().log(CsvLogger::RACE_FINISH_TIME,
+                                          Model::instance().playerData[0]->player_name,
                                           Model::instance().playerData[0]->getDistanceFeet(),
+                                          Model::instance().playerData[1]->player_name,
                                           Model::instance().playerData[1]->getDistanceFeet(),
+                                          Model::instance().playerData[2]->player_name,
                                           Model::instance().playerData[2]->getDistanceFeet(),
+                                          Model::instance().playerData[3]->player_name,
                                           Model::instance().playerData[3]->getDistanceFeet());
             }
         }

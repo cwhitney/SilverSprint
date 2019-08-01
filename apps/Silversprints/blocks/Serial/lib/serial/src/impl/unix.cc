@@ -613,7 +613,7 @@ Serial::SerialImpl::write (const uint8_t *data, size_t length)
   size_t bytes_written = 0;
 
   // Calculate total timeout in milliseconds t_c + (t_m * N)
-  long total_timeout_ms = timeout_.write_timeout_constant;
+  uint32_t total_timeout_ms = timeout_.write_timeout_constant;
   total_timeout_ms += timeout_.write_timeout_multiplier * static_cast<long> (length);
   MillisecondTimer total_timeout(total_timeout_ms);
 
