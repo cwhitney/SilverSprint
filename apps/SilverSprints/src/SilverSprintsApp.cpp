@@ -58,6 +58,8 @@ void SilverSprintApp::setup()
     mGfxMain = GFXMainRef( new GFXMain() );
     mGfxMain->setup();
     
+	CI_LOG_I("Window content scale :: ") << ci::app::getWindowContentScale();
+
     loadSettings();
 }
 

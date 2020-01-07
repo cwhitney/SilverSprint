@@ -18,13 +18,15 @@ Model::Model(){
     playerColors[1] = ci::ColorA(28.0 / 255.0, 145.0 / 255.0, 133.0 / 255.0, 1.0);
     playerColors[2] = ci::ColorA(22.0 / 255.0, 146.0 / 255.0, 84.0 / 255.0, 1.0);
     playerColors[3] = ci::ColorA(225.0 / 255.0, 185.0 / 255.0, 9.0 / 255.0, 1.0);
+
+	float fontSc = 1.0 / 2.5;
     
-    uiFont = ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 35);
+    uiFont = ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 35.0 * fontSc );
     texFont = gl::TextureFont::create(uiFont);
     
-    winnerUiFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 18));
-    winnerTexFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70));
-    countdownFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 235));
+    winnerUiFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 18.0 * fontSc));
+    winnerTexFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70.0 * fontSc));
+    countdownFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 235.0 * fontSc));
     
     for( int i=0; i<4; i++){
         playerData.push_back( new PlayerData() );

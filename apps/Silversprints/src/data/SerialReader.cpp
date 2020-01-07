@@ -78,7 +78,7 @@ void SerialReader::updateSerialThread()
         
         if(!bSerialConnected){ // we aren't connected try to connect
             auto ports = SerialPort::getPorts(true);
-            /*
+            //*
              for (auto port : ports) {
              console() << "SERIAL DEVICE" << endl;
              console() << "\tNAME: " << port->getName() << endl;

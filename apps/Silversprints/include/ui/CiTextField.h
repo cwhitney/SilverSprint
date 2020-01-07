@@ -24,7 +24,7 @@ class CiTextField : public ci::Rectf {
     std::string getText(){ return mText; }
     
     void setBounds( const ci::Rectf &bounds );
-//    const ci::Rectf& getBounds(){ return mBounds; }
+    const ci::Rectf& getBounds(){ return mBounds; }
 
     void focus( bool selectAll=false);   // Become active.
     void blur();    // Become inactive. (Same as unfocus)

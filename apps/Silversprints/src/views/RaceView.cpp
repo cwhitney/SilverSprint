@@ -38,7 +38,7 @@ void RaceView::setup()
     mStartStop.signalStartRace.connect( std::bind(&RaceView::onStartClicked, this ) );
     mStartStop.signalStopRace.connect( std::bind(&RaceView::onStopClicked, this ) );
     
-    mTimerFont = ci::gl::TextureFont::create( ci::Font(loadAsset("fonts/UbuntuMono-B.ttf"), 50) );
+    mTimerFont = ci::gl::TextureFont::create( ci::Font(loadAsset("fonts/UbuntuMono-B.ttf"), 50.0 / 2.5) );
     
     reloadShader();
     
