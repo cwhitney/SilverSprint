@@ -55,7 +55,7 @@ void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
         
         // NAME
         boost::to_upper(data->player_name);
-        Model::instance().texFont->drawString(data->player_name, vec2(20, 44) );
+        Model::instance().texFont->drawString(data->player_name, vec2(20, 44), Model::instance().getTfDrawOpts());
         
         // SPEED
         if( Model::instance().getUsesKph()){
@@ -63,29 +63,39 @@ void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
                 mLastSpeed = data->getKph();
                 mLastSpeedUpdate = getElapsedSeconds();
             }
-            gl::drawStringRight( toDec(mLastSpeed, 1) + " KPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
+			
+			std::string tx = toDec(mLastSpeed, 1) + " KPH";
+			vec2 strSize = Model::instance().texFont->measureString(tx);
+			Model::instance().texFont->drawString(tx, vec2(1580 - strSize.x, 44), Model::instance().getTfDrawOpts() );
         }else{
             if(getElapsedSeconds() - mLastSpeedUpdate > Model::instance().speedUpdateInterval){
                 mLastSpeed = data->getMph();
                 mLastSpeedUpdate = getElapsedSeconds();
             }
-            gl::drawStringRight( toDec(mLastSpeed, 1) + " MPH", vec2(1430,20), Color::white(), Model::instance().uiFont );
+
+			std::string tx = toDec(mLastSpeed, 1) + " MPH";
+			vec2 strSize = Model::instance().texFont->measureString(tx);
+			Model::instance().texFont->drawString(tx, vec2(1580 - strSize.x, 44), Model::instance().getTfDrawOpts() );
         }
         
         
         // DISTANCE AND TIME
         if( Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_TIME ){
             if(Model::instance().getUsesKph()){
-                Model::instance().texFont->drawString(toDec(data->getDistanceMeters(), 2) + "m", vec2(1485,44));
+                Model::instance().texFont->drawString(toDec(data->getDistanceMeters(), 2) + "m", vec2(1485,44),
+					Model::instance().getTfDrawOpts());
             }else{
-                Model::instance().texFont->drawString(toDec(data->getDistanceFeet(), 2) + "ft", vec2(1485,44));
+                Model::instance().texFont->drawString(toDec(data->getDistanceFeet(), 2) + "ft", vec2(1485,44),
+					Model::instance().getTfDrawOpts());
             }
         }
         else if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE::RACE_TYPE_DISTANCE){
             if( data->didFinishRace() ){
-                Model::instance().texFont->drawString(sb::utils::millisToTimestamp( data->finishTimeMillis ), vec2(1485,44) );
+                Model::instance().texFont->drawString(sb::utils::millisToTimestamp( data->finishTimeMillis ), vec2(1485,44),
+					Model::instance().getTfDrawOpts());
             }else{
-                Model::instance().texFont->drawString(sb::utils::millisToTimestamp( Model::instance().elapsedRaceTimeMillis ), vec2(1485,44) );
+                Model::instance().texFont->drawString(sb::utils::millisToTimestamp( Model::instance().elapsedRaceTimeMillis ), vec2(1485,44),
+					Model::instance().getTfDrawOpts());
             }
         }
         

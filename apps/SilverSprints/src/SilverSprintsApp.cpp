@@ -29,7 +29,7 @@ public:
     void update() override;
     void draw() override;
     void cleanup() override;
-    
+
     void loadSettings();
     void writeSettings();
     gfx::GFXMainRef mGfxMain;
@@ -58,8 +58,6 @@ void SilverSprintApp::setup()
     mGfxMain = GFXMainRef( new GFXMain() );
     mGfxMain->setup();
     
-	CI_LOG_I("Window content scale :: ") << ci::app::getWindowContentScale();
-
     loadSettings();
 }
 
@@ -170,9 +168,10 @@ void SilverSprintApp::draw()
         
         gl::translate( vec2(scaledFit.x1, 0) );
         gl::scale(scaleAmt, scaleAmt);
-        
-        mGfxMain->draw( scaledFit );
+
+        mGfxMain->draw();
     }gl::popMatrices();
+
     
 #if defined(DEBUG_MODE)
     gl::drawString( to_string( getAverageFps() ), vec2(10, getWindowHeight() - 60) );

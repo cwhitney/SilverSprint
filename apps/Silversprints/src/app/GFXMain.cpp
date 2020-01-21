@@ -181,7 +181,7 @@ void GFXMain::update()
     mSettingsView->update();
 }
 
-void GFXMain::draw( const Rectf &drawRect ){
+void GFXMain::draw(){
     //    Model::instance().setScale(drawRect);
     
     mRaceView->draw();

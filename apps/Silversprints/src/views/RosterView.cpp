@@ -20,13 +20,14 @@ RosterView::RosterView() : bVisible(false) {
 void RosterView::setup(){
     mBg = gl::Texture::create( loadImage( loadAsset("img/bgGrad.png") ) );
     mCancelBtn = gl::Texture::create( loadImage( loadAsset("img/rosterCancel.png") ) );
-    
+	ci::Font tfFont = ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 75);
+
     StateManager::instance().signalOnStateChange.connect( std::bind(&RosterView::onStateChange, this, std::placeholders::_1) );
-    
+
     for( int i=0; i<4; i++){
         float yPos = 190 + 183 * i;
         
-        CiTextField *tf = new CiTextField(Model::instance().playerData[i]->player_name, Rectf(574, yPos, 574 + 910, yPos+150), ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 75) );
+        CiTextField *tf = new CiTextField(Model::instance().playerData[i]->player_name, Rectf(574, yPos, 574 + 910, yPos+150), tfFont );
         tf->mColorStroke = Model::instance().playerColors[i];
         tf->mColorFill = Model::instance().playerColors[i];
         tf->mColorText = Color::black();
@@ -34,7 +35,7 @@ void RosterView::setup(){
         
         tf->bUseScissorTest = false;
         mPlayerNames.push_back(tf);
-        
+
         mCancelRects.push_back( Rectf(1498, yPos, 1555, yPos+52) );
     }
     
@@ -144,8 +145,10 @@ void RosterView::draw(){
 //            gl::color(1,1,1,1);
 //            gl::draw( mCancelBtn, mCancelRects[i].getUpperLeft() + vec2(14, 12) );
 //        }
+
         
         vec2 p = mPlayerNames[i]->getBounds().getUpperLeft() + vec2(-102, 73);
+
         if( !mPlayerNames[i]->isActive() ){
             gl::color( mPlayerNames[i]->mColorStroke );
             gl::drawSolidCircle(p, 62);
@@ -157,7 +160,7 @@ void RosterView::draw(){
             gl::lineWidth(1.0);
         }
         
-        tFont->drawString( to_string(i+1), p + vec2(-19, 20) );
+        tFont->drawString( to_string(i+1), p + vec2(-19, 20), Model::instance().getTfDrawOpts() );
     }
     
 //    gui->draw();

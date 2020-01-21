@@ -13,9 +13,11 @@ ToggleBtn::ToggleBtn(std::string choice1, std::string choice2, ci::gl::TextureFo
     mChoice2 = choice2;
     auto window = getWindow();
     mMouseDownCb = window->getSignalMouseDown().connect( std::bind(&ToggleBtn::onMouseDown, this, std::placeholders::_1) );
-    
-    vec2 c1 = mFont->measureString(choice1);
-    vec2 c2 = mFont->measureString(choice1);
+	mFontScale = window->getContentScale();
+
+
+    vec2 c1 = mFont->measureString(choice1) / mFontScale;
+    vec2 c2 = mFont->measureString(choice1) / mFontScale;
     
     float height = max(c1.y, c2.y);
     mTextPadding = vec2(20, 14);
@@ -68,7 +70,7 @@ void ToggleBtn::draw()
     }
     {
         gl::ScopedColor scC(mTextColor);
-        mFont->drawString(mChoice1, mRectL.getLowerLeft() + mTextPadding * vec2(1, -1.7));
-        mFont->drawString(mChoice2, mRectR.getLowerLeft() + mTextPadding * vec2(1, -1.7));
+        mFont->drawString(mChoice1, mRectL.getLowerLeft() + mTextPadding * vec2(1, -1.7), Model::instance().getTfDrawOpts());
+        mFont->drawString(mChoice2, mRectR.getLowerLeft() + mTextPadding * vec2(1, -1.7), Model::instance().getTfDrawOpts());
     }
 }

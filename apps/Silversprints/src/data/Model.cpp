@@ -19,14 +19,15 @@ Model::Model(){
     playerColors[2] = ci::ColorA(22.0 / 255.0, 146.0 / 255.0, 84.0 / 255.0, 1.0);
     playerColors[3] = ci::ColorA(225.0 / 255.0, 185.0 / 255.0, 9.0 / 255.0, 1.0);
 
-	float fontSc = 1.0 / 2.5;
+	mFontScale = ci::app::getWindowContentScale();
+	mDrawOpts = gl::TextureFont::DrawOptions().scale(1.0f / mFontScale).pixelSnap(false);
     
-    uiFont = ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 35.0 * fontSc );
-    texFont = gl::TextureFont::create(uiFont);
+    uiFont = ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 35.0 );
+    texFont = gl::TextureFont::create(uiFont, gl::TextureFont::Format().enableMipmapping());
     
-    winnerUiFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 18.0 * fontSc));
-    winnerTexFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70.0 * fontSc));
-    countdownFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 235.0 * fontSc));
+    winnerUiFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 18.0), gl::TextureFont::Format().enableMipmapping());
+    winnerTexFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70.0), gl::TextureFont::Format().enableMipmapping());
+    countdownFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 235.0), gl::TextureFont::Format().enableMipmapping());
     
     for( int i=0; i<4; i++){
         playerData.push_back( new PlayerData() );
@@ -52,7 +53,7 @@ void Model::setScale( const ci::Rectf &scaledRect )
 {
     vec2 sc( (float)getWindowWidth() / 1920.0, (float)getWindowHeight() / 1080.0);
     mScreenScale = vec2( min(sc.x, sc.y) );
-    
+
     mScreenOffset = scaledRect.getUpperLeft();
 }
 

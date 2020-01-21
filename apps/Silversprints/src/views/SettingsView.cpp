@@ -210,7 +210,7 @@ void SettingsView::draw()
         
         gl::ScopedColor scGr( Color::gray(0.55) );
         for( int i=0; i<mLabels.size(); i++){
-            tFont->drawString(mLabels[i].txt, mLabels[i].pos);
+            tFont->drawString(mLabels[i].txt, mLabels[i].pos, Model::instance().getTfDrawOpts());
         }
         
         mStepperPlus.draw();
@@ -221,8 +221,10 @@ void SettingsView::draw()
             mConnectionBox->setChecked(true);
             
             gl::ScopedColor scGr( Color::gray(0.55) );
-            tFont->drawString("FIRMWARE VERSION", mConnectionBox->getBounds().getLowerRight() + vec2(10, -30));
-            tFont->drawString(Model::instance().mFirmwareVersion, mConnectionBox->getBounds().getLowerRight() + vec2(10, -5));
+            tFont->drawString("FIRMWARE VERSION", mConnectionBox->getBounds().getLowerRight() + vec2(10, -30),
+				Model::instance().getTfDrawOpts());
+            tFont->drawString(Model::instance().mFirmwareVersion, mConnectionBox->getBounds().getLowerRight() + vec2(10, -5),
+				Model::instance().getTfDrawOpts());
             
         }else{
             mConnectionBox->setChecked(false);
@@ -241,12 +243,16 @@ void SettingsView::draw()
         {
             gl::ScopedColor scGr( Color::gray(0.55) );
             if(mDistanceCheck->isChecked()){
-                tFont->drawString(mDistanceLabel->txt, mDistanceLabel->pos);
+                tFont->drawString(mDistanceLabel->txt, mDistanceLabel->pos,
+					Model::instance().getTfDrawOpts() );
             }else{
-                tFont->drawString(mTimeLabel->txt, mTimeLabel->pos);
+                tFont->drawString(mTimeLabel->txt, mTimeLabel->pos,
+					Model::instance().getTfDrawOpts() );
             }
-            tFont->drawString("DISTANCE\nRACE", mDistanceCheck->getBounds().getUpperRight() + vec2(10, 15));
-            tFont->drawString("TIME\nRACE", mTimeTrialBox->getBounds().getUpperRight() + vec2(10, 15));
+            tFont->drawString("DISTANCE\nRACE", mDistanceCheck->getBounds().getUpperRight() + vec2(10, 15),
+				Model::instance().getTfDrawOpts() );
+            tFont->drawString("TIME\nRACE", mTimeTrialBox->getBounds().getUpperRight() + vec2(10, 15),
+				Model::instance().getTfDrawOpts() );
         }
         
         // KPH
@@ -255,7 +261,7 @@ void SettingsView::draw()
         }
         {
             gl::ScopedColor scGr( Color::gray(0.55) );
-            tFont->drawString("SILVERSPRINT VERSION: " + std::string(SILVERSPRINT_VERSION_STR), vec2(60, 1080- 20));
+            tFont->drawString("SILVERSPRINT VERSION: " + std::string(SILVERSPRINT_VERSION_STR), vec2(60, 1080- 20), Model::instance().getTfDrawOpts());
         }
         
         // RACE LOGGING
