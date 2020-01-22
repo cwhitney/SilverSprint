@@ -13,7 +13,7 @@ ToggleBtn::ToggleBtn(std::string choice1, std::string choice2, ci::gl::TextureFo
     mChoice2 = choice2;
     auto window = getWindow();
     mMouseDownCb = window->getSignalMouseDown().connect( std::bind(&ToggleBtn::onMouseDown, this, std::placeholders::_1) );
-	mFontScale = window->getContentScale();
+    mFontScale = Model::instance().getFontScale();
 
 
     vec2 c1 = mFont->measureString(choice1) / mFontScale;

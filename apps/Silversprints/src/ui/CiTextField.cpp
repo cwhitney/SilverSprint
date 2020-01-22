@@ -40,8 +40,9 @@ CiTextField::CiTextField( const std::string &text, const ci::Rectf &_bounds, ci:
     
     if( mFont ){
         tFont = gl::TextureFont::create( mFont );
-		mFontScale = getWindow()->getContentScale();
-		mDrawOpts = gl::TextureFont::DrawOptions().scale(1.0f / mFontScale).pixelSnap(false);
+        mFontScale = Model::instance().getFontScale();
+//        mDrawOpts = gl::TextureFont::DrawOptions().scale(1.0f / mFontScale).pixelSnap(false);
+        mDrawOpts = Model::instance().getTfDrawOpts();
 		//emSize = tFont->measureString("M") / mFontScale;
 		emSize = measureStr("M");
     }

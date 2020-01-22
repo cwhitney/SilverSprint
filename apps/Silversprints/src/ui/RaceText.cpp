@@ -65,8 +65,9 @@ void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
             }
 			
 			std::string tx = toDec(mLastSpeed, 1) + " KPH";
-			vec2 strSize = Model::instance().texFont->measureString(tx);
-			Model::instance().texFont->drawString(tx, vec2(1580 - strSize.x, 44), Model::instance().getTfDrawOpts() );
+			vec2 strSize = Model::instance().texFont->measureString(tx) / Model::instance().getFontScale();
+//            Model::instance().texFont->drawString(tx, vec2(1580 - strSize.x, 44), Model::instance().getTfDrawOpts() );
+            Model::instance().texFont->drawString(tx, vec2(1430 - strSize.x, 44), Model::instance().getTfDrawOpts() );
         }else{
             if(getElapsedSeconds() - mLastSpeedUpdate > Model::instance().speedUpdateInterval){
                 mLastSpeed = data->getMph();
@@ -74,8 +75,8 @@ void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
             }
 
 			std::string tx = toDec(mLastSpeed, 1) + " MPH";
-			vec2 strSize = Model::instance().texFont->measureString(tx);
-			Model::instance().texFont->drawString(tx, vec2(1580 - strSize.x, 44), Model::instance().getTfDrawOpts() );
+			vec2 strSize = Model::instance().texFont->measureString(tx) / Model::instance().getFontScale();
+			Model::instance().texFont->drawString(tx, vec2(1430 - strSize.x, 44), Model::instance().getTfDrawOpts() );
         }
         
         

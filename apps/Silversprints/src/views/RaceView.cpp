@@ -38,7 +38,7 @@ void RaceView::setup()
     mStartStop.signalStartRace.connect( std::bind(&RaceView::onStartClicked, this ) );
     mStartStop.signalStopRace.connect( std::bind(&RaceView::onStopClicked, this ) );
     
-    mTimerFont = ci::gl::TextureFont::create( ci::Font(loadAsset("fonts/UbuntuMono-B.ttf"), 50.0 / 2.5) );
+    mTimerFont = ci::gl::TextureFont::create( ci::Font(loadAsset("fonts/UbuntuMono-B.ttf"), 50.0) );
     
     reloadShader();
     
@@ -163,20 +163,20 @@ void RaceView::draw()
     if( StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_RUNNING )
     {
         if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
-            mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis, 2), vec2(867,154) );
+            mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis, 2), vec2(867,154), Model::instance().getTfDrawOpts() );
         }else{
             double timeRemaining = max(0.0, Model::instance().getRaceLengthMillis() - Model::instance().elapsedRaceTimeMillis);
-            mTimerFont->drawString( sb::utils::millisToTimestamp(timeRemaining, 2), vec2(867,154) );
+            mTimerFont->drawString( sb::utils::millisToTimestamp(timeRemaining, 2), vec2(867,154), Model::instance().getTfDrawOpts() );
         }
     }else if( StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_COMPLETE )
     {
         if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
-            mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154) );
+            mTimerFont->drawString( sb::utils::millisToTimestamp(Model::instance().elapsedRaceTimeMillis ), vec2(867,154), Model::instance().getTfDrawOpts() );
         }else{
-            mTimerFont->drawString(sb::utils::millisToTimestamp(0, 2), vec2(867,154) );
+            mTimerFont->drawString(sb::utils::millisToTimestamp(0, 2), vec2(867,154), Model::instance().getTfDrawOpts() );
         }
     }else {
-        mTimerFont->drawString( sb::utils::millisToTimestamp(0, 2), vec2(867,154) );
+        mTimerFont->drawString( sb::utils::millisToTimestamp(0, 2), vec2(867,154), Model::instance().getTfDrawOpts() );
     }
     
     // DIAL

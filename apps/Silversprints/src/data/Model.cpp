@@ -19,8 +19,13 @@ Model::Model(){
     playerColors[2] = ci::ColorA(22.0 / 255.0, 146.0 / 255.0, 84.0 / 255.0, 1.0);
     playerColors[3] = ci::ColorA(225.0 / 255.0, 185.0 / 255.0, 9.0 / 255.0, 1.0);
 
-	mFontScale = ci::app::getWindowContentScale();
+#if defined( CINDER_MSW )
+    mFontScale = ci::app::getWindowContentScale();
 	mDrawOpts = gl::TextureFont::DrawOptions().scale(1.0f / mFontScale).pixelSnap(false);
+#else
+    mFontScale = 1.0;
+    mDrawOpts = gl::TextureFont::DrawOptions().scale(1.0f / mFontScale).pixelSnap(true);
+#endif
     
     uiFont = ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 35.0 );
     texFont = gl::TextureFont::create(uiFont, gl::TextureFont::Format().enableMipmapping());
