@@ -17,13 +17,13 @@ Written in [Cinder](https://libcinder.org/), an opensource C++ library for creat
 2. In the downlaoded zip file, there is an `Arduino` folder with software you'll need to load onto the OpenSprints hardware.  Detailed instructions on how to do this can be found here: [http://cwhitney.github.io/SilverSprint/installation.html](http://cwhitney.github.io/SilverSprint/installation.html)
  
 #### App Settings
-1. Go to the Settings page by clicking the gear icon or pressing <kbd>⌘</kbd> + <kbd>3</kbd>
+1. Go to the Settings page by clicking the gear icon or pressing <kbd>Command</kbd> + <kbd>3</kbd>
 2. Set the roller diameter as the distance from the magnet to the center of the roller multiplied by 2.
 3. Choose the number of racers competing from 1-4
 4. If SilverSprint detects an Arduino connected it will show a checkmark, otherwise it will display an X.
 
 #### Roster
-1. Go to the Roster page by clicking the list icon or pressing <kbd>⌘</kbd> + <kbd>2</kbd>
+1. Go to the Roster page by clicking the list icon or pressing <kbd>Command</kbd> + <kbd>2</kbd>
 2. Set all active participants names
 
 #### Race
