@@ -9,7 +9,7 @@ Written in [Cinder](https://libcinder.org/), an opensource C++ library for creat
 ## Using the Application
 
 #### Requirements
-* Requires OXS version 10.7 and up.
+* Requires (±mac)OS X version 10.7 and up.
 * PC requires Windows 7 and up
 
 #### Installation
@@ -17,13 +17,13 @@ Written in [Cinder](https://libcinder.org/), an opensource C++ library for creat
 2. In the downlaoded zip file, there is an `Arduino` folder with software you'll need to load onto the OpenSprints hardware.  Detailed instructions on how to do this can be found here: [http://cwhitney.github.io/SilverSprint/installation.html](http://cwhitney.github.io/SilverSprint/installation.html)
  
 #### App Settings
-1. Go to the Settings page by clicking the gear icon or pressing Command + 3
+1. Go to the Settings page by clicking the gear icon or pressing <kbd>⌘</kbd> + <kbd>3</kbd>
 2. Set the roller diameter as the distance from the magnet to the center of the roller multiplied by 2.
 3. Choose the number of racers competing from 1-4
 4. If SilverSprint detects an Arduino connected it will show a checkmark, otherwise it will display an X.
 
 #### Roster
-1. Go to the Roster page by clicking the list icon or pressing Command + 2
+1. Go to the Roster page by clicking the list icon or pressing <kbd>⌘</kbd> + <kbd>2</kbd>
 2. Set all active participants names
 
 #### Race
@@ -39,7 +39,7 @@ Please attach this file when asking for support along with any other relevant in
 
 ## Code Setup
 1. Clone the repo with all of it's sumodules with: `git clone https://github.com/cwhitney/SilverSprint.git --depth 1 --recursive`
-1. Build Cinder (with Cinder-OpenCV) for your platform [OSX](https://libcinder.org/docs/guides/mac-setup/index.html) - [Windows](https://libcinder.org/docs/guides/windows-setup/index.html).
+1. Build Cinder (with Cinder-OpenCV) for your platform [(±mac)OS X](https://libcinder.org/docs/guides/mac-setup/index.html) - [Windows](https://libcinder.org/docs/guides/windows-setup/index.html).
 If you're having trouble building Cinder, it may be missing some of it's dependencies.  You may need to run `git submodule update --init --recursive` to make sure Cinder has all of it's submodules.
 2. The structure of the repo is like so:
 
