@@ -39,9 +39,9 @@ Please attach this file when asking for support along with any other relevant in
 
 ## Code Setup
 1. Clone the repo with all of it's sumodules with: `git clone https://github.com/cwhitney/SilverSprint.git --depth 1 --recursive`
-1. Build Cinder for your platform [OSX](https://libcinder.org/docs/guides/mac-setup/index.html) - [Windows](https://libcinder.org/docs/guides/windows-setup/index.html).
+1. Build Cinder (with Cinder-OpenCV) for your platform [OSX](https://libcinder.org/docs/guides/mac-setup/index.html) - [Windows](https://libcinder.org/docs/guides/windows-setup/index.html).
 If you're having trouble building Cinder, it may be missing some of it's dependencies.  You may need to run `git submodule update --init --recursive` to make sure Cinder has all of it's submodules.
-2. The structure of the repo is like so:  
+2. The structure of the repo is like so:
 
 ```
 Root	
@@ -50,6 +50,8 @@ Root
     - SilverSprint
   - libs
     - Cinder
+     - blocks
+      - Cinder-OpenCV
 ```
 3. Update Arduino if necessary. (See above)
 4. Open the project file for your platform. It will be in `apps/SilverSprint/xcode/SilverSprint.xcodeproj` for OSX, and `appsSilverSprint/vs2015` for PC.
