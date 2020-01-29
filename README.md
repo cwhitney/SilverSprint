@@ -54,7 +54,7 @@ Root
       - Cinder-OpenCV
 ```
 3. Update Arduino if necessary. (See above)
-4. Open the project file for your platform. It will be in `apps/SilverSprint/xcode/SilverSprint.xcodeproj` for OSX, and `appsSilverSprint/vs2015` for PC.
+4. Open the project file for your platform. It will be in `apps/SilverSprint/xcode/SilverSprint.xcodeproj` for OSX, and `apps/SilverSprint/vs2015` for PC.
 5. Build Silversprints. There are no external dependencies aside from Cinder itself.
 
 ## Credits
