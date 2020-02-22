@@ -33,7 +33,7 @@ namespace gfx{
         ~GFXMain();
         void setup();
         void update();
-        void draw( const ci::Rectf &drawRect );
+        void draw();
         void reloadShaders();
         
         void resetPlayerData();

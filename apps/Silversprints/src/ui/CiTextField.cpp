@@ -18,11 +18,17 @@ CiTextField::~CiTextField(){
     mMouseDragCb.disconnect();
 }
 
-CiTextField::CiTextField( std::string text, ci::Rectf bounds, ci::Font font )
- : Rectf(bounds)
+ci::vec2 CiTextField::measureStr(const std::string &str) {
+	return tFont->measureString(str) / mFontScale;
+}
+
+
+CiTextField::CiTextField( const std::string &text, const ci::Rectf &_bounds, ci::Font font )
+ : Rectf(_bounds.x1, _bounds.y1, _bounds.x2, _bounds.y2)
 {
+	mBounds.set(_bounds.x1, _bounds.y1, _bounds.x2, _bounds.y2);
     setText(text);
-    this->set(bounds.x1, bounds.y1, bounds.x2, bounds.y2);
+
 //    setBounds(bounds);
     
     mColorStroke = Color(1,1,1);
@@ -34,7 +40,11 @@ CiTextField::CiTextField( std::string text, ci::Rectf bounds, ci::Font font )
     
     if( mFont ){
         tFont = gl::TextureFont::create( mFont );
-        emSize = tFont->measureString("M");
+        mFontScale = Model::instance().getFontScale();
+//        mDrawOpts = gl::TextureFont::DrawOptions().scale(1.0f / mFontScale).pixelSnap(false);
+        mDrawOpts = Model::instance().getTfDrawOpts();
+		//emSize = tFont->measureString("M") / mFontScale;
+		emSize = measureStr("M");
     }
     
     ci::app::WindowRef window = cinder::app::getWindow();
@@ -229,7 +239,8 @@ int CiTextField::getCursorIndex( const ci::vec2 &localPos ){
     
     int i=0;
     for( ; i<mText.size()+1; i++){
-        vec2 sm = tFont->measureString( mText.substr(0,i) );
+        //vec2 sm = tFont->measureString( mText.substr(0,i) );
+		vec2 sm = measureStr( mText.substr(0, i) );
         
         if( sm.x > pos.x ){
             if(i>1){
@@ -273,13 +284,13 @@ void CiTextField::draw()
         mColorStroke.a = alpha;
     }
     
-    if( !tFont ){
+    /*if( !tFont ){
         if( !mFont )
             return;
         
         tFont = gl::TextureFont::create( mFont );
         emSize = tFont->measureString("M");
-    }
+    }*/
     
     if( bUseScissorTest ){
         glEnable(GL_SCISSOR_TEST);
@@ -297,7 +308,8 @@ void CiTextField::draw()
     
     // draw our cursor line
     if( bActive ){
-        mCursorPos.x = tFont->measureString( mText.substr(0, mCaratIndex) ).x + this->x1;
+		//mCursorPos.x = tFont->measureString(mText.substr(0, mCaratIndex)).x + this->x1;
+		mCursorPos.x = measureStr( mText.substr(0, mCaratIndex) ).x + this->x1;
         
         gl::color( mColorHighlight );
         gl::pushMatrices();{
@@ -308,8 +320,10 @@ void CiTextField::draw()
         if( bDragging || bHighlighted ) {
             gl::color( mColorHighlight );
             
-            vec2 UL( tFont->measureString( mText.substr(0, mCaratStart) ).x, 0);
-            vec2 LR( tFont->measureString( mText.substr(0, mCaratIndex) ).x, emSize.y);
+            //vec2 UL( tFont->measureString( mText.substr(0, mCaratStart) ).x, 0);
+            //vec2 LR( tFont->measureString( mText.substr(0, mCaratIndex) ).x, emSize.y);
+			vec2 UL(measureStr(mText.substr(0, mCaratStart)).x, 0);
+			vec2 LR(measureStr(mText.substr(0, mCaratIndex)).x, emSize.y);
             Rectf highlighRect(UL, LR);
             highlighRect.offset( getUpperLeft() + vec2(0, emSize.y *0.1) );
             gl::drawSolidRect( highlighRect );
@@ -317,7 +331,7 @@ void CiTextField::draw()
     }
     
     gl::color( mColorText );
-    tFont->drawString(mText, vec2(this->x1, this->y1 + emSize.y) );
+    tFont->drawString(mText, vec2(this->x1, this->y1 + emSize.y), mDrawOpts);
     
     gl::popMatrices();
     

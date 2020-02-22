@@ -12,6 +12,7 @@
 #include "cinder/Font.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Utilities.h"
+#include "cinder/Log.h"
 
 #include "StateManager.h"
 #include "PlayerData.h"
@@ -66,7 +67,7 @@ namespace gfx {
         
         //! Set the currently selected serial ports name. Returns true if different from the current value. Returns false if it's the same.
         bool setSerialPortName(const std::string &portName){
-            ci::app::console() << "Model serial port :: " << portName << std::endl;
+			CI_LOG_I("Model serial port :: ") << portName;
             if(mSelectedPortName != portName){
                 mSelectedPortName = portName;
                 return true;
@@ -98,9 +99,10 @@ namespace gfx {
         std::string                     mFirmwareVersion = "Unknown";
         
         // FONTS
-        ci::Font uiFont;
         ci::gl::TextureFontRef      texFont, winnerTexFont, winnerUiFont;
         ci::gl::TextureFontRef      countdownFont;
+		const ci::gl::TextureFont::DrawOptions& getTfDrawOpts() { return mDrawOpts; }
+		const float&				getFontScale() { return mFontScale; }
         
         ci::vec2   localToGlobal( ci::vec2 pos );
         void setScale( const ci::Rectf &scaledRect );
@@ -109,6 +111,8 @@ namespace gfx {
         const float speedUpdateInterval = 0.5f;
         
     private:
+		ci::Font uiFont;
+
         // PRIVATE CONSTRUCTOR + COPY
         Model();
         ~Model();
@@ -135,5 +139,7 @@ namespace gfx {
         
         ci::vec2 mScreenScale, mScreenOffset;
         std::string     mSelectedPortName = "";
+		float			mFontScale = 1.0;	// the contentScale of the window at the time the textureFonts were created
+		ci::gl::TextureFont::DrawOptions	mDrawOpts;
     };
 }

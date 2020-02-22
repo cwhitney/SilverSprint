@@ -32,6 +32,7 @@ class ToggleBtn {
     ci::vec2                            mPos;
     ci::signals::ScopedConnection       mMouseDownCb;
     ci::gl::TextureFontRef              mFont;
+	float								mFontScale = 1.0f;
     
     std::string     mChoice1, mChoice2;
     ci::Rectf       mRectL, mRectR;

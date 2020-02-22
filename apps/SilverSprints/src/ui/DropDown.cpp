@@ -152,7 +152,8 @@ void DropDown::draw() {
         
         if(mOptions.size() > 0){
             gl::ScopedColor scC(Color::black());
-            mFont->drawString(mOptions[mIndices[0]], Rectf(mBgRect.getUpperLeft() + vec2(25, 25), mBgRect.getLowerRight() ));
+            mFont->drawString(mOptions[mIndices[0]], Rectf(mBgRect.getUpperLeft() + vec2(25, 25), mBgRect.getLowerRight() ), vec2(0),
+				Model::instance().getTfDrawOpts());
         }
     }else{
         gl::drawSolidRect(mBgRect);
@@ -175,7 +176,8 @@ void DropDown::draw() {
                 gl::drawSolidRect(Rectf(x1, y1 + getHeight() * i, x2, y2 + (getHeight()+1) * i));
             }
             
-            mFont->drawString(mOptions[mIndices[i]], (Rectf)*this + vec2(25, 25 + i * getHeight()));
+            mFont->drawString(mOptions[mIndices[i]], (Rectf)*this + vec2(25, 25 + i * getHeight()), vec2(0),
+				Model::instance().getTfDrawOpts());
             
             float yp = y2 + getHeight() * i + 1;
             

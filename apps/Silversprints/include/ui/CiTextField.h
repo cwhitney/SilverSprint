@@ -17,7 +17,7 @@
 
 class CiTextField : public ci::Rectf {
   public:
-    CiTextField( std::string text, ci::Rectf bounds, ci::Font font );
+    CiTextField( const std::string &text, const ci::Rectf &_bounds, ci::Font font );
     ~CiTextField();
     
     void setText( std::string text );
@@ -52,6 +52,7 @@ class CiTextField : public ci::Rectf {
     void onKeyDown( ci::app::KeyEvent event );
     void onKeyUp( ci::app::KeyEvent event );
     
+	ci::vec2 measureStr(const std::string &str);
     int getCursorIndex( const ci::vec2 &pos );
     int eraseString( int start, int end );
     
@@ -69,9 +70,12 @@ class CiTextField : public ci::Rectf {
     std::string     mText;
     ci::Rectf       mBounds;
     ci::vec2        emSize;
+	float			mFontScale = 1.0;
     
     ci::Font                    mFont;
     ci::gl::TextureFontRef      tFont;
+
+	ci::gl::TextureFont::DrawOptions	mDrawOpts;
     
     // mouse events
     ci::signals::Connection       mMouseDownCb,
