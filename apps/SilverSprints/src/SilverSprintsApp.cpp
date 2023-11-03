@@ -49,7 +49,7 @@ void SilverSprintApp::setup()
 #endif
     
     auto sysLogger = log::makeLogger<log::LoggerSystem>();
-    sysLogger->setLoggingLevel(log::LEVEL_VERBOSE);
+   // sysLogger->setLoggingLevel(log::LEVEL_VERBOSE);
     
     CI_LOG_I("Start program");
     

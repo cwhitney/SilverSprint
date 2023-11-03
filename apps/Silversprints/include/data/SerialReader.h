@@ -14,7 +14,6 @@
 #include "cinder/Log.h"
 #include "cinder/Timeline.h"
 #include "cinder/ConcurrentCircularBuffer.h"
-#include <boost/algorithm/string.hpp>
 
 #include "data/StateManager.h"
 #include "data/Model.h"

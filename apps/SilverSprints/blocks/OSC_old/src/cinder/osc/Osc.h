@@ -281,19 +281,12 @@ class Message {
 	//! Returns a const reference of the Sender's (originator) Ip Address. Note: Will only
 	//! be set by the receiver when the message is received.
 	const asio::ip::address& getSenderIpAddress() const { return mSenderIpAddress; }
-	//! Returns the Sender's (originator) Port. Note: Will only
-	//! be set by the receiver when the message is received.
-	uint16_t getSenderPort() const { return mSenderPort; }
 	
   private:
 	//! Helper to calculate how many zeros to buffer to create a 4 byte
 	static uint8_t getTrailingZeros( size_t bufferSize ) { return 4 - ( bufferSize % 4 ); }
 	//! Helper to get current offset into the buffer.
-	int32_t getCurrentOffset() {
-		CI_ASSERT_MSG( mDataBuffer.size() <= std::numeric_limits<int32_t>::max(),
-			"Argument offset must fit in int32_t" );
-		return static_cast<int32_t>( mDataBuffer.size() );
-	}
+	size_t getCurrentOffset() { return mDataBuffer.size(); }
 	//! Helper to retrieve the data view of an Argument. Checks the type provided and
 	//! throws ExcNonConvertible if data view cannot convert the type.
 	template<typename T>
@@ -327,7 +320,7 @@ class Message {
 	
 	//! Helper to to insert data starting at \a begin for \a with resize/fill in the amount
 	//! of \a trailingZeros
-	void appendDataBuffer( const void *begin, size_t size, uint32_t trailingZeros = 0 );
+	void appendDataBuffer( const void *begin, uint32_t size, uint32_t trailingZeros = 0 );
 	
 	//! Returns a complete byte array of this OSC message as a ByteBufferRef type.
 	//! The byte buffer is constructed lazily and is cached until the cache is
@@ -340,7 +333,6 @@ class Message {
 	mutable bool			mIsCached;
 	mutable ByteBufferRef	mCache;
 	asio::ip::address		mSenderIpAddress;
-	uint16_t				mSenderPort;
 	
 	//! Create the OSC message and store it in cache.
 	void createCache() const;
@@ -502,19 +494,19 @@ class SenderUdp : public SenderBase {
 	using protocol = asio::ip::udp;
 	//! Constructs a Sender (called a \a server in the OSC spec) using UDP as transport, whose local endpoint is
 	//! defined by \a localPort and \a protocol, which defaults to v4, and remote endpoint is defined by
-	//! \a destinationHost and \a destinationPort. Takes an optional io_context, used to construct the socket from.
+	//! \a destinationHost and \a destinationPort. Takes an optional io_service, used to construct the socket from.
 	SenderUdp( uint16_t localPort,
 			   const std::string &destinationHost,
 			   uint16_t destinationPort,
 			   const protocol &protocol = protocol::v4(),
-			   asio::io_context &service = ci::app::App::get()->io_context() );
+			   asio::io_service &service = ci::app::App::get()->io_service() );
 	//! Constructs a Sender (called a \a server in the OSC spec) using UDP as transport, whose local endpoint is
 	//! defined by \a localPort and \a protocol, which defaults to v4, and remote endpoint is defined by \a
-	//! destination. Takes an optional io_context, used to construct the socket from.
+	//! destination. Takes an optional io_service, used to construct the socket from.
 	SenderUdp( uint16_t localPort,
 			   const protocol::endpoint &destination,
 			   const protocol &protocol = protocol::v4(),
-			   asio::io_context &service = ci::app::App::get()->io_context() );
+			   asio::io_service &service = ci::app::App::get()->io_service() );
 	//! Constructs a Sender (called a \a server in the OSC spec) using UDP for transport, with an already created
 	//! udp::socket shared_ptr \a socket and remote endpoint \a destination. This constructor is good for using
 	//! already constructed sockets for more indepth configuration. Expects the local endpoint to be constructed.
@@ -565,21 +557,21 @@ class SenderTcp : public SenderBase {
 	//! Constructs a Sender (called a \a server in the OSC spec) using TCP as transport, whose local endpoint is
 	//! defined by \a localPort and \a protocol, which defaults to v4, and remote endpoint is defined by \a
 	//! destinationHost and \a destinationPort and PacketFraming shared_ptr \a packetFraming, which defaults to
-	//! null. Takes an optional io_context to construct the socket from.
+	//! null. Takes an optional io_service to construct the socket from.
 	SenderTcp( uint16_t localPort,
 			   const std::string &destinationHost,
 			   uint16_t destinationPort,
 			   const protocol &protocol = protocol::v4(),
-			   asio::io_context &service = ci::app::App::get()->io_context(),
+			   asio::io_service &service = ci::app::App::get()->io_service(),
 			   PacketFramingRef packetFraming = nullptr );
 	//! Constructs a Sender (called a \a server in the OSC spec) using TCP as transport, whose local endpoint is
 	//! defined by \a localPort and \a protocol, which defaults to v4, and remote endpoint is defined by \a
 	//! destination and PacketFraming shared_ptr \a packetFraming, which defaults to null. Takes an optional
-	//! io_context to construct the socket from.
+	//! io_service to construct the socket from.
 	SenderTcp( uint16_t localPort,
 			   const protocol::endpoint &destination,
 			   const protocol &protocol = protocol::v4(),
-			   asio::io_context &service = ci::app::App::get()->io_context(),
+			   asio::io_service &service = ci::app::App::get()->io_service(),
 			   PacketFramingRef packetFraming = nullptr );
 	//! Constructs a Sender (called a \a server in the OSC spec) using TCP as transport, with an already created
 	//! tcp::socket shared_ptr \a socket, and remote endpoint is defined by \a destination and PacketFraming
@@ -651,11 +643,7 @@ public:
 	void		setListener( const std::string &address, ListenerFn listener );
 	//! Removes the listener associated with \a address.
 	void		removeListener( const std::string &address );
-	//! Removes all listeners
-	void		removeAllListeners();
-	//! Returns all listeners by value
-	Listeners getListeners() const;
-
+	
   protected:
 	ReceiverBase() = default;
 	//! Non-copyable.
@@ -669,7 +657,7 @@ public:
 	
 	//! Decodes and routes messages from the networking layer stream. Dispatches all messages with
 	//! an address that has an associated listener.
-	void dispatchMethods( uint8_t *data, uint32_t size, const asio::ip::address &senderIpAddress, uint16_t senderPort );
+	void dispatchMethods( uint8_t *data, uint32_t size, const asio::ip::address &senderIpAddress );
 	//! Decodes a complete OSC Packet into it's individual parts. \a timetag is ignored within the
 	//! below implementations.
 	bool decodeData( uint8_t *data, uint32_t size, std::vector<Message> &messages, uint64_t timetag = 0 ) const;
@@ -684,7 +672,7 @@ public:
 	virtual void closeImpl() = 0;
 	
 	Listeners				mListeners;
-	mutable std::mutex		mListenerMutex;
+	std::mutex				mListenerMutex;
 	std::set<std::string>	mDisregardedAddresses;
 };
 	
@@ -698,15 +686,15 @@ class ReceiverUdp : public ReceiverBase {
 	//! orginating endpoint if present. To see more about asio's error_codes, look at "asio/error.hpp".
 	using OnSocketErrorFn = std::function<bool( asio::error_code /*error*/, protocol::endpoint /*originator*/)>;
 	//! Constructs a Receiver (called a \a client in the OSC spec) using UDP for transport, whose local endpoint
-	//! is defined by \a localPort and \a protocol, which defaults to v4. Takes an optional io_context to
+	//! is defined by \a localPort and \a protocol, which defaults to v4. Takes an optional io_service to
 	//! construct the socket from.
 	ReceiverUdp( uint16_t port,
 				 const protocol &protocol = protocol::v4(),
-				 asio::io_context &io = ci::app::App::get()->io_context()  );
+				 asio::io_service &io = ci::app::App::get()->io_service()  );
 	//! Constructs a Receiver (called a \a client in the OSC spec) using UDP for transport, whose local endpoint
-	//! is defined by \a localEndpoint. Takes an optional io_context to construct the socket from.
+	//! is defined by \a localEndpoint. Takes an optional io_service to construct the socket from.
 	ReceiverUdp( const protocol::endpoint &localEndpoint,
-				 asio::io_context &io = ci::app::App::get()->io_context() );
+				 asio::io_service &io = ci::app::App::get()->io_service() );
 	//! Constructs a Receiver (called a \a client in the OSC spec) using UDP for transport, from the already
 	//! constructed udp::socket shared_ptr \a socket. Use this for extra configuration and or sharing sockets
 	//! between sender and receiver.
@@ -770,17 +758,17 @@ class ReceiverTcp : public ReceiverBase {
 											    protocol::endpoint /*remote endpoint*/ )>;
 	//! Constructs a Receiver (called a \a client in the OSC spec) using TCP for transport, whose
 	//! local endpoint is defined by \a localPort and \a protocol, which defaults to v4, and
-	//! PacketFraming shared_ptr \a packetFraming, which defaults to null. Takes an optional io_context
+	//! PacketFraming shared_ptr \a packetFraming, which defaults to null. Takes an optional io_service
 	//! to construct the socket from.
 	ReceiverTcp( uint16_t port,
 				 const protocol &protocol = protocol::v4(),
-				 asio::io_context &service = ci::app::App::get()->io_context(),
+				 asio::io_service &service = ci::app::App::get()->io_service(),
 				 PacketFramingRef packetFraming = nullptr );
 	//! Constructs a Receiver (called a \a client in the OSC spec) using TCP for transport, whose local endpoint
 	//! is defined by \a localEndpoint and PacketFraming shared_ptr \a packetFraming, which defaults to null. Takes
-	//! an optional io_context to construct the socket from.
+	//! an optional io_service to construct the socket from.
 	ReceiverTcp( const protocol::endpoint &localEndpoint,
-				 asio::io_context &service = ci::app::App::get()->io_context(),
+				 asio::io_service &service = ci::app::App::get()->io_service(),
 				 PacketFramingRef packetFraming = nullptr );
 	//! Constructs a Receiver (called a \a client in the OSC spec) using TCP for transport, from the already
 	//! constructed tcp::acceptor shared_ptr \a acceptor and PacketFraming shared_ptr \a packetFraming, which
