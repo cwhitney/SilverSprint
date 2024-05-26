@@ -43,15 +43,14 @@ Please attach this file when asking for support along with any other relevant in
 If you're having trouble building Cinder, it may be missing some of its dependencies.  You may need to run `git submodule update --init --recursive` to make sure Cinder has all of its submodules.
 1. Install boost?
 1. The structure of the repo is like so:  
-
-```
-Root	
-  - apps  
-    - Arduino
-    - SilverSprints
-  - libs
-    - Cinder
-```
+    ```
+    Root	
+      - apps  
+        - Arduino
+        - SilverSprints
+      - libs
+        - Cinder
+    ```
 1. Update Arduino if necessary. (See above.)
 1. Open the project file for your platform. It will be in `apps/SilverSprints/xcode/SilverSprint.xcodeproj` for OS X, and `apps/SilverSprints/vs2015` for PC.
 1. Build SilverSprints. There are no external dependencies aside from Cinder itself.
