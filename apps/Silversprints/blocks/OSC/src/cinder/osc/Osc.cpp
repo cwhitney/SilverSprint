@@ -1525,7 +1525,7 @@ void ReceiverTcp::accept( OnAcceptErrorFn onAcceptErrorFn, OnAcceptFn onAcceptFn
 	if( ! mAcceptor || ! mAcceptor->is_open() )
 		return;
 	
-	auto socket = std::make_shared<tcp::socket>( mAcceptor->get_io_service() );
+	auto socket = std::make_shared<tcp::socket>( mAcceptor->get_executor() );
 	
 	mAcceptor->async_accept( *socket, std::bind(
 	[&, onAcceptErrorFn, onAcceptFn]( TcpSocketRef socket, const asio::error_code &error ) {
