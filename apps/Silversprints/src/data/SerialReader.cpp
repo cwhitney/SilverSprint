@@ -241,8 +241,13 @@ void SerialReader::readSerial()
 void SerialReader::parseCommandToBuffer( std::string command )
 {
     std::vector<std::string> strs;
-    boost::split(strs, command, boost::is_any_of(":"));
-    
+    std::stringstream ss (command);
+    std::string item;
+
+    while (getline (ss, item, ':')) {
+        strs.push_back (item);
+    }
+
     std::vector<std::string> tmpBuffer;
     tmpBuffer.push_back( strs[0] );
     
@@ -310,7 +315,12 @@ void SerialReader::parseFromBuffer()
 		// RACE PROGRESS (args are race ticks, then race time millis)
 		else if (cmd == "R") {
 			std::vector<std::string> rdata;
-			boost::split(rdata, args, boost::is_any_of(","));
+            std::stringstream ss (args);
+            std::string item;
+
+            while (getline (ss, item, ',')) {
+                rdata.push_back (item);
+            }
 
 			int raceMillis = fromString<int>(rdata.back());
 			//float dt = raceMillis - Model::instance().elapsedRaceTimeMillis;

@@ -41,7 +41,6 @@ Please attach this file when asking for support along with any other relevant in
 1. Clone the repo with all of its submodules with: `git clone https://github.com/cwhitney/SilverSprint.git --depth 1 --recursive`
 1. Build Cinder for your platform [OS X](https://libcinder.org/docs/guides/mac-setup/index.html) - [Windows](https://libcinder.org/docs/guides/windows-setup/index.html).
 If you're having trouble building Cinder, it may be missing some of its dependencies.  You may need to run `git submodule update --init --recursive` to make sure Cinder has all of its submodules.
-1. Install boost?
 1. The structure of the repo is like so:  
     ```
     Root	
