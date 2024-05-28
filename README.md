@@ -39,21 +39,20 @@ Please attach this file when asking for support along with any other relevant in
 
 ## Code Setup
 1. Clone the repo with all of its submodules with: `git clone https://github.com/cwhitney/SilverSprint.git --depth 1 --recursive`
-2. Build Cinder for your platform [OS X](https://libcinder.org/docs/guides/mac-setup/index.html) - [Windows](https://libcinder.org/docs/guides/windows-setup/index.html).
+1. Build Cinder for your platform [OS X](https://libcinder.org/docs/guides/mac-setup/index.html) - [Windows](https://libcinder.org/docs/guides/windows-setup/index.html).
 If you're having trouble building Cinder, it may be missing some of its dependencies.  You may need to run `git submodule update --init --recursive` to make sure Cinder has all of its submodules.
-3. The structure of the repo is like so:  
-
-```
-Root	
-  - apps  
-    - Arduino
-    - SilverSprints
-  - libs
-    - Cinder
-```
-4. Update Arduino if necessary. (See above.)
-5. Open the project file for your platform. It will be in `apps/SilverSprints/xcode/SilverSprint.xcodeproj` for OS X, and `apps/SilverSprints/vs2015` for PC.
-6. Build SilverSprints. There are no external dependencies aside from Cinder itself.
+1. The structure of the repo is like so:  
+    ```
+    Root	
+      - apps  
+        - Arduino
+        - SilverSprints
+      - libs
+        - Cinder
+    ```
+1. Update Arduino if necessary. (See above.)
+1. Open the project file for your platform. It will be in `apps/SilverSprints/xcode/SilverSprint.xcodeproj` for OS X, and `apps/SilverSprints/vs2015` for PC.
+1. Build SilverSprints. There are no external dependencies aside from Cinder itself.
 
 ## Credits
 
