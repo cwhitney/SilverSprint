@@ -227,7 +227,8 @@ void CiTextField::blur(){
     
     bActive = false;
     
-    boost::trim(mText);
+    // boost::trim(mText);
+    ci::trim(mText);
     
     if( mText !="" ){
         enable();

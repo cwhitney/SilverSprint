@@ -202,7 +202,7 @@ void RaceView::draw()
                 radialPos = pd->getDistanceMeters() / 100.0f;   // 100 meters will be one lap around the track
             }
             float tailLen = lmap(pd->getMph(), 0.0, 30.0, 0.0, 0.30);   // 30mph means a 30% tail
-            tailLen = clamp(tailLen, 0.0f, 0.50f);  // no more than 50 though
+            tailLen = ci::clamp(tailLen, 0.0f, 0.50f);  // no more than 50 though
             
             tmpCol = Model::instance().playerColors[i];
             mProgressShader->uniform( "uBaseColor", tmpCol );

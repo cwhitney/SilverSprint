@@ -2,6 +2,7 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Log.h"
+#include "cinder/Filesystem.h"
 
 #if defined( CINDER_MAC )
 #include "cinder/app/cocoa/PlatformCocoa.h"
@@ -49,7 +50,8 @@ void SilverSprintApp::setup()
 #endif
     
     auto sysLogger = log::makeLogger<log::LoggerSystem>();
-    sysLogger->setLoggingLevel(log::LEVEL_VERBOSE);
+    sysLogger->setLevel(log::LEVEL_VERBOSE);
+    // sysLogger->setLoggingLevel(log::LEVEL_VERBOSE);
     
     CI_LOG_I("Start program");
     
@@ -64,7 +66,7 @@ void SilverSprintApp::setup()
 void SilverSprintApp::loadSettings()
 {
     CI_LOG_I("Load settings");
-    fs::path targetPath = ci::app::getAppPath().parent_path() / fs::path("settings.cfg");
+    ci::fs::path targetPath = ci::app::getAppPath().parent_path() / ci::fs::path("settings.cfg");
 #if defined(CINDER_MAC)
     targetPath = ci::app::Platform::get()->expandPath("~/Library") / fs::path("SilverSprints/settings.cfg");
 #elif defined(CINDER_MSW)

@@ -7,8 +7,10 @@
 //
 
 #include "ui/RaceText.h"
-#include <boost/algorithm/string.hpp>
+// #include <boost/algorithm/string.hpp>
 #include <sstream>
+
+#include "impl/win.h"
 
 using namespace gfx;
 using namespace ci;
@@ -54,7 +56,11 @@ void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
         gl::color( Color::white() );
         
         // NAME
-        boost::to_upper(data->player_name);
+        // boost::to_upper(data->player_name);
+        // ci::toUpper(data->player_name);
+        auto pn = data->player_name;
+        std::transform(pn.begin(), pn.end(), pn.begin(), ::toupper);
+        
         Model::instance().texFont->drawString(data->player_name, vec2(20, 44), Model::instance().getTfDrawOpts());
         
         // SPEED

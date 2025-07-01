@@ -13,7 +13,7 @@
 #include "cinder/gl/TextureFont.h"
 #include "data/Model.h"
 
-#include <boost/algorithm/string.hpp>
+// #include <boost/algorithm/string.hpp>
 
 class CiTextField : public ci::Rectf {
   public:
