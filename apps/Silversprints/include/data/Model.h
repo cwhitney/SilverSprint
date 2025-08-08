@@ -53,7 +53,12 @@ namespace gfx {
         
         void setHardwareConnected(const bool &connected){ RaceSettings.bHardwareConnected = connected; }
         const bool& isHardwareConnected(){ return RaceSettings.bHardwareConnected; }
-        PlayerData* getPlayerData(const int &num){ return playerData[num]; };
+        PlayerDataRef getPlayerData(const int &num) {
+            if (num > 0 && num < playerData.size()) {
+                return playerData[num];
+            }
+            return nullptr;
+        }
         
         const double& getRaceLengthMillis(){ return RaceSettings.mRaceLengthMillis;}
         
@@ -85,7 +90,7 @@ namespace gfx {
         
         SerialConnectionState           mSerialConnectionState = SerialConnectionState::DISCONNECTED;
         
-        std::vector<gfx::PlayerData*>   playerData;
+        std::vector<gfx::PlayerDataRef> playerData;
         ci::Color                       playerColors[4];
         
         int                             startTimeMillis;

@@ -38,12 +38,12 @@ namespace sharkbox {
         ci::vec3            emitDir = ci::vec3(0,1,0);
         int                 emitRatePerSec = 10;
         float               emitVel = 1;
-        float               emitVelRand = 0.2;
+        float               emitVelRand = 0.2f;
         
         // particles
         int                 maxParticles = 500;
         float               particleLifespan = 3.0; //secs
-        float               mLifespanRandom = 0.2;
+        float               mLifespanRandom = 0.2f;
         ci::vec3            mParticleSize = ci::vec3(1);
         float               mSizeRandom = 0.0;
         ci::gl::TextureRef  particleTex = nullptr;

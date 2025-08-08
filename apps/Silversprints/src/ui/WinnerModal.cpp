@@ -54,24 +54,24 @@ void WinnerModal::getWinners()
     mWinnersSorted.clear();
     
     for( int i=0; i<Model::instance().getNumRacers(); i++){
-        mWinnersSorted.push_back( Model::instance().getPlayerData(i) );
+        PlayerDataRef pd = Model::instance().getPlayerData(i);
+        if (pd != nullptr){
+            mWinnersSorted.push_back( pd );
+        }
     }
     
+    // DISTANCE
     if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
-        std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerData* a, PlayerData *b) {
+        std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerDataRef a, PlayerDataRef b) {
             return a->finishTimeMillis < b->finishTimeMillis;
         });
     }
     // RACE_TYPE_TIME
     else{
-        std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerData* a, PlayerData *b) {
+        std::sort( mWinnersSorted.begin(), mWinnersSorted.end(), []( PlayerDataRef a, PlayerDataRef b) {
             return a->getCurrentRaceTicks() > b->getCurrentRaceTicks();
         });
     }
-    
-//    for( int i=0; i<mWinnersSorted.size(); i++){
-//        console() << " finish :: " << mWinnersSorted[i]->player_name << " - " <<mWinnersSorted[i]->finishTimeMillis << endl;
-//    }
 }
 
 void WinnerModal::update()
@@ -86,7 +86,7 @@ void WinnerModal::update()
 void WinnerModal::draw()
 {
     if( bVisible ){
-        gl::ScopedColor scBg(0,0,0,mAlpha * 0.5);
+        gl::ScopedColor scBg(0,0,0, mAlpha * 0.5f);
         gl::drawSolidRect( Rectf(0,0,1920,1080) );
         
         {// Particles

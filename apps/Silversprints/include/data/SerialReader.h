@@ -9,16 +9,10 @@
 #pragma once
 
 #include "cinder/app/App.h"
-//#include "cinder/Serial.h"
 #include "cinder/Utilities.h"
 #include "cinder/Log.h"
-#include "cinder/Timeline.h"
 #include "cinder/ConcurrentCircularBuffer.h"
-// #include <boost/algorithm/string.hpp>
-
-#include "data/StateManager.h"
 #include "data/Model.h"
-
 #include "Cinder-Serial.h"
 
 namespace gfx
@@ -45,7 +39,12 @@ namespace gfx
         
       private:
         void updateSerialThread();
-        void keepAlive();
+		bool reconnectSerialDevice();
+    	
+    	void sendBufferToDevice();
+    	void readBufferFromDevice();
+
+    	void sendKeepAlive();
         void updatePortList();
         
         void onConnect();
@@ -53,9 +52,11 @@ namespace gfx
         
         void parseCommandToBuffer(std::string command);
         void parseFromBuffer();
+
+    	void printDevices(const std::vector<Cinder::Serial::SerialPortRef> &ports);
         
         bool                isRaceFinished();        
-        void                readSerial();
+        
         void                sendSerialMessage( std::string msg );
         
         int                 BAUD_RATE = 115200;
@@ -76,7 +77,9 @@ namespace gfx
         double              mLastKeepAlive = 0.0;
         
         // threading
-        std::shared_ptr<std::thread>    mSerialThread;
+    	std::unique_ptr<std::thread>    mSerialThreadPtr;
+    	
+        // std::shared_ptr<std::thread>    mSerialThread;
         std::mutex                      mSerialMutex;
         ci::ConcurrentCircularBuffer<std::vector<std::string>>	mReceiveBuffer;
         ci::ConcurrentCircularBuffer<std::string>               mSendBuffer;

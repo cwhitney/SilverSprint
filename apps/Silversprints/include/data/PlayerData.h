@@ -15,21 +15,27 @@
 #include "cinder/CinderMath.h"
 #include "cinder/Log.h"
 
+#include "tools/CircBuffer.h"
+#include "tools/CheapCircBuffer.h"
+
 namespace gfx {
+    typedef std::shared_ptr<class PlayerData> PlayerDataRef;
+    
     class PlayerData {
     public:
         PlayerData() :
-        bFinishedRace(false),
-        curRaceTicks(0),
-        lastRaceTicks(0),
-        finishTimeMillis(0),
-        pctComplete(0.0),
-        mph(0),
-        maxMph(0),
-        totalRaceTicks(500)
+            bFinishedRace(false),
+            curRaceTicks(0),
+            lastRaceTicks(0),
+            finishTimeMillis(0),
+            pctComplete(0.0),
+            mph(0),
+            maxMph(0),
+            totalRaceTicks(500),
+            mSpeedBuffer( std::make_shared<CircBuffer>(60) ),
+            mMphBuffer(  )
         {
-            mSpeedBuffer = std::make_shared<CircBuffer>(60);
-            mMphBuffer.reset(0.0);
+            // mMphBuffer.reset(0.0);
         }
         
         void reset(){
@@ -91,7 +97,7 @@ namespace gfx {
             curRaceTicks = finalRaceTicks;
             
             float dist = getDistance();
-            float avgSpeed =  dist / finishTimeMillis * 3600;
+            float avgSpeed =  dist / finishTimeMillis * 3600.0f;
             
             // 8.7412587413 m/s = 31.46km/hr
             
@@ -153,98 +159,6 @@ namespace gfx {
         ci::Color   playerColor;
         
     private:
-        struct CircBuffer {
-        public:
-            CircBuffer(const int &size){
-                mDataVec.resize(size);
-                for( auto d : mDataVec){
-                    d = {0, 0};
-                }
-            }
-            
-            void reset()
-            {
-                for( int i=0; i<mDataVec.size(); i++){
-                    mDataVec[i] = {0.0, 0.0};
-                }
-                
-                bFirstRun = true;
-            }
-            
-            //! Args are a pair, where first = the current time in milliseconds, second = the number of ticks since that last update
-            void add( const std::pair<int, int> &timeAndTicks ){
-                if(bFirstRun){
-                    for( auto d : mDataVec){
-                        d = {timeAndTicks.first, 0};
-                    }
-                    bFirstRun = false;
-                }
-                
-                mDataVec[dex] = timeAndTicks;
-                if(++dex >= mDataVec.size())
-                    dex = 0;
-            }
-            
-            //! Returns the average number of ticks per second in the recorded time period.
-            double getAverageTicksSec()
-            {
-                int ld = (dex - 1 < 0) ? int(mDataVec.size()) - 1 : dex - 1;
-                int early = (ld + 1) >= mDataVec.size() ? 0 : ld + 1;
-                int earliestTimeMs = mDataVec[early].first;
-                int latestTimeMs = mDataVec[ld].first;
-                double dtSecs = (latestTimeMs - earliestTimeMs) / 1000.0;
-                
-                float totalTicks = 0.0;
-                for( auto d : mDataVec){
-                    if(d.second > 0.0){
-                        totalTicks += d.second;
-                    }
-                }
-                return totalTicks / dtSecs;
-            }
-            
-        protected:
-            int dex = 0;
-            bool bFirstRun = true;
-            std::vector< std::pair<int, int> > mDataVec;
-        };
-        
-        // ----------------------------------------------------------------------
-        template<typename T>
-        struct CheapCircBuffer {
-            CheapCircBuffer(const int &size = 60){
-                mSize = size;
-                mData.resize(mSize);
-            }
-            
-            void reset(const T &defaultVal){
-                for( auto d : mData){
-                    d = defaultVal;
-                }
-            }
-            
-            void push(const T &val ){
-                mData[dex] = val;
-                if(++dex >= mSize) dex = 0;
-            }
-            
-            
-            const T& getAverage(){
-                T t = 0;
-                for( auto d : mData){
-                    t += d;
-                }
-                mCurAverage = t / (double)mSize;
-                return mCurAverage;
-            }
-        private:
-            int dex = 0;
-            int mSize = 30;
-            T   mCurAverage;
-            
-            std::vector<T> mData;
-        };
-        
         // These represent two different strats for determining average speed
         std::shared_ptr<CircBuffer>     mSpeedBuffer;
         CheapCircBuffer<double>         mMphBuffer;

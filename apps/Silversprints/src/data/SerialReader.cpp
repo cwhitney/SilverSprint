@@ -7,6 +7,9 @@
 //
 
 #include "data/SerialReader.h"
+#include "data/StateManager.h"
+#include "cinder/Timeline.h"
+
 
 using namespace ci;
 using namespace ci::app;
@@ -15,13 +18,13 @@ using namespace gfx;
 using namespace Cinder::Serial;
 
 SerialReader::SerialReader() :
-BAUD_RATE(115200),
-mStringBuffer(""),
-mProtoculVersion(""),
-mFirmwareVersion(""),
-mSerial(NULL),
-mReceiveBuffer(100),
-mSendBuffer(100)
+	BAUD_RATE(115200),
+	mStringBuffer(""),
+	mProtoculVersion(""),
+	mFirmwareVersion(""),
+	mSerial(NULL),
+	mReceiveBuffer(100),
+	mSendBuffer(100)
 {
     
 }
@@ -30,27 +33,33 @@ SerialReader::~SerialReader()
 {
     stopRace();
     bThreadShouldQuit = true;
-    mSerialThread->join();
+	
+	if (mSerialThreadPtr->joinable()) {
+		mSerialThreadPtr->join();
+		mSerialThreadPtr = nullptr;
+	}
 }
 
 void SerialReader::setup()
 {
-    mSerialThread = std::shared_ptr<std::thread>( new std::thread( std::bind(&SerialReader::updateSerialThread, this) ) );
+	mSerialThreadPtr = std::make_unique<std::thread>( &SerialReader::updateSerialThread, this );
 }
 
 void SerialReader::update()
 {
     // if we connected since the last update, notify
-    if( bSerialConnected && !bLastConnection){
+    if( bSerialConnected && !bLastConnection ){
         mSerial->flush();
         onConnect();
-        timeline().add( [&](){ getVersion(); }, timeline().getCurrentTime() + 2.0 );
+
+    	// Wait 2 seconds, and then get the version
+        timeline().add( [&](){ getVersion(); }, timeline().getCurrentTime() + 2.0f );
     }else if( !bSerialConnected && bLastConnection ){
         onDisconnect();
     }
     bLastConnection = bSerialConnected;
     
-    // parse buffered data
+    // Parse any data that's been read in on the other thread
     parseFromBuffer();
 }
 
@@ -74,84 +83,36 @@ void SerialReader::updateSerialThread()
     ThreadSetup threadSetup;
     
     while( !bThreadShouldQuit ){
-        std::lock_guard<std::mutex> guard(mSerialMutex);
+    	std::scoped_lock<std::mutex> guard(mSerialMutex);
         
         if(!bSerialConnected){ // we aren't connected try to connect
-            auto ports = SerialPort::getPorts(true);
-            //*
-             for (auto port : ports) {
-             console() << "SERIAL DEVICE" << endl;
-             console() << "\tNAME: " << port->getName() << endl;
-             console() << "\tDESCRIPTION: " << port->getDescription() << endl;
-             console() << "\tHARDWARE IDENTIFIER: " << port->getHardwareIdentifier() << endl;
-             }
-             //*/
-            updatePortList();
-            
-            // Try to find an arduino
-            try {
-                if (!ports.empty()) {
-                    // This will be default try to find an Arduino, or another device if you've selected one in the dropdown
-                    auto port = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
-                    if(port == nullptr){
-                        port = ports.back();
-                    }
-                    
-                    mSerial = SerialDevice::create(port, BAUD_RATE);
-                    mSerial->flush();
-                    bSerialConnected = true;
-                    
-                    for (int i = 0; i < mSendBuffer.getSize(); i++) {        // clear send buffer
-                        std::string tmp;
-                        mSendBuffer.popBack(&tmp);
-                    }
-					console() << "found port, now send stop" << endl;
-                    stopRace();
-                    getVersion();
-                    
-                    for (int i = 0; i < mReceiveBuffer.getSize(); i++) {    // clear receive buffer
-                        std::vector<std::string> tmp;
-                        mReceiveBuffer.popBack(&tmp);
-                    }
-                    bForceSerialDescUpdate = true;
-                    CI_LOG_I("OpenSprints hardware found successfully. :: ") << mSerial->getPortName();
-                    Model::instance().setSerialPortName( mSerial->getPortName() );
-                }
-            }catch (serial::IOException& e) {
-                if (mSerial && mSerial->isOpen()) {
-                    mSerial->close();
-                }
-                bSerialConnected = false;
-            }
+			if( reconnectSerialDevice() ){
+				mSendBuffer.clear();
+				
+				stopRace();
+				getVersion();
+
+				// is there a reason this is cleared after?
+				mReceiveBuffer.clear();
+				
+				bForceSerialDescUpdate = true;
+				CI_LOG_I("OpenSprints hardware found successfully. :: ") << mSerial->getPortName();
+				Model::instance().setSerialPortName( mSerial->getPortName() );
+			}
             
             // If we didn't find an arduino, sleep for 500ms before retrying
             if(!bSerialConnected){
                 std::this_thread::sleep_for(std::chrono::milliseconds(500));
             }
-            
-        }else{
+        }else {
             if( getElapsedSeconds() - mLastKeepAlive > 1.0){
-                keepAlive();
+                sendKeepAlive();
+            	mLastKeepAlive = getElapsedSeconds();
             }
            
 			if (mSerial->isOpen()) {
-
-				// Send queued commands to arduino
-				if (mSendBuffer.getSize() > 0) {
-					CI_LOG_I("Sending buffer over to arduino") << mSendBuffer.getSize();
-				}
-
-				for (int i = 0; i < mSendBuffer.getSize(); i++) {
-					std::string msgToSend;
-					mSendBuffer.popBack(&msgToSend);
-
-					CI_LOG_I("Sending :: ") << msgToSend << " :: " << mSerial->isOpen();
-
-					mSerial->writeString(msgToSend);
-				}
-
-				// receive from arduino
-				readSerial();
+				sendBufferToDevice();
+				readBufferFromDevice();
 			}
 			else {
 				CI_LOG_I("Serial is not open");
@@ -160,15 +121,83 @@ void SerialReader::updateSerialThread()
     }
 }
 
-void SerialReader::keepAlive()
+bool SerialReader::reconnectSerialDevice()
 {
-    if(!bSerialConnected)
-        return;
+	auto ports = SerialPort::getPorts(true);
+	if (ports.empty()) {
+		CI_LOG_I("No serial ports found");
+		return false;
+	}
+	printDevices(ports);
+	updatePortList();
+
+	// This will be default try to find an Arduino, or another device if you've selected one in the dropdown
+	auto port = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
+
+	// If we didn't strictly find and arduino, just display the last detected port
+	if(port == nullptr){
+		port = ports.back();
+	}
+
+	if (mSerial && mSerial->isOpen()) {
+		mSerial->close();
+		mSerial = nullptr;
+		return false;
+	}
+
+	try	{
+		mSerial = SerialDevice::create(port, BAUD_RATE);
+		bSerialConnected = true;
+	}catch (Exception &e)	{
+		bSerialConnected = false;
+		CI_LOG_EXCEPTION("Error opening serial port", e);
+		return false;
+	}catch (serial::IOException &e)	{
+		bSerialConnected = false;
+		CI_LOG_EXCEPTION("Error opening serial port. IO exc", e);
+		return false;
+	}
+
+	return true;
+}
+
+void SerialReader::printDevices( const vector<SerialPortRef> &ports)
+{
+	for (auto port : ports) {
+		console() << "SERIAL DEVICE" << endl;
+		console() << "\tNAME: " << port->getName() << endl;
+		console() << "\tDESCRIPTION: " << port->getDescription() << endl;
+		console() << "\tHARDWARE IDENTIFIER: " << port->getHardwareIdentifier() << endl;
+	}
+}
+
+
+void SerialReader::sendBufferToDevice()
+{
+	// Send queued commands to arduino
+	if (mSendBuffer.getSize() > 0) {
+		CI_LOG_I("Sending buffer over to arduino") << mSendBuffer.getSize();
+	}
+
+	for (size_t i = 0; i < mSendBuffer.getSize(); i++) {
+		std::string msgToSend;
+		mSendBuffer.popBack(&msgToSend);	// pop front?
+		if (!msgToSend.empty()){
+			CI_LOG_I("Sending :: ") << msgToSend << " :: " << mSerial->isOpen();
+			mSerial->writeString(msgToSend);
+		}
+	}
+}
+
+void SerialReader::sendKeepAlive()
+{
+    // if(!bSerialConnected)
+    //     return;
     
-    mLastKeepAlive = getElapsedSeconds();
+    // TODO: put a ping here or something to keep the connection alive
     
-    // Check for our original port we connected to
-    // If disconnected, try to find an arduino
+    // // Check for our original port we connected to
+    // // If disconnected, try to find an arduino
     auto pOpen = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
     if(pOpen == nullptr){
         pOpen = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
@@ -205,24 +234,25 @@ void SerialReader::updatePortList()
     }
 }
 
-void SerialReader::readSerial()
+void SerialReader::readBufferFromDevice()
 {
     try {
         size_t bytesAvailable = mSerial->getNumBytesAvailable();
         size_t charsAvailable = floor(bytesAvailable / sizeof(char));
         
-        for(int i=0; i<charsAvailable; i++){
+        for(size_t i=0; i<charsAvailable; i++){
             unsigned char c;    // uint8_t
             mSerial->readBytes(&c, 1);
             mStringBuffer += c;
         }
     }catch(serial::IOException& e){
+    	CI_LOG_D("We've Disconnected! " << e.what());
         bSerialConnected = false;
         if (mSerial && mSerial->isOpen()) {
             try{
                 mSerial->close();
-            }catch(serial::IOException exc){
-                CI_LOG_EXCEPTION("Error closing serial port", exc);
+            }catch(serial::IOException &exc){
+                CI_LOG_EXCEPTION("Error closing serial port", exc)
             }
             Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
             //mSerial = nullptr;
@@ -315,7 +345,7 @@ void SerialReader::parseFromBuffer()
 			int raceMillis = fromString<int>(rdata.back());
 			//float dt = raceMillis - Model::instance().elapsedRaceTimeMillis;
 
-			for (int i = 0; i < rdata.size() - 1; i++) {
+			for (size_t i = 0; i < rdata.size() - 1; i++) {
 				//                if(i == 0){
 				//                    console() <<fromString<int>(rdata[i]) << endl;
 				//                }

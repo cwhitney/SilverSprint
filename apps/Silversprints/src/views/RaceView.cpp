@@ -153,7 +153,7 @@ void RaceView::draw()
     
     // PLAYER INFO
     for( int i=0; i<Model::instance().getNumRacers(); i++){
-        PlayerData *pd = Model::instance().playerData[i];
+        PlayerDataRef pd = Model::instance().playerData[i];
         mRaceTexts[i]->draw( pd, vec2(0, 390 + 102*i) );
     }
     
@@ -192,7 +192,7 @@ void RaceView::draw()
     
     ci::ColorA tmpCol;
     for( int i=0; i<Model::instance().getNumRacers(); i++){
-        PlayerData *pd = Model::instance().playerData[i];
+        PlayerDataRef pd = Model::instance().playerData[i];
         
         if(mProgressShader){
             gl::ScopedGlslProg scProg( mProgressShader );

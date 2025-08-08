@@ -18,13 +18,13 @@ using WinnerModalRef = std::shared_ptr<class WinnerModal>;
 
 class WinnerModal 
 {    
-  public:
+public:
     static WinnerModalRef create(){ return WinnerModalRef( new WinnerModal() ); }
     
     void update();
     void draw();
-    
-  private:
+
+private:
     WinnerModal();
     void getWinners();
     std::string toString(float num, int precision);
@@ -36,9 +36,9 @@ class WinnerModal
     ci::Anim<float>     mAlpha = 0.0;
     
 	ci::signals::Connection			mConn;
-    std::vector<gfx::PlayerData*>   mWinnersSorted;
+    std::vector<gfx::PlayerDataRef>   mWinnersSorted;
     
     sharkbox::ParticleSystemRef     mParticles;
     ci::CameraOrtho                 mCamOrtho;
-    double lt = 0;;
+    double lt = 0;
 };

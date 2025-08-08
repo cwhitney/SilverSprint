@@ -27,7 +27,7 @@ std::string RaceText::toDec( const float &num, const int &decPlaces ) {
     return buffer.str();
 }
 
-void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
+void RaceText::draw( gfx::PlayerDataRef data, const ci::vec2 &offset )
 {
     gl::pushMatrices();{
         gl::translate( offset );
