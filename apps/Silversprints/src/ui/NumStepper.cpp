@@ -21,7 +21,6 @@ NumStepper::NumStepper() :
                        
 void NumStepper::setup( ci::vec2 pos, int gap, string symbol ){
     BaseButton::set( pos.x, pos.y, pos.x + 50 - gap/2, pos.y + 50 - gap/2 );
-//    BaseButton::offset( pos );
     
     mTxt = symbol;
     

@@ -63,7 +63,7 @@ namespace gfx{
     private:
         // PRIVATE CONSTRUCTOR + COPY
         StateManager() : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};
-        StateManager(StateManager const&){};
+        StateManager(StateManager const&) {}
         static StateManager		*mInstance;
         
         APP_STATE   mCurAppState;

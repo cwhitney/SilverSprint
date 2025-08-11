@@ -67,9 +67,8 @@ void CountDownGfx::onRaceStateChange( RACE_STATE newState )
 }
 
 void CountDownGfx::draw() {
-    if( mTxt != ""){
+    if( !mTxt.empty() ){
         gl::color( Color::white() );
-//        vec2 txtSize = GFXGlobal::getInstance()->countdownFont->measureString( mTxt );
         
         gl::ScopedMatrices scMat;
         gl::translate(vec2(1920 / 2, 612));
@@ -86,8 +85,6 @@ void CountDownGfx::draw() {
         
         gl::ScopedColor scg(1,1,1,mAnimGo);
         gl::draw(mCountGoTex, (vec2)mCountGoTex->getSize() * vec2(-0.5) );
-        
-//        GFXGlobal::getInstance()->countdownFont->drawString(mTxt, vec2(1920 / 2, 1080 / 2) + (txtSize * vec2(-0.5, 0.5) ) );
     }
 }
 

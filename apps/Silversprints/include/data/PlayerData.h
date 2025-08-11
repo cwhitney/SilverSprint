@@ -33,7 +33,7 @@ namespace gfx {
             maxMph(0),
             totalRaceTicks(500),
             mSpeedBuffer( std::make_shared<CircBuffer>(60) ),
-            mMphBuffer(  )
+            rollerCircumfMm(0)
         {
             // mMphBuffer.reset(0.0);
         }
@@ -56,34 +56,34 @@ namespace gfx {
             return bFinishedRace;
         }
         
-        double getMph(){ return mph; }
-        double getKph(){ return getMph() * 1.60934; }
-        double getMaxMph(){ return maxMph; }
-        double getMaxKph(){ return maxMph * 1.60934; }
+        double getMph() const { return mph; }
+        double getKph() const { return getMph() * 1.60934; }
+        double getMaxMph() const { return maxMph; }
+        double getMaxKph() const { return maxMph * 1.60934; }
         
-        double getPercent(){
+        double getPercent() const {
             double racePct = ci::math<double>::clamp((double)curRaceTicks / (double)totalRaceTicks, 0.0, 1.0);
             return racePct;
         }
         
-        double getDistance(){
+        double getDistance() const {
             double oneTickMeters = rollerCircumfMm / 1000.0;
             double distMeters = oneTickMeters * curRaceTicks;
             
             return distMeters;
         }
         
-        double getDistanceMeters()
+        double getDistanceMeters() const
         {
             return getDistance();
         }
         
-        double getDistanceFeet()
+        double getDistanceFeet() const
         {
             return getDistance() * 3.28084;
         }
         
-        bool isFinished()
+        bool isFinished() const 
         {
             return bFinishedRace;
         }
@@ -97,7 +97,7 @@ namespace gfx {
             curRaceTicks = finalRaceTicks;
             
             float dist = getDistance();
-            float avgSpeed =  dist / finishTimeMillis * 3600.0f;
+            float avgSpeed =  dist / finishTimeMillis * 3600.0;
             
             // 8.7412587413 m/s = 31.46km/hr
             

@@ -38,9 +38,8 @@ class DropDown : public ci::Rectf {
     vector<string>          mOptions, mOptionsRaw;
     vector<int>             mIndices;
     
-//    ci::Rectf   mBounds;
     int         mSelected = 0;
-    std::string mSelectedStr = "";
+    std::string mSelectedStr;
     bool        bOpen = false;
     
     ci::Rectf   mDrawerRect, mBgRect, mDropDownRect;

@@ -48,8 +48,8 @@ namespace gfx {
         void setRollerDiameterMm( const float &mm );
         const float& getRollerDiameterMm(){ return RaceSettings.mRollerDiameterMm; }
         
-        void setRaceTimeSeconds(const double &seconds){ RaceSettings.mRaceLengthMillis = seconds * 1000.0; };
-        const double getRaceTimeSeconds(){ return RaceSettings.mRaceLengthMillis / 1000.0; };
+        void setRaceTimeSeconds(const double &seconds){ RaceSettings.mRaceLengthMillis = seconds * 1000.0; }
+        const double getRaceTimeSeconds(){ return RaceSettings.mRaceLengthMillis / 1000.0; }
         
         void setHardwareConnected(const bool &connected){ RaceSettings.bHardwareConnected = connected; }
         const bool& isHardwareConnected(){ return RaceSettings.bHardwareConnected; }
@@ -93,8 +93,8 @@ namespace gfx {
         std::vector<gfx::PlayerDataRef> playerData;
         ci::Color                       playerColors[4];
         
-        int                             startTimeMillis;
-        int                             elapsedRaceTimeMillis;
+        int                             startTimeMillis = 0;
+        int                             elapsedRaceTimeMillis = 0;
         
         struct SerialDeviceDesc {
             std::string portName = "Unknown";
@@ -121,7 +121,7 @@ namespace gfx {
         // PRIVATE CONSTRUCTOR + COPY
         Model();
         ~Model();
-        Model(Model const&){};
+        Model(Model const&){}
         void    setRaceLength(int ticks);
         
         RACE_TYPE mCurrentRaceType = RACE_TYPE::RACE_TYPE_TIME;

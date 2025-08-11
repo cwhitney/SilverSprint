@@ -24,15 +24,13 @@ ci::vec2 CiTextField::measureStr(const std::string &str) {
 
 
 CiTextField::CiTextField( const std::string &text, const ci::Rectf &_bounds, ci::Font font )
- : Rectf(_bounds.x1, _bounds.y1, _bounds.x2, _bounds.y2)
+ : ci::Rectf(_bounds.x1, _bounds.y1, _bounds.x2, _bounds.y2)
 {
 	mBounds.set(_bounds.x1, _bounds.y1, _bounds.x2, _bounds.y2);
     setText(text);
 
-//    setBounds(bounds);
-    
     mColorStroke = Color(1,1,1);
-    mColorFill = Color::gray(0.2);
+    mColorFill = Color::gray(0.2f);
     mColorText = Color(1,1,1);
     mColorHighlight = Color::hex(0xb6d6fd);
     
@@ -41,9 +39,7 @@ CiTextField::CiTextField( const std::string &text, const ci::Rectf &_bounds, ci:
     if( mFont ){
         tFont = gl::TextureFont::create( mFont );
         mFontScale = Model::instance().getFontScale();
-//        mDrawOpts = gl::TextureFont::DrawOptions().scale(1.0f / mFontScale).pixelSnap(false);
         mDrawOpts = Model::instance().getTfDrawOpts();
-		//emSize = tFont->measureString("M") / mFontScale;
 		emSize = measureStr("M");
     }
     

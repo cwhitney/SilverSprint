@@ -17,8 +17,8 @@ class CheckBox : public BaseButton {
     
     bool isChecked();
     
-    const ci::vec2 getPosition(){ return BaseButton::getUpperLeft(); };
-    const ci::Rectf getBounds(){ return (ci::Rectf)*this; };
+    const ci::vec2 getPosition(){ return BaseButton::getUpperLeft(); }
+    const ci::Rectf getBounds(){ return (ci::Rectf)*this; }
     
     ci::signals::Signal<void(void)>	signalOnClick;
     

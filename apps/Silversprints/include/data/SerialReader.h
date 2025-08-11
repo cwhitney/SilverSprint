@@ -61,7 +61,7 @@ namespace gfx
         
         int                 BAUD_RATE = 115200;
         
-		Cinder::Serial::SerialDeviceRef		mSerial;
+		Cinder::Serial::SerialDeviceRef		mSerial = nullptr;
         bool                bForceSerialDescUpdate = false;
         
         bool                bSerialConnected = false, bLastConnection = false;
@@ -69,17 +69,12 @@ namespace gfx
         bool                bMockEnabled = false;
         
         std::string         mStringBuffer;
-        
         std::string         mFirmwareVersion;
-        std::string         mProtoculVersion;
-        
         std::string         mConnectedPortName = "Arduino.*";
         double              mLastKeepAlive = 0.0;
         
         // threading
     	std::unique_ptr<std::thread>    mSerialThreadPtr;
-    	
-        // std::shared_ptr<std::thread>    mSerialThread;
         std::mutex                      mSerialMutex;
         ci::ConcurrentCircularBuffer<std::vector<std::string>>	mReceiveBuffer;
         ci::ConcurrentCircularBuffer<std::string>               mSendBuffer;

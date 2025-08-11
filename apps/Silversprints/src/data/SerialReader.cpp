@@ -19,15 +19,9 @@ using namespace Cinder::Serial;
 
 SerialReader::SerialReader() :
 	BAUD_RATE(115200),
-	mStringBuffer(""),
-	mProtoculVersion(""),
-	mFirmwareVersion(""),
-	mSerial(NULL),
 	mReceiveBuffer(100),
 	mSendBuffer(100)
-{
-    
-}
+{ }
 
 SerialReader::~SerialReader()
 {
@@ -219,6 +213,7 @@ void SerialReader::updatePortList()
 {
     // update the model with what's connected
     auto ports = SerialPort::getPorts(true);
+	
     if(bForceSerialDescUpdate || ports.size() != Model::instance().mSerialDeviceList.size()){
         bForceSerialDescUpdate = false;
         std::vector<Model::SerialDeviceDesc> portList;
@@ -270,9 +265,7 @@ void SerialReader::readBufferFromDevice()
 
 void SerialReader::parseCommandToBuffer( std::string command )
 {
-    std::vector<std::string> strs = ci::split( command, ':');
-    // boost::split(strs, command, boost::is_any_of(":"));
-    
+    std::vector<std::string> strs = ci::split( command, ':');    
     std::vector<std::string> tmpBuffer;
     tmpBuffer.push_back( strs[0] );
     
@@ -288,9 +281,6 @@ void SerialReader::parseCommandToBuffer( std::string command )
 void SerialReader::parseFromBuffer()
 {
     auto numCmds = mReceiveBuffer.getSize();
-    
-//        if(numCmds > 0)
-//            CI_LOG_I("Num cmds " << numCmds);
     
 	for (int i = 0; i < numCmds; i++) {
 		std::vector<std::string> cmdArgs;
@@ -340,15 +330,10 @@ void SerialReader::parseFromBuffer()
 		// RACE PROGRESS (args are race ticks, then race time millis)
 		else if (cmd == "R") {
 			std::vector<std::string> rdata = ci::split(args, ',');
-			// boost::split(rdata, args, boost::is_any_of(","));
-
 			int raceMillis = fromString<int>(rdata.back());
 			//float dt = raceMillis - Model::instance().elapsedRaceTimeMillis;
 
 			for (size_t i = 0; i < rdata.size() - 1; i++) {
-				//                if(i == 0){
-				//                    console() <<fromString<int>(rdata[i]) << endl;
-				//                }
 				Model::instance().playerData[i]->updateRaceTicks(fromString<int>(rdata[i]), raceMillis);
 			}
 
@@ -396,23 +381,6 @@ void SerialReader::parseFromBuffer()
 
 		else {
 			CI_LOG_I("SerialReader :: Unrecognized command :: ");
-			/*
-			try {
-				CI_LOG_I(cmd);
-			}
-			catch (std::exception exc) {
-				CI_LOG_EXCEPTION("Error parsing arduino", exc);
-			}
-
-			if (args != "") {
-				try {
-					CI_LOG_I(" with arg :: '" + args + "'");
-				}
-				catch (std::exception exc) {
-					CI_LOG_EXCEPTION("Error parsing arduino", exc);
-				}
-			}
-			//*/
 		}
     }
 }

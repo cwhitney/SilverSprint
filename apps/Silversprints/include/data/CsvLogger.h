@@ -41,8 +41,6 @@ class CsvLogger
 			case SS_EVENT::RACE_FINISH_TIME:		return "RACE_FINISH_TIME";
 			case SS_EVENT::RACE_FINISH_DISTANCE:	return "RACE_FINISH_DISTANCE";
 			case SS_EVENT::RACE_FALSE_START:		return "RACE_FALSE_START";
-            default:
-                break;
         }
         
         return "";
@@ -60,7 +58,7 @@ class CsvLogger
     void setHeaders (const std::vector<std::string> &headerList)
     {
         mHeaderList = headerList;
-        for( int i=0; i<headerList.size(); i++){
+        for( size_t i=0; i<headerList.size(); i++){
             logStr.append(mHeaderList[i]);
             
             if(i == headerList.size()-1){

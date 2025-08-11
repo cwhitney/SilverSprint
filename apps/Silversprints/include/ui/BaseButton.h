@@ -16,10 +16,6 @@ class BaseButton : public ci::Rectf {
   public:
     BaseButton();
     
-//    virtual void setup();
-//    virtual void update();
-//    virtual void draw();
-    
     void onMouseMove( cinder::app::MouseEvent event );
     void onMouseUp( cinder::app::MouseEvent event );
     

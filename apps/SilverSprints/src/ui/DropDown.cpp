@@ -6,7 +6,6 @@ using namespace std;
 using namespace gfx;
 
 DropDown::DropDown( const ci::Rectf &bounds, ci::gl::TextureFontRef font) {
-//    mBounds = bounds;
     Rectf::set(bounds.x1, bounds.y1, bounds.x2, bounds.y2);
     
     ci::app::WindowRef window = cinder::app::getWindow();
@@ -51,7 +50,6 @@ void DropDown::setOptions(const std::vector<Model::SerialDeviceDesc> &opts )
                 pd = pd.substr(0, pd.size()-1);
             }
             pd = pd.substr(0, pd.size()-1);
-//            pd.append("…");                     // this might not show up in all fonts
             pd.append("..");                     // this might not show up in all fonts
         }
         

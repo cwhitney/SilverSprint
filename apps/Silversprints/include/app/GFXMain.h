@@ -29,7 +29,7 @@ namespace gfx{
     class GFXMain
     {
       public:
-        GFXMain();
+        GFXMain() {}
         ~GFXMain();
         void setup();
         void update();
@@ -39,7 +39,7 @@ namespace gfx{
         void resetPlayerData();
         
       private:
-        void onAppStateChaged( APP_STATE as );
+        void onAppStateChanged( APP_STATE as );
         void onRaceStateChanged( RACE_STATE rc );
         
         void onRaceFinished();

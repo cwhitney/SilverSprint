@@ -13,7 +13,7 @@
 #include "cinder/gl/TextureFont.h"
 #include "data/Model.h"
 
-// #include <boost/algorithm/string.hpp>
+typedef std::shared_ptr<class CiTextField> CiTextFieldRef;
 
 class CiTextField : public ci::Rectf {
   public:
@@ -65,8 +65,6 @@ class CiTextField : public ci::Rectf {
     
     bool            bEnabled;
     
-//    ci::Color       mColorStroke, mColorFill, mColorText, mColorHighlight;
-    
     std::string     mText;
     ci::Rectf       mBounds;
     ci::vec2        emSize;
@@ -84,5 +82,3 @@ class CiTextField : public ci::Rectf {
                                   mKeyDownCb,
                                   mKeyUpCb;
 };
-
-typedef std::shared_ptr<CiTextField> CiTextFieldRef;
