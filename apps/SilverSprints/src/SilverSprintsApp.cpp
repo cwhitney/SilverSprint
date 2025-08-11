@@ -64,7 +64,8 @@ void SilverSprintApp::setup()
 void SilverSprintApp::loadSettings()
 {
 	CI_LOG_I("Load settings");
-	ci::fs::path targetPath = ci::app::getAppPath().parent_path() / ci::fs::path("settings.cfg");
+	//ci::fs::path targetPath = ci::app::getAppPath().parent_path() / ci::fs::path("settings.cfg");
+	ci::fs::path targetPath = ci::app::getAppPath().parent_path().append("settings.cfg");
 #if defined(CINDER_MAC)
 	targetPath = ci::app::Platform::get()->expandPath("~/Library") / fs::path("SilverSprints/settings.cfg");
 #elif defined(CINDER_MSW)
@@ -94,7 +95,6 @@ void SilverSprintApp::loadSettings()
 
 void SilverSprintApp::writeSettings()
 {
-	return;
 	config().set("settings", "race_type", (int)Model::instance().getCurrentRaceType());
 	config().set("settings", "race_length_meters", Model::instance().getRaceLengthMeters());
 	config().set("settings", "race_time", Model::instance().getRaceTimeSeconds());
@@ -103,12 +103,12 @@ void SilverSprintApp::writeSettings()
 	config().set("settings", "num_racers", Model::instance().getNumRacers());
 	config().set("settings", "log_races", Model::instance().getRaceLogging());
 	
-	fs::path targetPath = ci::app::getAppPath().parent_path() / fs::path("settings.cfg");
+	fs::path targetPath = ci::app::getAppPath().parent_path().append("settings.cfg");
 	
 #if defined(CINDER_MAC)
 	targetPath = ci::app::Platform::get()->expandPath("~/Library") / fs::path("SilverSprints/settings.cfg");
 #elif defined(CINDER_MSW)
-	targetPath = getDocumentsDirectory() / fs::path("SilverSprints/settings.cfg");
+	targetPath = getDocumentsDirectory().append("SilverSprints/settings.cfg");
 #endif
 	
 	CI_LOG_I("Writing settings to " << targetPath);
@@ -133,7 +133,9 @@ void SilverSprintApp::keyDown( KeyEvent event )
 {
 	if( event.isAccelDown() || event.isControlDown() ){
 		if( event.getChar() == 'f' ){
-			setFullScreen( !isFullScreen() );
+			ci::app::FullScreenOptions options;
+			options.kioskMode(false);
+			setFullScreen( !isFullScreen(), options );
 			config().set("app", "fullscreen", isFullScreen());
 		}
 		else if( event.getChar() == '1' ){

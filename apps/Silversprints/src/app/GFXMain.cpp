@@ -38,7 +38,7 @@ void GFXMain::setup(){
     getWindow()->getSignalKeyDown().connect(std::bind(&GFXMain::onKeyDown, this, std::placeholders::_1));
     
     StateManager::instance().signalOnRaceFinished.connect( bind( &GFXMain::onRaceFinished, this ) );
-    StateManager::instance().signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
+    StateManager::instance().signalOnStateChange.connect( bind( &GFXMain::onAppStateChanged, this, std::placeholders::_1 ) );
     StateManager::instance().signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
     StateManager::instance().signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
         Model::instance().playerData[_id]->setFinished(_finishMillis, _finishTicks);

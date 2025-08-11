@@ -43,7 +43,6 @@ void SerialReader::update()
 {
     // if we connected since the last update, notify
     if( bSerialConnected && !bLastConnection ){
-        mSerial->flush();
         onConnect();
 
     	// Wait 2 seconds, and then get the version
@@ -79,7 +78,7 @@ void SerialReader::updateSerialThread()
     while( !bThreadShouldQuit ){
     	std::scoped_lock<std::mutex> guard(mSerialMutex);
         
-        if(!bSerialConnected){ // we aren't connected try to connect
+        if(!bSerialConnected){ // We're diconnected, try to connect
 			if( reconnectSerialDevice() ){
 				mSendBuffer.clear();
 				
@@ -100,7 +99,8 @@ void SerialReader::updateSerialThread()
             }
         }else {
             if( getElapsedSeconds() - mLastKeepAlive > 1.0){
-                sendKeepAlive();
+                // sendKeepAlive();
+            	updatePortList();
             	mLastKeepAlive = getElapsedSeconds();
             }
            
@@ -117,13 +117,13 @@ void SerialReader::updateSerialThread()
 
 bool SerialReader::reconnectSerialDevice()
 {
+	updatePortList();
 	auto ports = SerialPort::getPorts(true);
 	if (ports.empty()) {
 		CI_LOG_I("No serial ports found");
 		return false;
 	}
 	printDevices(ports);
-	updatePortList();
 
 	// This will be default try to find an Arduino, or another device if you've selected one in the dropdown
 	auto port = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
@@ -132,6 +132,8 @@ bool SerialReader::reconnectSerialDevice()
 	if(port == nullptr){
 		port = ports.back();
 	}
+	
+	bForceSerialDescUpdate = true;
 
 	if (mSerial && mSerial->isOpen()) {
 		mSerial->close();
@@ -185,34 +187,14 @@ void SerialReader::sendBufferToDevice()
 
 void SerialReader::sendKeepAlive()
 {
-    // if(!bSerialConnected)
-    //     return;
-    
-    // TODO: put a ping here or something to keep the connection alive
-    
-    // // Check for our original port we connected to
-    // // If disconnected, try to find an arduino
-    auto pOpen = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
-    if(pOpen == nullptr){
-        pOpen = SerialPort::findPortByDescriptionMatching(std::regex("Arduino.*"), true);
-    }
-    
-    // If we can't find anything connected, then close the serial port
-    if(pOpen == nullptr){
-        if (mSerial && mSerial->isOpen()) {
-            mSerial->close();
-        }
-        bSerialConnected = false;
-        Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
-    }
-    
-    updatePortList();
+    // TODO: Do we need a heartbeat in the event the connection goes idle?
 }
 
 void SerialReader::updatePortList()
 {
     // update the model with what's connected
     auto ports = SerialPort::getPorts(true);
+	bForceSerialDescUpdate = true; // force for now
 	
     if(bForceSerialDescUpdate || ports.size() != Model::instance().mSerialDeviceList.size()){
         bForceSerialDescUpdate = false;
@@ -223,6 +205,13 @@ void SerialReader::updatePortList()
             sdd.portDescription = port->getDescription();
             portList.push_back(sdd);
         }
+
+    	if (portList.empty()) {
+    		Model::SerialDeviceDesc sdd;
+    		sdd.portName = "No hardware found";
+    		sdd.portDescription = "";
+    		portList.push_back(sdd);
+    	}
         
         Model::instance().mSerialDeviceList = portList;
         StateManager::instance().signalSerialDevicesUpdated.emit();
