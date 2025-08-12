@@ -11,7 +11,7 @@ public:
 	}
             
 	void reset(const T &defaultVal){
-		for( auto d : mData){
+		for( auto &d : mData){
 			d = defaultVal;
 		}
 	}
@@ -24,10 +24,10 @@ public:
             
 	const T& getAverage(){
 		T t = 0;
-		for( auto d : mData){
+		for( auto &d : mData){
 			t += d;
 		}
-		mCurAverage = t / (double)mSize;
+		mCurAverage = t / static_cast<double>(mSize);
 		return mCurAverage;
 	}
 private:

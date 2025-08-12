@@ -7,15 +7,15 @@ class  CircBuffer {
 public:
 	CircBuffer(const int &size){
 		mDataVec.resize(size);
-		for( auto d : mDataVec){
+		for( auto& d : mDataVec){
 			d = {0, 0};
 		}
 	}
             
 	void reset()
 	{
-		for( int i=0; i<mDataVec.size(); i++){
-			mDataVec[i] = {0.0, 0.0};
+		for( auto& d : mDataVec){
+			d = {0, 0};
 		}
                 
 		bFirstRun = true;
@@ -24,7 +24,7 @@ public:
 	//! Args are a pair, where first = the current time in milliseconds, second = the number of ticks since that last update
 	void add( const std::pair<int, int> &timeAndTicks ){
 		if(bFirstRun){
-			for( auto d : mDataVec){
+			for( auto& d : mDataVec){
 				d = {timeAndTicks.first, 0};
 			}
 			bFirstRun = false;
