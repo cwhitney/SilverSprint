@@ -57,7 +57,7 @@ void WinnerModal::getWinners()
         PlayerDataRef pd = Model::instance().getPlayerData(i);
         if (pd != nullptr){
             mWinnersSorted.push_back( pd );
-        }
+		}
     }
     
     // DISTANCE
@@ -72,6 +72,8 @@ void WinnerModal::getWinners()
             return a->getCurrentRaceTicks() > b->getCurrentRaceTicks();
         });
     }
+
+	// CI_LOG_I("Just got all the winners. There were ") << Model::instance().getNumRacers() << " racers. (" << mWinnersSorted.size() << ")\n";
 }
 
 void WinnerModal::update()
@@ -154,13 +156,16 @@ void WinnerModal::draw()
             for( int i=0; i<NR; i++){
                 gl::ScopedMatrices scMat2;
                 
-                
                 float lm = (totalWidth * -0.5) + (360 + gap) * i;
                 float offsetX = lm + mWinnerRect.getWidth() * 0.5;
+                auto opts = Model::instance().getTfDrawOpts();
+                int playerDex = i + 1; // skip the winner at index 0
+                PlayerDataRef curPlayer = mWinnersSorted[playerDex];
 
+                // Draw background rects
                 gl::translate(vec2(offsetX, 0));
                 {
-                    gl::ScopedColor scCol( mWinnersSorted[i+1]->playerColor );
+                    gl::ScopedColor scCol( curPlayer->playerColor );
                     gl::drawSolidRect( bgRect );
                     
                     gl::ScopedColor scB(Color::black());
@@ -168,29 +173,30 @@ void WinnerModal::draw()
                     
                     gl::ScopedColor scW(Color::gray(229));
                     gl::drawSolidRect( botRect );
-                }
-                
-                Model::instance().texFont->drawString( mWinnersSorted[i+1]->player_name, vec2(20, 42), Model::instance().getTfDrawOpts());
+                }                
+
+                // Draw player name
+                Model::instance().texFont->drawString( curPlayer->player_name, vec2(20, 42), opts);
                 
                 gl::color(1,1,1,mAlpha);
-                // draw finish stats
+                // Draw finish time
                 if(Model::instance().getCurrentRaceType() == Model::RACE_TYPE_DISTANCE){
-                    Model::instance().texFont->drawString( sb::utils::millisToTimestamp(mWinnersSorted[i+1]->finishTimeMillis), vec2(20, 82), Model::instance().getTfDrawOpts());
+                    Model::instance().texFont->drawString( sb::utils::millisToTimestamp(curPlayer->finishTimeMillis), vec2(20, 82), opts);
                 }
                 // RACE_TYPE_TIME
                 else{
                     if(Model::instance().getUsesKph()){
-                        Model::instance().texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceMeters(), 2) + "m", vec2(20, 82), Model::instance().getTfDrawOpts());
+                        Model::instance().texFont->drawString(toString(curPlayer->getDistanceMeters(), 2) + "m", vec2(20, 82), opts);
                     }else{
-                        Model::instance().texFont->drawString(toString(mWinnersSorted[i+1]->getDistanceFeet(), 2) + "ft", vec2(20, 82), Model::instance().getTfDrawOpts());
+                        Model::instance().texFont->drawString(toString(curPlayer->getDistanceFeet(), 2) + "ft", vec2(20, 82), opts);
                     }
                 }
                 
-                // draw top speed
+                // Draw top speed
                 if(Model::instance().getUsesKph()){
-                    Model::instance().texFont->drawString( toString(mWinnersSorted[i+1]->getMaxKph(), 1) + "kph", vec2(210, 82), Model::instance().getTfDrawOpts());
+                    Model::instance().texFont->drawString( toString(curPlayer->getMaxKph(), 1) + "kph", vec2(210, 82), opts);
                 }else{
-                    Model::instance().texFont->drawString( toString(mWinnersSorted[i+1]->getMaxMph(), 1) + "mph", vec2(210, 82), Model::instance().getTfDrawOpts());
+                    Model::instance().texFont->drawString( toString(curPlayer->getMaxMph(), 1) + "mph", vec2(210, 82), opts);
                 }
             }
         }
