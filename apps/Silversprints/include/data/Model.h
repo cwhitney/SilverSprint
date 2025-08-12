@@ -54,7 +54,7 @@ namespace gfx {
         void setHardwareConnected(const bool &connected){ RaceSettings.bHardwareConnected = connected; }
         const bool& isHardwareConnected(){ return RaceSettings.bHardwareConnected; }
         PlayerDataRef getPlayerData(const int &num) {
-            if (num > 0 && num < playerData.size()) {
+            if (num > -1 && num < playerData.size()) {
                 return playerData[num];
             }
             return nullptr;
