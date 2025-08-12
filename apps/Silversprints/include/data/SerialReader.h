@@ -45,7 +45,7 @@ namespace gfx
     	void readBufferFromDevice();
 
     	void sendKeepAlive();
-        void updatePortList();
+        void updatePortDescriptions();
         
         void onConnect();
         void onDisconnect();

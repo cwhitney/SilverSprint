@@ -25,10 +25,12 @@ SerialReader::SerialReader() :
 
 SerialReader::~SerialReader()
 {
-    stopRace();
+	ThreadSetup threadSetup;
+	std::scoped_lock<std::mutex> guard(mSerialMutex);
+	
     bThreadShouldQuit = true;
 	
-	if (mSerialThreadPtr->joinable()) {
+	if (mSerialThreadPtr != nullptr && mSerialThreadPtr->joinable()) {
 		mSerialThreadPtr->join();
 		mSerialThreadPtr = nullptr;
 	}
@@ -58,11 +60,11 @@ void SerialReader::update()
 
 void SerialReader::selectSerialDevice(const std::string &portName)
 {
+    std::lock_guard<std::mutex> guard(mSerialMutex);
+	
     CI_LOG_I("Select serial device :: " << portName);
-    
     mConnectedPortName = portName;
     
-//    std::lock_guard<std::mutex> guard(mSerialMutex);
     if (mSerial && mSerial->isOpen()) {
         if(mSerial->getPortName() != portName){
             mSerial->close();
@@ -91,16 +93,14 @@ void SerialReader::updateSerialThread()
 				bForceSerialDescUpdate = true;
 				CI_LOG_I("OpenSprints hardware found successfully. :: ") << mSerial->getPortName();
 				Model::instance().setSerialPortName( mSerial->getPortName() );
-			}
-            
-            // If we didn't find an arduino, sleep for 500ms before retrying
-            if(!bSerialConnected){
+			}else {
+		         // If we couldn't connect, sleep for 500ms before retrying
                 std::this_thread::sleep_for(std::chrono::milliseconds(500));
             }
         }else {
             if( getElapsedSeconds() - mLastKeepAlive > 1.0){
                 // sendKeepAlive();
-            	updatePortList();
+            	// updatePortDescriptions();
             	mLastKeepAlive = getElapsedSeconds();
             }
            
@@ -109,7 +109,7 @@ void SerialReader::updateSerialThread()
 				readBufferFromDevice();
 			}
 			else {
-				CI_LOG_I("Serial is not open");
+				CI_LOG_W("Serial is not open");
 			}
         }
     }
@@ -117,7 +117,7 @@ void SerialReader::updateSerialThread()
 
 bool SerialReader::reconnectSerialDevice()
 {
-	updatePortList();
+	updatePortDescriptions();
 	auto ports = SerialPort::getPorts(true);
 	if (ports.empty()) {
 		CI_LOG_I("No serial ports found");
@@ -128,29 +128,29 @@ bool SerialReader::reconnectSerialDevice()
 	// This will be default try to find an Arduino, or another device if you've selected one in the dropdown
 	auto port = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
 
-	// If we didn't strictly find and arduino, just display the last detected port
+	// If we didn't strictly find any arduinos, just display the last detected port
 	if(port == nullptr){
 		port = ports.back();
 	}
 	
-	bForceSerialDescUpdate = true;
+	// bForceSerialDescUpdate = true;
 
-	if (mSerial && mSerial->isOpen()) {
-		mSerial->close();
-		mSerial = nullptr;
-		return false;
-	}
+	// if (mSerial && mSerial->isOpen()) {
+	// 	mSerial->close();
+	// 	mSerial = nullptr;
+	// 	// return false;
+	// }
 
 	try	{
 		mSerial = SerialDevice::create(port, BAUD_RATE);
 		bSerialConnected = true;
 	}catch (Exception &e)	{
 		bSerialConnected = false;
-		CI_LOG_EXCEPTION("Error opening serial port", e);
+		CI_LOG_EXCEPTION("Exc: Error opening serial port", e)
 		return false;
 	}catch (serial::IOException &e)	{
 		bSerialConnected = false;
-		CI_LOG_EXCEPTION("Error opening serial port. IO exc", e);
+		CI_LOG_EXCEPTION("IOExc: Error opening serial port", e)
 		return false;
 	}
 
@@ -160,10 +160,10 @@ bool SerialReader::reconnectSerialDevice()
 void SerialReader::printDevices( const vector<SerialPortRef> &ports)
 {
 	for (auto port : ports) {
-		console() << "SERIAL DEVICE" << endl;
-		console() << "\tNAME: " << port->getName() << endl;
-		console() << "\tDESCRIPTION: " << port->getDescription() << endl;
-		console() << "\tHARDWARE IDENTIFIER: " << port->getHardwareIdentifier() << endl;
+		CI_LOG_I("SERIAL DEVICE");
+		CI_LOG_I("\tNAME: ")<< port->getName() << "\n";
+		CI_LOG_I("\tDESCRIPTION: ")<< port->getDescription() << "\n";
+		CI_LOG_I("\tHARDWARE IDENTIFIER: ")<< port->getHardwareIdentifier() << "\n";
 	}
 }
 
@@ -172,17 +172,26 @@ void SerialReader::sendBufferToDevice()
 {
 	// Send queued commands to arduino
 	if (mSendBuffer.getSize() > 0) {
-		CI_LOG_I("Sending buffer over to arduino") << mSendBuffer.getSize();
+		CI_LOG_I("Sending buffer over to arduino: ") << mSendBuffer.getSize() << " messages";
 	}
 
-	for (size_t i = 0; i < mSendBuffer.getSize(); i++) {
+	while (mSendBuffer.getSize() > 0) {
 		std::string msgToSend;
-		mSendBuffer.popBack(&msgToSend);	// pop front?
+		mSendBuffer.popBack(&msgToSend);
 		if (!msgToSend.empty()){
 			CI_LOG_I("Sending :: ") << msgToSend << " :: " << mSerial->isOpen();
 			mSerial->writeString(msgToSend);
 		}
 	}
+
+	/*for (size_t i = 0; i < mSendBuffer.getSize(); i++) {
+		std::string msgToSend;
+		mSendBuffer.popBack(&msgToSend);
+		if (!msgToSend.empty()){
+			CI_LOG_I("Sending :: ") << msgToSend << " :: " << mSerial->isOpen();
+			mSerial->writeString(msgToSend);
+		}
+	}*/
 }
 
 void SerialReader::sendKeepAlive()
@@ -190,7 +199,7 @@ void SerialReader::sendKeepAlive()
     // TODO: Do we need a heartbeat in the event the connection goes idle?
 }
 
-void SerialReader::updatePortList()
+void SerialReader::updatePortDescriptions()
 {
     // update the model with what's connected
     auto ports = SerialPort::getPorts(true);
@@ -236,7 +245,7 @@ void SerialReader::readBufferFromDevice()
             try{
                 mSerial->close();
             }catch(serial::IOException &exc){
-                CI_LOG_EXCEPTION("Error closing serial port", exc)
+                CI_LOG_EXCEPTION("Error closing serial port", exc);
             }
             Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
             //mSerial = nullptr;
@@ -278,7 +287,7 @@ void SerialReader::parseFromBuffer()
 		std::string cmd = cmdArgs[0];
 		std::string args = (cmdArgs.size() > 1) ? cmdArgs[1] : "";
 
-		if (cmd == "") {
+		if (cmd.empty()) {
 			return;
 		}
 		// ------------------------------------------------------------------------------
@@ -316,14 +325,19 @@ void SerialReader::parseFromBuffer()
 		}
 
 		// ------------------------------------------------------------------------------
-		// RACE PROGRESS (args are race ticks, then race time millis)
+		// RACE PROGRESS (rdata should contain 4 comma separated values, one for each racer, followed by the raceTimeMillis)
 		else if (cmd == "R") {
 			std::vector<std::string> rdata = ci::split(args, ',');
+			if (rdata.empty()) {
+				CI_LOG_W("Empty race data received");
+				continue;
+			}
+			
 			int raceMillis = fromString<int>(rdata.back());
-			//float dt = raceMillis - Model::instance().elapsedRaceTimeMillis;
 
-			for (size_t i = 0; i < rdata.size() - 1; i++) {
-				Model::instance().playerData[i]->updateRaceTicks(fromString<int>(rdata[i]), raceMillis);
+			// There is always guaranteed to be data for 4 racers, even when the race is set to fewer
+			for (size_t k = 0; k < 4; k++) {
+				Model::instance().playerData[k]->updateRaceTicks(fromString<int>(rdata[k]), raceMillis);
 			}
 
 			Model::instance().elapsedRaceTimeMillis = raceMillis;
@@ -427,7 +441,8 @@ void SerialReader::setRaceType( Model::RACE_TYPE raceType)
 
 void SerialReader::sendSerialMessage( std::string msg )
 {
-	console() << "Sending serial message :: " << msg << endl;
+	CI_LOG_I( "Sending serial message :: ") << msg << "\n";
+	
     std::string toSend = msg + '\n';
     mSendBuffer.pushFront( toSend );
 }
