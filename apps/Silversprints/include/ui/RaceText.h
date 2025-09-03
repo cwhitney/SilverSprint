@@ -19,7 +19,7 @@ namespace gfx{
     class RaceText {
     public:
         RaceText( const ci::Color &color );
-        void draw( gfx::PlayerData *data, const ci::vec2 &offset );
+        void draw( gfx::PlayerDataRef data, const ci::vec2 &offset );
         
     private:
         std::string toDec( const float &num, const int &decPlaces );

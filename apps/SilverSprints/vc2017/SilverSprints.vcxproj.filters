@@ -245,6 +245,12 @@
     <ClInclude Include="..\include\ui\DropDown.h">
       <Filter>Header Files\ui</Filter>
     </ClInclude>
+    <ClInclude Include="..\blocks\Sharkbox\tools\CheapCircBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\Sharkbox\tools\CircBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc">

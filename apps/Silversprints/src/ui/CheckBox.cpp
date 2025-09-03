@@ -56,7 +56,7 @@ void CheckBox::draw()
         
         if(bChecked){
             gl::drawSolidRect(*this);
-            gl::ScopedColor scCol(Color::gray(0.1));
+            gl::ScopedColor scCol(Color::gray(0.1f));
             mCheckLine1->draw();
             mCheckLine2->draw();
         }else{
@@ -68,7 +68,7 @@ void CheckBox::draw()
         gl::ScopedColor scPc( Model::instance().playerColors[0] );
         gl::drawSolidRect( (Rectf)*this );
         
-        gl::ScopedColor scCol(Color::gray(0.1));
+        gl::ScopedColor scCol(Color::gray(0.1f));
         
         if(bChecked){
             mCheckLine1->draw();

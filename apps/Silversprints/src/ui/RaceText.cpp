@@ -7,8 +7,10 @@
 //
 
 #include "ui/RaceText.h"
-#include <boost/algorithm/string.hpp>
+// #include <boost/algorithm/string.hpp>
 #include <sstream>
+
+#include "impl/win.h"
 
 using namespace gfx;
 using namespace ci;
@@ -25,7 +27,7 @@ std::string RaceText::toDec( const float &num, const int &decPlaces ) {
     return buffer.str();
 }
 
-void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
+void RaceText::draw( gfx::PlayerDataRef data, const ci::vec2 &offset )
 {
     gl::pushMatrices();{
         gl::translate( offset );
@@ -54,7 +56,11 @@ void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
         gl::color( Color::white() );
         
         // NAME
-        boost::to_upper(data->player_name);
+        // boost::to_upper(data->player_name);
+        // ci::toUpper(data->player_name);
+        auto pn = data->player_name;
+        std::transform(pn.begin(), pn.end(), pn.begin(), ::toupper);
+        
         Model::instance().texFont->drawString(data->player_name, vec2(20, 44), Model::instance().getTfDrawOpts());
         
         // SPEED
@@ -66,7 +72,6 @@ void RaceText::draw( gfx::PlayerData *data, const ci::vec2 &offset )
 			
 			std::string tx = toDec(mLastSpeed, 1) + " KPH";
 			vec2 strSize = Model::instance().texFont->measureString(tx) / Model::instance().getFontScale();
-//            Model::instance().texFont->drawString(tx, vec2(1580 - strSize.x, 44), Model::instance().getTfDrawOpts() );
             Model::instance().texFont->drawString(tx, vec2(1430 - strSize.x, 44), Model::instance().getTfDrawOpts() );
         }else{
             if(getElapsedSeconds() - mLastSpeedUpdate > Model::instance().speedUpdateInterval){

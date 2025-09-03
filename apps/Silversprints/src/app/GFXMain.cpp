@@ -12,27 +12,8 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 using namespace gfx;
-/*
- std::string msToTimeStr(const size_t &millis){
- int ms = millis % 1000;
- int seconds = int(millis / 1000) % 60 ;
- int minutes = int(millis / (1000*60));
- //int hours   = int(millis / (1000*60*60)) % 24;
- 
- stringstream ss;
- ss  << setfill('0') << setw(2) << minutes << ":"
- << setfill('0') << setw(2) << seconds << ":"
- << setfill('0') << setw(3) << ms;
- 
- return ss.str();
- }
- */
 
 // -------------------------------------
-GFXMain::GFXMain(){
-    
-}
-
 GFXMain::~GFXMain(){
     CI_LOG_I("GFX main shutting down");
 //    ci::stackTrace();
@@ -57,7 +38,7 @@ void GFXMain::setup(){
     getWindow()->getSignalKeyDown().connect(std::bind(&GFXMain::onKeyDown, this, std::placeholders::_1));
     
     StateManager::instance().signalOnRaceFinished.connect( bind( &GFXMain::onRaceFinished, this ) );
-    StateManager::instance().signalOnStateChange.connect( bind( &GFXMain::onAppStateChaged, this, std::placeholders::_1 ) );
+    StateManager::instance().signalOnStateChange.connect( bind( &GFXMain::onAppStateChanged, this, std::placeholders::_1 ) );
     StateManager::instance().signalOnRaceStateChange.connect( bind( &GFXMain::onRaceStateChanged, this, std::placeholders::_1 ) );
     StateManager::instance().signalRacerFinish.connect( [&](int _id, int _finishMillis, int _finishTicks){
         Model::instance().playerData[_id]->setFinished(_finishMillis, _finishTicks);
@@ -117,8 +98,8 @@ void GFXMain::onRaceFinished() {
     }
 }
 
-void GFXMain::onAppStateChaged( APP_STATE as ) {
-    
+void GFXMain::onAppStateChanged( APP_STATE as ) {
+    return;
 }
 
 void GFXMain::onRaceStateChanged( RACE_STATE rc ){
@@ -182,8 +163,6 @@ void GFXMain::update()
 }
 
 void GFXMain::draw(){
-    //    Model::instance().setScale(drawRect);
-    
     mRaceView->draw();
     mRosterView->draw();
     mSettingsView->draw();

@@ -34,23 +34,19 @@ Model::Model(){
     winnerTexFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 70.0), gl::TextureFont::Format().enableMipmapping());
     countdownFont = gl::TextureFont::create(ci::Font(loadAsset("fonts/UbuntuMono-R.ttf"), 235.0), gl::TextureFont::Format().enableMipmapping());
     
-    for( int i=0; i<4; i++){
-        playerData.push_back( new PlayerData() );
+    for(int i=0; i<4; i++){
+        playerData.push_back( std::make_shared<PlayerData>() );
         playerData.back()->playerColor = playerColors[i];
+        playerData.back()->player_name = "Rider " + toString(i+1);
     }
-    
-    playerData[0]->player_name = "Rider 1";
-    playerData[1]->player_name = "Rider 2";
-    playerData[2]->player_name = "Rider 3";
-    playerData[3]->player_name = "Rider 4";
 }
 
-Model::~Model(){
-    while( playerData.size() ){
-        PlayerData *pd = playerData.back();
-        playerData.pop_back();
-        delete pd;
-    }
+Model::~Model()
+{
+    CI_LOG_I("Model destructor called");
+
+    playerData.clear();
+    mSerialDeviceList.clear();
 }
 
 // --------------------------------------------------------------------
@@ -62,7 +58,8 @@ void Model::setScale( const ci::Rectf &scaledRect )
     mScreenOffset = scaledRect.getUpperLeft();
 }
 
-ci::vec2 Model::localToGlobal( ci::vec2 pos ){
+ci::vec2 Model::localToGlobal( ci::vec2 pos )
+{
     return (vec2(pos - mScreenOffset) / mScreenScale);
 }
 
@@ -75,7 +72,7 @@ void Model::setRollerDiameterMm(const float &mm)
     }
 }
 
-void Model::setRaceLengthMeters(const float &meters){
+void Model::setRaceLengthMeters(const float &meters) {
     RaceSettings.raceLengthMeters = meters;
     
     float totalDistMm = meters * 1000.0;

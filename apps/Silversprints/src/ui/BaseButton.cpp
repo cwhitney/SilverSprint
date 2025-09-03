@@ -16,7 +16,6 @@ using namespace gfx;
 BaseButton::BaseButton() {
     bActive = false;
     bHover = false;
-//    mBounds = Rectf( 0, 0, 100, 100 );
     Rectf::set(0,0, 100, 100);
     
     ci::app::WindowRef win = getWindow();

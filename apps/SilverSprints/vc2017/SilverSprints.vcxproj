@@ -22,33 +22,33 @@
     <ProjectGuid>{E43436C5-1263-470B-AB19-0BD80C478DD9}</ProjectGuid>
     <RootNamespace>SilverSprints</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -111,7 +111,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem;..\blocks\Sharkbox</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;D:\Documents\Libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem;..\blocks\Sharkbox</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -119,13 +119,14 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>"..\..\..\libs\Cinder\include";..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\..\libs\Cinder\lib\msw\$(PlatformTarget);..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Documents\Libs\Cinder\lib\msw\$(PlatformTarget);D:\Documents\Libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -164,13 +165,14 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;..\..\..\libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem;..\blocks\Sharkbox</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;D:\Documents\Libs\Cinder\include;..\blocks\OSC\src;..\blocks\Serial\include;..\blocks\Serial\lib\serial\include;..\blocks\Serial\lib\serial\include\serial;..\blocks\ParticleSystem;..\blocks\Sharkbox</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0601;_WINDOWS;NOMINMAX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -180,7 +182,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\..\libs\Cinder\lib\msw\$(PlatformTarget);..\..\..\libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Documents\Libs\Cinder\lib\msw\$(PlatformTarget);D:\Documents\Libs\Cinder\lib\msw\$(PlatformTarget)\$(Configuration)\$(PlatformToolset)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -231,6 +233,8 @@
     <ClInclude Include="..\blocks\Serial\lib\serial\include\serial\impl\win.h" />
     <ClInclude Include="..\blocks\Serial\lib\serial\include\serial\serial.h" />
     <ClInclude Include="..\blocks\Serial\lib\serial\include\serial\v8stdint.h" />
+    <ClInclude Include="..\blocks\Sharkbox\tools\CheapCircBuffer.h" />
+    <ClInclude Include="..\blocks\Sharkbox\tools\CircBuffer.h" />
     <ClInclude Include="..\blocks\Sharkbox\tools\Utils.h" />
     <ClInclude Include="..\include\app\GFXMain.h" />
     <ClInclude Include="..\include\data\Config.h" />

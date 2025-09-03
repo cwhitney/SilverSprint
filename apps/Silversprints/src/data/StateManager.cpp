@@ -56,7 +56,7 @@ std::string StateManager::getAppStateString( APP_STATE as ) {
             return "SETTINGS"; break;
         default:
             return "UNKNOWN"; break;
-    };
+    }
 }
 
 std::string StateManager::getRaceStateString( RACE_STATE rs ) {

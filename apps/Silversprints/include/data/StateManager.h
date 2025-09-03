@@ -48,7 +48,7 @@ namespace gfx{
         
         std::string getAppStateString( APP_STATE as );
         std::string getRaceStateString( RACE_STATE rs );
-        
+                
         //! Emits the current state, followed by the previous state
         ci::signals::Signal<void(APP_STATE, APP_STATE)>	signalOnStateChange;
         ci::signals::Signal<void(RACE_STATE)>	        signalOnRaceStateChange;
@@ -63,7 +63,7 @@ namespace gfx{
     private:
         // PRIVATE CONSTRUCTOR + COPY
         StateManager() : mCurAppState(APP_STATE::RACE), mCurRaceState(RACE_STATE::RACE_STOPPED) {};
-        StateManager(StateManager const&){};
+        StateManager(StateManager const&) {}
         static StateManager		*mInstance;
         
         APP_STATE   mCurAppState;

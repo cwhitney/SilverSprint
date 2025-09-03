@@ -47,16 +47,7 @@ void RosterView::setup(){
 }
 
 void RosterView::onMouseUp( ci::app::MouseEvent event ) {
-    
-//    vec2 pos = Model::instance().localToGlobal( event.getPos() );
-//    
-//    for( int i=0; i<4; i++){
-//        if( mCancelRects[i].contains(pos) ){
-//            mPlayerNames[i]->disable();
-//            break;
-//        }
-//    }
-    
+        
 }
 
 void RosterView::onKeyDown( ci::app::KeyEvent event ) {
@@ -119,7 +110,7 @@ void RosterView::update(){
 }
 
 void RosterView::start(){
-    // reset all values here
+    
 }
 
 void RosterView::stop(){
@@ -138,15 +129,6 @@ void RosterView::draw(){
     
     for(int i=0; i < Model::instance().getNumRacers(); i++){
         mPlayerNames[i]->draw();
-        
-//        if( mPlayerNames[i]->isEnabled() ){
-//            gl::color( Color::hex(0x717174) );
-//            gl::drawSolidRect( mCancelRects[i] );
-//            gl::color(1,1,1,1);
-//            gl::draw( mCancelBtn, mCancelRects[i].getUpperLeft() + vec2(14, 12) );
-//        }
-
-        
         vec2 p = mPlayerNames[i]->getBounds().getUpperLeft() + vec2(-102, 73);
 
         if( !mPlayerNames[i]->isActive() ){
@@ -162,6 +144,4 @@ void RosterView::draw(){
         
         tFont->drawString( to_string(i+1), p + vec2(-19, 20), Model::instance().getTfDrawOpts() );
     }
-    
-//    gui->draw();
 }
