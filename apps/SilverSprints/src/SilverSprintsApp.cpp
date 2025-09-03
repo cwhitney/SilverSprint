@@ -12,7 +12,7 @@
 #include "data/StateManager.h"
 #include "data/Config.h"
 
-#define DEBUG_MODE 1
+//#define DEBUG_MODE 1
 
 using namespace ci;
 using namespace ci::app;

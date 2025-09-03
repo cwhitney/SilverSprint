@@ -28,7 +28,7 @@ SerialReader::~SerialReader()
 	ThreadSetup threadSetup;
 	std::scoped_lock<std::mutex> guard(mSerialMutex);
 	
-    bThreadShouldQuit = true;
+	bThreadShouldQuit = true;
 	
 	if (mSerialThreadPtr != nullptr && mSerialThreadPtr->joinable()) {
 		mSerialThreadPtr->join();
@@ -43,44 +43,44 @@ void SerialReader::setup()
 
 void SerialReader::update()
 {
-    // if we connected since the last update, notify
-    if( bSerialConnected && !bLastConnection ){
-        onConnect();
+	// if we connected since the last update, notify
+	if( bSerialConnected && !bLastConnection ){
+		onConnect();
 
-    	// Wait 2 seconds, and then get the version
-        timeline().add( [&](){ getVersion(); }, timeline().getCurrentTime() + 2.0f );
-    }else if( !bSerialConnected && bLastConnection ){
-        onDisconnect();
-    }
-    bLastConnection = bSerialConnected;
-    
-    // Parse any data that's been read in on the other thread
-    parseFromBuffer();
+		// Wait 2 seconds, and then get the version
+		timeline().add( [&](){ getVersion(); }, timeline().getCurrentTime() + 2.0f );
+	}else if( !bSerialConnected && bLastConnection ){
+		onDisconnect();
+	}
+	bLastConnection = bSerialConnected;
+	
+	// Parse any data that's been read in on the other thread
+	parseFromBuffer();
 }
 
 void SerialReader::selectSerialDevice(const std::string &portName)
 {
-    std::lock_guard<std::mutex> guard(mSerialMutex);
+	std::lock_guard<std::mutex> guard(mSerialMutex);
 	
-    CI_LOG_I("Select serial device :: " << portName);
-    mConnectedPortName = portName;
-    
-    if (mSerial && mSerial->isOpen()) {
-        if(mSerial->getPortName() != portName){
-            mSerial->close();
-            bSerialConnected = false;
-        }
-    }
+	CI_LOG_I("Select serial device :: " << portName);
+	mConnectedPortName = portName;
+	
+	if (mSerial && mSerial->isOpen()) {
+		if(mSerial->getPortName() != portName){
+			mSerial->close();
+			bSerialConnected = false;
+		}
+	}
 }
 
 void SerialReader::updateSerialThread()
 {
-    ThreadSetup threadSetup;
-    
-    while( !bThreadShouldQuit ){
-    	std::scoped_lock<std::mutex> guard(mSerialMutex);
-        
-        if(!bSerialConnected){ // We're diconnected, try to connect
+	ThreadSetup threadSetup;
+	
+	while( !bThreadShouldQuit ){
+		std::scoped_lock<std::mutex> guard(mSerialMutex);
+		
+		if(!bSerialConnected){ // We're diconnected, try to connect
 			if( reconnectSerialDevice() ){
 				mSendBuffer.clear();
 				
@@ -94,16 +94,16 @@ void SerialReader::updateSerialThread()
 				CI_LOG_I("OpenSprints hardware found successfully. :: ") << mSerial->getPortName();
 				Model::instance().setSerialPortName( mSerial->getPortName() );
 			}else {
-		         // If we couldn't connect, sleep for 500ms before retrying
-                std::this_thread::sleep_for(std::chrono::milliseconds(500));
-            }
-        }else {
-            if( getElapsedSeconds() - mLastKeepAlive > 1.0){
-                // sendKeepAlive();
-            	// updatePortDescriptions();
-            	mLastKeepAlive = getElapsedSeconds();
-            }
-           
+				 // If we couldn't connect, sleep for 1000ms before retrying
+				std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			}
+		}else {
+			if( getElapsedSeconds() - mLastKeepAlive > 1.0){
+				// sendKeepAlive();
+				updatePortDescriptions();
+				mLastKeepAlive = getElapsedSeconds();
+			}
+		   
 			if (mSerial->isOpen()) {
 				sendBufferToDevice();
 				readBufferFromDevice();
@@ -111,8 +111,8 @@ void SerialReader::updateSerialThread()
 			else {
 				CI_LOG_W("Serial is not open");
 			}
-        }
-    }
+		}
+	}
 }
 
 bool SerialReader::reconnectSerialDevice()
@@ -123,7 +123,8 @@ bool SerialReader::reconnectSerialDevice()
 		CI_LOG_I("No serial ports found");
 		return false;
 	}
-	printDevices(ports);
+	// printDevices(ports);
+	CI_LOG_I("SerialReader :: Attempting to connect to mConenctedPortName: ") << mConnectedPortName;
 
 	// This will be default try to find an Arduino, or another device if you've selected one in the dropdown
 	auto port = SerialPort::findPortByNameMatching(std::regex(mConnectedPortName), true);
@@ -161,9 +162,9 @@ void SerialReader::printDevices( const vector<SerialPortRef> &ports)
 {
 	for (auto port : ports) {
 		CI_LOG_I("SERIAL DEVICE");
-		CI_LOG_I("\tNAME: ")<< port->getName() << "\n";
-		CI_LOG_I("\tDESCRIPTION: ")<< port->getDescription() << "\n";
-		CI_LOG_I("\tHARDWARE IDENTIFIER: ")<< port->getHardwareIdentifier() << "\n";
+		CI_LOG_I("\tNAME: ") << port->getName() << "\n";
+		CI_LOG_I("\tDESCRIPTION: ") << port->getDescription() << "\n";
+		CI_LOG_I("\tHARDWARE IDENTIFIER: ") << port->getHardwareIdentifier() << "\n";
 	}
 }
 
@@ -183,103 +184,111 @@ void SerialReader::sendBufferToDevice()
 			mSerial->writeString(msgToSend);
 		}
 	}
-
-	/*for (size_t i = 0; i < mSendBuffer.getSize(); i++) {
-		std::string msgToSend;
-		mSendBuffer.popBack(&msgToSend);
-		if (!msgToSend.empty()){
-			CI_LOG_I("Sending :: ") << msgToSend << " :: " << mSerial->isOpen();
-			mSerial->writeString(msgToSend);
-		}
-	}*/
 }
 
 void SerialReader::sendKeepAlive()
 {
-    // TODO: Do we need a heartbeat in the event the connection goes idle?
+	// TODO: Do we need a heartbeat in the event the connection goes idle?
 }
 
 void SerialReader::updatePortDescriptions()
 {
-    // update the model with what's connected
-    auto ports = SerialPort::getPorts(true);
+	// update the model with what's connected
+	auto ports = SerialPort::getPorts(true);
 	bForceSerialDescUpdate = true; // force for now
 	
-    if(bForceSerialDescUpdate || ports.size() != Model::instance().mSerialDeviceList.size()){
-        bForceSerialDescUpdate = false;
-        std::vector<Model::SerialDeviceDesc> portList;
-        for (auto port : ports) {
-            Model::SerialDeviceDesc sdd;
-            sdd.portName = port->getName();
-            sdd.portDescription = port->getDescription();
-            portList.push_back(sdd);
-        }
+	if(bForceSerialDescUpdate || ports.size() != Model::instance().mSerialDeviceList.size()){
+		bForceSerialDescUpdate = false;
+		std::vector<Model::SerialDeviceDesc> portList;
+		for (auto port : ports) {
+			Model::SerialDeviceDesc sdd;
+			sdd.portName = port->getName();
+			sdd.portDescription = port->getDescription();
+			portList.push_back(sdd);
+		}
 
-    	if (portList.empty()) {
-    		Model::SerialDeviceDesc sdd;
-    		sdd.portName = "No hardware found";
-    		sdd.portDescription = "";
-    		portList.push_back(sdd);
-    	}
-        
-        Model::instance().mSerialDeviceList = portList;
-        StateManager::instance().signalSerialDevicesUpdated.emit();
-    }
+		if (portList.empty()) {
+			Model::SerialDeviceDesc sdd;
+			sdd.portName = "No hardware found";
+			sdd.portDescription = "";
+			portList.push_back(sdd);
+		}
+		
+		if (!deviceListsAreEqual( Model::instance().mSerialDeviceList, portList)) {
+			Model::instance().mSerialDeviceList = portList;
+			StateManager::instance().signalSerialDevicesUpdated.emit();
+		}
+		else {
+			//CI_LOG_I("Same port list");
+		}
+	}
+}
+
+bool SerialReader::deviceListsAreEqual(const std::vector<Model::SerialDeviceDesc> &a, const std::vector<Model::SerialDeviceDesc>& b) {
+	if (a.size() != b.size())return false;
+
+	for (size_t i = 0; i < a.size(); ++i) {
+		if (!(a[i] == b[i])) {
+			return false;
+		}
+	}
+
+	return true;
 }
 
 void SerialReader::readBufferFromDevice()
 {
-    try {
-        size_t bytesAvailable = mSerial->getNumBytesAvailable();
-        size_t charsAvailable = floor(bytesAvailable / sizeof(char));
-        
-        for(size_t i=0; i<charsAvailable; i++){
-            unsigned char c;    // uint8_t
-            mSerial->readBytes(&c, 1);
-            mStringBuffer += c;
-        }
-    }catch(serial::IOException& e){
-    	CI_LOG_D("We've Disconnected! " << e.what());
-        bSerialConnected = false;
-        if (mSerial && mSerial->isOpen()) {
-            try{
-                mSerial->close();
-            }catch(serial::IOException &exc){
-                CI_LOG_EXCEPTION("Error closing serial port", exc);
-            }
-            Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
-            //mSerial = nullptr;
-        }
-    }
-    
-    auto index = mStringBuffer.find("\r\n");
-    if(index != string::npos){
-        std::string cmd = mStringBuffer.substr(0, index);
-        mStringBuffer.replace(0, index+2, "");      // The newline is 2 chars (\r\n) so add two to remove it
-        
-        parseCommandToBuffer( cmd );
-    }
+	try {
+		size_t bytesAvailable = mSerial->getNumBytesAvailable();
+		size_t charsAvailable = floor(bytesAvailable / sizeof(char));
+		
+		for(size_t i=0; i<charsAvailable; i++){
+			unsigned char c;    // uint8_t
+			mSerial->readBytes(&c, 1);
+			mStringBuffer += c;
+		}
+	}catch(serial::IOException& e){
+		CI_LOG_D("We've Disconnected! " << e.what());
+		bSerialConnected = false;
+		if (mSerial && mSerial->isOpen()) {
+			try{
+				mSerial->close();
+			}catch(serial::IOException &exc){
+				CI_LOG_EXCEPTION("Error closing serial port", exc);
+			}
+			Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
+			//mSerial = nullptr;
+		}
+	}
+	
+	auto index = mStringBuffer.find("\r\n");
+	if(index != string::npos){
+		std::string cmd = mStringBuffer.substr(0, index);
+		mStringBuffer.replace(0, index+2, "");      // The newline is 2 chars (\r\n) so add two to remove it
+		
+		parseCommandToBuffer( cmd );
+	}
 }
 
 void SerialReader::parseCommandToBuffer( std::string command )
 {
-    std::vector<std::string> strs = ci::split( command, ':');    
-    std::vector<std::string> tmpBuffer;
-    tmpBuffer.push_back( strs[0] );
-    
-    std::string args = "";
-    if( strs.size() > 1){
-        tmpBuffer.push_back(strs[1]);
-    }
-    
-    mReceiveBuffer.tryPushFront(tmpBuffer);
+	std::vector<std::string> strs = ci::split( command, ':');    
+	std::vector<std::string> tmpBuffer;
+	tmpBuffer.push_back( strs[0] );
+	
+	std::string args;
+	if( strs.size() > 1){
+		tmpBuffer.push_back(strs[1]);
+	}
+	
+	mReceiveBuffer.tryPushFront(tmpBuffer);
 }
 
 // Parse commands in the main thread that we grabbed during the updateSerial thread
 void SerialReader::parseFromBuffer()
 {
-    auto numCmds = mReceiveBuffer.getSize();
-    
+	auto numCmds = mReceiveBuffer.getSize();
+	
 	for (int i = 0; i < numCmds; i++) {
 		std::vector<std::string> cmdArgs;
 		mReceiveBuffer.popBack(&cmdArgs);
@@ -385,77 +394,77 @@ void SerialReader::parseFromBuffer()
 		else {
 			CI_LOG_I("SerialReader :: Unrecognized command :: ");
 		}
-    }
+	}
 }
 
 void SerialReader::onConnect()
 {
-    CI_LOG_I("OpenSprints hardware connected.");
-    Model::instance().setHardwareConnected(bSerialConnected);
-    Model::instance().mFirmwareVersion = "Unknown";
-    
-    Model::instance().mSerialConnectionState = Model::SerialConnectionState::CONNECTED_UNKNOWN;
+	CI_LOG_I("OpenSprints hardware connected.");
+	Model::instance().setHardwareConnected(bSerialConnected);
+	Model::instance().mFirmwareVersion = "Unknown";
+	
+	Model::instance().mSerialConnectionState = Model::SerialConnectionState::CONNECTED_UNKNOWN;
 }
 
 void SerialReader::onDisconnect()
 {
-    CI_LOG_I("OpenSprints hardware disconnected.");
-    Model::instance().setHardwareConnected(bSerialConnected);
-    
-    Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
+	CI_LOG_I("OpenSprints hardware disconnected.");
+	Model::instance().setHardwareConnected(bSerialConnected);
+	
+	Model::instance().mSerialConnectionState = Model::SerialConnectionState::DISCONNECTED;
 }
 
 void SerialReader::startRace(){
-    sendSerialMessage("g");
+	sendSerialMessage("g");
 }
 
 void SerialReader::stopRace(){
-    sendSerialMessage("s");
+	sendSerialMessage("s");
 }
 
 void SerialReader::setRaceDuration(int numSeconds){
-    sendSerialMessage("t" + to_string(numSeconds) );
+	sendSerialMessage("t" + to_string(numSeconds) );
 }
 
 void SerialReader::setRaceLengthTicks( int numTicks ){
-    sendSerialMessage( "l"+to_string(numTicks) );
+	sendSerialMessage( "l"+to_string(numTicks) );
 }
 
 void SerialReader::setMockMode( bool enabled ){
-    bMockEnabled = enabled;
-    sendSerialMessage("m");
+	bMockEnabled = enabled;
+	sendSerialMessage("m");
 }
 
 void SerialReader::getVersion(){
-    sendSerialMessage("v");
+	sendSerialMessage("v");
 }
 
 void SerialReader::setRaceType( Model::RACE_TYPE raceType)
 {
-    if(raceType == Model::RACE_TYPE_DISTANCE){
-        sendSerialMessage("d");
-    }else{
-        sendSerialMessage("x");
-    }
+	if(raceType == Model::RACE_TYPE_DISTANCE){
+		sendSerialMessage("d");
+	}else{
+		sendSerialMessage("x");
+	}
 }
 
 void SerialReader::sendSerialMessage( std::string msg )
 {
 	CI_LOG_I( "Sending serial message :: ") << msg << "\n";
 	
-    std::string toSend = msg + '\n';
-    mSendBuffer.pushFront( toSend );
+	std::string toSend = msg + '\n';
+	mSendBuffer.pushFront( toSend );
 }
 
 bool SerialReader::isRaceFinished()
 {
-    for( int i=0; i<Model::instance().getNumRacers(); i++){
-        if( !Model::instance().playerData[i]->isFinished() ){
-            return false;
-        }
-    }
-    
-    return true;
+	for( int i=0; i<Model::instance().getNumRacers(); i++){
+		if( !Model::instance().playerData[i]->isFinished() ){
+			return false;
+		}
+	}
+	
+	return true;
 }
 
 
