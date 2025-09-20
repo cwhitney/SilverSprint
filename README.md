@@ -9,22 +9,22 @@ Written in [Cinder](https://libcinder.org/), an opensource C++ library for creat
 ## Using the Application
 
 #### Requirements
-* Requires OS X version 10.7 and up.
-* PC requires Windows 7 and up.
+* Requires (±mac)OS X version 10.7 and up.
+* PC requires Windows 7 and up
 
 #### Installation
 1. Download the latest [SilverSprints](https://github.com/cwhitney/SilverSprint/releases/latest) for your operating system.
 2. In the downlaoded zip file, there is an `Arduino` folder with software you'll need to load onto the OpenSprints hardware.  Detailed instructions on how to do this can be found here: [http://cwhitney.github.io/SilverSprint/installation.html](http://cwhitney.github.io/SilverSprint/installation.html).
  
 #### App Settings
-1. Go to the Settings page by clicking the gear icon or pressing Command + 3.
+1. Go to the Settings page by clicking the gear icon or pressing <kbd>Command</kbd> + <kbd>3</kbd>
 2. Set the roller diameter as the distance from the magnet to the center of the roller multiplied by 2.
 3. Choose the number of racers competing from 1-4.
 4. If SilverSprints detects an Arduino connected it will show a checkmark, otherwise it will display an X.
 
 #### Roster
-1. Go to the Roster page by clicking the list icon or pressing Command + 2.
-2. Set all active participants' names.
+1. Go to the Roster page by clicking the list icon or pressing <kbd>Command</kbd> + <kbd>2</kbd>
+2. Set all active participants names
 
 #### Race
 1. Click the START button to begin a race.
@@ -38,10 +38,10 @@ In the event of a crash, a log file will be created in a folder called "logs" in
 Please attach this file when asking for support along with any other relevant information.
 
 ## Code Setup
-1. Clone the repo with all of its submodules with: `git clone https://github.com/cwhitney/SilverSprint.git --depth 1 --recursive`
-2. Build Cinder for your platform [OS X](https://libcinder.org/docs/guides/mac-setup/index.html) - [Windows](https://libcinder.org/docs/guides/windows-setup/index.html).
-If you're having trouble building Cinder, it may be missing some of its dependencies.  You may need to run `git submodule update --init --recursive` to make sure Cinder has all of its submodules.
-3. The structure of the repo is like so:  
+1. Clone the repo with all of it's sumodules with: `git clone https://github.com/cwhitney/SilverSprint.git --depth 1 --recursive`
+1. Build Cinder (with Cinder-OpenCV) for your platform [(±mac)OS X](https://libcinder.org/docs/guides/mac-setup/index.html) - [Windows](https://libcinder.org/docs/guides/windows-setup/index.html).
+If you're having trouble building Cinder, it may be missing some of it's dependencies.  You may need to run `git submodule update --init --recursive` to make sure Cinder has all of it's submodules.
+2. The structure of the repo is like so:
 
 ```
 Root	
@@ -50,10 +50,12 @@ Root
     - SilverSprints
   - libs
     - Cinder
+     - blocks
+      - Cinder-OpenCV
 ```
-4. Update Arduino if necessary. (See above.)
-5. Open the project file for your platform. It will be in `apps/SilverSprints/xcode/SilverSprint.xcodeproj` for OS X, and `apps/SilverSprints/vs2015` for PC.
-6. Build SilverSprints. There are no external dependencies aside from Cinder itself.
+3. Update Arduino if necessary. (See above)
+4. Open the project file for your platform. It will be in `apps/SilverSprint/xcode/SilverSprint.xcodeproj` for OSX, and `apps/SilverSprint/vs2015` for PC.
+5. Build Silversprints. There are no external dependencies aside from Cinder itself.
 
 ## Credits
 
