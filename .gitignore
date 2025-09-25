@@ -18,6 +18,7 @@ lib/msw/x86/cinder*.pdb
 lib/msw/x64/cinder*.pdb
 lib/winrt/x86/cinder*.lib
 lib/winrt/x64/cinder*.lib
+apps/Silversprints/build/
 
 # Windows cruft
 *.suo

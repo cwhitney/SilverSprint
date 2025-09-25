@@ -71,7 +71,7 @@ namespace gfx
 		
 		std::string mStringBuffer;
 		std::string mFirmwareVersion;
-		std::string mConnectedPortName = "Arduino.*";
+		std::string mConnectedPortName = "/dev/ttyACM0";
 		double mLastKeepAlive = 0.0;
 		
 		// threading
